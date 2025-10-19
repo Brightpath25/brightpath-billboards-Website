@@ -23,6 +23,7 @@ const Campaign360Viewer: React.FC = () => {
   const [modelLoaded, setModelLoaded] = useState(false);
   const [applyingTexture, setApplyingTexture] = useState(false);
   const [modelViewerReady, setModelViewerReady] = useState(false);
+  const mountedRef = useRef(false);
 
 // Set up model-viewer load event listener with fallback timeout and retry logic
 useEffect(() => {
@@ -48,10 +49,10 @@ useEffect(() => {
     };
 
     const handleError = (e: Event) => {
-      console.error('Model loading error:', e);
       if (!mountedRef.current) return;
+      console.error('Model load error', e);
       setError('Failed to load 3D model');
-      setModelLoaded(true); // show viewer anyway
+      setModelLoaded(true);
     };
 
     modelViewer.addEventListener('load', handleLoad);
@@ -61,16 +62,14 @@ useEffect(() => {
       modelViewer.removeEventListener('error', handleError);
     });
 
-    // Fallback: force "ready" after 3s if no load event
-    const t = setTimeout(() => {
+    const fallback = setTimeout(() => {
       if (!mountedRef.current) return;
-      console.log('⚠️ Force loading model after timeout');
+      console.log('⚠️ forcing ready after 3 s');
       setModelLoaded(true);
     }, 3000);
-    cleanups.push(() => clearTimeout(t));
+    cleanups.push(() => clearTimeout(fallback));
   };
 
-  // kick things off
   checkModel();
 
   return () => {
