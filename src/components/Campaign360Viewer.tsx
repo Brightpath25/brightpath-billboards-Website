@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Upload, Trash2, AlertTriangle, RotateCcw, CheckCircle } from 'lucide-react';
@@ -34,70 +34,60 @@ useEffect(() => {
   return () => clearTimeout(timer);
 }, []);
 
-  // Load model-viewer library dynamically - only once
-useEffect(() => {
-  if (typeof window === 'undefined') return;
-
-  const timer = setTimeout(() => setModelViewerReady(true), 100);
-  return () => clearTimeout(timer);
-}, []);
-
 // Set up model-viewer load event listener with fallback timeout and retry logic
+const mountedRef = useRef(false);
+
 useEffect(() => {
   if (!modelViewerReady) return;
 
-  // MUST be before checkModel() so it's in scope
-  let mounted = true;
+  mountedRef.current = true;
+  const cleanups: Array<() => void> = [];
 
   const checkModel = () => {
-    if (!mounted) return;
+    if (!mountedRef.current) return;
 
-    const modelViewer = document.getElementById('campaign-truck') as any | null;
+    const modelViewer = document.getElementById('campaign-truck') as any;
     if (!modelViewer) {
-      // Retry until the element is in the DOM
       const id = setTimeout(checkModel, 100);
-      // allow clearing this retry when we later clean up
-      return () => clearTimeout(id);
+      cleanups.push(() => clearTimeout(id));
+      return;
     }
 
     const handleLoad = () => {
-      if (!mounted) return;
+      if (!mountedRef.current) return;
       console.log('✓ 3D model loaded successfully');
       setModelLoaded(true);
     };
 
     const handleError = (e: Event) => {
-      if (!mounted) return;
       console.error('Model loading error:', e);
+      if (!mountedRef.current) return;
       setError('Failed to load 3D model');
       setModelLoaded(true); // show viewer anyway
     };
 
     modelViewer.addEventListener('load', handleLoad);
     modelViewer.addEventListener('error', handleError);
-
-    // Fallback: force "ready" after 3s if no load event
-    const timeout = setTimeout(() => {
-      if (!mounted) return;
-      console.log('⚠️  Force loading model after timeout');
-      setModelLoaded(true);
-    }, 3000);
-
-    // Cleanup for when the element existed
-    return () => {
-      clearTimeout(timeout);
+    cleanups.push(() => {
       modelViewer.removeEventListener('load', handleLoad);
       modelViewer.removeEventListener('error', handleError);
-    };
+    });
+
+    // Fallback: force ready after 3s
+    const t = setTimeout(() => {
+      if (!mountedRef.current) return;
+      console.log('⚠ Force loading model after timeout');
+      setModelLoaded(true);
+    }, 3000);
+    cleanups.push(() => clearTimeout(t));
   };
 
-  // Start the check (may return a cleanup fn if element existed)
-  const cleanup = checkModel();
+  // kick things off
+  checkModel();
 
-  // Effect cleanup: stop retries and remove listeners
   return () => {
-    mounted = false;
-    if (typeof cleanup === 'function') cleanup();
+    mountedRef.current = false;
+    cleanups.forEach(fn => fn());
   };
 }, [modelViewerReady]);
 
