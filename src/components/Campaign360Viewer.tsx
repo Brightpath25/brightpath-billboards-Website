@@ -25,71 +25,80 @@ const Campaign360Viewer: React.FC = () => {
   const [modelViewerReady, setModelViewerReady] = useState(false);
 
   // Load model-viewer library dynamically - only once
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
+useEffect(() => {
+  if (typeof window === 'undefined') return;
 
-    const loadModelViewer = async () => {
-      setTimeout(() => setModelViewerReady(true), 100);
-    };
+  // Just mark ready shortly after mount so the UI can proceed
+  const timer = setTimeout(() => setModelViewerReady(true), 100);
 
-    loadModelViewer();
-  }, []);
+  return () => clearTimeout(timer);
+}, []);
 
-  // Set up model-viewer load event listener with fallback timeout and retry logic
-  useEffect(() => {
-    if (!modelViewerReady) return;
+  // Load model-viewer library dynamically - only once
+useEffect(() => {
+  if (typeof window === 'undefined') return;
 
-    let mounted = true;
+  const timer = setTimeout(() => setModelViewerReady(true), 100);
+  return () => clearTimeout(timer);
+}, []);
 
-    const checkModel = () => {
-      if (!mounted) return;
+// Set up model-viewer load event listener with fallback timeout and retry logic
+useEffect(() => {
+  if (!modelViewerReady) return;
 
-      const modelViewer = document.getElementById('campaign-truck');
-      if (!modelViewer) {
-        setTimeout(checkModel, 100);
-        return;
+  let mounted = true;
+
+  const checkModel = () => {
+    if (!mounted) return;
+
+    const modelviewer = document.getElementById('campaign-truck') as any;
+    if (!modelviewer) {
+      const id = setTimeout(checkModel, 100);
+      // return a cleanup for the retry timeout
+      return () => clearTimeout(id);
+    }
+
+    const handleLoad = () => {
+      if (mounted) {
+        console.log('✓ 3D model loaded successfully');
+        setModelLoaded(true);
       }
-
-      const handleLoad = () => {
-        if (mounted) {
-          console.log('✓ 3D model loaded successfully');
-          setModelLoaded(true);
-        }
-      };
-
-      const handleError = (e: Event) => {
-        console.error('Model loading error:', e);
-        if (mounted) {
-          setError('Failed to load 3D model');
-          setModelLoaded(true); // Show viewer anyway
-        }
-      };
-
-      modelViewer.addEventListener('load', handleLoad);
-      modelViewer.addEventListener('error', handleError);
-
-      // Fallback: Force load after 3 seconds if event doesn't fire
-      const timeout = setTimeout(() => {
-        if (mounted) {
-          console.log('⚠️ Force loading model after timeout');
-          setModelLoaded(true);
-        }
-      }, 3000);
-
-      return () => {
-        mounted = false;
-        clearTimeout(timeout);
-        modelViewer.removeEventListener('load', handleLoad);
-        modelViewer.removeEventListener('error', handleError);
-      };
     };
 
-    const cleanup = checkModel();
+    const handleError = (e: Event) => {
+      console.error('Model loading error:', e);
+      if (mounted) {
+        setError('Failed to load 3D model');
+        setModelLoaded(true); // show viewer anyway
+      }
+    };
+
+    modelviewer.addEventListener('load', handleLoad);
+    modelviewer.addEventListener('error', handleError);
+
+    // Fallback: force ready after 3s if no load event
+    const timeout = setTimeout(() => {
+      if (mounted) {
+        console.log('⚠ Force loading model after timeout');
+        setModelLoaded(true);
+      }
+    }, 3000);
+
+    // cleanup listeners and timeout
     return () => {
-      mounted = false;
-      if (cleanup) cleanup();
+      clearTimeout(timeout);
+      modelviewer.removeEventListener('load', handleLoad);
+      modelviewer.removeEventListener('error', handleError);
     };
-  }, [modelViewerReady]);
+  };
+
+  const cleanup = checkModel();
+
+  return () => {
+    mounted = false;
+    if (cleanup) cleanup();
+  };
+}, [modelViewerReady]);
 
   // Apply images to model textures - Force assignment to known screen materials
   useEffect(() => {
