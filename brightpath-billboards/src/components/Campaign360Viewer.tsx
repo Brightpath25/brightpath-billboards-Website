@@ -11,8 +11,6 @@ interface UploadedImage {
   thumbnail: string;
   dimensions?: { width: number; height: number };
 }
-
-const Campaign360Viewer: React.FC = () => {
   const [leftImage, setLeftImage] = useState<UploadedImage | null>(null);
   const [backImage, setBackImage] = useState<UploadedImage | null>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -22,34 +20,10 @@ const Campaign360Viewer: React.FC = () => {
   const [autoRotate, setAutoRotate] = useState(true);
   const [modelLoaded, setModelLoaded] = useState(false);
   const [applyingTexture, setApplyingTexture] = useState(false);
-  const [modelViewerReady, setModelViewerReady] = useState(false);
 
   // Load model-viewer library dynamically - only once
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
-    const loadModelViewer = async () => {
-      try {
-        if (!customElements.get('model-viewer')) {
-          await import('@google/model-viewer');
-        }
-        // Small delay to ensure registration is complete
-        setTimeout(() => setModelViewerReady(true), 100);
-      } catch (err) {
-        console.error('Failed to load model-viewer:', err);
-        // Set ready anyway to show error state
-        setModelViewerReady(true);
-      }
-    };
-
-    loadModelViewer();
-  }, []);
-
-  // Set up model-viewer load event listener with fallback timeout and retry logic
-  useEffect(() => {
-    if (!modelViewerReady) return;
-
-    let mounted = true;
 
     const checkModel = () => {
       if (!mounted) return;
@@ -66,60 +40,6 @@ const Campaign360Viewer: React.FC = () => {
           setModelLoaded(true);
         }
       };
-
-      const handleError = (e: Event) => {
-        console.error('Model loading error:', e);
-        if (mounted) {
-          setError('Failed to load 3D model');
-          setModelLoaded(true); // Show viewer anyway
-        }
-      };
-
-      modelViewer.addEventListener('load', handleLoad);
-      modelViewer.addEventListener('error', handleError);
-
-      // Fallback: Force load after 3 seconds if event doesn't fire
-      const timeout = setTimeout(() => {
-        if (mounted) {
-          console.log('⚠️ Force loading model after timeout');
-          setModelLoaded(true);
-        }
-      }, 3000);
-
-      return () => {
-        mounted = false;
-        clearTimeout(timeout);
-        modelViewer.removeEventListener('load', handleLoad);
-        modelViewer.removeEventListener('error', handleError);
-      };
-    };
-
-    const cleanup = checkModel();
-    return () => {
-      mounted = false;
-      if (cleanup) cleanup();
-    };
-  }, [modelViewerReady]);
-
-  // Apply images to model textures - Force assignment to known screen materials
-  useEffect(() => {
-    if (!modelLoaded || !modelViewerReady) return;
-    if (!leftImage && !backImage) return;
-
-    const applyTextures = async () => {
-      setApplyingTexture(true);
-
-      try {
-        const modelViewer = document.getElementById('campaign-truck') as any;
-        if (!modelViewer) {
-          console.warn('Model viewer element not found');
-          return;
-        }
-
-        // Get the model and its materials
-        if (!modelViewer.model?.materials) {
-          console.warn('Model or materials not available yet');
-          setSuccess('Upload complete - 3D preview updated');
           setTimeout(() => setSuccess(''), 3000);
           return;
         }
