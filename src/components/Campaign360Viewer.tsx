@@ -29,17 +29,7 @@ const Campaign360Viewer: React.FC = () => {
     if (typeof window === 'undefined') return;
 
     const loadModelViewer = async () => {
-      try {
-        if (!customElements.get('model-viewer')) {
-          await import('@google/model-viewer');
-        }
-        // Small delay to ensure registration is complete
-        setTimeout(() => setModelViewerReady(true), 100);
-      } catch (err) {
-        console.error('Failed to load model-viewer:', err);
-        // Set ready anyway to show error state
-        setModelViewerReady(true);
-      }
+      setTimeout(() => setModelViewerReady(true), 100);
     };
 
     loadModelViewer();

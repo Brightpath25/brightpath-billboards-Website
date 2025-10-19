@@ -10,7 +10,6 @@
     "format": "bunx biome format --write"
   },
   "dependencies": {
-    "@google/model-viewer": "^4.1.0",
     "@radix-ui/react-slot": "^1.2.3",
     "@types/three": "^0.180.0",
     "class-variance-authority": "^0.7.1",
