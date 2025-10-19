@@ -25,8 +25,6 @@ const Campaign360Viewer: React.FC = () => {
   const [modelViewerReady, setModelViewerReady] = useState(false);
 
 // Set up model-viewer load event listener with fallback timeout and retry logic
-const mountedRef = useRef(false);
-
 useEffect(() => {
   if (!modelViewerReady) return;
 
@@ -36,7 +34,7 @@ useEffect(() => {
   const checkModel = () => {
     if (!mountedRef.current) return;
 
-    const modelViewer = document.getElementById('campaign-truck') as any;
+    const modelViewer = document.getElementById('campaign-truck') as any | null;
     if (!modelViewer) {
       const id = setTimeout(checkModel, 100);
       cleanups.push(() => clearTimeout(id));
@@ -63,10 +61,10 @@ useEffect(() => {
       modelViewer.removeEventListener('error', handleError);
     });
 
-    // Fallback: force ready after 3s
+    // Fallback: force "ready" after 3s if no load event
     const t = setTimeout(() => {
       if (!mountedRef.current) return;
-      console.log('⚠ Force loading model after timeout');
+      console.log('⚠️ Force loading model after timeout');
       setModelLoaded(true);
     }, 3000);
     cleanups.push(() => clearTimeout(t));
