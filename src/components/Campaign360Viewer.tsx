@@ -46,57 +46,58 @@ useEffect(() => {
 useEffect(() => {
   if (!modelViewerReady) return;
 
+  // MUST be before checkModel() so it's in scope
   let mounted = true;
 
   const checkModel = () => {
     if (!mounted) return;
 
-    const modelviewer = document.getElementById('campaign-truck') as any;
-    if (!modelviewer) {
+    const modelViewer = document.getElementById('campaign-truck') as any | null;
+    if (!modelViewer) {
+      // Retry until the element is in the DOM
       const id = setTimeout(checkModel, 100);
-      // return a cleanup for the retry timeout
+      // allow clearing this retry when we later clean up
       return () => clearTimeout(id);
     }
 
     const handleLoad = () => {
-      if (mounted) {
-        console.log('✓ 3D model loaded successfully');
-        setModelLoaded(true);
-      }
+      if (!mounted) return;
+      console.log('✓ 3D model loaded successfully');
+      setModelLoaded(true);
     };
 
     const handleError = (e: Event) => {
+      if (!mounted) return;
       console.error('Model loading error:', e);
-      if (mounted) {
-        setError('Failed to load 3D model');
-        setModelLoaded(true); // show viewer anyway
-      }
+      setError('Failed to load 3D model');
+      setModelLoaded(true); // show viewer anyway
     };
 
-    modelviewer.addEventListener('load', handleLoad);
-    modelviewer.addEventListener('error', handleError);
+    modelViewer.addEventListener('load', handleLoad);
+    modelViewer.addEventListener('error', handleError);
 
-    // Fallback: force ready after 3s if no load event
+    // Fallback: force "ready" after 3s if no load event
     const timeout = setTimeout(() => {
-      if (mounted) {
-        console.log('⚠ Force loading model after timeout');
-        setModelLoaded(true);
-      }
+      if (!mounted) return;
+      console.log('⚠️  Force loading model after timeout');
+      setModelLoaded(true);
     }, 3000);
 
-    // cleanup listeners and timeout
+    // Cleanup for when the element existed
     return () => {
       clearTimeout(timeout);
-      modelviewer.removeEventListener('load', handleLoad);
-      modelviewer.removeEventListener('error', handleError);
+      modelViewer.removeEventListener('load', handleLoad);
+      modelViewer.removeEventListener('error', handleError);
     };
   };
 
+  // Start the check (may return a cleanup fn if element existed)
   const cleanup = checkModel();
 
+  // Effect cleanup: stop retries and remove listeners
   return () => {
     mounted = false;
-    if (cleanup) cleanup();
+    if (typeof cleanup === 'function') cleanup();
   };
 }, [modelViewerReady]);
 
