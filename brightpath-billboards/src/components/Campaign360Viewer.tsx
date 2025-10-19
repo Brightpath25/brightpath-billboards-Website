@@ -29,7 +29,14 @@ interface UploadedImage {
       if (!mounted) return;
 
       const modelViewer = document.getElementById('campaign-truck');
-      if (!modelViewer) {
+      // load model-viewer dynamically – REMOVED (we use CDN in <head>)
+useEffect(() => {
+  if (typeof window === 'undefined') return;
+
+  // Just mark ready shortly after mount so the UI can proceed
+  setTimeout(() => setModelViewerReady(true), 100);
+}, []);
+
         setTimeout(checkModel, 100);
         return;
       }
