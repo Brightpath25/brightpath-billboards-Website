@@ -24,16 +24,6 @@ const Campaign360Viewer: React.FC = () => {
   const [applyingTexture, setApplyingTexture] = useState(false);
   const [modelViewerReady, setModelViewerReady] = useState(false);
 
-  // Load model-viewer library dynamically - only once
-useEffect(() => {
-  if (typeof window === 'undefined') return;
-
-  // Just mark ready shortly after mount so the UI can proceed
-  const timer = setTimeout(() => setModelViewerReady(true), 100);
-
-  return () => clearTimeout(timer);
-}, []);
-
 // Set up model-viewer load event listener with fallback timeout and retry logic
 const mountedRef = useRef(false);
 
