@@ -24,9 +24,11 @@ interface UploadedImage {
   // Load model-viewer library dynamically - only once
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    
+    mountedRef.current = true;
 
     const checkModel = () => {
-      if (!mounted) return;
+  if (!mountedRef.current) return;
 
       const modelViewer = document.getElementById('campaign-truck');
       // load model-viewer dynamically – REMOVED (we use CDN in <head>)
@@ -40,6 +42,7 @@ useEffect(() => {
         setTimeout(checkModel, 100);
         return;
       }
+    mountedRef.current = false;
 
       const handleLoad = () => {
         if (mounted) {
