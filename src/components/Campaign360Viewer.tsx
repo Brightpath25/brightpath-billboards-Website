@@ -23,22 +23,32 @@ const Campaign360Viewer: React.FC = () => {
   const [modelLoaded, setModelLoaded] = useState(false);
   const [applyingTexture, setApplyingTexture] = useState(false);
   const [modelViewerReady, setModelViewerReady] = useState(false);
-  const mountedRef = useRef(false);
+
+const mountedRef = useRef(true);
+
+// Prime the viewer once after mount so the UI can proceed
+useEffect(() => {
+  if (typeof window === 'undefined') return;
+  mountedRef.current = true;
+  const t = setTimeout(() => setModelViewerReady(true), 100);
+  return () => {
+    mountedRef.current = false;
+    clearTimeout(t);
+  };
+}, []);
 
 // Set up model-viewer load event listener with fallback timeout and retry logic
 useEffect(() => {
   if (!modelViewerReady) return;
 
-  mountedRef.current = true;
-  const cleanups: Array<() => void> = [];
+mountedRef.current = true;
 
   const checkModel = () => {
     if (!mountedRef.current) return;
 
     const modelViewer = document.getElementById('campaign-truck') as any | null;
     if (!modelViewer) {
-      const id = setTimeout(checkModel, 100);
-      cleanups.push(() => clearTimeout(id));
+      setTimeout(checkModel, 100);
       return;
     }
 
@@ -57,24 +67,23 @@ useEffect(() => {
 
     modelViewer.addEventListener('load', handleLoad);
     modelViewer.addEventListener('error', handleError);
-    cleanups.push(() => {
-      modelViewer.removeEventListener('load', handleLoad);
-      modelViewer.removeEventListener('error', handleError);
-    });
 
-    const fallback = setTimeout(() => {
+    const timeout = setTimeout(() => {
       if (!mountedRef.current) return;
-      console.log('⚠️ forcing ready after 3 s');
+      console.log('⚠️ Forcing ready after 3 s');
       setModelLoaded(true);
     }, 3000);
-    cleanups.push(() => clearTimeout(fallback));
+
+    return () => {
+      modelViewer.removeEventListener('load', handleLoad);
+      modelViewer.removeEventListener('error', handleError);
+      clearTimeout(timeout);
+    };
   };
 
-  checkModel();
-
+  const cleanup = checkModel();
   return () => {
-    mountedRef.current = false;
-    cleanups.forEach(fn => fn());
+    if (cleanup) cleanup();
   };
 }, [modelViewerReady]);
 
