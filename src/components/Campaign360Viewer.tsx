@@ -543,7 +543,7 @@ mountedRef.current = true;
               {modelViewerReady && (
                 <model-viewer
                   id="campaign-truck"
-                  src="https://cdn.jsdelivr.net/gh/Brightpath25/brightpath-3d-assets@main/Brightpath_LED_Truck_WebReady.glb"
+                  src="/models/Brightpath_LED_Truck_WebReady.glb"
                   camera-controls
                   disable-zoom
                   auto-rotate={autoRotate}
