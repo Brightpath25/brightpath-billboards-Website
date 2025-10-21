@@ -5,6 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Upload, Trash2, AlertTriangle, RotateCcw, CheckCircle } from 'lucide-react';
 
+// Load model-viewer only on client
+useEffect(() => {
+  import("@google/model-viewer");
+}, []);
+
 interface UploadedImage {
   file: File;
   url: string;
