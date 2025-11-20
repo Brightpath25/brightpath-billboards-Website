@@ -1,11 +1,5 @@
 "use client";
 
-export const metadata = {
-  title: "BrightPath Billboards | Mobile LED Advertising in Coachella Valley",
-  description:
-    "High-impact mobile LED billboard advertising for events, casinos, festivals, small businesses, and brands across Palm Springs, Indio, Coachella, Palm Desert, Cathedral City, and the entire Coachella Valley.",
-};
-
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
