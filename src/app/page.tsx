@@ -73,18 +73,14 @@ export default function Home() {
       {/* Floating Glass Navbar */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'floating-navbar scrolled py-2' : 'floating-navbar py-4'}`}>
         <nav className="container mx-auto px-4 flex items-center justify-between">
-          <Link
-            href="/"
-            className="transform transition-all duration-300 hover:scale-105"
-          >
+          <Link href="/" className="flex items-center space-x-3 transform transition-all duration-300 hover:scale-105">
             <Image
-              src="https://bpmobilebillboards.com/uploads/LED_Truck_Mobile_Billboad-cutout.png"
+              src="/brightpath-logo.png"
               alt="BrightPath Billboards Logo"
               width={180}
-              height={48}
+              height={40}
               priority
-              className={`transition-all duration-300 ${scrolled ? 'w-[140px]' : 'w-[180px]'}`}
-              unoptimized
+              className="h-auto w-auto"
             />
           </Link>
 
@@ -434,7 +430,13 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-4 gap-12">
               <div>
-                <BrightPathLogo size="sm" showTagline={true} className="mb-6" />
+                <Image
+                  src="/brightpath-logo.png"
+                  alt="BrightPath Billboards Logo"
+                  width={150}
+                  height={50}
+                  className="mb-6 h-auto w-auto"
+                />
                 <p className="text-text-mid leading-relaxed">
                   The Coachella Valley's premier LED mobile billboard advertising company.
                 </p>
