@@ -73,14 +73,17 @@ export default function Home() {
       {/* Floating Glass Navbar */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'floating-navbar scrolled py-2' : 'floating-navbar py-4'}`}>
         <nav className="container mx-auto px-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3 transform transition-all duration-300 hover:scale-105">
+          <Link
+            href="/"
+            className="flex items-center space-x-3"
+          >
             <Image
               src="/brightpath-logo.png"
-              alt="BrightPath Billboards Logo"
-              width={180}
+              alt="BrightPath Billboards logo"
+              width={160}
               height={40}
               priority
-              className="h-auto w-auto"
+              className="h-10 w-auto md:h-12"
             />
           </Link>
 
