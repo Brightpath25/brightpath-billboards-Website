@@ -209,15 +209,16 @@ p, span, a, button, input, textarea, label {
   left: 100%;
 }
 
-/* Luxury Card */
+/* Luxury Card - Enhanced */
 .luxury-card {
-  background: transparent;
-  border: none;
-  border-radius: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.03), transparent);
+  border: 1px solid rgba(255,215,0,0.14);
+  border-radius: 1.25rem;
   padding: 32px;
   transition: all var(--transition);
   position: relative;
   overflow: visible;
+  box-shadow: 0 0 40px rgba(255,215,0,0.06);
 }
 
 .luxury-card::before {
@@ -230,11 +231,13 @@ p, span, a, button, input, textarea, label {
   background: var(--gold-gradient);
   opacity: 0;
   transition: opacity var(--transition);
+  border-radius: 1.25rem 1.25rem 0 0;
 }
 
 .luxury-card:hover {
   transform: translateY(-8px);
-  background: rgba(227, 176, 75, 0.03);
+  box-shadow: 0 0 50px rgba(255,215,0,0.12);
+  border-color: rgba(255,215,0,0.22);
 }
 
 .luxury-card:hover::before {
@@ -385,4 +388,46 @@ button:disabled, input:disabled, .disabled {
 /* Text Selection Cursor */
 input[type="text"], input[type="email"], input[type="tel"], textarea, [contenteditable="true"] {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='32' viewBox='0 0 40 32'%3E%3Cdefs%3E%3ClinearGradient id='screenGlow2' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' style='stop-color:%23F7D382;stop-opacity:0.3'/%3E%3Cstop offset='50%25' style='stop-color:%23FFFFFF;stop-opacity:0.8'/%3E%3Cstop offset='100%25' style='stop-color:%23F7D382;stop-opacity:0.3'/%3E%3C/linearGradient%3E%3ClinearGradient id='typeAnim' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' style='stop-color:%23E3B04B;stop-opacity:0.4'/%3E%3Cstop offset='50%25' style='stop-color:%23F7D382;stop-opacity:0.8'/%3E%3Cstop offset='100%25' style='stop-color:%23E3B04B;stop-opacity:0.4'/%3E%3CanimateTransform attributeName='gradientTransform' type='translate' from='-1 0' to='1 0' dur='2s' repeatCount='indefinite'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%3E%3Crect x='5' y='14' width='3.5' height='5' rx='0.5' fill='%23505560'/%3E%3Ccircle cx='6.5' cy='20.5' r='1.3' fill='%232D3748'/%3E%3Ccircle cx='6.5' cy='20.5' r='0.7' fill='%234A5568'/%3E%3Crect x='10' y='10' width='26' height='12' rx='0.5' fill='%232D3748'/%3E%3Crect x='11' y='11' width='24' height='10' rx='0.3' fill='%23FFFFFF'/%3E%3Crect x='11' y='11' width='24' height='10' rx='0.3' fill='url(%23screenGlow2)'/%3E%3Crect x='13' y='14' width='1' height='4' fill='url(%23typeAnim)' opacity='0.7'/%3E%3Crect x='15' y='15' width='0.8' height='3' fill='url(%23typeAnim)' opacity='0.6'/%3E%3Crect x='17' y='14.5' width='1' height='3.5' fill='url(%23typeAnim)' opacity='0.7'/%3E%3Crect x='19' y='15' width='0.8' height='3' fill='url(%23typeAnim)' opacity='0.6'/%3E%3Crect x='21' y='14' width='1' height='4' fill='url(%23typeAnim)' opacity='0.7'/%3E%3Crect x='23.5' y='15.5' width='0.6' height='2' fill='%23E3B04B' opacity='0.5'%3E%3Canimate attributeName='opacity' values='0.3;0.7;0.3' dur='1s' repeatCount='indefinite'/%3E%3C/rect%3E%3Crect x='25' y='14.5' width='1' height='3.5' fill='url(%23typeAnim)' opacity='0.7'/%3E%3Crect x='27' y='15' width='0.8' height='3' fill='url(%23typeAnim)' opacity='0.6'/%3E%3Crect x='29' y='14' width='1' height='4' fill='url(%23typeAnim)' opacity='0.7'/%3E%3Crect x='31' y='15' width='0.8' height='3' fill='url(%23typeAnim)' opacity='0.6'/%3E%3Crect x='10' y='10' width='1' height='12' fill='%231A202C'/%3E%3Crect x='35' y='10' width='1' height='12' fill='%231A202C'/%3E%3Crect x='10' y='10' width='26' height='1' fill='%231A202C'/%3E%3Crect x='10' y='21' width='26' height='1' fill='%231A202C'/%3E%3Ccircle cx='14' cy='23.5' r='1.3' fill='%232D3748'/%3E%3Ccircle cx='14' cy='23.5' r='0.7' fill='%234A5568'/%3E%3Ccircle cx='32' cy='23.5' r='1.3' fill='%232D3748'/%3E%3Ccircle cx='32' cy='23.5' r='0.7' fill='%234A5568'/%3E%3Crect x='34.5' y='11' width='0.5' height='1.5' rx='0.2' fill='%23DC2626'/%3E%3Crect x='34.5' y='19.5' width='0.5' height='1.5' rx='0.2' fill='%23DC2626'/%3E%3C/g%3E%3C/svg%3E") 20 16, text;
+}
+
+/* ==========================================
+   LUXURY VISUAL ENHANCEMENTS
+   ========================================== */
+
+/* Luxury Black Background Treatments */
+.bg-black-hero {
+  background: linear-gradient(to bottom, #050609 0%, #020204 100%) !important;
+  position: relative;
+}
+
+.bg-black-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.02) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.bg-black-panel {
+  background: linear-gradient(to bottom, #0A0C10 0%, #050609 100%) !important;
+}
+
+.bg-black-card {
+  background: radial-gradient(circle at top, rgba(255,255,255,0.04) 0%, rgba(0,0,0,1) 55%) !important;
+}
+
+/* Luxury Image Treatment */
+.luxury-image {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255,215,0,0.16);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.luxury-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

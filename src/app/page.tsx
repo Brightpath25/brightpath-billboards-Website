@@ -167,6 +167,22 @@ export default function Home() {
           }}
         ></div>
 
+        {/* Luxury Spotlight - centered behind headline */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at center 45%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0) 60%)'
+          }}
+        ></div>
+
+        {/* Luxury Vignette - bottom fade */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.25) 100%)'
+          }}
+        ></div>
+
         {/* Hero Content */}
         <div className="relative z-20 text-center max-w-6xl mx-auto px-4 pt-20">
           <div className="inline-flex items-center gap-2 bg-gold-base/10 border border-gold-base/30 text-gold-highlight px-6 py-2 rounded-full font-bold text-sm mb-6 animate-fade-in backdrop-blur-sm">
@@ -224,14 +240,14 @@ export default function Home() {
               { src: "https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg", alt: "LED billboard truck driving at night" },
               { src: "https://www.bluelinemedia.com/images/mobile-a-1-500x375.jpg", alt: "LED billboard truck at event" }
             ].map((img, idx) => (
-              <div key={idx} className="group relative overflow-hidden rounded-2xl">
+              <div key={idx} className="group luxury-image">
                 <div className="absolute inset-0 bg-gold-gradient opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-10"></div>
                 <Image
                   src={img.src}
                   alt={img.alt}
                   width={400}
                   height={300}
-                  className="rounded-2xl transform group-hover:scale-110 transition-transform duration-500 border border-gold-base/20"
+                  className="transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
             ))}
@@ -337,13 +353,15 @@ export default function Home() {
             </div>
             <div className="relative group">
               <div className="absolute -inset-4 bg-gold-gradient opacity-20 rounded-3xl blur-2xl group-hover:opacity-30 transition-opacity"></div>
-              <Image
-                src="https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg"
-                alt="BrightPath LED billboard truck displaying dynamic digital advertising"
-                width={600}
-                height={400}
-                className="relative rounded-2xl shadow-2xl border border-gold-base/30 group-hover:border-gold-base/60 transition-all"
-              />
+              <div className="luxury-image">
+                <Image
+                  src="https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg"
+                  alt="BrightPath LED billboard truck displaying dynamic digital advertising"
+                  width={600}
+                  height={400}
+                  className="relative group-hover:border-gold-base/60 transition-all"
+                />
+              </div>
               <div className="absolute -bottom-6 -right-6 bg-gold-gradient px-6 py-3 rounded-xl font-bold text-black-hero shadow-luxury">
                 LED Truck in Action
               </div>
