@@ -62,11 +62,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="lazyOnload"
         />
-        <Script
-          src="https://unpkg.com/@google/model-viewer@4.1.0/dist/model-viewer.min.js"
-          type="module"
-          strategy="lazyOnload"
-        />
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){

@@ -238,7 +238,7 @@ export default function Home() {
             {[
               { src: "https://cantmiss.us/wp-content/uploads/2022/09/Salt-Lake-City-SLC-Digital-Mobile-billboard-Trucks-Utah-1-1.jpeg", alt: "LED billboard truck in parking lot" },
               { src: "https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg", alt: "LED billboard truck driving at night" },
-              { src: "https://www.bluelinemedia.com/images/mobile-a-1-500x375.jpg", alt: "LED billboard truck at event" }
+              { src: "https://cantmiss.us/wp-content/uploads/2022/09/Salt-Lake-City-SLC-Digital-Mobile-billboard-Trucks-Utah-1-1.jpeg", alt: "LED billboard truck at event" }
             ].map((img, idx) => (
               <div key={idx} className="group luxury-image">
                 <div className="absolute inset-0 bg-gold-gradient opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-10"></div>
