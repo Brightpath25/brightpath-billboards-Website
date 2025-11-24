@@ -323,13 +323,104 @@ export default function Home() {
       <div className="gold-divider"></div>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-black-panel scroll-reveal">
+      {/* About BrightPath Billboards - NEW SECTION */}
+      <section id="about" className="py-24 bg-black-hero scroll-reveal">
+        <div className="container mx-auto px-4 max-w-5xl">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gold-base/10 border border-gold-base/30 text-gold-highlight px-6 py-2 rounded-full font-bold text-sm mb-6 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4" />
+              OUR STORY
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-6">
+              About <span className="text-gold-gradient">BrightPath Billboards</span>
+            </h2>
+          </div>
+
+          {/* Origin Story */}
+          <div className="mb-16">
+            <p className="text-lg md:text-xl text-text-light leading-relaxed mb-6 text-center max-w-4xl mx-auto">
+              BrightPath Billboards was born in the Coachella Valley from real hustle, persistence, and community need.
+              Founder Marcus Tillman developed the idea while running a subscription window-cleaning business, knocking
+              on over 1,000 doors in the desert heat to provide for his daughter, Rayna. During that journey, he noticed
+              local entrepreneurs had almost no accessible advertising options, especially in a region built on festivals,
+              casinos, events, and tourism. BrightPath was created to solve that problem and give the community a real,
+              modern advertising platform.
+            </p>
+          </div>
+
+          {/* Mission Statement */}
+          <div className="mb-16 p-8 bg-gradient-to-br from-gold-base/10 to-transparent border border-gold-base/20 rounded-2xl backdrop-blur-sm">
+            <h3 className="text-2xl md:text-3xl font-bold text-gold-highlight mb-4 text-center">Our Mission</h3>
+            <p className="text-lg text-text-light leading-relaxed text-center max-w-3xl mx-auto">
+              BrightPath empowers local businesses, creators, nonprofits, brands, and national partners with high-impact
+              mobile LED advertising. Our mission is to bring big-city marketing power to the Coachella Valley—without
+              big-city pricing. We operate on innovation, hustle, and community-first values.
+            </p>
+          </div>
+
+          {/* Brand Philosophy Pull Quote */}
+          <div className="mb-16 text-center">
+            <blockquote className="relative">
+              <div className="absolute -top-6 -left-6 text-8xl text-gold-base/20 font-serif">"</div>
+              <p className="text-3xl md:text-4xl font-bold text-gold-gradient mb-6 relative z-10">
+                Where Innovation, Hustle, and Community Meet.
+              </p>
+              <div className="absolute -bottom-6 -right-6 text-8xl text-gold-base/20 font-serif">"</div>
+            </blockquote>
+            <p className="text-lg text-text-mid leading-relaxed max-w-3xl mx-auto mt-8">
+              BrightPath blends relentless drive, advanced LED technology, and deep local roots to amplify brands
+              in a way the Coachella Valley has never seen before.
+            </p>
+          </div>
+
+          {/* Community Connection */}
+          <div className="mb-16">
+            <p className="text-lg text-text-light leading-relaxed text-center max-w-4xl mx-auto">
+              BrightPath was built from struggle, determination, and a commitment to uplift the community that shaped
+              its founder. We support businesses at every level—from first-time entrepreneurs to large venues and national
+              brands. Every campaign brought into the Valley contributes to economic growth, visibility, and opportunity
+              for people who work hard and dream big.
+            </p>
+          </div>
+
+          {/* What Makes BrightPath Different */}
+          <div className="mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-text-light mb-10 text-center">
+              What Makes BrightPath <span className="text-gold-gradient">Different</span>
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {[
+                "First mobile LED billboard company truly rooted in the Coachella Valley",
+                "Real analytics, real routes, real results",
+                "Premium LED screens with full daytime visibility",
+                "Fast creative support & quick turnaround",
+                "Local expertise on traffic patterns, events, and festival surges",
+                "Pricing designed for small businesses, scalable for major brands"
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-4 group">
+                  <div className="w-2 h-2 bg-gold-gradient rounded-full mt-2 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
+                  <span className="text-text-light text-lg leading-relaxed group-hover:text-gold-highlight transition-colors">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gold Divider */}
+      <div className="gold-divider"></div>
+
+      {/* Why Us Section - RENAMED FROM OLD ABOUT */}
+      <section className="py-24 bg-black-panel scroll-reveal">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-text-light mb-4">
+              Why Us<span className="text-gold-base">?</span>
+            </h2>
+          </div>
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-text-light mb-8">
-                Why BrightPath Billboards<span className="text-gold-base">?</span>
-              </h2>
               <p className="text-lg text-text-mid leading-relaxed mb-10">
                 BrightPath Billboards is the Coachella Valley's first dedicated LED mobile billboard company.
                 Our fleet of cutting-edge trucks combines advanced technology, flexible route planning, and
@@ -365,6 +456,32 @@ export default function Home() {
               <div className="absolute -bottom-6 -right-6 bg-gold-gradient px-6 py-3 rounded-xl font-bold text-black-hero shadow-luxury">
                 LED Truck in Action
               </div>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-24 text-center">
+            <h3 className="text-3xl md:text-4xl font-bold text-text-light mb-4">
+              Ready to Grow with <span className="text-gold-gradient">BrightPath</span>?
+            </h3>
+            <p className="text-lg text-text-mid mb-10 max-w-2xl mx-auto">
+              Join the brands, businesses, and creators already dominating the Coachella Valley with mobile LED advertising.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                href="/quote"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="luxury-button text-lg inline-block"
+              >
+                Get a Free Quote
+              </a>
+              <a
+                href="#services"
+                className="px-8 py-4 bg-transparent border-2 border-gold-base text-gold-base rounded-xl font-semibold hover:bg-gold-base hover:text-black-hero transition-all duration-300 inline-block"
+              >
+                See Event Routes
+              </a>
             </div>
           </div>
         </div>
