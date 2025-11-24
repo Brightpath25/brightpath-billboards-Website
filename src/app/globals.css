@@ -173,7 +173,7 @@ p, span, a, button, input, textarea, label {
   box-shadow: var(--card-glow);
 }
 
-/* Luxury Button */
+/* Luxury Button - Enhanced */
 .luxury-button {
   background: var(--gold-gradient);
   color: var(--black-hero);
@@ -201,12 +201,16 @@ p, span, a, button, input, textarea, label {
 }
 
 .luxury-button:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 30px rgba(247, 211, 130, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
 }
 
 .luxury-button:hover::before {
   left: 100%;
+}
+
+.luxury-button:active {
+  transform: scale(0.95);
 }
 
 /* Luxury Card - Enhanced */
@@ -235,9 +239,9 @@ p, span, a, button, input, textarea, label {
 }
 
 .luxury-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 50px rgba(255,215,0,0.12);
-  border-color: rgba(255,215,0,0.22);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 215, 0, 0.6);
 }
 
 .luxury-card:hover::before {
@@ -265,17 +269,21 @@ p, span, a, button, input, textarea, label {
   box-shadow: 0 0 20px rgba(247, 211, 130, 0.8);
 }
 
-/* Floating Navbar */
+/* Floating Navbar - Enhanced */
 .floating-navbar {
-  background: rgba(26, 31, 39, 0.8);
-  backdrop-filter: blur(20px);
-  border: none;
+  background: rgba(11, 13, 16, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(227, 176, 75, 0.1);
   transition: all var(--transition);
 }
 
 .floating-navbar.scrolled {
-  background: rgba(26, 31, 39, 0.95);
+  background: rgba(11, 13, 16, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   box-shadow: 0 4px 30px rgba(227, 176, 75, 0.2);
+  border-bottom-color: rgba(227, 176, 75, 0.15);
 }
 
 /* Text Gradient */
@@ -430,4 +438,56 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* ==========================================
+   NAVBAR, FOOTER & INTERACTION POLISH
+   ========================================== */
+
+/* Nav Link Hover Glow */
+.nav-link-hover-glow:hover {
+  text-shadow: 0 0 12px rgba(247, 211, 130, 0.5);
+  letter-spacing: 0.02em;
+}
+
+/* Trust Highlight for Footer */
+.trust-highlight {
+  border-left: 2px solid rgba(227, 176, 75, 0.3);
+  padding-left: 0.75rem;
+  color: var(--text-light);
+}
+
+/* Phone CTA Pill */
+.phone-cta-pill {
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  background: rgba(227, 176, 75, 0.1);
+  border: 1px solid rgba(227, 176, 75, 0.4);
+  transition: all 250ms ease-in-out;
+}
+
+.phone-cta-pill:hover {
+  background: rgba(227, 176, 75, 0.2);
+  transform: scale(1.05);
+  border-color: rgba(227, 176, 75, 0.6);
+}
+
+/* Scroll Reveal with Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .luxury-button:hover,
+  .luxury-button:active,
+  .luxury-card:hover {
+    transform: none !important;
+  }
 }

@@ -88,31 +88,31 @@ export default function Home() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#home" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group">
+            <Link href="#home" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
               Home
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="#services" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group">
+            <Link href="#services" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
               Services
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="#preview" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group">
+            <Link href="#preview" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
               Preview
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="/game" className="text-gold-highlight hover:text-gold-base transition-all duration-300 relative group font-semibold">
+            <Link href="/game" className="text-gold-highlight hover:text-gold-base transition-all duration-300 relative group font-semibold nav-link-hover-glow">
               Play Game
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="#about" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group">
+            <Link href="#about" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="#contact" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group">
+            <Link href="#contact" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <a href="tel:4076868294" className="text-gold-base font-semibold hover:text-gold-highlight transition-colors duration-300">
+            <a href="tel:4076868294" className="text-gold-base font-semibold phone-cta-pill">
               (407) 686-8294
             </a>
           </div>
@@ -136,7 +136,7 @@ export default function Home() {
               <Link href="/game" className="text-gold-highlight font-semibold hover:text-gold-base transition-colors" onClick={() => setMobileMenuOpen(false)}>Play Game</Link>
               <Link href="#about" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
               <Link href="#contact" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
-              <a href="tel:4076868294" className="text-gold-base font-semibold hover:text-gold-highlight transition-colors">
+              <a href="tel:4076868294" className="text-gold-base font-semibold phone-cta-pill inline-block text-center">
                 (407) 686-8294
               </a>
             </div>
@@ -443,11 +443,14 @@ export default function Home() {
       </section>
 
       {/* Premium Footer */}
-      <footer className="bg-black-hero border-t border-gold-base/20">
-        {/* Animated Gold Bar */}
-        <div className="h-1 bg-gold-gradient"></div>
+      <footer className="bg-black-hero border-t border-gold-base/20 relative">
+        {/* Soft Top Gradient Overlay */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-t from-transparent to-black/80 pointer-events-none"></div>
 
-        <div className="py-16">
+        {/* Animated Gold Bar */}
+        <div className="h-1 bg-gold-gradient relative z-10"></div>
+
+        <div className="py-16 relative z-10">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-4 gap-12">
               <div>
@@ -458,14 +461,14 @@ export default function Home() {
                   height={50}
                   className="mb-6 h-auto w-auto"
                 />
-                <p className="text-text-mid leading-relaxed">
+                <p className="leading-relaxed trust-highlight">
                   The Coachella Valley's premier LED mobile billboard advertising company.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold mb-6 text-gold-base text-lg">Services</h4>
-                <ul className="space-y-3">
+                <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Services</h4>
+                <ul className="space-y-2.5">
                   {["Mobile LED Advertising", "Event Domination", "Targeted Campaigns", "Route Planning"].map((item, idx) => (
                     <li key={idx}>
                       <a href="#" className="text-text-mid hover:text-gold-highlight transition-colors">{item}</a>
@@ -475,8 +478,8 @@ export default function Home() {
               </div>
 
               <div>
-                <h4 className="font-bold mb-6 text-gold-base text-lg">Contact</h4>
-                <ul className="space-y-3 text-text-mid">
+                <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Contact</h4>
+                <ul className="space-y-2.5 text-text-mid">
                   <li>La Quinta, CA</li>
                   <li><a href="tel:4076868294" className="hover:text-gold-highlight transition-colors">(407) 686-8294</a></li>
                   <li><a href="mailto:Brightpathbillboards@gmail.com" className="hover:text-gold-highlight transition-colors">Brightpathbillboards@gmail.com</a></li>
@@ -484,7 +487,7 @@ export default function Home() {
               </div>
 
               <div>
-                <h4 className="font-bold mb-6 text-gold-base text-lg">Follow Us</h4>
+                <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Follow Us</h4>
                 <div className="flex space-x-4">
                   {[
                     { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/brightpath-billboards-llc" },
