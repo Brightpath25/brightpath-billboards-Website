@@ -52,14 +52,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg"
+        />
         <Script
-          crossOrigin="anonymous"
           src="//unpkg.com/same-runtime/dist/index.global.js"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
         />
         <Script
           src="https://unpkg.com/@google/model-viewer@4.1.0/dist/model-viewer.min.js"
           type="module"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
         />
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
