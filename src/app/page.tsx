@@ -157,15 +157,20 @@ export default function Home() {
         {/* Radial Gold Glow */}
         <div className="absolute inset-0 bg-gradient-radial from-gold-deep/20 via-transparent to-transparent opacity-30"></div>
 
-        {/* Background Image with Parallax */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
           style={{
-            backgroundImage: "url('https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg')",
             transform: `translateY(${scrolled ? '50px' : '0'})`,
             transition: 'transform 0.3s ease-out'
           }}
-        ></div>
+        >
+          <source src="/brightpath-hero.mp4" type="video/mp4" />
+        </video>
 
         {/* Luxury Spotlight - centered behind headline */}
         <div
@@ -183,8 +188,15 @@ export default function Home() {
           }}
         ></div>
 
-        {/* Hero Content */}
-        <div className="relative z-20 text-center max-w-6xl mx-auto px-4 pt-20">
+        {/* Scroll Cue */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-scroll-cue">
+          <ChevronDown className="h-8 w-8 text-gold-highlight" />
+        </div>
+      </section>
+
+      {/* Hero Text Section */}
+      <section className="py-20 bg-black-hero scroll-reveal">
+        <div className="text-center max-w-6xl mx-auto px-4">
           <div className="inline-flex items-center gap-2 bg-gold-base/10 border border-gold-base/30 text-gold-highlight px-6 py-2 rounded-full font-bold text-sm mb-6 animate-fade-in backdrop-blur-sm">
             <Sparkles className="h-4 w-4" />
             #1 IN THE COACHELLA VALLEY
@@ -210,18 +222,11 @@ export default function Home() {
           >
             Get a Free Quote
           </a>
-
-          {/* Scroll Cue */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-scroll-cue">
-            <ChevronDown className="h-8 w-8 text-gold-highlight" />
-          </div>
         </div>
       </section>
 
       {/* Gold Divider */}
       <div className="gold-divider"></div>
-
-      {/* Value Proposition */}
       <section className="py-24 bg-black-panel scroll-reveal">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
