@@ -151,20 +151,17 @@ export default function Home() {
           {particles}
         </div>
 
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-hero-gradient"></div>
-
-        {/* Radial Gold Glow */}
-        <div className="absolute inset-0 bg-gradient-radial from-gold-deep/20 via-transparent to-transparent opacity-30"></div>
-
         {/* Background Video */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          preload="auto"
+          poster="/brightpath-logo.png"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{
+            zIndex: 1,
             transform: `translateY(${scrolled ? '50px' : '0'})`,
             transition: 'transform 0.3s ease-out'
           }}
@@ -172,24 +169,17 @@ export default function Home() {
           <source src="/brightpath-hero.mp4" type="video/mp4" />
         </video>
 
-        {/* Luxury Spotlight - centered behind headline */}
+        {/* Dark overlay on top of video for readability */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(circle at center 45%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0) 60%)'
-          }}
-        ></div>
-
-        {/* Luxury Vignette - bottom fade */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.25) 100%)'
+            zIndex: 2,
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%)'
           }}
         ></div>
 
         {/* Scroll Cue */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-scroll-cue">
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-scroll-cue" style={{ zIndex: 3 }}>
           <ChevronDown className="h-8 w-8 text-gold-highlight" />
         </div>
       </section>
