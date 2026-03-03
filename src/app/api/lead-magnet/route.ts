@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
               </p>
 
               <p style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #ddd;">
-                Have questions? Call us at <strong>(407) 686-8294</strong> or reply to this email.
+                Have questions? Call us at <strong>(760) 385-8989</strong> or reply to this email.
               </p>
 
               <p><strong>BrightPath Billboards</strong><br>

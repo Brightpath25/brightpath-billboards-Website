@@ -522,8 +522,8 @@ export default function EventDominationPage() {
 
           <div className="text-center mt-12">
             <p className="text-text-mid mb-4">Ready to book your event campaign?</p>
-            <a href="tel:4076868294" className="text-gold-base hover:text-gold-highlight font-semibold">
-              Call us at (407) 686-8294
+            <a href="tel:7603858989" className="text-gold-base hover:text-gold-highlight font-semibold">
+              Call us at (760) 385-8989
             </a>
           </div>
         </div>
@@ -545,8 +545,8 @@ export default function EventDominationPage() {
               <Link href="/quote" target="_blank" rel="noopener noreferrer" className="luxury-button text-lg">
                 Request Event Package
               </Link>
-              <a href="tel:4076868294" className="luxury-button text-lg bg-black-panel text-gold-base border-2 border-gold-base hover:bg-gold-base/10">
-                Call (760) 555-1234
+              <a href="tel:7603858989" className="luxury-button text-lg bg-black-panel text-gold-base border-2 border-gold-base hover:bg-gold-base/10">
+                Call (760) 385-8989
               </a>
             </div>
             <p className="text-sm text-text-mid mt-8">

@@ -112,9 +112,20 @@ export default function Home() {
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <a href="tel:4076868294" className="text-gold-base font-semibold phone-cta-pill">
-              (407) 686-8294
+            <a href="tel:7603858989" className="text-gold-base font-semibold phone-cta-pill">
+              (760) 385-8989
             </a>
+            <div className="flex items-center space-x-3 ml-2">
+              <a href="https://www.instagram.com/bpmobilebillboards?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="Instagram">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="https://www.linkedin.com/company/brightpath-billboards-llc/" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="LinkedIn">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://x.com/Brightpath94370" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="X">
+                <Twitter className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -136,9 +147,20 @@ export default function Home() {
               <Link href="/game" className="text-gold-highlight font-semibold hover:text-gold-base transition-colors" onClick={() => setMobileMenuOpen(false)}>Play Game</Link>
               <Link href="#about" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
               <Link href="#contact" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
-              <a href="tel:4076868294" className="text-gold-base font-semibold phone-cta-pill inline-block text-center">
-                (407) 686-8294
+              <a href="tel:7603858989" className="text-gold-base font-semibold phone-cta-pill inline-block text-center">
+                (760) 385-8989
               </a>
+              <div className="flex items-center justify-center space-x-4 pt-2">
+                <a href="https://www.instagram.com/bpmobilebillboards?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="Instagram">
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a href="https://www.linkedin.com/company/brightpath-billboards-llc/" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="LinkedIn">
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a href="https://x.com/Brightpath94370" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="X">
+                  <Twitter className="h-5 w-5" />
+                </a>
+              </div>
             </div>
           </div>
         )}
@@ -508,7 +530,7 @@ export default function Home() {
               <h3 className="text-3xl font-bold mb-8 text-gold-gradient">Get Started Today</h3>
               <div className="space-y-6">
                 {[
-                  { icon: <Phone className="h-6 w-6" />, text: "(407) 686-8294", href: "tel:4076868294" },
+                  { icon: <Phone className="h-6 w-6" />, text: "(760) 385-8989", href: "tel:7603858989" },
                   { icon: <Mail className="h-6 w-6" />, text: "Brightpathbillboards@gmail.com", href: "mailto:Brightpathbillboards@gmail.com" },
                   { icon: <MapPin className="h-6 w-6" />, text: "La Quinta, CA", href: "#" }
                 ].map((item, idx) => (
@@ -593,7 +615,7 @@ export default function Home() {
                 <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Contact</h4>
                 <ul className="space-y-2.5 text-text-mid">
                   <li>La Quinta, CA</li>
-                  <li><a href="tel:4076868294" className="hover:text-gold-highlight transition-colors">(407) 686-8294</a></li>
+                  <li><a href="tel:7603858989" className="hover:text-gold-highlight transition-colors">(760) 385-8989</a></li>
                   <li><a href="mailto:Brightpathbillboards@gmail.com" className="hover:text-gold-highlight transition-colors">Brightpathbillboards@gmail.com</a></li>
                 </ul>
               </div>
@@ -602,10 +624,10 @@ export default function Home() {
                 <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Follow Us</h4>
                 <div className="flex space-x-4">
                   {[
-                    { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/brightpath-billboards-llc" },
-                    { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/bpmobilemedia" },
+                    { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/brightpath-billboards-llc/" },
+                    { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/bpmobilebillboards?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" },
                     { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61568107225408" },
-                    { Icon: Twitter, label: "Twitter", href: "#" }
+                    { Icon: Twitter, label: "X", href: "https://x.com/Brightpath94370" }
                   ].map(({ Icon, label, href }, idx) => (
                     <a
                       key={idx}
