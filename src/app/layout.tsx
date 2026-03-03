@@ -91,9 +91,10 @@ export default function RootLayout({
               "Coachella Valley"
             ],
             sameAs: [
-              "https://www.linkedin.com/company/brightpath-billboards-llc",
-              "https://www.instagram.com/bpmobilemedia",
-              "https://www.facebook.com/profile.php?id=61568107225408"
+              "https://www.linkedin.com/company/brightpath-billboards-llc/",
+              "https://www.instagram.com/bpmobilebillboards?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr",
+              "https://www.facebook.com/profile.php?id=61568107225408",
+              "https://x.com/Brightpath94370"
             ]
           })}
         </Script>
