@@ -22,7 +22,7 @@ export default function QuotePage() {
     targetAreas: '',
     creativeNeeds: '',
     comments: '',
-    _hp: '',
+    'bot-field': '',
   });
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -85,17 +85,20 @@ export default function QuotePage() {
     setMessage('');
 
     try {
-      const response = await fetch('/api/quote', {
+      const urlEncodedBody = new URLSearchParams({
+        'form-name': 'quote',
+        ...formData,
+      }).toString();
+
+      const response = await fetch('/quote', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(formData),
+        body: urlEncodedBody,
       });
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.ok) {
         setStatus('success');
         setMessage('Thank you! Our team will contact you within 24 hours.');
         setFormData({
@@ -110,7 +113,7 @@ export default function QuotePage() {
           targetAreas: '',
           creativeNeeds: '',
           comments: '',
-          _hp: '',
+          'bot-field': '',
         });
         setErrors({});
         setTimeout(() => {
@@ -118,7 +121,7 @@ export default function QuotePage() {
         }, 100);
       } else {
         setStatus('error');
-        setMessage(data.message || 'There was an issue sending your request. Please try again.');
+        setMessage('There was an issue sending your request. Please try again.');
       }
     } catch (error) {
       setStatus('error');
@@ -175,7 +178,8 @@ export default function QuotePage() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+          <form name="quote" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-8" noValidate>
+            <input type="hidden" name="form-name" value="quote" />
             <div className="space-y-6">
               <div>
                 <h2 className="text-xl font-semibold text-black mb-2">Contact Information</h2>
@@ -418,16 +422,19 @@ export default function QuotePage() {
               />
             </div>
 
-            <input
-              type="text"
-              name="_hp"
-              value={formData._hp}
-              onChange={handleChange}
-              className="hidden"
-              tabIndex={-1}
-              autoComplete="off"
-              aria-hidden="true"
-            />
+            <p className="hidden">
+              <label>
+                Don&#8217;t fill this out if you&#8217;re human:
+                <input
+                  type="text"
+                  name="bot-field"
+                  value={formData['bot-field']}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </label>
+            </p>
 
             <button
               type="submit"
