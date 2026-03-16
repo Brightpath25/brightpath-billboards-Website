@@ -32,6 +32,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check SMTP configuration
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('SMTP credentials not configured. Set SMTP_USER and SMTP_PASS environment variables.');
+      return NextResponse.json(
+        { success: false, message: 'Email service is not configured. Please contact us directly at (760) 385-8989.' },
+        { status: 503 }
+      );
+    }
+
     // Configure email transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.gmail.com',

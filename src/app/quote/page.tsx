@@ -85,20 +85,28 @@ export default function QuotePage() {
     setMessage('');
 
     try {
-      const urlEncodedBody = new URLSearchParams({
+      // Build Netlify Forms submission body
+      const netlifyBody = new URLSearchParams({
         'form-name': 'quote',
         ...formData,
       }).toString();
 
-      const response = await fetch('/quote', {
+      // Submit to Netlify Forms for dashboard capture and email notification (primary)
+      const netlifyResponse = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: urlEncodedBody,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: netlifyBody,
       });
 
-      if (response.ok) {
+      // Also submit to API route for direct SMTP email (secondary, fire-and-forget)
+      const { 'bot-field': botField, ...apiData } = formData;
+      fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...apiData, _hp: botField }),
+      }).catch(() => {});
+
+      if (netlifyResponse.ok) {
         setStatus('success');
         setMessage('Thank you! Our team will contact you within 24 hours.');
         setFormData({
