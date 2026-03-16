@@ -253,9 +253,9 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { src: "https://cantmiss.us/wp-content/uploads/2022/09/Salt-Lake-City-SLC-Digital-Mobile-billboard-Trucks-Utah-1-1.jpeg", alt: "LED billboard truck in parking lot" },
-              { src: "https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg", alt: "LED billboard truck driving at night" },
-              { src: "https://cantmiss.us/wp-content/uploads/2022/09/Salt-Lake-City-SLC-Digital-Mobile-billboard-Trucks-Utah-1-1.jpeg", alt: "LED billboard truck at event" }
+              { src: "/brightpathbillboards-traffic.jpeg", alt: "LED billboard truck in parking lot" },
+              { src: "/brightpathbillboards-night.jpeg", alt: "LED billboard truck driving at night" },
+              { src: "/brightpathbillboards-traffic-1.jpeg", alt: "LED billboard truck at event" }
             ].map((img, idx) => (
               <div key={idx} className="group luxury-image">
                 <div className="absolute inset-0 bg-gold-gradient opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-10"></div>
@@ -463,7 +463,7 @@ export default function Home() {
               <div className="absolute -inset-4 bg-gold-gradient opacity-20 rounded-3xl blur-2xl group-hover:opacity-30 transition-opacity"></div>
               <div className="luxury-image">
                 <Image
-                  src="https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg"
+                  src="/brightpathbillboards-laquinta.jpeg"
                   alt="BrightPath LED billboard truck displaying dynamic digital advertising"
                   width={600}
                   height={400}
