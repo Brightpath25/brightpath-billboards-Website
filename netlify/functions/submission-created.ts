@@ -1,50 +1,36 @@
-import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import type { Handler, HandlerEvent } from "@netlify/functions";
+import nodemailer from "nodemailer";
 
-export async function POST(request: NextRequest) {
+interface FormSubmissionPayload {
+  payload: {
+    form_name: string;
+    data: Record<string, string>;
+    created_at: string;
+  };
+}
+
+const handler: Handler = async (event: HandlerEvent) => {
   try {
-    const body = await request.json();
+    const { payload } = JSON.parse(event.body || "{}") as FormSubmissionPayload;
 
-    // Honeypot spam protection
-    if (body._hp || body['bot-field']) {
-      return NextResponse.json(
-        { success: false, message: 'Spam detected' },
-        { status: 400 }
-      );
+    // Only process the "quote" form
+    if (payload.form_name !== "quote") {
+      return { statusCode: 200, body: "Ignored: not a quote form submission" };
     }
 
-    // Validate required fields
-    const { fullName, email, phone, campaignType, startDate, duration, budget, targetAreas } = body;
+    const data = payload.data;
 
-    if (!fullName || !email || !phone) {
-      return NextResponse.json(
-        { success: false, message: 'Please fill in all required fields' },
-        { status: 400 }
-      );
-    }
-
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { success: false, message: 'Please enter a valid email address' },
-        { status: 400 }
-      );
-    }
-
-    // Check SMTP configuration
+    // Skip if SMTP credentials are not configured
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      console.error('SMTP credentials not configured. Set SMTP_USER and SMTP_PASS environment variables.');
-      return NextResponse.json(
-        { success: false, message: 'Email service is not configured. Please contact us directly at (760) 385-8989.' },
-        { status: 503 }
+      console.error(
+        "submission-created: SMTP credentials not configured. Set SMTP_USER and SMTP_PASS environment variables in Netlify dashboard."
       );
+      return { statusCode: 200, body: "Skipped: SMTP not configured" };
     }
 
-    // Configure email transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '465'),
+      host: process.env.SMTP_HOST || "smtp.gmail.com",
+      port: parseInt(process.env.SMTP_PORT || "465"),
       secure: true,
       auth: {
         user: process.env.SMTP_USER,
@@ -52,7 +38,11 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Create email HTML
+    const fullName = data.fullName || "Unknown";
+    const email = data.email || "";
+    const phone = data.phone || "";
+    const businessName = data.businessName || "";
+
     const emailHtml = `
       <!DOCTYPE html>
       <html>
@@ -79,12 +69,12 @@ export async function POST(request: NextRequest) {
                 <div class="value">${fullName}</div>
               </div>
 
-              ${body.businessName ? `
+              ${businessName ? `
                 <div class="field">
                   <div class="label">Business Name:</div>
-                  <div class="value">${body.businessName}</div>
+                  <div class="value">${businessName}</div>
                 </div>
-              ` : ''}
+              ` : ""}
 
               <div class="field">
                 <div class="label">Email:</div>
@@ -98,67 +88,65 @@ export async function POST(request: NextRequest) {
 
               <div class="field">
                 <div class="label">Campaign Type:</div>
-                <div class="value">${campaignType || 'Not specified'}</div>
+                <div class="value">${data.campaignType || "Not specified"}</div>
               </div>
 
               <div class="field">
                 <div class="label">Desired Start Date:</div>
-                <div class="value">${startDate || 'Not specified'}</div>
+                <div class="value">${data.startDate || "Not specified"}</div>
               </div>
 
               <div class="field">
                 <div class="label">Campaign Duration:</div>
-                <div class="value">${duration || 'Not specified'}</div>
+                <div class="value">${data.duration || "Not specified"}</div>
               </div>
 
               <div class="field">
                 <div class="label">Budget Range:</div>
-                <div class="value">${budget || 'Not specified'}</div>
+                <div class="value">${data.budget || "Not specified"}</div>
               </div>
 
               <div class="field">
                 <div class="label">Target Areas / Events:</div>
-                <div class="value">${targetAreas || 'Not specified'}</div>
+                <div class="value">${data.targetAreas || "Not specified"}</div>
               </div>
 
               <div class="field">
                 <div class="label">Creative Needs:</div>
-                <div class="value">${body.creativeNeeds || 'Not specified'}</div>
+                <div class="value">${data.creativeNeeds || "Not specified"}</div>
               </div>
 
-              ${body.comments ? `
+              ${data.comments ? `
                 <div class="field">
                   <div class="label">Additional Comments:</div>
-                  <div class="value">${body.comments}</div>
+                  <div class="value">${data.comments}</div>
                 </div>
-              ` : ''}
+              ` : ""}
             </div>
             <div class="footer">
               <p>BrightPath Billboards - Quote Request System</p>
+              <p>Submitted: ${payload.created_at ? new Date(payload.created_at).toLocaleString() : new Date().toLocaleString()}</p>
             </div>
           </div>
         </body>
       </html>
     `;
 
-    // Send email
     await transporter.sendMail({
       from: process.env.SMTP_USER,
-      to: 'brightpathbillboards@gmail.com',
-      replyTo: email,
-      subject: `Quote Request — ${fullName} (${body.businessName || 'No Business'})`,
+      to: "brightpathbillboards@gmail.com",
+      replyTo: email || undefined,
+      subject: `Quote Request — ${fullName} (${businessName || "No Business"})`,
       html: emailHtml,
     });
 
-    return NextResponse.json(
-      { success: true, message: 'Quote request sent successfully' },
-      { status: 200 }
-    );
+    console.log(`submission-created: Email sent for quote from ${fullName}`);
+
+    return { statusCode: 200, body: "Email notification sent" };
   } catch (error) {
-    console.error('Error sending quote request:', error);
-    return NextResponse.json(
-      { success: false, message: 'There was an issue sending your request. Please try again.' },
-      { status: 500 }
-    );
+    console.error("submission-created: Error sending email:", error);
+    return { statusCode: 500, body: "Error processing submission" };
   }
-}
+};
+
+export { handler };
