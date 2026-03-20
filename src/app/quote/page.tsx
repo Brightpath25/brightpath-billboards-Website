@@ -141,6 +141,48 @@ export default function QuotePage() {
     window.scrollTo(0, 0);
   }, []);
 
+  // Apollo.io Form Enrichment — runs only on /quote page
+  useEffect(() => {
+    const TIMEOUT_MS = 15000;
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    const style = document.createElement('style');
+    style.id = 'apollo-form-prehide-css';
+    style.textContent =
+      'form:has(input[type="email" i]),form:has(input[name="email" i]),.hs-form-iframe{position:relative!important}form:has(input[type="email" i])::before,form:has(input[name="email" i])::before,.hs-form-iframe::before{content:"";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:50px;height:50px;margin:auto;border:2.5px solid #e1e1e1;border-top:2.5px solid #9ea3a6;border-radius:50%;animation:spin 1s linear infinite;background-color:transparent;pointer-events:auto;z-index:999999;opacity:1}form:has(input[type="email" i]) *,form:has(input[name="email" i]) *,.hs-form-iframe *{opacity:0!important;user-select:none!important;pointer-events:none!important}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}';
+    (document.head || document.documentElement).appendChild(style);
+
+    function cleanup() {
+      const styleEl = document.getElementById('apollo-form-prehide-css');
+      if (styleEl) styleEl.remove();
+      if (timeoutId) clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(function () {
+      cleanup();
+    }, TIMEOUT_MS);
+
+    const nocache = Math.random().toString(36).substring(7);
+    const script = document.createElement('script');
+    script.src = 'https://assets.apollo.io/js/apollo-inbound.js?nocache=' + nocache;
+    script.defer = true;
+    script.onload = function () {
+      try {
+        (window as any).ApolloInbound.formEnrichment.init({
+          appId: '69bd745a4274040015b3f1c7',
+        });
+      } catch (err) {
+        cleanup();
+      }
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      cleanup();
+      script.remove();
+    };
+  }, []);
+
   return (
     <main className="relative min-h-screen overflow-hidden">
       <div
