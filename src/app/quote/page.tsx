@@ -107,6 +107,9 @@ export default function QuotePage() {
       }).catch(() => {});
 
       if (netlifyResponse.ok) {
+        if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
+          (window as any).fbq('track', 'Lead');
+        }
         setStatus('success');
         setMessage('Thank you! Our team will contact you within 24 hours.');
         setFormData({
