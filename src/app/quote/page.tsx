@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 interface FormErrors {
@@ -25,11 +26,11 @@ export default function QuotePage() {
     'bot-field': '',
   });
 
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const router = useRouter();
+  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle');
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<FormErrors>({});
   const firstErrorRef = useRef<HTMLInputElement>(null);
-  const successAlertRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -110,26 +111,7 @@ export default function QuotePage() {
         if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
           (window as any).fbq('track', 'Lead');
         }
-        setStatus('success');
-        setMessage('Thank you! Our team will contact you within 24 hours.');
-        setFormData({
-          fullName: '',
-          businessName: '',
-          email: '',
-          phone: '',
-          campaignType: '',
-          startDate: '',
-          duration: '',
-          budget: '',
-          targetAreas: '',
-          creativeNeeds: '',
-          comments: '',
-          'bot-field': '',
-        });
-        setErrors({});
-        setTimeout(() => {
-          successAlertRef.current?.focus();
-        }, 100);
+        router.push('/thank-you');
       } else {
         setStatus('error');
         setMessage('There was an issue sending your request. Please try again.');
@@ -209,18 +191,6 @@ export default function QuotePage() {
         </header>
 
         <div className="mx-auto max-w-3xl rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl p-5 md:p-8">
-          {status === 'success' && (
-            <div
-              ref={successAlertRef}
-              tabIndex={-1}
-              role="alert"
-              aria-live="polite"
-              className="mb-6 rounded-xl bg-green-50 border border-green-200 p-4 text-green-700 text-sm md:text-base"
-            >
-              <strong className="font-semibold">Success!</strong> {message}
-            </div>
-          )}
-
           {status === 'error' && (
             <div
               role="alert"
