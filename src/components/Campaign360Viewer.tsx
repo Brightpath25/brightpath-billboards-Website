@@ -362,8 +362,16 @@ const Campaign360Viewer: React.FC = () => {
   };
 
   return (
-    <section id="preview" className="py-24 bg-black-hero">
-      <div className="container mx-auto px-4">
+    <section id="preview" className="py-24 bg-black-hero relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0f0d08 15%, #141008 30%, #0f0d08 70%, #0a0a0a 100%)' }}>
+      {/* Premium gold ambient glow overlays */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 50% at 20% 40%, rgba(212,175,55,0.06) 0%, transparent 60%)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 80% 60%, rgba(212,175,55,0.04) 0%, transparent 60%)' }} />
+      {/* Top and bottom gold edge glow */}
+      <div className="absolute top-0 left-0 right-0 h-px pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 10%, rgba(212,175,55,0.15) 50%, transparent 90%)' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-px pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 10%, rgba(212,175,55,0.15) 50%, transparent 90%)' }} />
+      {/* Soft corner vignette */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, rgba(0,0,0,0.4) 100%)' }} />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Upload Controls */}
           <div className="order-2 lg:order-1">
@@ -405,12 +413,13 @@ const Campaign360Viewer: React.FC = () => {
             )}
 
             {/* Upload Controls */}
+            <p className="text-sm text-gold-highlight/70 mb-4 font-medium tracking-wide">Start by uploading your ad</p>
             <div className="space-y-6">
               {/* Upload Left Screen */}
-              <Card className={`border transition-all duration-300 ${dragActive ? 'border-gold-base bg-gold-base/5 shadow-gold-glow' : 'border-gold-base/20 hover:border-gold-base/50'} bg-black-card backdrop-blur-sm`}>
+              <Card className={`border transition-all duration-300 ${dragActive ? 'border-gold-base bg-gold-base/5 shadow-gold-glow' : 'border-gold-base/30 hover:border-gold-base/50'} bg-black-card backdrop-blur-sm`} style={{ boxShadow: '0 0 20px rgba(212,175,55,0.08), 0 4px 24px rgba(0,0,0,0.3)' }}>
                 <CardContent className="p-6">
                   <div
-                    className="border-2 border-dashed border-gold-base/30 rounded-xl p-8 text-center transition-all duration-300 hover:border-gold-base hover:bg-gold-base/5 cursor-pointer group"
+                    className="border-2 border-dashed border-gold-base/40 rounded-xl p-8 text-center transition-all duration-300 hover:border-gold-base hover:bg-gold-base/5 cursor-pointer group"
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
                     onDrop={(e) => handleDrop(e, 'left')}
@@ -459,10 +468,10 @@ const Campaign360Viewer: React.FC = () => {
               </Card>
 
               {/* Upload Back Screen */}
-              <Card className={`border transition-all duration-300 ${dragActive ? 'border-gold-base bg-gold-base/5 shadow-gold-glow' : 'border-gold-base/20 hover:border-gold-base/50'} bg-black-card backdrop-blur-sm`}>
+              <Card className={`border transition-all duration-300 ${dragActive ? 'border-gold-base bg-gold-base/5 shadow-gold-glow' : 'border-gold-base/30 hover:border-gold-base/50'} bg-black-card backdrop-blur-sm`} style={{ boxShadow: '0 0 20px rgba(212,175,55,0.08), 0 4px 24px rgba(0,0,0,0.3)' }}>
                 <CardContent className="p-6">
                   <div
-                    className="border-2 border-dashed border-gold-base/30 rounded-xl p-8 text-center transition-all duration-300 hover:border-gold-base hover:bg-gold-base/5 cursor-pointer group"
+                    className="border-2 border-dashed border-gold-base/40 rounded-xl p-8 text-center transition-all duration-300 hover:border-gold-base hover:bg-gold-base/5 cursor-pointer group"
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
                     onDrop={(e) => handleDrop(e, 'back')}
@@ -531,6 +540,18 @@ const Campaign360Viewer: React.FC = () => {
               <p className="text-xs text-text-mid/60 italic mt-4">
                 * Previews are illustrative. Final on-road brightness and color may vary.
               </p>
+            </div>
+
+            {/* Get a Quote CTA */}
+            <div className="mt-8">
+              <a
+                href="/quote"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="luxury-button text-lg inline-block"
+              >
+                Get a Quote
+              </a>
             </div>
           </div>
 
