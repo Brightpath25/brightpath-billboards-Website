@@ -169,6 +169,18 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);`}</script>
           <img height={1} width={1} style={{display:'none'}} alt="" src="https://px.ads.linkedin.com/collect/?pid=8960676&fmt=gif" />
         </noscript>
         {/* End LinkedIn Insight Tag */}
+        {/* Google Analytics (GA4) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-25T9DYY7X2"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-25T9DYY7X2');
+            `,
+          }}
+        />
       </head>
       <body suppressHydrationWarning className="antialiased">
         <ClientBody>{children}</ClientBody>
