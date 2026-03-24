@@ -214,15 +214,38 @@ export default function Home() {
             #1 IN THE COACHELLA VALLEY
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-            <span className="text-gold-gradient shimmer">Your Voice in the Community</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight max-w-5xl mx-auto">
+            <span className="text-gold-gradient shimmer">Mobile Billboard Advertising</span>
             <br />
-            <span className="text-text-light">BrightPath Billboards</span>
+            <span className="text-text-light">That Gets Your Business Seen</span>
           </h1>
 
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed text-text-mid">
+          <p className="text-lg md:text-xl text-gold-highlight font-semibold mb-4">
+            Serving the Coachella Valley
+          </p>
+
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-text-mid">
             High-impact mobile LED billboard advertising for events, casinos, festivals, small businesses,
             and brands across Palm Springs, Indio, Coachella, Palm Desert, Cathedral City, and the entire Coachella Valley.
+          </p>
+
+          <ul className="text-lg md:text-xl text-text-light max-w-md mx-auto text-left mb-5 space-y-3">
+            <li className="flex items-center gap-3">
+              <span className="w-2 h-2 bg-gold-gradient rounded-full flex-shrink-0"></span>
+              Mobile billboard truck exposure
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="w-2 h-2 bg-gold-gradient rounded-full flex-shrink-0"></span>
+              High traffic routes
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="w-2 h-2 bg-gold-gradient rounded-full flex-shrink-0"></span>
+              Daily visibility
+            </li>
+          </ul>
+
+          <p className="text-sm md:text-base text-gold-highlight/70 italic mb-6">
+            Limited availability during peak event seasons
           </p>
 
           <a
@@ -232,7 +255,7 @@ export default function Home() {
             className="luxury-button text-lg inline-block"
             href="/quote"
           >
-            Get a Free Quote
+            Get a Quote
           </a>
         </div>
       </section>
@@ -491,11 +514,11 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="luxury-button text-lg inline-block"
               >
-                Get a Free Quote
+                Get a Quote
               </a>
               <a
                 href="#services"
-                className="px-8 py-4 bg-transparent border-2 border-gold-base text-gold-base rounded-xl font-semibold hover:bg-gold-base hover:text-black-hero transition-all duration-300 inline-block"
+                className="px-8 py-4 bg-transparent border border-gold-base/50 text-gold-base/80 rounded-xl font-medium hover:bg-gold-base hover:text-black-hero transition-all duration-300 inline-block"
               >
                 See Event Routes
               </a>
