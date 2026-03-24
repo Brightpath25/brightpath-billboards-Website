@@ -178,6 +178,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);`}</script>
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-25T9DYY7X2');
+              gtag('config', 'AW-18037523870');
             `,
           }}
         />
