@@ -530,9 +530,30 @@ export default function Home() {
       {/* Gold Divider */}
       <div className="gold-divider"></div>
 
-      {/* 360° Preview Section */}
-      <div id="preview" className="scroll-reveal">
-        <Campaign360Viewer />
+      {/* 360° Preview Section — Featured Surface Band */}
+      <div id="preview" className="scroll-reveal relative overflow-hidden py-6" style={{ background: '#161210' }}>
+        {/* Core charcoal-bronze surface gradient */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, #0c0a08 0%, #1e1812 6%, #2b2118 14%, #362a1e 24%, #3e3022 36%, #443524 50%, #3e3022 64%, #362a1e 76%, #2b2118 86%, #1e1812 94%, #0c0a08 100%)' }} />
+        {/* Warm gold-tinted wash across full section */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(180,140,50,0.07) 10%, rgba(180,140,50,0.13) 30%, rgba(180,140,50,0.16) 50%, rgba(180,140,50,0.13) 70%, rgba(180,140,50,0.07) 90%, transparent 100%)' }} />
+        {/* Soft inner shadow — top */}
+        <div className="absolute top-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)' }} />
+        {/* Soft inner shadow — bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)' }} />
+        {/* Top separation line — gold */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(212,175,55,0.4) 20%, rgba(212,175,55,0.85) 50%, rgba(212,175,55,0.4) 80%, transparent 95%)' }} />
+        {/* Top glow bloom beneath line */}
+        <div className="absolute top-[2px] left-0 right-0 h-12 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.06) 50%, transparent 100%)' }} />
+        {/* Bottom separation line — gold */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(212,175,55,0.4) 20%, rgba(212,175,55,0.85) 50%, rgba(212,175,55,0.4) 80%, transparent 95%)' }} />
+        {/* Bottom glow bloom above line */}
+        <div className="absolute bottom-[2px] left-0 right-0 h-12 pointer-events-none" style={{ background: 'linear-gradient(0deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.06) 50%, transparent 100%)' }} />
+        {/* Subtle edge vignette for depth */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 130% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.5) 100%)' }} />
+        {/* Content */}
+        <div className="relative z-10">
+          <Campaign360Viewer />
+        </div>
       </div>
 
       {/* Gold Divider */}
