@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "BrightPath Billboards | Mobile LED Advertising in Coachella Valley",
-  description: "High-impact mobile LED billboard advertising for events, casinos, festivals, small businesses, and brands across Palm Springs, Indio, Coachella, Palm Desert, Cathedral City, and the entire Coachella Valley.",
+  description: "Mobile LED billboard advertising in Coachella Valley. High-impact exposure across Palm Springs, Indio, and major events.",
   openGraph: {
     title: "BrightPath Billboards | Mobile LED Advertising",
     description:
