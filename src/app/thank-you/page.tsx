@@ -18,8 +18,15 @@ export default function ThankYouPage() {
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
             Thank You
           </h1>
-          <p className="text-lg text-black/80 mb-8">
-            Thank you. Your request has been received. We will contact you shortly.
+          <p className="text-lg text-black/80 mb-2">
+            Thank you. Your campaign request is in review.
+          </p>
+          <p className="text-base text-black/70 mb-2">
+            We are already reviewing your submission and mapping the best next steps for your campaign.
+          </p>
+          <p className="text-base font-medium text-black/80 mb-8">
+            Want to move faster? Call us now at{' '}
+            <a href="tel:+17603858989" className="text-[#d18d00] hover:underline">(760) 385-8989</a>.
           </p>
           <Link
             href="/"
