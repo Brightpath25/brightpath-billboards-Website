@@ -172,7 +172,10 @@ export default function QuotePage() {
             Request a Quote
           </h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Tell us about your campaign and our team will respond within 24 hours.
+            Campaign planning starts here. Launch within days across high-traffic routes in the Coachella Valley.
+          </p>
+          <p className="text-sm text-white/70 mt-2">
+            We typically respond within minutes during business hours.
           </p>
         </header>
 
@@ -426,10 +429,14 @@ export default function QuotePage() {
                 value={formData.comments}
                 onChange={handleChange}
                 rows={5}
-                placeholder="Tell us more about your campaign goals, target audience, or any special requirements…"
+                placeholder="Tell us what you want to accomplish, where you want visibility, and any key dates or priorities."
                 className="w-full rounded-xl border border-black/10 bg-white text-black placeholder-gray-500 px-4 py-3 resize-vertical focus:outline-none focus:ring-2 focus:ring-[#d18d00] focus:border-transparent"
               />
             </div>
+
+            <p className="text-xs text-black/50 text-center mt-1">
+              Built for local businesses, events, and high-traffic campaigns across the valley.
+            </p>
 
             <p className="hidden">
               <label>
