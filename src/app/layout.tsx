@@ -154,19 +154,39 @@ export default function RootLayout({
         {/* Apollo.io Website Tracker */}
         <script dangerouslySetInnerHTML={{ __html: `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69bcda1a4c9fd1001516f37f"})},document.head.appendChild(o)}initApollo();` }} />
         {/* LinkedIn Insight Tag */}
-        <script type="text/javascript">{`_linkedin_partner_id = "8960676";
-window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-window._linkedin_data_partner_ids.push(_linkedin_partner_id);`}</script>
-        <script type="text/javascript">{`(function(l) {
-if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-window.lintrk.q=[]}
-var s = document.getElementsByTagName("script")[0];
-var b = document.createElement("script");
-b.type = "text/javascript";b.async = true;
-b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-s.parentNode.insertBefore(b, s);})(window.lintrk);`}</script>
+        <Script
+          id="linkedin-insight-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+      _linkedin_partner_id = "8960676";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l) {
+          window.lintrk = function(a, b) {
+            window.lintrk.q.push([a, b]);
+          };
+          window.lintrk.q = [];
+        }
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";
+        b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    `,
+          }}
+        />
         <noscript>
-          <img height={1} width={1} style={{display:'none'}} alt="" src="https://px.ads.linkedin.com/collect/?pid=8960676&fmt=gif" />
+          <img
+            height={1}
+            width={1}
+            style={{ display: "none" }}
+            alt=""
+            src="https://px.ads.linkedin.com/collect/?pid=8960676&fmt=gif"
+          />
         </noscript>
         {/* End LinkedIn Insight Tag */}
         {/* Google Analytics (GA4) */}
