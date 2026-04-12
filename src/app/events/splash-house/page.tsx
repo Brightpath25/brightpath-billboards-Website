@@ -15,36 +15,41 @@ export default function SplashHousePage() {
   return (
     <div className="min-h-screen bg-black-hero">
       <EventHero
-        title="Splash House"
-        headline="Palm Springs' signature pool party festival. Compact routes, hotel-district traffic, and a nightlife-driven audience ready for brand discovery."
-        dateRange="June & August"
-        ctaLabel="Get Campaign Plan"
+        title="Own the Movement Around Splash House"
+        headline="A multi-hotel, poolside music weekend built around nonstop movement, nightlife, and high-energy social environments."
+        dateRange="August 7–9 and August 14–16, 2026 • Palm Springs, California"
+        ctaLabel="Get My Campaign Plan"
         ctaHref="/quote"
-        secondaryCtaLabel="See Pricing"
-        secondaryCtaHref="#pricing"
+        secondaryCtaLabel="Call Now (760) 385-8989"
+        secondaryCtaHref="tel:7603858989"
       />
 
       {/* Why This Event Matters */}
       <EventSection
-        title="Why Splash House Converts"
-        subtitle="A concentrated, high-energy audience in a compact geography. Every route loops through the action."
+        title="Why This Event Matters"
+        subtitle="Splash House is not a traditional festival. It is a concentrated, high-energy environment built around hotels, pools, and nightlife."
       >
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {[
             {
               icon: Hotel,
-              title: "Hotel-Heavy Traffic",
-              text: "Splash House centers around Palm Springs' iconic hotels. Attendees move between venues, pools, and after-parties — your billboard is on every route they take.",
+              title: "Multi-Day Presence",
+              text: "Attendees stay for the full weekend — creating sustained, repeated exposure across multiple days.",
             },
             {
-              icon: Moon,
-              title: "Nightlife Audience",
-              text: "The party runs day and night. Evening routes capture a social, high-spending audience primed for brand engagement during after-hours events.",
+              icon: Eye,
+              title: "Hotel & Venue Density",
+              text: "Strong concentration around a small number of hotels and venues keeps all traffic within reach.",
             },
             {
               icon: PartyPopper,
-              title: "Compact Impact",
-              text: "Palm Springs' tight geography means higher frequency per impression. Your brand gets seen multiple times by the same audience — building instant recognition.",
+              title: "High Visibility",
+              text: "High social interaction and visibility across pool, nightlife, and transit zones.",
+            },
+            {
+              icon: Crown,
+              title: "Premium Audience",
+              text: "A lifestyle-driven audience with high spending power and strong brand affinity.",
             },
           ].map((item) => (
             <div key={item.title} className="luxury-card rounded-2xl p-8 text-center">
@@ -58,33 +63,33 @@ export default function SplashHousePage() {
         </div>
       </EventSection>
 
-      {/* BrightPath Strategy */}
+      {/* Where Movement Happens */}
       <EventSection
-        title="The BrightPath Strategy"
-        subtitle="Tight routes. High frequency. Premium execution built for Palm Springs' unique festival geography."
+        title="Where Movement Happens"
+        subtitle="Most activity is concentrated in Downtown Palm Springs. The Hilton and Renaissance — less than half a mile apart — form the action center."
         dark
       >
         <div className="grid md:grid-cols-2 gap-8">
           {[
             {
+              icon: Hotel,
+              title: "Hilton Palm Springs",
+              text: "Tahquitz Canyon Way & Avenida Caballeros — primary hub and highest pedestrian density zone.",
+            },
+            {
+              icon: Hotel,
+              title: "Renaissance Palm Springs",
+              text: "Tahquitz Canyon Way & Hermosa Dr — second anchor hotel driving continuous foot traffic.",
+            },
+            {
+              icon: PartyPopper,
+              title: "Saguaro Palm Springs",
+              text: "Palm Canyon Dr & Sunrise Way — vibrant venue with strong inter-hotel movement.",
+            },
+            {
               icon: Route,
-              title: "Route Positioning",
-              text: "Deployment along Palm Canyon Drive, hotel districts, and key resort corridors. Routes are designed around Splash House's multi-venue footprint.",
-            },
-            {
-              icon: Clock,
-              title: "Visibility Windows",
-              text: "Daytime pool party coverage and evening after-party routes. Your brand transitions seamlessly from sun to nightlife — always in view.",
-            },
-            {
-              icon: Eye,
-              title: "Execution Logic",
-              text: "Compact loop routes deliver high-frequency impressions. LED billboards circulate through the festival zone continuously, maximizing repeat exposure.",
-            },
-            {
-              icon: Crown,
-              title: "Market Control",
-              text: "Splash House's intimate scale means fewer competing messages. Your campaign stands out in a focused environment where attention is concentrated.",
+              title: "Convention Center & Air Museum",
+              text: "Registration hub and after-hours venue — key arrival and late-night traffic generators.",
             },
           ].map((item) => (
             <div key={item.title} className="flex gap-5">
@@ -102,14 +107,14 @@ export default function SplashHousePage() {
         </div>
       </EventSection>
 
-      {/* Campaign Assets */}
-      <EventSection title="Campaign Resources" subtitle="Explore the Splash House campaign package and plan your summer activation.">
+      {/* BrightPath Route Strategy */}
+      <EventSection title="BrightPath Route Strategy" subtitle="This is where attendees walk, wait, and move in groups.">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: FileText, label: "View Media Kit", href: "/quote" },
-            { icon: DollarSign, label: "See Pricing", href: "#pricing" },
-            { icon: ClipboardList, label: "Review Campaign Plan", href: "/quote" },
-            { icon: Users, label: "See Execution Strategy", href: "/quote" },
+            { icon: Route, label: "Tahquitz Canyon Way", href: "/quote" },
+            { icon: Route, label: "Sunrise Way & Ramon Rd", href: "/quote" },
+            { icon: Moon, label: "Gene Autry Trail", href: "/quote" },
+            { icon: ClipboardList, label: "Palm Canyon Drive", href: "/quote" },
           ].map((item) => (
             <Link
               key={item.label}
@@ -118,19 +123,25 @@ export default function SplashHousePage() {
             >
               <item.icon className="h-8 w-8 text-gold-base mb-4" />
               <span className="text-text-light font-semibold">{item.label}</span>
+              <span className="text-text-mid text-sm mt-2">
+                {item.label === "Tahquitz Canyon Way" && "Primary hotel-to-hotel movement"}
+                {item.label === "Sunrise Way & Ramon Rd" && "Inter-hotel connector to Saguaro"}
+                {item.label === "Gene Autry Trail" && "After hours — 10 PM to 2 AM peak"}
+                {item.label === "Palm Canyon Drive" && "Dining, retail, and pre-event activity"}
+              </span>
             </Link>
           ))}
         </div>
       </EventSection>
 
-      {/* Who This Is For */}
-      <EventSection title="Who This Is For" dark>
+      {/* Timing Strategy */}
+      <EventSection title="Timing Strategy" dark>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            "Beverage and lifestyle brands",
-            "Hotels and resort properties",
-            "Nightlife and entertainment venues",
-            "Fashion and beauty brands",
+            "Friday: 12 PM – 7 PM — Convention Center and hotel arrivals",
+            "Saturday & Sunday: 1 PM – 5 PM — Peak pool party movement",
+            "Late Night: 10 PM – 2 AM — After Hours at Air Museum",
+            "Dwell Time: 15–30 min at shuttle stops and hotel entry zones",
           ].map((item) => (
             <div key={item} className="luxury-card rounded-2xl p-6 text-center">
               <p className="text-text-light font-semibold">{item}</p>
@@ -139,14 +150,15 @@ export default function SplashHousePage() {
         </div>
       </EventSection>
 
-      {/* Where You'll Be Seen */}
-      <EventSection title="Where You'll Be Seen" subtitle="Compact, high-frequency routes through Palm Springs' most active zones.">
+      {/* Who You're Reaching */}
+      <EventSection title="Who You're Reaching" subtitle="This audience is present for multiple days and highly engaged.">
         <div className="grid sm:grid-cols-2 gap-6">
           {[
-            "Palm Canyon Drive — the main drag",
-            "Hotel district loops between venues",
-            "Nightlife corridors and after-party routes",
-            "Resort-adjacent streets in downtown Palm Springs",
+            "21–34 core audience (majority)",
+            "Socially active, group-oriented attendees",
+            "Hotel package buyers and weekend travelers",
+            "High-spend lifestyle and nightlife consumers",
+            "West Coast and destination-based visitors",
           ].map((item) => (
             <div key={item} className="flex items-start gap-3">
               <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
@@ -160,9 +172,9 @@ export default function SplashHousePage() {
       <EventSection title="Expected Campaign Impact" dark>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { stat: "High Freq", label: "Multiple impressions per attendee" },
-            { stat: "Day + Night", label: "Pool party to after-party coverage" },
-            { stat: "Compact", label: "Tight geography = concentrated reach" },
+            { stat: "70,000+", label: "Daily impressions (up to)" },
+            { stat: "210,000+", label: "Impressions per weekend (up to)" },
+            { stat: "15,000+", label: "Attendees per weekend" },
           ].map((item) => (
             <div key={item.label} className="text-center">
               <p className="text-gold-base text-4xl font-bold mb-2">{item.stat}</p>
@@ -170,12 +182,39 @@ export default function SplashHousePage() {
             </div>
           ))}
         </div>
+        <div className="grid sm:grid-cols-2 gap-6 mt-12">
+          {[
+            "Tahquitz Canyon Way — 50,000+ daily",
+            "Avenida Caballeros — 40,000+ Friday peak",
+            "Sunrise Way — 35,000+",
+            "Gene Autry Trail — 25,000+ night traffic",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-3">
+              <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
+              <p className="text-text-mid">{item}</p>
+            </div>
+          ))}
+        </div>
       </EventSection>
 
-      {/* Limited Availability */}
-      <EventSection title="Limited Availability" subtitle="Splash House runs twice a summer. Campaign slots for each weekend are strictly limited.">
+      {/* Why This Works + Limited Availability */}
+      <EventSection title="Why This Works" subtitle="Only a small number of brands are placed per campaign. Once routes are filled, access closes.">
+        <div className="grid sm:grid-cols-2 gap-6 mb-10">
+          {[
+            "Long dwell time vs drive-by exposure",
+            "High repetition across hotel zones",
+            "Audience moves in groups (3–5 viewers per impression)",
+            "No algorithm, no skip, no ad blocking",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-3">
+              <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
+              <p className="text-text-mid">{item}</p>
+            </div>
+          ))}
+        </div>
         <div className="luxury-card rounded-2xl p-8 text-center">
-          <p className="text-text-light text-lg font-semibold mb-4">Summer fills up fast. Reserve your Splash House campaign now.</p>
+          <p className="text-text-light text-lg font-semibold mb-4">Mobile DOOH CPM: Approximately $4–$15 vs higher digital alternatives</p>
+          <p className="text-text-mid mb-6">This is controlled exposure inside a concentrated environment.</p>
           <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
             Check Availability
           </Link>
@@ -186,47 +225,52 @@ export default function SplashHousePage() {
       <section id="pricing" className="py-20 md:py-28 bg-black-panel">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Splash House Campaign Positioning
+            Splash House Pricing
           </h2>
           <p className="text-text-mid text-lg max-w-2xl mx-auto mb-12">
-            Summer festival campaigns built for Palm Springs' most iconic pool party experience.
+            Limited placements per weekend.
           </p>
           <div className="gold-divider mx-auto mb-12" />
 
-          <div className="luxury-card rounded-2xl p-10">
-            <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Premium Campaign</p>
-            <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-              Splash House — Weekend Package
-            </h3>
-            <ul className="text-text-mid space-y-3 mb-8 max-w-md mx-auto text-left">
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Weekend LED mobile billboard deployment
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Hotel district and nightlife route coverage
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Day and evening visibility scheduling
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Post-event visibility report
-              </li>
-            </ul>
-            <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-              Request Quote
-            </Link>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="luxury-card rounded-2xl p-10">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Weekend 1</p>
+              <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+                $3,000
+              </h3>
+              <p className="text-text-mid mb-8">August 7–9, 2026</p>
+              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Request Quote
+              </Link>
+            </div>
+            <div className="luxury-card rounded-2xl p-10">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Weekend 2</p>
+              <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+                $3,000
+              </h3>
+              <p className="text-text-mid mb-8">August 14–16, 2026</p>
+              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Request Quote
+              </Link>
+            </div>
+            <div className="luxury-card rounded-2xl p-10 border border-gold-base/30">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Both Weekends</p>
+              <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+                $5,000
+              </h3>
+              <p className="text-text-mid mb-8">Save $1,000</p>
+              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Request Quote
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
       <EventCTA
-        headline="Make a Splash This Summer"
-        subtext="Splash House is where brands meet their audience in the most fun, high-energy environment in the desert. Secure your campaign before summer fills up."
+        headline="Lock Your Visibility Before the Weekend Begins"
+        subtext="Capture attention across hotel, pool, and nightlife movement throughout Palm Springs."
         primaryLabel="Get My Campaign Plan"
       />
     </div>
