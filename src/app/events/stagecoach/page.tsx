@@ -8,43 +8,43 @@ import { Eye, Route, Clock, Crown, FileText, DollarSign, ClipboardList, Users, S
 export const metadata: Metadata = {
   title: "Stagecoach Takeover | BrightPath Billboards",
   description:
-    "Dominate the roads during Stagecoach with premium mobile billboard campaigns. Straightforward route execution for country music's biggest desert festival.",
+    "Own the roads during Stagecoach weekend with premium mobile billboard campaigns across the Coachella Valley's highest-traffic routes.",
 };
 
 export default function StagecoachPage() {
   return (
     <div className="min-h-screen bg-black-hero">
       <EventHero
-        title="Stagecoach Takeover"
-        headline="Country music's biggest festival meets the desert's most powerful mobile billboard network. No fluff. No noise. Just brand dominance on every route."
-        dateRange="Late April"
-        ctaLabel="Get Campaign Plan"
+        title="Own the Roads During Stagecoach Weekend"
+        headline="Capture high-intent traffic as tens of thousands move through the Coachella Valley for one of the highest-spending festival weekends of the year."
+        dateRange="April 24–26, 2026 • Indio, California"
+        ctaLabel="Get My Campaign Plan"
         ctaHref="/quote"
-        secondaryCtaLabel="See Pricing"
-        secondaryCtaHref="#pricing"
+        secondaryCtaLabel="Call Now (760) 385-8989"
+        secondaryCtaHref="tel:7603858989"
       />
 
       {/* Why This Event Matters */}
       <EventSection
-        title="Why Stagecoach Delivers"
-        subtitle="A loyal, high-spending audience that shows up year after year. Stagecoach attendees are brand-aware, engaged, and ready to act."
+        title="Why This Event Matters"
+        subtitle="Stagecoach is one of the highest-spending weekends in the Coachella Valley. This is a purchasing audience, not just a viewing audience."
       >
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
               icon: Users,
-              title: "Loyal Audience",
-              text: "Stagecoach draws a dedicated, returning crowd — attendees who plan trips, spend big, and pay attention to the brands around them.",
+              title: "80,000+ Attendees",
+              text: "Strong repeat attendance year after year with high alcohol, food, and retail spending throughout the weekend.",
             },
             {
               icon: Route,
-              title: "Concentrated Traffic",
-              text: "The festival footprint funnels traffic through predictable, high-density corridors. Every route is a guaranteed visibility channel.",
+              title: "Multi-Day Presence",
+              text: "Multi-day travel and hotel presence creates sustained traffic density across every major route in the valley.",
             },
             {
               icon: Shield,
-              title: "Brand Authority",
-              text: "Stagecoach is straightforward country culture. Brands that show up with confidence and clarity earn immediate respect and recall.",
+              title: "High-Spend Audience",
+              text: "This is a purchasing audience with aggressive weekend spending on food, drinks, retail, and experiences.",
             },
           ].map((item) => (
             <div key={item.title} className="luxury-card rounded-2xl p-8 text-center">
@@ -60,31 +60,31 @@ export default function StagecoachPage() {
 
       {/* BrightPath Strategy */}
       <EventSection
-        title="The BrightPath Strategy"
-        subtitle="Rugged execution. Premium results. Every route mapped to Stagecoach traffic patterns."
+        title="BrightPath Strategy"
+        subtitle="We position where people stop, not just where they pass."
         dark
       >
         <div className="grid md:grid-cols-2 gap-8">
           {[
             {
               icon: Route,
-              title: "Route Positioning",
-              text: "Deployment along festival ingress and egress routes, Highway 111, and resort-adjacent corridors. Every truck is positioned where the crowd moves.",
+              title: "Inbound Focus: 3 PM – 7 PM",
+              text: "Mass arrival window with the highest traffic density. All routes into the festival are covered during peak inbound movement.",
             },
             {
               icon: Clock,
-              title: "Visibility Windows",
-              text: "Coverage from early arrival Thursday through final departure Sunday. Timed to peak traffic surges around shows and after-parties.",
+              title: "Dwell Capture: Indian Wells Tennis Garden",
+              text: "15–45 minute wait times during peak hours. Extended exposure while audiences wait for shuttles.",
             },
             {
               icon: Eye,
-              title: "Execution Logic",
-              text: "LED mobile billboards run continuous high-impact loops. Bold creative. Clear messaging. No distractions — just your brand and the open road.",
+              title: "Main Entry Control: Monroe St & Ave 51",
+              text: "All traffic converges before entry. This is the single highest-density point for inbound festival traffic.",
             },
             {
               icon: Crown,
-              title: "Market Control",
-              text: "Limited campaign slots ensure your message doesn't compete with clutter. Stagecoach campaigns are built for clear, dominant brand presence.",
+              title: "Late Night Exit: 12 AM – 3 AM",
+              text: "Mass outbound movement across Hwy 111 and I-10. Capture the full audience during post-event departure.",
             },
           ].map((item) => (
             <div key={item.title} className="flex gap-5">
@@ -102,14 +102,14 @@ export default function StagecoachPage() {
         </div>
       </EventSection>
 
-      {/* Campaign Assets */}
-      <EventSection title="Campaign Resources" subtitle="Review the Stagecoach campaign package and get your plan in motion.">
+      {/* Where Traffic Converges */}
+      <EventSection title="Where Traffic Converges" subtitle="This is where all inbound and outbound traffic funnels. Primary action center: Empire Polo Club (Indio).">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: FileText, label: "View Media Kit", href: "/quote" },
-            { icon: DollarSign, label: "See Pricing", href: "#pricing" },
-            { icon: ClipboardList, label: "Review Campaign Plan", href: "/quote" },
-            { icon: Users, label: "See Execution Strategy", href: "/quote" },
+            { icon: Route, label: "Monroe St & Ave 51", href: "/quote" },
+            { icon: Eye, label: "Hwy 111 & Jefferson St", href: "/quote" },
+            { icon: ClipboardList, label: "Washington St & Ave 50", href: "/quote" },
+            { icon: Crown, label: "Indio · La Quinta · Indian Wells · Palm Desert", href: "/quote" },
           ].map((item) => (
             <Link
               key={item.label}
@@ -123,30 +123,34 @@ export default function StagecoachPage() {
         </div>
       </EventSection>
 
-      {/* Who This Is For */}
-      <EventSection title="Who This Is For" dark>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Shuttle & Hotel Ecosystem */}
+      <EventSection title="Shuttle & Hotel Ecosystem" dark>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            "Country lifestyle and western brands",
-            "Beverage and spirits companies",
-            "Local and regional businesses",
-            "Sponsors targeting loyal festival-goers",
+            "Indian Wells Tennis Garden",
+            "Palm Springs Convention Center",
+            "Agua Caliente Casino",
+            "JW Marriott Desert Springs",
+            "Renaissance Esmeralda",
+            "La Quinta Resort",
           ].map((item) => (
             <div key={item} className="luxury-card rounded-2xl p-6 text-center">
               <p className="text-text-light font-semibold">{item}</p>
             </div>
           ))}
         </div>
+        <p className="text-text-mid text-center mt-8">These locations create long dwell times and repeated exposure.</p>
       </EventSection>
 
-      {/* Where You'll Be Seen */}
-      <EventSection title="Where You'll Be Seen" subtitle="High-density corridors with predictable, concentrated traffic flow.">
+      {/* Who You're Reaching */}
+      <EventSection title="Who You're Reaching" subtitle="This audience spends aggressively throughout the weekend.">
         <div className="grid sm:grid-cols-2 gap-6">
           {[
-            "Festival ingress and egress routes",
-            "Highway 111 through Indio and La Quinta",
-            "Resort and hotel corridors",
-            "After-party and nightlife zones",
+            "25–45 core audience (shifting younger)",
+            "Strong female demographic growth",
+            "High disposable income ($80K–$150K+ households)",
+            "Group-based spending behavior (4–8 people)",
+            "High alcohol and lifestyle spending",
           ].map((item) => (
             <div key={item} className="flex items-start gap-3">
               <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
@@ -160,9 +164,9 @@ export default function StagecoachPage() {
       <EventSection title="Expected Campaign Impact" dark>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { stat: "75K+", label: "Daily attendees on the road" },
-            { stat: "3 Days", label: "Peak festival coverage" },
-            { stat: "High Intent", label: "Loyal, brand-aware audience" },
+            { stat: "180K+", label: "Daily impressions (120K–180K+)" },
+            { stat: "4–7 PM", label: "Peak visibility window (highest conversion)" },
+            { stat: "Group Effect", label: "One impression reaches multiple people" },
           ].map((item) => (
             <div key={item.label} className="text-center">
               <p className="text-gold-base text-4xl font-bold mb-2">{item.stat}</p>
@@ -170,12 +174,37 @@ export default function StagecoachPage() {
             </div>
           ))}
         </div>
+        <div className="grid sm:grid-cols-2 gap-6 mt-10">
+          {[
+            "High dwell-time exposure at shuttle hubs",
+            "Repeated exposure during inbound traffic waves",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-3">
+              <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
+              <p className="text-text-mid">{item}</p>
+            </div>
+          ))}
+        </div>
       </EventSection>
 
-      {/* Limited Availability */}
-      <EventSection title="Limited Availability" subtitle="Stagecoach campaign slots are capped. Secure your position before the lineup drops.">
+      {/* Why This Works + Limited Availability */}
+      <EventSection title="Why This Works" subtitle="This is real-world attention during peak demand.">
+        <div className="grid sm:grid-cols-2 gap-6 mb-10">
+          {[
+            "Long wait times create forced attention",
+            "High traffic congestion increases exposure time",
+            "Audience moves in groups, not individuals",
+            "No ad skipping, no algorithm filtering",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-3">
+              <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
+              <p className="text-text-mid">{item}</p>
+            </div>
+          ))}
+        </div>
         <div className="luxury-card rounded-2xl p-8 text-center">
-          <p className="text-text-light text-lg font-semibold mb-4">Limited routes available. First-come, first-served.</p>
+          <p className="text-text-light text-lg font-semibold mb-2">Limited Availability</p>
+          <p className="text-text-mid mb-4">Only a limited number of brands are placed during Stagecoach. Once routes are filled, access is closed. This is not unlimited inventory.</p>
           <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
             Check Availability
           </Link>
@@ -186,47 +215,42 @@ export default function StagecoachPage() {
       <section id="pricing" className="py-20 md:py-28 bg-black-panel">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Stagecoach Campaign Positioning
+            Stagecoach Campaign Pricing
           </h2>
           <p className="text-text-mid text-lg max-w-2xl mx-auto mb-12">
-            No-nonsense campaigns built for a no-nonsense audience. Premium route coverage. Maximum impact.
+            Limited campaign placements.
           </p>
           <div className="gold-divider mx-auto mb-12" />
 
-          <div className="luxury-card rounded-2xl p-10">
-            <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Premium Campaign</p>
-            <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-              Stagecoach — Full Route Package
-            </h3>
-            <ul className="text-text-mid space-y-3 mb-8 max-w-md mx-auto text-left">
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Multi-day LED mobile billboard deployment
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Festival corridor route coverage
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Campaign creative consultation
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Post-event visibility report
-              </li>
-            </ul>
-            <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-              Request Quote
-            </Link>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="luxury-card rounded-2xl p-10">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Weekend Access</p>
+              <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+                $3,000
+              </h3>
+              <p className="text-text-mid mb-8">Full weekend billboard deployment across key Stagecoach routes.</p>
+              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Get My Campaign Plan
+              </Link>
+            </div>
+            <div className="luxury-card rounded-2xl p-10">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Full Weekend Coverage</p>
+              <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+                Custom
+              </h3>
+              <p className="text-text-mid mb-8">Custom based on availability. Extended coverage across all high-traffic zones.</p>
+              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Request Quote
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
       <EventCTA
-        headline="Take Over Stagecoach"
-        subtext="The roads are yours. Lock in your Stagecoach campaign and own every mile of the festival experience."
+        headline="Secure Your Placement Before Stagecoach Begins"
+        subtext="Capture attention across the highest-traffic routes in the Coachella Valley."
       />
     </div>
   );

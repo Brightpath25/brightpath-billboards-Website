@@ -3,88 +3,91 @@ import Link from "next/link";
 import EventHero from "@/components/events/EventHero";
 import EventSection from "@/components/events/EventSection";
 import EventCTA from "@/components/events/EventCTA";
-import { Eye, Route, Clock, Crown, FileText, DollarSign, ClipboardList, Users, TrendingUp, BarChart3, Repeat } from "lucide-react";
+import {
+  MapPin,
+  Building2,
+  ShoppingBag,
+  Monitor,
+  UtensilsCrossed,
+  Sun,
+  Moon,
+  Clock,
+  CalendarDays,
+  Target,
+  ShieldCheck,
+  Repeat,
+  Users,
+  TrendingUp,
+  BarChart3,
+  QrCode,
+  Phone,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Off-Season Advertising Strategy | BrightPath Billboards",
   description:
-    "Year-round mobile billboard campaigns with quarterly subscription pricing. Strategic visibility when competition drops and your brand owns the road.",
+    "Launch a 3-month campaign designed for visibility, recall, and measurable results across the Coachella Valley. Dominate when competitors pull back.",
 };
 
 export default function OffSeasonPage() {
   return (
     <div className="min-h-screen bg-black-hero">
+      {/* HERO */}
       <EventHero
-        title="Off-Season Strategy"
-        headline="When the festivals end, the smart brands keep moving. Year-round visibility at a fraction of peak-season rates — with the road entirely to yourself."
-        dateRange="Year-Round — Quarterly Subscription"
-        ctaLabel="Get Campaign Plan"
+        title="Attention does not disappear. It moves."
+        headline="After festival season, the Coachella Valley shifts into controlled, high-intent environments where brands win through consistency, not noise."
+        dateRange="3-Month Campaign — May through September"
+        ctaLabel="Get My Campaign Plan"
         ctaHref="/quote"
-        secondaryCtaLabel="See Pricing"
-        secondaryCtaHref="#pricing"
+        secondaryCtaLabel="Check Availability"
+        secondaryCtaHref="/quote"
       />
 
-      {/* Why This Matters */}
-      <EventSection
-        title="Why Off-Season Wins"
-        subtitle="Lower competition. Lower cost. Higher recall. The brands that stay visible year-round build the deepest market presence."
-      >
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: TrendingUp,
-              title: "Lower Competition",
-              text: "When event campaigns end, most brands disappear from the road. Your continued presence means undivided attention and uncontested visibility.",
-            },
-            {
-              icon: BarChart3,
-              title: "Cost Efficiency",
-              text: "Off-season rates are significantly lower than peak event pricing. Quarterly subscriptions deliver consistent exposure without the premium surcharge.",
-            },
-            {
-              icon: Repeat,
-              title: "Compounding Recall",
-              text: "Repeated exposure builds familiarity. Brands that maintain year-round visibility don't just get seen — they get remembered and chosen.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="luxury-card rounded-2xl p-8 text-center">
-              <item.icon className="h-10 w-10 text-gold-base mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-text-light mb-3" style={{ fontFamily: "var(--font-heading)" }}>
-                {item.title}
-              </h3>
-              <p className="text-text-mid leading-relaxed">{item.text}</p>
-            </div>
-          ))}
+      {/* Hero support content below the shared component */}
+      <section className="bg-black-hero pb-16 -mt-8">
+        <div className="container mx-auto px-4 max-w-3xl text-center">
+          <p className="text-text-mid text-lg mb-6 leading-relaxed">
+            Launch a 3-month campaign designed for visibility, recall, and measurable results across the valley.
+          </p>
+          <p className="text-gold-base font-semibold text-sm tracking-wide mb-8">
+            We typically respond within minutes during business hours.
+          </p>
+          <a
+            href="tel:7603858989"
+            className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
+          >
+            <Phone className="h-5 w-5" />
+            Call Now (760) 385-8989
+          </a>
         </div>
-      </EventSection>
+      </section>
 
-      {/* BrightPath Strategy */}
+      {/* SECTION 2 — The Market Doesn't Slow Down */}
       <EventSection
-        title="The BrightPath Strategy"
-        subtitle="Intelligent route planning. Consistent deployment. A long-term approach that compounds brand equity quarter after quarter."
+        title="The Market Doesn't Slow Down. It Refocuses."
         dark
       >
         <div className="grid md:grid-cols-2 gap-8">
           {[
             {
-              icon: Route,
-              title: "Route Positioning",
-              text: "Seasonal route optimization based on local traffic patterns, shopping corridors, and community event schedules. Your brand goes where the audience naturally flows.",
+              icon: TrendingUp,
+              title: "Traffic Shifts, Not Disappears",
+              text: "Visitors leave, but local movement returns. Daily routines, commuting, dining, and events continue across the valley.",
             },
             {
-              icon: Clock,
-              title: "Visibility Windows",
-              text: "Flexible scheduling across weekdays and weekends. Campaigns adapt to seasonal traffic trends — holiday shopping, snowbird season, local events.",
+              icon: Target,
+              title: "Lower Volume, Higher Intent",
+              text: "Fewer distractions means your message reaches people who are actually making decisions.",
             },
             {
-              icon: Eye,
-              title: "Execution Logic",
-              text: "Consistent weekly deployments with rotating routes to maximize geographic coverage. No single route gets oversaturated — your brand stays fresh.",
+              icon: ShieldCheck,
+              title: "Less Competition",
+              text: "Most brands pull back after festival season. That creates a rare window to dominate visibility.",
             },
             {
-              icon: Crown,
-              title: "Market Control",
-              text: "Quarterly subscriptions lock in your position. While competitors activate only during events, you maintain uninterrupted presence and brand authority.",
+              icon: Monitor,
+              title: "Controlled Attention",
+              text: "Indoor environments, hotels, and repeat routes allow for consistent, uninterrupted exposure.",
             },
           ].map((item) => (
             <div key={item.title} className="flex gap-5">
@@ -102,35 +105,280 @@ export default function OffSeasonPage() {
         </div>
       </EventSection>
 
-      {/* Campaign Assets */}
-      <EventSection title="Campaign Resources" subtitle="Explore the off-season strategy and see how quarterly visibility compounds your market position.">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* SECTION 3 — Where Attention Moves After Festival Season */}
+      <EventSection
+        title="Where Attention Moves After Festival Season"
+      >
+        <div className="space-y-8">
           {[
-            { icon: FileText, label: "View Media Kit", href: "/quote" },
-            { icon: DollarSign, label: "See Pricing", href: "#pricing" },
-            { icon: ClipboardList, label: "Review Campaign Plan", href: "/quote" },
-            { icon: Users, label: "See Execution Strategy", href: "/quote" },
+            {
+              month: "May",
+              label: "Transition Window",
+              text: "Post-festival traffic shifts into hotels, dining, and everyday movement patterns. The audience changes, but opportunity increases.",
+            },
+            {
+              month: "June",
+              label: "Indoor + Entertainment Driven",
+              text: "Concerts, arena events, and indoor environments create high-value audience concentration and controlled exposure.",
+            },
+            {
+              month: "July",
+              label: "Local + Holiday Energy",
+              text: "4th of July events, community gatherings, and strong local traffic create consistent daily visibility.",
+            },
+            {
+              month: "August",
+              label: "Summer Peak Events",
+              text: "Splash House, hotel-based experiences, and nightlife traffic drive younger, high-energy audiences.",
+            },
+            {
+              month: "September",
+              label: "Targeted Dominance",
+              text: "Smaller, niche events with highly focused audiences and minimal competition.",
+            },
           ].map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="luxury-card rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-gold-glow transition-shadow duration-300"
-            >
-              <item.icon className="h-8 w-8 text-gold-base mb-4" />
-              <span className="text-text-light font-semibold">{item.label}</span>
-            </Link>
+            <div key={item.month} className="luxury-card rounded-2xl p-8">
+              <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+                <span className="text-gold-base font-bold text-lg tracking-wide shrink-0 w-28">
+                  {item.month}
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold text-text-light mb-2" style={{ fontFamily: "var(--font-heading)" }}>
+                    {item.label}
+                  </h3>
+                  <p className="text-text-mid leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </EventSection>
 
-      {/* Who This Is For */}
-      <EventSection title="Who This Is For" dark>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* SECTION 4 — Positioned Inside Real Movement */}
+      <EventSection
+        title="Positioned Inside Real Movement"
+        dark
+      >
+        <div className="grid md:grid-cols-2 gap-8">
           {[
-            "Brands building long-term market presence",
-            "Businesses targeting snowbird season",
-            "Real estate and hospitality firms",
-            "Any brand that wants the road to itself",
+            {
+              icon: Building2,
+              title: "Hotels & Resorts",
+              text: "High dwell time environments where guests relax, plan, and make decisions.",
+            },
+            {
+              icon: ShoppingBag,
+              title: "Retail Corridors",
+              text: "Direct exposure at key decision points where spending happens.",
+            },
+            {
+              icon: Monitor,
+              title: "Indoor Venues",
+              text: "Controlled visibility with no algorithm, no competition, and repeat exposure.",
+            },
+            {
+              icon: UtensilsCrossed,
+              title: "Dining & Nightlife Zones",
+              text: "Evening traffic with engaged audiences in social, high-energy environments.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="luxury-card rounded-2xl p-8 text-center">
+              <item.icon className="h-10 w-10 text-gold-base mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-text-light mb-3" style={{ fontFamily: "var(--font-heading)" }}>
+                {item.title}
+              </h3>
+              <p className="text-text-mid leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </EventSection>
+
+      {/* SECTION 5 — Built for Consistency, Not Guesswork */}
+      <EventSection
+        title="Built for Consistency, Not Guesswork"
+      >
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Daily Strategy */}
+          <div>
+            <h3 className="text-xl font-bold text-text-light mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+              Daily Strategy
+            </h3>
+            <div className="space-y-6">
+              {[
+                {
+                  icon: Sun,
+                  title: "Morning — Commuter & Grocery Traffic",
+                  text: "High-frequency movement across established corridors.",
+                },
+                {
+                  icon: Clock,
+                  title: "Midday — Repositioning & Indoor Zones",
+                  text: "Focus shifts to indoor traffic, retail, and shaded environments.",
+                },
+                {
+                  icon: Moon,
+                  title: "Evening — Dining, Events & Nightlife",
+                  text: "Peak engagement in controlled environments where people stay longer.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 rounded-lg bg-gold-base/10 flex items-center justify-center">
+                    <item.icon className="h-5 w-5 text-gold-base" />
+                  </div>
+                  <div>
+                    <h4 className="text-text-light font-semibold mb-1">{item.title}</h4>
+                    <p className="text-text-mid text-sm leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Weekly Strategy */}
+          <div>
+            <h3 className="text-xl font-bold text-text-light mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+              Weekly Strategy
+            </h3>
+            <div className="space-y-6">
+              {[
+                {
+                  icon: CalendarDays,
+                  title: "Friday — Inbound Traffic",
+                  text: "Weekend visitors and hotel check-ins increase volume.",
+                },
+                {
+                  icon: Users,
+                  title: "Saturday — Peak Activity",
+                  text: "Maximum audience density across all active zones.",
+                },
+                {
+                  icon: MapPin,
+                  title: "Sunday — Outbound Traffic",
+                  text: "Guests depart, capturing final impressions.",
+                },
+                {
+                  icon: Repeat,
+                  title: "Midweek — Local Dominance",
+                  text: "Lower volume, cleaner visibility, stronger repetition.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 rounded-lg bg-gold-base/10 flex items-center justify-center">
+                    <item.icon className="h-5 w-5 text-gold-base" />
+                  </div>
+                  <div>
+                    <h4 className="text-text-light font-semibold mb-1">{item.title}</h4>
+                    <p className="text-text-mid text-sm leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </EventSection>
+
+      {/* SECTION 6 — Why Brands Win in the Off-Season */}
+      <EventSection
+        title="Why Brands Win in the Off-Season"
+        dark
+      >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            {
+              icon: Target,
+              title: "Higher Intent Audience",
+              text: "People are moving with purpose, not browsing.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Less Competition",
+              text: "Your brand stands out instead of blending in.",
+            },
+            {
+              icon: Monitor,
+              title: "Controlled Visibility",
+              text: "No algorithm. No auction. Your placement is guaranteed.",
+            },
+            {
+              icon: Repeat,
+              title: "Repeat Exposure",
+              text: "Same routes. Same audiences. Daily repetition builds recall.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="luxury-card rounded-2xl p-8 text-center">
+              <item.icon className="h-10 w-10 text-gold-base mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-text-light mb-3" style={{ fontFamily: "var(--font-heading)" }}>
+                {item.title}
+              </h3>
+              <p className="text-text-mid leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </EventSection>
+
+      {/* SECTION 7 — Founding Campaign Access (Pricing) */}
+      <section id="pricing" className="py-20 md:py-28 bg-black-hero">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              Founding Campaign Access
+            </h2>
+            <div className="gold-divider mx-auto mt-6" />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-14">
+            {/* Founding Rate */}
+            <div className="luxury-card rounded-2xl p-10 text-center border border-gold-base/20">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Founding Rate (Limited)</p>
+              <p className="text-4xl font-bold text-text-light mb-2" style={{ fontFamily: "var(--font-heading)" }}>
+                $5,000<span className="text-lg text-text-mid font-normal"> / month</span>
+              </p>
+              <p className="text-text-mid text-sm">3-month commitment required</p>
+            </div>
+
+            {/* Standard Rate */}
+            <div className="luxury-card rounded-2xl p-10 text-center">
+              <p className="text-text-mid font-semibold tracking-widest uppercase text-sm mb-2">Standard Rate</p>
+              <p className="text-4xl font-bold text-text-light mb-2" style={{ fontFamily: "var(--font-heading)" }}>
+                $7,500<span className="text-lg text-text-mid font-normal"> / month</span>
+              </p>
+              <p className="text-text-mid text-sm">Applies once founding spots are filled</p>
+            </div>
+          </div>
+
+          {/* What's Included */}
+          <div className="luxury-card rounded-2xl p-10 max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-text-light mb-6 text-center" style={{ fontFamily: "var(--font-heading)" }}>
+              What's Included
+            </h3>
+            <ul className="text-text-mid space-y-3">
+              {[
+                "Full route network access",
+                "Indoor and outdoor coverage",
+                "Consistent daily exposure",
+                "GPS tracking verification",
+                "Monthly performance review",
+                "Dedicated campaign strategy",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 8 — Built for Brands That Think Long-Term */}
+      <EventSection title="Built for Brands That Think Long-Term" dark>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            "Restaurants, retail, and hospitality brands",
+            "Real estate and local service businesses",
+            "Brands targeting both locals and visitors",
+            "Advertisers who want consistency over one-time spikes",
+            "Operators focused on market dominance, not short campaigns",
           ].map((item) => (
             <div key={item} className="luxury-card rounded-2xl p-6 text-center">
               <p className="text-text-light font-semibold">{item}</p>
@@ -139,99 +387,66 @@ export default function OffSeasonPage() {
         </div>
       </EventSection>
 
-      {/* Where You'll Be Seen */}
-      <EventSection title="Where You'll Be Seen" subtitle="Rotating routes across the entire Coachella Valley — optimized by season.">
-        <div className="grid sm:grid-cols-2 gap-6">
+      {/* SECTION 9 — What This Produces */}
+      <EventSection title="What This Produces">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            "Highway 111 — full valley coverage",
-            "El Paseo and shopping corridors",
-            "Community event routes and local festivals",
-            "Snowbird-heavy residential and resort areas",
-          ].map((item) => (
-            <div key={item} className="flex items-start gap-3">
-              <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
-              <p className="text-text-mid">{item}</p>
-            </div>
-          ))}
-        </div>
-      </EventSection>
-
-      {/* Expected Campaign Impact */}
-      <EventSection title="Expected Campaign Impact" dark>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { stat: "52 Weeks", label: "Continuous brand presence" },
-            { stat: "Lower CPM", label: "Fraction of peak-season cost" },
-            { stat: "Zero Noise", label: "Uncontested road visibility" },
+            {
+              icon: BarChart3,
+              stat: "80K\u2013150K",
+              label: "Daily Impressions",
+              text: "Across active routes and zones",
+            },
+            {
+              icon: MapPin,
+              stat: "Foot Traffic",
+              label: "Influence",
+              text: "Direct exposure tied to physical locations",
+            },
+            {
+              icon: TrendingUp,
+              stat: "Brand Recall",
+              label: "Growth",
+              text: "Built through repetition, not one-time exposure",
+            },
+            {
+              icon: QrCode,
+              stat: "QR + Engagement",
+              label: "Tracking",
+              text: "Measurable interaction from real-world visibility",
+            },
           ].map((item) => (
             <div key={item.label} className="text-center">
-              <p className="text-gold-base text-4xl font-bold mb-2">{item.stat}</p>
-              <p className="text-text-mid">{item.label}</p>
+              <item.icon className="h-10 w-10 text-gold-base mx-auto mb-4" />
+              <p className="text-gold-base text-2xl font-bold mb-1">{item.stat}</p>
+              <p className="text-text-light font-semibold mb-2">{item.label}</p>
+              <p className="text-text-mid text-sm leading-relaxed">{item.text}</p>
             </div>
           ))}
         </div>
       </EventSection>
 
-      {/* Limited Availability */}
-      <EventSection title="Limited Availability" subtitle="Quarterly subscription slots are limited to maintain exclusivity per route.">
-        <div className="luxury-card rounded-2xl p-8 text-center">
-          <p className="text-text-light text-lg font-semibold mb-4">Lock in your quarterly rate before routes fill up.</p>
+      {/* SECTION 10 — Limited Founding Access */}
+      <EventSection title="Limited Founding Access" dark>
+        <div className="luxury-card rounded-2xl p-10 text-center max-w-2xl mx-auto">
+          <p className="text-text-light text-lg leading-relaxed mb-6">
+            Only a small number of campaigns are accepted each cycle.
+          </p>
+          <p className="text-text-mid leading-relaxed mb-8">
+            Once founding spots are filled: pricing increases, availability becomes limited, and positioning advantage is lost.
+          </p>
           <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-            Check Availability
+            Reserve Your Spot
           </Link>
         </div>
       </EventSection>
 
-      {/* Pricing */}
-      <section id="pricing" className="py-20 md:py-28 bg-black-panel">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-            Quarterly Subscription Positioning
-          </h2>
-          <p className="text-text-mid text-lg max-w-2xl mx-auto mb-12">
-            Strategic, affordable, and built for brands that think long-term. Lock in quarterly visibility and compound your market presence.
-          </p>
-          <div className="gold-divider mx-auto mb-12" />
-
-          <div className="luxury-card rounded-2xl p-10">
-            <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Subscription</p>
-            <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-              Quarterly Off-Season Package
-            </h3>
-            <ul className="text-text-mid space-y-3 mb-8 max-w-md mx-auto text-left">
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Weekly LED mobile billboard deployments
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Rotating route coverage across key corridors
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Seasonal route optimization
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Quarterly performance reports
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-gold-base mt-1">&#10003;</span>
-                Priority access to event campaign add-ons
-              </li>
-            </ul>
-            <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-              Request Quote
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
+      {/* SECTION 11 — Final CTA */}
       <EventCTA
-        headline="Build Year-Round Visibility"
-        subtext="The best brands don't disappear between events. Start your quarterly subscription and keep your message on the road every day."
-        primaryLabel="Start My Subscription"
+        headline="Secure your place in the network"
+        subtext="3-month campaign built for real visibility, controlled attention, and measurable results."
+        primaryLabel="Reserve Your Spot"
+        primaryHref="/quote"
       />
     </div>
   );
