@@ -5,449 +5,934 @@ import EventSection from "@/components/events/EventSection";
 import EventCTA from "@/components/events/EventCTA";
 import {
   MapPin,
-  Building2,
-  ShoppingBag,
-  Monitor,
-  UtensilsCrossed,
-  Sun,
-  Moon,
-  Clock,
-  CalendarDays,
-  Target,
-  ShieldCheck,
-  Repeat,
-  Users,
-  TrendingUp,
   BarChart3,
-  QrCode,
+  Eye,
+  CalendarCheck,
+  Car,
+  Users,
+  Footprints,
+  TrendingUp,
+  Activity,
+  ShieldCheck,
+  Target,
+  Repeat,
+  Clock,
+  ArrowRight,
+  Layers,
   Phone,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Off-Season Advertising Strategy | BrightPath Billboards",
+  title:
+    "Off Season Advertising Coachella Valley Mobile Billboards",
   description:
-    "Launch a 3-month campaign designed for visibility, recall, and measurable results across the Coachella Valley. Dominate when competitors pull back.",
+    "Mobile billboard advertising across the Coachella Valley off season. Reach audiences through events, nightlife, dining, and high traffic movement from May through July.",
 };
 
+/* ================================================================
+   DATA LAYER — Scalable quarterly / monthly structure.
+   To add Quarter 2, duplicate the Q1 pattern with Aug/Sep/Oct data.
+   ================================================================ */
+
+interface MonthData {
+  title: string;
+  subtitle: string;
+  environment: string;
+  events: string[];
+  touchpoints: string;
+  audienceZones: string[];
+  measurement: {
+    vehiclesPerHour: string;
+    campaignHours: number;
+    vehicleExposure: string;
+    occupancy: number;
+    vehicleImpressions: string;
+    pedestrianExposure: string;
+    totalDailyImpressions: string;
+  };
+  monthlyOutput: {
+    impressions: string;
+    realEyes: string;
+  };
+  performance: string[];
+}
+
+interface QuarterData {
+  label: string;
+  months: string;
+  totalTouchpoints: string;
+  totalImpressions: string;
+  totalRealEyes: string;
+  monthData: MonthData[];
+}
+
+const QUARTER_1: QuarterData = {
+  label: "Quarter 1",
+  months: "May through July",
+  totalTouchpoints: "310 to 395",
+  totalImpressions: "10.5M to 16.2M",
+  totalRealEyes: "3.15M to 6.48M",
+  monthData: [
+    {
+      title: "May",
+      subtitle: "Transition Visibility and Local Frequency",
+      environment:
+        "Transition from festival season into consistent local movement",
+      events: [
+        "Restaurant Week buildup",
+        "Desert X closing activity",
+        "Joshua Tree Music Festival",
+        "Taste of Jalisco",
+        "VillageFest",
+        "Casino entertainment",
+      ],
+      touchpoints: "80 to 110",
+      audienceZones: [
+        "Local residents",
+        "Remaining tourists",
+        "Dining and retail traffic",
+        "Highway 111",
+        "Palm Canyon Drive",
+        "Indio casino corridors",
+      ],
+      measurement: {
+        vehiclesPerHour: "5,000 to 7,000",
+        campaignHours: 8,
+        vehicleExposure: "40,000 to 56,000",
+        occupancy: 1.5,
+        vehicleImpressions: "60,000 to 84,000",
+        pedestrianExposure: "30,000 to 60,000",
+        totalDailyImpressions: "90,000 to 140,000",
+      },
+      monthlyOutput: {
+        impressions: "2.7M to 4.2M",
+        realEyes: "810K to 1.68M",
+      },
+      performance: [
+        "Lower competition",
+        "High repeat exposure",
+        "Strong retention",
+      ],
+    },
+    {
+      title: "June",
+      subtitle: "Entertainment Density and Multi Source Exposure",
+      environment:
+        "Increased activity across entertainment and nightlife",
+      events: [
+        "Acrisure Arena shows",
+        "ShortFest",
+        "Pride Month",
+        "Juneteenth",
+        "Casino events",
+        "Nightlife and hotel activations",
+      ],
+      touchpoints: "110 to 135",
+      audienceZones: [
+        "Locals and tourists",
+        "Entertainment driven traffic",
+        "Dining and nightlife zones",
+      ],
+      measurement: {
+        vehiclesPerHour: "6,000 to 8,500",
+        campaignHours: 8,
+        vehicleExposure: "48,000 to 68,000",
+        occupancy: 1.5,
+        vehicleImpressions: "72,000 to 102,000",
+        pedestrianExposure: "50,000 to 90,000",
+        totalDailyImpressions: "120,000 to 180,000",
+      },
+      monthlyOutput: {
+        impressions: "3.6M to 5.4M",
+        realEyes: "1.08M to 2.16M",
+      },
+      performance: [
+        "Multiple audience sources",
+        "Higher dwell time",
+        "Balanced exposure",
+      ],
+    },
+    {
+      title: "July",
+      subtitle: "Nighttime Concentration and Peak Summer Attention",
+      environment:
+        "Heat shifts activity to evening and nighttime environments",
+      events: [
+        "Fourth of July events",
+        "Concerts and headliners",
+        "Splash House",
+        "Pool parties",
+        "Resort activity",
+        "Community events",
+      ],
+      touchpoints: "120 to 150",
+      audienceZones: [
+        "Locals",
+        "Tourists",
+        "Nightlife audiences",
+        "Resort visitors",
+        "Evening traffic patterns",
+      ],
+      measurement: {
+        vehiclesPerHour: "6,500 to 9,000",
+        campaignHours: 8,
+        vehicleExposure: "52,000 to 72,000",
+        occupancy: 1.5,
+        vehicleImpressions: "78,000 to 108,000",
+        pedestrianExposure: "70,000 to 120,000",
+        totalDailyImpressions: "140,000 to 220,000",
+      },
+      monthlyOutput: {
+        impressions: "4.2M to 6.6M",
+        realEyes: "1.26M to 2.64M",
+      },
+      performance: [
+        "Night concentration",
+        "Holiday spikes",
+        "High engagement",
+      ],
+    },
+  ],
+};
+
+/* ================================================================
+   REUSABLE SUB-COMPONENTS
+   ================================================================ */
+
+function StatCard({
+  value,
+  label,
+  icon: Icon,
+  large,
+}: {
+  value: string;
+  label: string;
+  icon?: React.ComponentType<{ className?: string }>;
+  large?: boolean;
+}) {
+  return (
+    <div className="luxury-card rounded-2xl p-6 md:p-8 text-center">
+      {Icon && <Icon className="h-8 w-8 text-gold-base mx-auto mb-3" />}
+      <p
+        className={`font-bold text-gold-base mb-1 ${large ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl"}`}
+        style={{ fontFamily: "var(--font-heading)" }}
+      >
+        {value}
+      </p>
+      <p className="text-text-mid text-sm">{label}</p>
+    </div>
+  );
+}
+
+function MeasurementRow({
+  label,
+  value,
+  icon: Icon,
+}: {
+  label: string;
+  value: string;
+  icon: React.ComponentType<{ className?: string }>;
+}) {
+  return (
+    <div className="flex items-center gap-4 py-3 border-b border-gold-base/10 last:border-0">
+      <div className="shrink-0 w-9 h-9 rounded-lg bg-gold-base/10 flex items-center justify-center">
+        <Icon className="h-4 w-4 text-gold-base" />
+      </div>
+      <span className="text-text-mid text-sm flex-1">{label}</span>
+      <span className="text-text-light font-semibold text-sm">{value}</span>
+    </div>
+  );
+}
+
+function MonthSection({ month, index }: { month: MonthData; index: number }) {
+  const isDark = index % 2 === 0;
+
+  return (
+    <section
+      id={`month-${month.title.toLowerCase()}`}
+      className={`py-20 md:py-28 ${isDark ? "bg-black-panel" : "bg-black-hero"}`}
+    >
+      <div className="container mx-auto px-4 max-w-6xl">
+        {/* Month header */}
+        <div className="text-center mb-14">
+          <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-3">
+            Campaign Month
+          </p>
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-4"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            {month.title}
+          </h2>
+          <p className="text-text-mid text-lg md:text-xl max-w-2xl mx-auto">
+            {month.subtitle}
+          </p>
+          <div className="gold-divider mx-auto mt-6" />
+        </div>
+
+        {/* Environment */}
+        <div className="text-center mb-12">
+          <p className="text-text-mid text-lg leading-relaxed max-w-3xl mx-auto">
+            {month.environment}
+          </p>
+        </div>
+
+        {/* Top-level monthly stats */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
+          <StatCard
+            value={month.monthlyOutput.impressions}
+            label="Monthly Impressions"
+            icon={BarChart3}
+          />
+          <StatCard
+            value={month.monthlyOutput.realEyes}
+            label="Real Eyes"
+            icon={Eye}
+          />
+          <StatCard
+            value={month.touchpoints}
+            label="Event Touchpoints"
+            icon={CalendarCheck}
+          />
+          <StatCard
+            value={month.measurement.totalDailyImpressions}
+            label="Daily Impressions"
+            icon={Activity}
+          />
+        </div>
+
+        {/* Two-column detail grid */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {/* Event activity */}
+          <div className="luxury-card rounded-2xl p-8">
+            <h3
+              className="text-xl font-bold text-text-light mb-6"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Key Event Activity
+            </h3>
+            <div className="space-y-3">
+              {month.events.map((event) => (
+                <div key={event} className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold-base shrink-0" />
+                  <span className="text-text-mid">{event}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Audience and movement */}
+          <div className="luxury-card rounded-2xl p-8">
+            <h3
+              className="text-xl font-bold text-text-light mb-6"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Audience and Movement Zones
+            </h3>
+            <div className="space-y-3">
+              {month.audienceZones.map((zone) => (
+                <div key={zone} className="flex items-center gap-3">
+                  <MapPin className="h-4 w-4 text-gold-base shrink-0" />
+                  <span className="text-text-mid">{zone}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Measurement model */}
+        <div className="luxury-card rounded-2xl p-8 md:p-10 max-w-3xl mx-auto mb-16">
+          <h3
+            className="text-xl font-bold text-text-light mb-6 text-center"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Measurement Model
+          </h3>
+          <MeasurementRow
+            icon={Car}
+            label="Vehicles Per Hour"
+            value={month.measurement.vehiclesPerHour}
+          />
+          <MeasurementRow
+            icon={Clock}
+            label="Campaign Hours Per Day"
+            value={`${month.measurement.campaignHours}`}
+          />
+          <MeasurementRow
+            icon={Car}
+            label="Vehicle Exposure"
+            value={month.measurement.vehicleExposure}
+          />
+          <MeasurementRow
+            icon={Users}
+            label="Occupancy Rate"
+            value={`${month.measurement.occupancy}`}
+          />
+          <MeasurementRow
+            icon={BarChart3}
+            label="Vehicle Impressions"
+            value={month.measurement.vehicleImpressions}
+          />
+          <MeasurementRow
+            icon={Footprints}
+            label="Pedestrian Exposure"
+            value={month.measurement.pedestrianExposure}
+          />
+          <MeasurementRow
+            icon={Activity}
+            label="Total Daily Impressions"
+            value={month.measurement.totalDailyImpressions}
+          />
+        </div>
+
+        {/* Performance characteristics */}
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          {month.performance.map((trait) => (
+            <span
+              key={trait}
+              className="px-6 py-3 rounded-full border border-gold-base/20 text-gold-base font-semibold text-sm tracking-wide"
+            >
+              {trait}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   PAGE
+   ================================================================ */
+
 export default function OffSeasonPage() {
+  const q1 = QUARTER_1;
+
   return (
     <div className="min-h-screen bg-black-hero">
-      {/* HERO */}
-      <EventHero
-        title="Attention does not disappear. It moves."
-        headline="After festival season, the Coachella Valley shifts into controlled, high-intent environments where brands win through consistency, not noise."
-        dateRange="3-Month Campaign — May through September"
-        ctaLabel="Get My Campaign Plan"
-        ctaHref="/quote"
-        secondaryCtaLabel="Check Availability"
-        secondaryCtaHref="/quote"
-      />
+      {/* ──────────────────────── 1. HERO ──────────────────────── */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-hero-gradient" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,176,75,0.08)_0%,transparent_70%)]" />
 
-      {/* Hero support content below the shared component */}
-      <section className="bg-black-hero pb-16 -mt-8">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
-          <p className="text-text-mid text-lg mb-6 leading-relaxed">
-            Launch a 3-month campaign designed for visibility, recall, and measurable results across the valley.
-          </p>
-          <p className="text-gold-base font-semibold text-sm tracking-wide mb-8">
-            We typically respond within minutes during business hours.
-          </p>
-          <a
-            href="tel:7603858989"
-            className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
+        <div className="relative z-10 container mx-auto px-4 py-32 text-center max-w-4xl">
+          <Link
+            href="/events"
+            className="inline-flex items-center gap-2 text-text-mid hover:text-gold-highlight transition-colors mb-8 text-sm"
           >
-            <Phone className="h-5 w-5" />
-            Call Now (760) 385-8989
-          </a>
+            <ArrowRight className="h-4 w-4 rotate-180" />
+            All Events
+          </Link>
+
+          <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-4">
+            Off Season Subscription Campaign
+          </p>
+
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-text-light leading-tight"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Off Season Does Not Mean Low Attention
+          </h1>
+
+          <p className="text-lg md:text-xl text-text-mid max-w-3xl mx-auto mb-12 leading-relaxed">
+            BrightPath places your brand inside daily movement, events,
+            nightlife, dining corridors, and high traffic environments across the
+            Coachella Valley.
+          </p>
+
+          {/* Hero stat row */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-12">
+            <div className="luxury-card rounded-2xl p-6">
+              <p
+                className="text-2xl md:text-3xl font-bold text-gold-base mb-1"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                10.5M to 16.2M
+              </p>
+              <p className="text-text-mid text-sm">Projected Impressions</p>
+            </div>
+            <div className="luxury-card rounded-2xl p-6">
+              <p
+                className="text-2xl md:text-3xl font-bold text-gold-base mb-1"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                3.15M to 6.48M
+              </p>
+              <p className="text-text-mid text-sm">Real Eyes</p>
+            </div>
+            <div className="luxury-card rounded-2xl p-6">
+              <p
+                className="text-2xl md:text-3xl font-bold text-gold-base mb-1"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                310 to 395
+              </p>
+              <p className="text-text-mid text-sm">Event Touchpoints</p>
+            </div>
+          </div>
+
+          {/* Hero CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/quote"
+              className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg"
+            >
+              Start a Subscription Campaign
+            </Link>
+            <a
+              href="#quarter-1-overview"
+              className="px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
+            >
+              View Quarter 1 Breakdown
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* SECTION 2 — The Market Doesn't Slow Down */}
-      <EventSection
-        title="The Market Doesn't Slow Down. It Refocuses."
-        dark
-      >
-        <div className="grid md:grid-cols-2 gap-8">
-          {[
-            {
-              icon: TrendingUp,
-              title: "Traffic Shifts, Not Disappears",
-              text: "Visitors leave, but local movement returns. Daily routines, commuting, dining, and events continue across the valley.",
-            },
-            {
-              icon: Target,
-              title: "Lower Volume, Higher Intent",
-              text: "Fewer distractions means your message reaches people who are actually making decisions.",
-            },
-            {
-              icon: ShieldCheck,
-              title: "Less Competition",
-              text: "Most brands pull back after festival season. That creates a rare window to dominate visibility.",
-            },
-            {
-              icon: Monitor,
-              title: "Controlled Attention",
-              text: "Indoor environments, hotels, and repeat routes allow for consistent, uninterrupted exposure.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="flex gap-5">
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-gold-base/10 flex items-center justify-center">
-                <item.icon className="h-6 w-6 text-gold-base" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-text-light mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-                  {item.title}
-                </h3>
-                <p className="text-text-mid leading-relaxed">{item.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* ──────────── 2. OFF SEASON FRAMEWORK INTRODUCTION ──────────── */}
+      <EventSection title="A Multi Month Off Season Opportunity" id="framework">
+        <p className="text-text-mid text-lg leading-relaxed max-w-3xl mx-auto text-center">
+          The off season creates a longer window for brands to build visibility,
+          frequency, and local presence. Quarter 1 covers May through July, where
+          attention shifts from post festival movement into dining,
+          entertainment, nightlife, and concentrated summer activity.
+        </p>
       </EventSection>
 
-      {/* SECTION 3 — Where Attention Moves After Festival Season */}
-      <EventSection
-        title="Where Attention Moves After Festival Season"
+      {/* ──────────── 3. QUARTER 1 OVERVIEW ──────────── */}
+      <section
+        id="quarter-1-overview"
+        className="py-20 md:py-28 bg-black-panel"
       >
-        <div className="space-y-8">
-          {[
-            {
-              month: "May",
-              label: "Transition Window",
-              text: "Post-festival traffic shifts into hotels, dining, and everyday movement patterns. The audience changes, but opportunity increases.",
-            },
-            {
-              month: "June",
-              label: "Indoor + Entertainment Driven",
-              text: "Concerts, arena events, and indoor environments create high-value audience concentration and controlled exposure.",
-            },
-            {
-              month: "July",
-              label: "Local + Holiday Energy",
-              text: "4th of July events, community gatherings, and strong local traffic create consistent daily visibility.",
-            },
-            {
-              month: "August",
-              label: "Summer Peak Events",
-              text: "Splash House, hotel-based experiences, and nightlife traffic drive younger, high-energy audiences.",
-            },
-            {
-              month: "September",
-              label: "Targeted Dominance",
-              text: "Smaller, niche events with highly focused audiences and minimal competition.",
-            },
-          ].map((item) => (
-            <div key={item.month} className="luxury-card rounded-2xl p-8">
-              <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                <span className="text-gold-base font-bold text-lg tracking-wide shrink-0 w-28">
-                  {item.month}
-                </span>
-                <div>
-                  <h3 className="text-lg font-bold text-text-light mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-                    {item.label}
-                  </h3>
-                  <p className="text-text-mid leading-relaxed">{item.text}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </EventSection>
-
-      {/* SECTION 4 — Positioned Inside Real Movement */}
-      <EventSection
-        title="Positioned Inside Real Movement"
-        dark
-      >
-        <div className="grid md:grid-cols-2 gap-8">
-          {[
-            {
-              icon: Building2,
-              title: "Hotels & Resorts",
-              text: "High dwell time environments where guests relax, plan, and make decisions.",
-            },
-            {
-              icon: ShoppingBag,
-              title: "Retail Corridors",
-              text: "Direct exposure at key decision points where spending happens.",
-            },
-            {
-              icon: Monitor,
-              title: "Indoor Venues",
-              text: "Controlled visibility with no algorithm, no competition, and repeat exposure.",
-            },
-            {
-              icon: UtensilsCrossed,
-              title: "Dining & Nightlife Zones",
-              text: "Evening traffic with engaged audiences in social, high-energy environments.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="luxury-card rounded-2xl p-8 text-center">
-              <item.icon className="h-10 w-10 text-gold-base mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-text-light mb-3" style={{ fontFamily: "var(--font-heading)" }}>
-                {item.title}
-              </h3>
-              <p className="text-text-mid leading-relaxed">{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </EventSection>
-
-      {/* SECTION 5 — Built for Consistency, Not Guesswork */}
-      <EventSection
-        title="Built for Consistency, Not Guesswork"
-      >
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Daily Strategy */}
-          <div>
-            <h3 className="text-xl font-bold text-text-light mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-              Daily Strategy
-            </h3>
-            <div className="space-y-6">
-              {[
-                {
-                  icon: Sun,
-                  title: "Morning — Commuter & Grocery Traffic",
-                  text: "High-frequency movement across established corridors.",
-                },
-                {
-                  icon: Clock,
-                  title: "Midday — Repositioning & Indoor Zones",
-                  text: "Focus shifts to indoor traffic, retail, and shaded environments.",
-                },
-                {
-                  icon: Moon,
-                  title: "Evening — Dining, Events & Nightlife",
-                  text: "Peak engagement in controlled environments where people stay longer.",
-                },
-              ].map((item) => (
-                <div key={item.title} className="flex gap-4">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-gold-base/10 flex items-center justify-center">
-                    <item.icon className="h-5 w-5 text-gold-base" />
-                  </div>
-                  <div>
-                    <h4 className="text-text-light font-semibold mb-1">{item.title}</h4>
-                    <p className="text-text-mid text-sm leading-relaxed">{item.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Weekly Strategy */}
-          <div>
-            <h3 className="text-xl font-bold text-text-light mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-              Weekly Strategy
-            </h3>
-            <div className="space-y-6">
-              {[
-                {
-                  icon: CalendarDays,
-                  title: "Friday — Inbound Traffic",
-                  text: "Weekend visitors and hotel check-ins increase volume.",
-                },
-                {
-                  icon: Users,
-                  title: "Saturday — Peak Activity",
-                  text: "Maximum audience density across all active zones.",
-                },
-                {
-                  icon: MapPin,
-                  title: "Sunday — Outbound Traffic",
-                  text: "Guests depart, capturing final impressions.",
-                },
-                {
-                  icon: Repeat,
-                  title: "Midweek — Local Dominance",
-                  text: "Lower volume, cleaner visibility, stronger repetition.",
-                },
-              ].map((item) => (
-                <div key={item.title} className="flex gap-4">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-gold-base/10 flex items-center justify-center">
-                    <item.icon className="h-5 w-5 text-gold-base" />
-                  </div>
-                  <div>
-                    <h4 className="text-text-light font-semibold mb-1">{item.title}</h4>
-                    <p className="text-text-mid text-sm leading-relaxed">{item.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </EventSection>
-
-      {/* SECTION 6 — Why Brands Win in the Off-Season */}
-      <EventSection
-        title="Why Brands Win in the Off-Season"
-        dark
-      >
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              icon: Target,
-              title: "Higher Intent Audience",
-              text: "People are moving with purpose, not browsing.",
-            },
-            {
-              icon: ShieldCheck,
-              title: "Less Competition",
-              text: "Your brand stands out instead of blending in.",
-            },
-            {
-              icon: Monitor,
-              title: "Controlled Visibility",
-              text: "No algorithm. No auction. Your placement is guaranteed.",
-            },
-            {
-              icon: Repeat,
-              title: "Repeat Exposure",
-              text: "Same routes. Same audiences. Daily repetition builds recall.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="luxury-card rounded-2xl p-8 text-center">
-              <item.icon className="h-10 w-10 text-gold-base mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-text-light mb-3" style={{ fontFamily: "var(--font-heading)" }}>
-                {item.title}
-              </h3>
-              <p className="text-text-mid leading-relaxed">{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </EventSection>
-
-      {/* SECTION 7 — Founding Campaign Access (Pricing) */}
-      <section id="pricing" className="py-20 md:py-28 bg-black-hero">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-              Founding Campaign Access
+            <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-3">
+              {q1.label}
+            </p>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-text-light mb-4"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              {q1.label} Off Season Performance
             </h2>
             <div className="gold-divider mx-auto mt-6" />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-14">
-            {/* Founding Rate */}
-            <div className="luxury-card rounded-2xl p-10 text-center border border-gold-base/20">
-              <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Founding Rate (Limited)</p>
-              <p className="text-4xl font-bold text-text-light mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-                $5,000<span className="text-lg text-text-mid font-normal"> / month</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+            <StatCard
+              value={q1.totalTouchpoints}
+              label="Total Event Touchpoints"
+              icon={CalendarCheck}
+              large
+            />
+            <StatCard
+              value={q1.totalImpressions}
+              label="Total Impressions"
+              icon={BarChart3}
+              large
+            />
+            <StatCard
+              value={q1.totalRealEyes}
+              label="Total Real Eyes"
+              icon={Eye}
+              large
+            />
+          </div>
+
+          <p className="text-text-mid text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            {q1.label} demonstrates how a three month campaign builds repeated
+            exposure across real movement patterns, events, retail corridors,
+            hotels, and nightlife environments.
+          </p>
+        </div>
+      </section>
+
+      {/* ──────────── 4 / 5 / 6. MONTHLY CAMPAIGN SECTIONS ──────────── */}
+      {q1.monthData.map((month, idx) => (
+        <MonthSection key={month.title} month={month} index={idx} />
+      ))}
+
+      {/* ──────────── OFF-SEASON ACTIVITY BY MONTH ──────────── */}
+      <section className="py-20 md:py-28 bg-black-panel">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-14">
+            <h2
+              className="text-3xl md:text-4xl font-bold text-text-light mb-4"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Off-Season Activity by Month
+            </h2>
+            <p className="text-text-mid text-lg">
+              Real movement. Real traffic. Real opportunity.
+            </p>
+            <div className="gold-divider mx-auto mt-6" />
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6 mb-12">
+            {/* May */}
+            <div className="luxury-card rounded-2xl p-8">
+              <h3
+                className="text-xl font-bold text-gold-base mb-2"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                May
+              </h3>
+              <p className="text-text-light font-semibold text-sm mb-4">
+                Transition and High-Intent Traffic
               </p>
-              <p className="text-text-mid text-sm">3-month commitment required</p>
+              <div className="space-y-2 mb-6">
+                {[
+                  "Post-Coachella hotel occupancy",
+                  "Memorial Day surge",
+                  "Downtown nightlife patterns",
+                  "Retail corridor traffic",
+                  "Resort pool activity",
+                  "Weekend events and markets",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-base shrink-0" />
+                    <span className="text-text-mid text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="pt-4 border-t border-gold-base/10 space-y-3">
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Estimated Daily Impressions</p>
+                  <p className="text-text-light text-sm font-bold mt-0.5">80,000 &ndash; 140,000+</p>
+                </div>
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Audience Behavior</p>
+                  <p className="text-text-mid text-sm mt-0.5">
+                    Local + visitor crossover with active spending patterns
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Impact</p>
+                  <p className="text-text-mid text-sm mt-0.5">
+                    High visibility with reduced competition
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Standard Rate */}
-            <div className="luxury-card rounded-2xl p-10 text-center">
-              <p className="text-text-mid font-semibold tracking-widest uppercase text-sm mb-2">Standard Rate</p>
-              <p className="text-4xl font-bold text-text-light mb-2" style={{ fontFamily: "var(--font-heading)" }}>
-                $7,500<span className="text-lg text-text-mid font-normal"> / month</span>
+            {/* June */}
+            <div className="luxury-card rounded-2xl p-8">
+              <h3
+                className="text-xl font-bold text-gold-base mb-2"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                June
+              </h3>
+              <p className="text-text-light font-semibold text-sm mb-4">
+                Indoor and Entertainment Concentration
               </p>
-              <p className="text-text-mid text-sm">Applies once founding spots are filled</p>
+              <div className="space-y-2 mb-6">
+                {[
+                  "Casino traffic",
+                  "Acrisure Arena events",
+                  "Indoor dining and nightlife",
+                  "Hotel staycations",
+                  "Retail and mall traffic",
+                  "Weekly nightlife cycles",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-base shrink-0" />
+                    <span className="text-text-mid text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="pt-4 border-t border-gold-base/10 space-y-3">
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Estimated Daily Impressions</p>
+                  <p className="text-text-light text-sm font-bold mt-0.5">70,000 &ndash; 120,000+</p>
+                </div>
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Audience Behavior</p>
+                  <p className="text-text-mid text-sm mt-0.5">
+                    Longer dwell times in indoor environments
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Impact</p>
+                  <p className="text-text-mid text-sm mt-0.5">
+                    More consistent exposure and retention
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* July */}
+            <div className="luxury-card rounded-2xl p-8">
+              <h3
+                className="text-xl font-bold text-gold-base mb-2"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                July
+              </h3>
+              <p className="text-text-light font-semibold text-sm mb-4">
+                Holiday and Weekend Dominance
+              </p>
+              <div className="space-y-2 mb-6">
+                {[
+                  "4th of July tourism",
+                  "Resort and family travel",
+                  "Pool and hotel peak usage",
+                  "Nightlife and dining patterns",
+                  "Retail promotions",
+                  "Weekend inflow traffic",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-base shrink-0" />
+                    <span className="text-text-mid text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="pt-4 border-t border-gold-base/10 space-y-3">
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Estimated Daily Impressions</p>
+                  <p className="text-text-light text-sm font-bold mt-0.5">90,000 &ndash; 160,000+</p>
+                </div>
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Audience Behavior</p>
+                  <p className="text-text-mid text-sm mt-0.5">
+                    High weekend density and repeat exposure
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gold-base text-sm font-semibold">Impact</p>
+                  <p className="text-text-mid text-sm mt-0.5">
+                    Strong recall driven by consistent traffic
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* What's Included */}
-          <div className="luxury-card rounded-2xl p-10 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-text-light mb-6 text-center" style={{ fontFamily: "var(--font-heading)" }}>
-              What's Included
+          {/* Quarterly Impact */}
+          <div className="luxury-card rounded-2xl p-8 md:p-10 max-w-3xl mx-auto">
+            <h3
+              className="text-xl font-bold text-text-light mb-6 text-center"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Quarterly Impact (May&ndash;July)
             </h3>
-            <ul className="text-text-mid space-y-3">
+            <div className="grid sm:grid-cols-2 gap-4 mb-6">
+              <div>
+                <p className="text-gold-base text-sm font-semibold">Combined Daily Impressions</p>
+                <p className="text-text-light text-sm font-bold mt-0.5">70,000 &ndash; 160,000+</p>
+              </div>
+              <div>
+                <p className="text-gold-base text-sm font-semibold">Total Quarterly Reach</p>
+                <p className="text-text-light text-sm font-bold mt-0.5">2.5M &ndash; 4M+ impressions</p>
+              </div>
+            </div>
+            <div className="space-y-2 mb-6">
               {[
-                "Full route network access",
-                "Indoor and outdoor coverage",
-                "Consistent daily exposure",
-                "GPS tracking verification",
-                "Monthly performance review",
-                "Dedicated campaign strategy",
+                "Lower competition than peak season",
+                "Higher repetition and recall",
+                "Consistent visibility across the valley",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="text-gold-base mt-1 shrink-0">&#10003;</span>
-                  {item}
-                </li>
+                <div key={item} className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold-base shrink-0" />
+                  <span className="text-text-mid text-sm">{item}</span>
+                </div>
               ))}
-            </ul>
+            </div>
+            <div className="pt-4 border-t border-gold-base/10 text-center">
+              <p className="text-gold-base font-semibold text-sm">
+                This is where brands build presence while others go quiet.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 8 — Built for Brands That Think Long-Term */}
-      <EventSection title="Built for Brands That Think Long-Term" dark>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            "Restaurants, retail, and hospitality brands",
-            "Real estate and local service businesses",
-            "Brands targeting both locals and visitors",
-            "Advertisers who want consistency over one-time spikes",
-            "Operators focused on market dominance, not short campaigns",
-          ].map((item) => (
-            <div key={item} className="luxury-card rounded-2xl p-6 text-center">
-              <p className="text-text-light font-semibold">{item}</p>
-            </div>
-          ))}
-        </div>
-      </EventSection>
+      {/* ──────────── 7. QUARTER 1 SUMMARY ──────────── */}
+      <section className="py-20 md:py-28 bg-black-hero">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="text-center mb-14">
+            <h2
+              className="text-3xl md:text-4xl font-bold text-text-light mb-4"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              {q1.label} Campaign Output
+            </h2>
+            <div className="gold-divider mx-auto mt-6" />
+          </div>
 
-      {/* SECTION 9 — What This Produces */}
-      <EventSection title="What This Produces">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <StatCard
+              value={q1.totalTouchpoints}
+              label="Events"
+              icon={CalendarCheck}
+              large
+            />
+            <StatCard
+              value={q1.totalImpressions}
+              label="Impressions"
+              icon={BarChart3}
+              large
+            />
+            <StatCard
+              value={q1.totalRealEyes}
+              label="Real Eyes"
+              icon={Eye}
+              large
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ──────────── 8. MEASUREMENT METHODOLOGY ──────────── */}
+      <EventSection
+        title="How Campaign Performance Is Measured"
+        dark
+        id="measurement"
+      >
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           {[
+            {
+              icon: Car,
+              label: "Traffic flow analysis across major corridors",
+            },
             {
               icon: BarChart3,
-              stat: "80K\u2013150K",
-              label: "Daily Impressions",
-              text: "Across active routes and zones",
+              label: "Vehicle counts and exposure modeling",
             },
             {
-              icon: MapPin,
-              stat: "Foot Traffic",
-              label: "Influence",
-              text: "Direct exposure tied to physical locations",
+              icon: Users,
+              label: "Vehicle occupancy rates",
             },
             {
-              icon: TrendingUp,
-              stat: "Brand Recall",
-              label: "Growth",
-              text: "Built through repetition, not one-time exposure",
+              icon: Footprints,
+              label:
+                "Pedestrian density in events and high traffic zones",
             },
             {
-              icon: QrCode,
-              stat: "QR + Engagement",
-              label: "Tracking",
-              text: "Measurable interaction from real-world visibility",
+              icon: Clock,
+              label: "Campaign duration and routing",
+            },
+            {
+              icon: ShieldCheck,
+              label:
+                "Visibility adjustment using industry standards from Geopath",
             },
           ].map((item) => (
-            <div key={item.label} className="text-center">
-              <item.icon className="h-10 w-10 text-gold-base mx-auto mb-4" />
-              <p className="text-gold-base text-2xl font-bold mb-1">{item.stat}</p>
-              <p className="text-text-light font-semibold mb-2">{item.label}</p>
-              <p className="text-text-mid text-sm leading-relaxed">{item.text}</p>
+            <div key={item.label} className="flex items-center gap-4">
+              <div className="shrink-0 w-10 h-10 rounded-lg bg-gold-base/10 flex items-center justify-center">
+                <item.icon className="h-5 w-5 text-gold-base" />
+              </div>
+              <p className="text-text-mid leading-relaxed">{item.label}</p>
             </div>
           ))}
         </div>
-      </EventSection>
 
-      {/* SECTION 10 — Limited Founding Access */}
-      <EventSection title="Limited Founding Access" dark>
-        <div className="luxury-card rounded-2xl p-10 text-center max-w-2xl mx-auto">
-          <p className="text-text-light text-lg leading-relaxed mb-6">
-            Only a small number of campaigns are accepted each cycle.
-          </p>
-          <p className="text-text-mid leading-relaxed mb-8">
-            Once founding spots are filled: pricing increases, availability becomes limited, and positioning advantage is lost.
-          </p>
-          <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-            Reserve Your Spot
-          </Link>
+        <div className="luxury-card rounded-2xl p-8 max-w-2xl mx-auto">
+          <div className="space-y-4 text-center">
+            <p className="text-text-light font-semibold">
+              Impressions represent total exposure.
+            </p>
+            <p className="text-text-light font-semibold">
+              Real Eyes represent visibility adjusted views.
+            </p>
+            <div className="pt-4 border-t border-gold-base/10">
+              <p className="text-text-mid text-sm leading-relaxed">
+                All projections are conservative and based on standard out of
+                home measurement practices.
+              </p>
+            </div>
+          </div>
         </div>
       </EventSection>
 
-      {/* SECTION 11 — Final CTA */}
-      <EventCTA
-        headline="Secure your place in the network"
-        subtext="3-month campaign built for real visibility, controlled attention, and measurable results."
-        primaryLabel="Reserve Your Spot"
-        primaryHref="/quote"
-      />
+      {/* ──────────── 9. BRAND NOTORIETY AND LOCATION LIFT ──────────── */}
+      <EventSection title="What This Builds Over Time" id="brand-growth">
+        <div className="grid sm:grid-cols-3 gap-6 mb-12">
+          <StatCard
+            value="3x to 5x"
+            label="Increase in Brand Recognition"
+            icon={TrendingUp}
+            large
+          />
+          <StatCard
+            value="10% to 25%"
+            label="Increase in Foot Traffic"
+            icon={Footprints}
+            large
+          />
+          <StatCard
+            value="20% to 40%"
+            label="Increase in Search Activity"
+            icon={Target}
+            large
+          />
+        </div>
+      </EventSection>
+
+      {/* ──────────── 10. FUTURE QUARTER CONTINUITY ──────────── */}
+      <section className="py-20 md:py-28 bg-black-panel">
+        <div className="container mx-auto px-4 max-w-3xl text-center">
+          <div className="mb-8">
+            <Layers className="h-12 w-12 text-gold-base mx-auto mb-6" />
+            <h2
+              className="text-3xl md:text-4xl font-bold text-text-light mb-6"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Quarter 2 Will Extend This Framework
+            </h2>
+            <div className="gold-divider mx-auto mt-6 mb-8" />
+          </div>
+          <p className="text-text-mid text-lg leading-relaxed">
+            This structure is designed to expand into August, September, and
+            October without redesign.
+          </p>
+        </div>
+      </section>
+
+      {/* ──────────── 11. FINAL CTA ──────────── */}
+      <section className="py-24 md:py-32 bg-black-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(227,176,75,0.06)_0%,transparent_60%)]" />
+
+        <div className="relative z-10 container mx-auto px-4 text-center max-w-3xl">
+          <h2
+            className="text-3xl md:text-5xl font-bold text-text-light mb-6"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Own Attention Across Quarter 1
+          </h2>
+          <p className="text-text-mid text-lg mb-4 leading-relaxed">
+            Put your brand in front of real audiences across events, nightlife,
+            dining, hotels, and daily movement.
+          </p>
+          <p className="text-gold-base font-semibold text-sm mb-4">
+            Stay visible across real movement. Build presence across 90 days.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+            <Link
+              href="/quote"
+              className="luxury-button px-10 py-4 text-lg font-semibold rounded-lg"
+            >
+              Start Subscription
+            </Link>
+            <Link
+              href="/quote"
+              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
+            >
+              Request Campaign Plan
+            </Link>
+          </div>
+
+          <a
+            href="tel:7603858989"
+            className="inline-flex items-center gap-2 text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold"
+          >
+            <Phone className="h-4 w-4" />
+            (760) 385-8989
+          </a>
+        </div>
+      </section>
     </div>
   );
 }
