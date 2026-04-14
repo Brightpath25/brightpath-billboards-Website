@@ -6,6 +6,10 @@ interface EventCTAProps {
   subtext?: string;
   primaryLabel?: string;
   primaryHref?: string;
+  primaryExternal?: boolean;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  secondaryExternal?: boolean;
   showPhone?: boolean;
 }
 
@@ -14,6 +18,10 @@ export default function EventCTA({
   subtext = "Limited campaign inventory available. Lock in your position before it\u2019s gone.",
   primaryLabel = "Get My Campaign Plan",
   primaryHref = "/quote",
+  primaryExternal = false,
+  secondaryLabel = "Check Availability",
+  secondaryHref = "/quote",
+  secondaryExternal = false,
   showPhone = true,
 }: EventCTAProps) {
   return (
@@ -32,18 +40,40 @@ export default function EventCTA({
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href={primaryHref}
-            className="luxury-button px-10 py-4 text-lg font-semibold rounded-lg"
-          >
-            {primaryLabel}
-          </Link>
-          <Link
-            href="/quote"
-            className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
-          >
-            Check Availability
-          </Link>
+          {primaryExternal ? (
+            <a
+              href={primaryHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="luxury-button px-10 py-4 text-lg font-semibold rounded-lg inline-block"
+            >
+              {primaryLabel}
+            </a>
+          ) : (
+            <Link
+              href={primaryHref}
+              className="luxury-button px-10 py-4 text-lg font-semibold rounded-lg"
+            >
+              {primaryLabel}
+            </Link>
+          )}
+          {secondaryExternal ? (
+            <a
+              href={secondaryHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
+            >
+              {secondaryLabel}
+            </a>
+          ) : (
+            <Link
+              href={secondaryHref}
+              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
+            >
+              {secondaryLabel}
+            </Link>
+          )}
           {showPhone && (
             <a
               href="tel:7603858989"
