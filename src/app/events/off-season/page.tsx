@@ -441,6 +441,18 @@ export default function OffSeasonPage() {
             Coachella Valley.
           </p>
 
+          {/* Top CTA */}
+          <div className="flex justify-center mb-12">
+            <a
+              href="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg"
+            >
+              Start a Subscription Campaign
+            </a>
+          </div>
+
           {/* Hero stat row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-12">
             <div className="luxury-card rounded-2xl p-6">
@@ -472,21 +484,18 @@ export default function OffSeasonPage() {
             </div>
           </div>
 
-          {/* Hero CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/quote"
+          {/* Middle CTA */}
+          <div className="flex justify-center mb-12">
+            <a
+              href="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00"
+              target="_blank"
+              rel="noopener noreferrer"
               className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg"
             >
               Start a Subscription Campaign
-            </Link>
-            <a
-              href="#quarter-1-overview"
-              className="px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
-            >
-              View Quarter 1 Breakdown
             </a>
           </div>
+
         </div>
       </section>
 
@@ -890,46 +899,74 @@ export default function OffSeasonPage() {
         </div>
       </section>
 
-      {/* ──────────── 11. FINAL CTA ──────────── */}
+      {/* ──────────── 11. URGENCY + FINAL CTA ──────────── */}
       <section className="py-24 md:py-32 bg-black-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(227,176,75,0.06)_0%,transparent_60%)]" />
 
         <div className="relative z-10 container mx-auto px-4 text-center max-w-3xl">
+          {/* Urgency block */}
+          <div className="mb-12">
+            <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-4">
+              Limited Off-Season Availability
+            </p>
+            <p className="text-text-mid text-base leading-relaxed max-w-2xl mx-auto">
+              Only 5 campaign slots available for May through July. Once routes
+              are filled, no additional placements will be added.
+            </p>
+            <div className="gold-divider mx-auto mt-6" />
+          </div>
+
+          {/* Pricing */}
+          <div className="mb-10">
+            <p
+              className="text-4xl md:text-5xl font-bold text-gold-base mb-2"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              $5,000 per month
+            </p>
+            <p className="text-text-mid text-lg">
+              3-month campaign commitment
+            </p>
+          </div>
+
           <h2
             className="text-3xl md:text-5xl font-bold text-text-light mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Own Attention Across Quarter 1
           </h2>
-          <p className="text-text-mid text-lg mb-4 leading-relaxed">
+          <p className="text-text-mid text-lg mb-10 leading-relaxed">
             Put your brand in front of real audiences across events, nightlife,
             dining, hotels, and daily movement.
           </p>
-          <p className="text-gold-base font-semibold text-sm mb-4">
-            Stay visible across real movement. Build presence across 90 days.
-          </p>
 
+          {/* Primary CTA — Stripe payment link */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-            <Link
-              href="/quote"
+            <a
+              href="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00"
+              target="_blank"
+              rel="noopener noreferrer"
               className="luxury-button px-10 py-4 text-lg font-semibold rounded-lg"
             >
-              Start Subscription
-            </Link>
-            <Link
-              href="/quote"
+              Start a Subscription Campaign
+            </a>
+
+            {/* Secondary CTA */}
+            <a
+              href="#quarter-1-overview"
               className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
             >
-              Request Campaign Plan
-            </Link>
+              View Quarter 1 Breakdown
+            </a>
           </div>
 
+          {/* Third CTA — Call */}
           <a
             href="tel:7603858989"
             className="inline-flex items-center gap-2 text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold"
           >
             <Phone className="h-4 w-4" />
-            (760) 385-8989
+            Call Now — (760) 385-8989
           </a>
         </div>
       </section>
