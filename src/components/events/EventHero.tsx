@@ -7,6 +7,7 @@ interface EventHeroProps {
   dateRange: string;
   ctaLabel?: string;
   ctaHref?: string;
+  ctaExternal?: boolean;
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
   showBackLink?: boolean;
@@ -18,6 +19,7 @@ export default function EventHero({
   dateRange,
   ctaLabel = "Get Campaign Plan",
   ctaHref = "/quote",
+  ctaExternal = false,
   secondaryCtaLabel,
   secondaryCtaHref,
   showBackLink = true,
@@ -55,12 +57,23 @@ export default function EventHero({
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href={ctaHref}
-            className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg"
-          >
-            {ctaLabel}
-          </Link>
+          {ctaExternal ? (
+            <a
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg inline-block"
+            >
+              {ctaLabel}
+            </a>
+          ) : (
+            <Link
+              href={ctaHref}
+              className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg"
+            >
+              {ctaLabel}
+            </Link>
+          )}
           {secondaryCtaLabel && secondaryCtaHref && (
             <Link
               href={secondaryCtaHref}
