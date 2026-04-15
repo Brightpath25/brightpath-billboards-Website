@@ -18,8 +18,9 @@ export default function StagecoachPage() {
         title="Own the Roads During Stagecoach Weekend"
         headline="Capture high-intent traffic as tens of thousands move through the Coachella Valley for one of the highest-spending festival weekends of the year."
         dateRange="April 24–26, 2026 • Indio, California"
-        ctaLabel="Get My Campaign Plan"
-        ctaHref="/quote"
+        ctaLabel="Secure My Campaign"
+        ctaHref="https://buy.stripe.com/bJe6oI85l1Bx1gO3hS5Vu02"
+        ctaExternal={true}
         secondaryCtaLabel="Call Now (760) 385-8989"
         secondaryCtaHref="tel:7603858989"
       />
@@ -226,12 +227,12 @@ export default function StagecoachPage() {
             <div className="luxury-card rounded-2xl p-10">
               <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Weekend Access</p>
               <h3 className="text-2xl font-bold text-text-light mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-                $3,000
+                $2,500
               </h3>
               <p className="text-text-mid mb-8">Full weekend billboard deployment across key Stagecoach routes.</p>
-              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-                Get My Campaign Plan
-              </Link>
+              <a href="https://buy.stripe.com/bJe6oI85l1Bx1gO3hS5Vu02" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Secure My Campaign
+              </a>
             </div>
             <div className="luxury-card rounded-2xl p-10">
               <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Full Weekend Coverage</p>
@@ -251,6 +252,9 @@ export default function StagecoachPage() {
       <EventCTA
         headline="Secure Your Placement Before Stagecoach Begins"
         subtext="Capture attention across the highest-traffic routes in the Coachella Valley."
+        primaryLabel="Secure My Campaign"
+        primaryHref="https://buy.stripe.com/bJe6oI85l1Bx1gO3hS5Vu02"
+        primaryExternal={true}
       />
     </div>
   );
