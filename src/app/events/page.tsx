@@ -18,6 +18,14 @@ export default function EventsPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,176,75,0.08)_0%,transparent_70%)]" />
 
         <div className="relative z-10 container mx-auto px-4 py-32 text-center max-w-4xl">
+          <div className="mb-8">
+            <Link
+              href="/"
+              className="inline-block px-5 py-2 bg-transparent border border-gold-base/50 text-gold-base/90 rounded-xl text-sm font-semibold hover:bg-gold-base hover:text-black-hero transition-all duration-300"
+            >
+              ← Home
+            </Link>
+          </div>
           <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-4">
             BrightPath Campaigns
           </p>
