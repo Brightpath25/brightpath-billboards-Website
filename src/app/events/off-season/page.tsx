@@ -965,7 +965,7 @@ export default function OffSeasonPage() {
               $5,000 per month
             </p>
             <p className="text-text-mid text-lg">
-              3-month campaign commitment
+              Quarterly subscription
             </p>
           </div>
 

@@ -260,7 +260,7 @@ export default function CoachellaWeekend1Page() {
               <h3 className="text-2xl font-bold text-text-light mb-2" style={{ fontFamily: "var(--font-heading)" }}>
                 Full Weekend Coverage
               </h3>
-              <p className="text-gold-base text-4xl font-bold mb-4">$4,500</p>
+              <p className="text-gold-base text-4xl font-bold mb-4">$5,000</p>
               <p className="text-text-mid mb-8">Complete weekend activation</p>
               <a href="https://buy.stripe.com/bJe3cwfxN5RN0cK9Gg5Vu08" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
                 Book Full Coachella Coverage
