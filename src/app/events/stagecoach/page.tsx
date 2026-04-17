@@ -30,6 +30,16 @@ export default function StagecoachPage() {
         title="Why This Event Matters"
         subtitle="Stagecoach is one of the highest-spending weekends in the Coachella Valley. This is a purchasing audience, not just a viewing audience."
       >
+        <div className="flex justify-center mb-10">
+          <a
+            href="/media-kit.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+          >
+            Download Media Kit
+          </a>
+        </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
@@ -121,6 +131,16 @@ export default function StagecoachPage() {
               <span className="text-text-light font-semibold">{item.label}</span>
             </Link>
           ))}
+        </div>
+        <div className="flex justify-center mt-10">
+          <a
+            href="/BrightPath_Route_Coverage.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+          >
+            View Route Coverage
+          </a>
         </div>
       </EventSection>
 
@@ -244,6 +264,26 @@ export default function StagecoachPage() {
                 Request Quote
               </Link>
             </div>
+          </div>
+          <div className="flex justify-center mt-10">
+            <a
+              href="/price-card.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Pricing
+            </a>
+          </div>
+          <div className="flex justify-center mt-4">
+            <a
+              href="/launch-overview.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Launch Overview
+            </a>
           </div>
         </div>
       </section>

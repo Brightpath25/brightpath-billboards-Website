@@ -29,6 +29,16 @@ export default function SplashHousePage() {
         title="Why This Event Matters"
         subtitle="Splash House is not a traditional festival. It is a concentrated, high-energy environment built around hotels, pools, and nightlife."
       >
+        <div className="flex justify-center mb-10">
+          <a
+            href="/media-kit.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+          >
+            Download Media Kit
+          </a>
+        </div>
         <div className="grid md:grid-cols-4 gap-8">
           {[
             {
@@ -131,6 +141,16 @@ export default function SplashHousePage() {
               </span>
             </Link>
           ))}
+        </div>
+        <div className="flex justify-center mt-10">
+          <a
+            href="/BrightPath_Route_Coverage.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+          >
+            View Route Coverage
+          </a>
         </div>
       </EventSection>
 
@@ -263,6 +283,26 @@ export default function SplashHousePage() {
                 Request Quote
               </Link>
             </div>
+          </div>
+          <div className="flex justify-center mt-10">
+            <a
+              href="/price-card.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Pricing
+            </a>
+          </div>
+          <div className="flex justify-center mt-4">
+            <a
+              href="/launch-overview.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Launch Overview
+            </a>
           </div>
         </div>
       </section>

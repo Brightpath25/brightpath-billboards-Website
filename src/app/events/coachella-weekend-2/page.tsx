@@ -30,6 +30,16 @@ export default function CoachellaWeekend2Page() {
         title="Why This Event Matters"
         subtitle="Weekend 2 is where execution improves. This is where brands operate smarter."
       >
+        <div className="flex justify-center mb-10">
+          <a
+            href="/media-kit.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+          >
+            Download Media Kit
+          </a>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
@@ -169,6 +179,16 @@ export default function CoachellaWeekend2Page() {
             </div>
           ))}
         </div>
+        <div className="flex justify-center mt-10">
+          <a
+            href="/BrightPath_Route_Coverage.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+          >
+            View Route Coverage
+          </a>
+        </div>
       </EventSection>
 
       {/* Who This Is For */}
@@ -264,6 +284,16 @@ export default function CoachellaWeekend2Page() {
               <p className="text-text-mid text-sm mt-4">Secure your campaign before Weekend 2 inventory is filled.</p>
             </div>
           </div>
+          <div className="flex justify-center mt-10">
+            <a
+              href="/price-card.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Pricing
+            </a>
+          </div>
         </div>
       </section>
 
@@ -273,6 +303,16 @@ export default function CoachellaWeekend2Page() {
           <p className="text-text-light text-lg font-semibold mb-4">Once routes are filled, access is closed.</p>
           <a href="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
             Secure Weekend 2 Placement
+          </a>
+        </div>
+        <div className="flex justify-center mt-10">
+          <a
+            href="/launch-overview.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+          >
+            View Launch Overview
           </a>
         </div>
       </EventSection>
