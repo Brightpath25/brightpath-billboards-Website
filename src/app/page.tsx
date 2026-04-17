@@ -262,6 +262,17 @@ export default function Home() {
           >
             Get a Quote
           </a>
+
+          <div className="mt-6">
+            <a
+              href="/media-kit.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              Download Media Kit
+            </a>
+          </div>
         </div>
       </section>
 
@@ -360,6 +371,17 @@ export default function Home() {
                 Learn More <ChevronDown className="h-4 w-4 rotate-[-90deg]" />
               </Link>
             </div>
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <a
+              href="/price-card.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Pricing
+            </a>
           </div>
         </div>
       </section>

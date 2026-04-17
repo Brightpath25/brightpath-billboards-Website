@@ -496,6 +496,17 @@ export default function OffSeasonPage() {
             </a>
           </div>
 
+          <div className="flex justify-center">
+            <a
+              href="/media-kit.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              Download Media Kit
+            </a>
+          </div>
+
         </div>
       </section>
 
@@ -554,6 +565,25 @@ export default function OffSeasonPage() {
             exposure across real movement patterns, events, retail corridors,
             hotels, and nightlife environments.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 mt-10">
+            <a
+              href="/BrightPath_Route_Coverage.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Route Coverage
+            </a>
+            <a
+              href="/price-card.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Pricing
+            </a>
+          </div>
         </div>
       </section>
 
@@ -877,6 +907,16 @@ export default function OffSeasonPage() {
             large
           />
         </div>
+        <div className="flex justify-center">
+          <a
+            href="/BrightPath_What_You_Are_Paying_For.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+          >
+            Download Full Breakdown
+          </a>
+        </div>
       </EventSection>
 
       {/* ──────────── 10. FUTURE QUARTER CONTINUITY ──────────── */}
@@ -968,6 +1008,17 @@ export default function OffSeasonPage() {
             <Phone className="h-4 w-4" />
             Call Now — (760) 385-8989
           </a>
+
+          <div className="mt-6">
+            <a
+              href="/launch-overview.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              View Launch Overview
+            </a>
+          </div>
         </div>
       </section>
     </div>
