@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import EventHero from "@/components/events/EventHero";
 import EventSection from "@/components/events/EventSection";
 import EventCTA from "@/components/events/EventCTA";
@@ -18,8 +17,9 @@ export default function CoachellaWeekend1Page() {
         title="Own the Attention During Coachella Weekend 1"
         headline="April 10–12, 2026 · Indio, California. Position your brand inside the highest traffic movement of the year. This is not ad space. This is controlled visibility across the routes every attendee takes."
         dateRange="April 10–12, 2026"
-        ctaLabel="Get My Campaign Plan"
-        ctaHref="/quote"
+        ctaLabel="Book Coachella Weekend 1"
+        ctaHref="https://buy.stripe.com/6oUcN6adt0xtbVs8Cc5Vu05"
+        ctaExternal
         secondaryCtaLabel="Call Now (760) 385-8989"
         secondaryCtaHref="tel:7603858989"
       />
@@ -226,9 +226,14 @@ export default function CoachellaWeekend1Page() {
       <EventSection title="Limited Availability" subtitle="Only a limited number of brands are placed per weekend. Once routes are filled, access is closed." dark>
         <div className="luxury-card rounded-2xl p-8 text-center">
           <p className="text-text-light text-lg font-semibold mb-4">This is controlled exposure.</p>
-          <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-            Check Availability
-          </Link>
+          <a
+            href="https://buy.stripe.com/6oUcN6adt0xtbVs8Cc5Vu05"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block"
+          >
+            Book Coachella Weekend 1
+          </a>
         </div>
       </EventSection>
 
@@ -274,8 +279,9 @@ export default function CoachellaWeekend1Page() {
       <EventCTA
         headline="Secure Your Visibility Before Weekend 1 Begins"
         subtext="Be present where attention is already moving."
-        primaryLabel="Get My Campaign Plan"
-        primaryHref="/quote"
+        primaryLabel="Book Coachella Weekend 1"
+        primaryHref="https://buy.stripe.com/6oUcN6adt0xtbVs8Cc5Vu05"
+        primaryExternal
       />
     </div>
   );
