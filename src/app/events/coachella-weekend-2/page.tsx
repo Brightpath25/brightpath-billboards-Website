@@ -19,7 +19,7 @@ export default function CoachellaWeekend2Page() {
         headline="April 17–19, 2026 · Indio, California. A more controlled, more focused version of the same massive audience. Weekend 2 delivers the same scale with more predictable movement and cleaner execution."
         dateRange="April 17–19, 2026"
         ctaLabel="Book Coachella Weekend 2"
-        ctaHref="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00"
+        ctaHref="https://buy.stripe.com/5kQdRafxNfsne3A8Cc5Vu01"
         ctaExternal
         secondaryCtaLabel="Call Now (760) 385-8989"
         secondaryCtaHref="tel:7603858989"
@@ -266,7 +266,7 @@ export default function CoachellaWeekend2Page() {
               </h3>
               <p className="text-gold-base text-4xl font-bold mb-4">$2,500</p>
               <p className="text-text-mid mb-8">Weekend 2 activation</p>
-              <a href="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+              <a href="https://buy.stripe.com/5kQdRafxNfsne3A8Cc5Vu01" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
                 Book Coachella Weekend 2
               </a>
               <p className="text-text-mid text-sm mt-4">Limited campaign availability. Placement is first come, first secured.</p>
@@ -278,8 +278,8 @@ export default function CoachellaWeekend2Page() {
               </h3>
               <p className="text-gold-base text-4xl font-bold mb-4">$4,500</p>
               <p className="text-text-mid mb-8">Complete weekend activation</p>
-              <a href="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-                Book Coachella Weekend 2
+              <a href="https://buy.stripe.com/bJe3cwfxN5RN0cK9Gg5Vu08" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Book Full Coachella Coverage
               </a>
               <p className="text-text-mid text-sm mt-4">Secure your campaign before Weekend 2 inventory is filled.</p>
             </div>
@@ -301,7 +301,7 @@ export default function CoachellaWeekend2Page() {
       <EventSection title="Limited Availability" subtitle="Weekend 2 fills based on demand from Weekend 1 results. Brands that see results return quickly.">
         <div className="luxury-card rounded-2xl p-8 text-center">
           <p className="text-text-light text-lg font-semibold mb-4">Once routes are filled, access is closed.</p>
-          <a href="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+          <a href="https://buy.stripe.com/5kQdRafxNfsne3A8Cc5Vu01" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
             Secure Weekend 2 Placement
           </a>
         </div>
@@ -322,10 +322,10 @@ export default function CoachellaWeekend2Page() {
         headline="Lock Your Placement for Weekend 2"
         subtext="Secure your campaign before Weekend 2 inventory is filled. One weekend campaign buy. High traffic festival weekend. Limited placement availability."
         primaryLabel="Book Coachella Weekend 2"
-        primaryHref="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00"
+        primaryHref="https://buy.stripe.com/5kQdRafxNfsne3A8Cc5Vu01"
         primaryExternal
         secondaryLabel="Reserve Campaign Placement"
-        secondaryHref="https://buy.stripe.com/5kQ6oI3P57ZVcZw3hS5Vu00"
+        secondaryHref="https://buy.stripe.com/5kQdRafxNfsne3A8Cc5Vu01"
         secondaryExternal
       />
     </div>
