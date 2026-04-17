@@ -669,6 +669,41 @@ export default function Home() {
                 <p className="leading-relaxed trust-highlight">
                   The Coachella Valley's premier LED mobile billboard advertising company.
                 </p>
+                <div className="mt-6">
+                  <h4 className="font-bold mb-3 text-gold-base text-sm tracking-wide uppercase">Resources</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li>
+                      <a
+                        href="/media-kit.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-text-mid hover:text-gold-highlight transition-colors"
+                      >
+                        Media Kit
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/price-card.png"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-text-mid hover:text-gold-highlight transition-colors"
+                      >
+                        Price Card
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/launch-overview.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-text-mid hover:text-gold-highlight transition-colors"
+                      >
+                        Launch Overview
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               <div>
