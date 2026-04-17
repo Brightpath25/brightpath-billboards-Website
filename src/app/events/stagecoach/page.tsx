@@ -18,7 +18,7 @@ export default function StagecoachPage() {
         title="Own the Roads During Stagecoach Weekend"
         headline="Capture high-intent traffic as tens of thousands move through the Coachella Valley for one of the highest-spending festival weekends of the year."
         dateRange="April 24–26, 2026 • Indio, California"
-        ctaLabel="Secure My Campaign"
+        ctaLabel="Book Stagecoach Campaign"
         ctaHref="https://buy.stripe.com/bJe6oI85l1Bx1gO3hS5Vu02"
         ctaExternal={true}
         secondaryCtaLabel="Call Now (760) 385-8989"
@@ -251,7 +251,7 @@ export default function StagecoachPage() {
               </h3>
               <p className="text-text-mid mb-8">Full weekend billboard deployment across key Stagecoach routes.</p>
               <a href="https://buy.stripe.com/bJe6oI85l1Bx1gO3hS5Vu02" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-                Secure My Campaign
+                Book Stagecoach Campaign
               </a>
             </div>
             <div className="luxury-card rounded-2xl p-10">
@@ -292,7 +292,7 @@ export default function StagecoachPage() {
       <EventCTA
         headline="Secure Your Placement Before Stagecoach Begins"
         subtext="Capture attention across the highest-traffic routes in the Coachella Valley."
-        primaryLabel="Secure My Campaign"
+        primaryLabel="Book Stagecoach Campaign"
         primaryHref="https://buy.stripe.com/bJe6oI85l1Bx1gO3hS5Vu02"
         primaryExternal={true}
       />
