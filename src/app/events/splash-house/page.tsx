@@ -19,7 +19,8 @@ export default function SplashHousePage() {
         headline="A multi-hotel, poolside music weekend built around nonstop movement, nightlife, and high-energy social environments."
         dateRange="August 7–9 and August 14–16, 2026 • Palm Springs, California"
         ctaLabel="Get My Campaign Plan"
-        ctaHref="/quote"
+        ctaHref="https://buy.stripe.com/fZudRa99pa835x419K5Vu07"
+        ctaExternal
         secondaryCtaLabel="Call Now (760) 385-8989"
         secondaryCtaHref="tel:7603858989"
       />
@@ -239,9 +240,9 @@ export default function SplashHousePage() {
                 $3,000
               </h3>
               <p className="text-text-mid mb-8">August 7–9, 2026</p>
-              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-                Request Quote
-              </Link>
+              <a href="https://buy.stripe.com/7sY00k1GXdkfcZw7y85Vu03" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Book Splash House Weekend 1
+              </a>
             </div>
             <div className="luxury-card rounded-2xl p-10">
               <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Weekend 2</p>
@@ -249,9 +250,9 @@ export default function SplashHousePage() {
                 $3,000
               </h3>
               <p className="text-text-mid mb-8">August 14–16, 2026</p>
-              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-                Request Quote
-              </Link>
+              <a href="https://buy.stripe.com/7sY6oIadt1BxbVs6u45Vu04" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Book Splash House Weekend 2
+              </a>
             </div>
             <div className="luxury-card rounded-2xl p-10 border border-gold-base/30">
               <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Both Weekends</p>
@@ -259,9 +260,9 @@ export default function SplashHousePage() {
                 $5,000
               </h3>
               <p className="text-text-mid mb-8">Save $1,000</p>
-              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-                Request Quote
-              </Link>
+              <a href="https://buy.stripe.com/fZudRa99pa835x419K5Vu07" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Book Full Splash House Coverage
+              </a>
             </div>
           </div>
         </div>

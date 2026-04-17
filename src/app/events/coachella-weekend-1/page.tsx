@@ -251,9 +251,9 @@ export default function CoachellaWeekend1Page() {
               </h3>
               <p className="text-gold-base text-4xl font-bold mb-4">$2,500</p>
               <p className="text-text-mid mb-8">2 days of execution</p>
-              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-                Get My Campaign Plan
-              </Link>
+              <a href="https://buy.stripe.com/6oUcN6adt0xtbVs8Cc5Vu05" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Book Coachella Weekend 1
+              </a>
             </div>
             <div className="luxury-card rounded-2xl p-10">
               <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-2">Full Coverage</p>
@@ -262,9 +262,9 @@ export default function CoachellaWeekend1Page() {
               </h3>
               <p className="text-gold-base text-4xl font-bold mb-4">$4,500</p>
               <p className="text-text-mid mb-8">Complete weekend activation</p>
-              <Link href="/quote" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
-                Get My Campaign Plan
-              </Link>
+              <a href="https://buy.stripe.com/bJe3cwfxN5RN0cK9Gg5Vu08" target="_blank" rel="noopener noreferrer" className="luxury-button px-8 py-4 rounded-lg font-semibold inline-block">
+                Book Full Coachella Coverage
+              </a>
             </div>
           </div>
         </div>
