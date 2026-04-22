@@ -100,6 +100,10 @@ export default function Home() {
               Events
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
+            <Link href="/launch" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
+              Launch
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
+            </Link>
             <Link href="#preview" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
               Preview
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
@@ -148,6 +152,7 @@ export default function Home() {
               <Link href="#home" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</Link>
               <Link href="#services" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
               <Link href="/events" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Events</Link>
+              <Link href="/launch" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Launch</Link>
               <Link href="#preview" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Preview</Link>
               <Link href="/game" className="text-gold-highlight font-semibold hover:text-gold-base transition-colors" onClick={() => setMobileMenuOpen(false)}>Play Game</Link>
               <Link href="#about" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
@@ -263,17 +268,6 @@ export default function Home() {
             Get a Quote
           </a>
 
-          <div className="mt-6">
-            <a
-              href="/media-kit.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
-            >
-              Download Media Kit
-            </a>
-          </div>
-
           <div className="mt-10">
             <Link
               href="/launch"
@@ -284,6 +278,20 @@ export default function Home() {
             <p className="text-sm text-gold-highlight/70 italic mt-3">
               See what&apos;s already happening across the Valley
             </p>
+            <p className="text-sm text-gold-highlight/70 italic mt-1">
+              No planning call required
+            </p>
+          </div>
+
+          <div className="mt-6">
+            <a
+              href="/media-kit.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              Download Media Kit
+            </a>
           </div>
         </div>
       </section>

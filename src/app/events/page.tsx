@@ -47,7 +47,7 @@ export default function EventsPage() {
       {/* Featured Launch Card */}
       <section className="py-12 bg-black-hero">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="luxury-card rounded-2xl p-8 md:p-10 text-center">
+          <div className="luxury-card rounded-2xl p-8 md:p-10 text-center border border-gold-base/40">
             <p className="text-gold-base text-sm font-semibold tracking-widest uppercase mb-3">
               Public event. Limited campaign placement.
             </p>
