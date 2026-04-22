@@ -273,6 +273,18 @@ export default function Home() {
               Download Media Kit
             </a>
           </div>
+
+          <div className="mt-10">
+            <Link
+              href="/launch"
+              className="luxury-button text-lg inline-block"
+            >
+              Enter the Launch
+            </Link>
+            <p className="text-sm text-gold-highlight/70 italic mt-3">
+              See what&apos;s already happening across the Valley
+            </p>
+          </div>
         </div>
       </section>
 
@@ -382,6 +394,18 @@ export default function Home() {
             >
               View Pricing
             </a>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/launch"
+              className="luxury-button text-lg inline-block"
+            >
+              See How It Works Live
+            </Link>
+            <p className="text-sm text-gold-highlight/70 italic mt-3">
+              Understand how campaigns show up in real environments
+            </p>
           </div>
         </div>
       </section>
