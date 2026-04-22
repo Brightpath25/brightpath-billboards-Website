@@ -11,6 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: "https://bpmobilebillboards.com/launch",
+      lastModified: new Date(),
+    },
+    {
       url: "https://bpmobilebillboards.com/services/mobile-led-advertising",
       lastModified: new Date(),
     },

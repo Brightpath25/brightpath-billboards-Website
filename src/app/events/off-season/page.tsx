@@ -1019,6 +1019,15 @@ export default function OffSeasonPage() {
               View Launch Overview
             </a>
           </div>
+
+          <div className="mt-4">
+            <Link
+              href="/launch"
+              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+            >
+              Explore the BrightPath Launch offer
+            </Link>
+          </div>
         </div>
       </section>
     </div>

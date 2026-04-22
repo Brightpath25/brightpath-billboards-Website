@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import EventCard from "@/components/events/EventCard";
 import EventCTA from "@/components/events/EventCTA";
 
@@ -35,11 +36,38 @@ export default function EventsPage() {
           >
             Event Campaigns
           </h1>
-          <p className="text-lg md:text-xl text-text-mid max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-text-mid max-w-2xl mx-auto leading-relaxed mb-8">
             Campaign-specific opportunities built for high-traffic visibility,
             event domination, and strategic market positioning across the
             Coachella Valley.
           </p>
+        </div>
+      </section>
+
+      {/* Featured Launch Card */}
+      <section className="py-12 bg-black-hero">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="luxury-card rounded-2xl p-8 md:p-10 text-center">
+            <p className="text-gold-base text-sm font-semibold tracking-widest uppercase mb-3">
+              Public event. Limited campaign placement.
+            </p>
+            <h2
+              className="text-2xl md:text-3xl font-bold text-text-light mb-6"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              BrightPath Launch — Coachella Valley
+            </h2>
+            <Link
+              href="/launch"
+              className="inline-flex items-center gap-2 luxury-button px-8 py-4 rounded-xl font-semibold"
+            >
+              Secure Your Campaign
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <p className="text-text-mid/70 italic text-sm mt-4">
+              Placement is assigned in order of completed campaigns
+            </p>
+          </div>
         </div>
       </section>
 
