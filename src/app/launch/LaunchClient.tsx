@@ -199,15 +199,13 @@ export default function LaunchClient() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <PrimaryCTA />
             <a
-              href="/media-kit.pdf"
+              href="https://luma.com/event/evt-oSmh00BoJ1Y5jX8?utm_source=website"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent("Launch_Download_Media_Kit")}
-              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
+              className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg inline-block"
             >
-              Download Media Kit
+              Register for Launch
             </a>
           </div>
         </div>
@@ -628,12 +626,14 @@ export default function LaunchClient() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <PrimaryCTA size="lg" />
-            <SecondaryButton
-              href="/launch-overview.pdf"
-              label="View Launch Overview"
-              eventName="Launch_Download_Launch_Overview"
-            />
+            <a
+              href="https://luma.com/event/evt-oSmh00BoJ1Y5jX8?utm_source=website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="luxury-button px-10 py-4 text-lg font-semibold rounded-lg inline-block"
+            >
+              Register for Launch
+            </a>
           </div>
         </div>
       </section>
