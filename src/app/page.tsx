@@ -285,7 +285,7 @@ export default function Home() {
 
           <div className="mt-6">
             <a
-              href="/media-kit.pdf"
+              href="/media-kit.pdf?v=2"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
@@ -706,7 +706,7 @@ export default function Home() {
                   <ul className="space-y-2 text-sm">
                     <li>
                       <a
-                        href="/media-kit.pdf"
+                        href="/media-kit.pdf?v=2"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-text-mid hover:text-gold-highlight transition-colors"

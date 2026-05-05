@@ -32,7 +32,7 @@ export default function CoachellaWeekend2Page() {
       >
         <div className="flex justify-center mb-10">
           <a
-            href="/media-kit.pdf"
+            href="/media-kit.pdf?v=2"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
