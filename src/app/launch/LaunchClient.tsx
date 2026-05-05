@@ -23,12 +23,20 @@ import {
   Youtube,
   Instagram,
   ExternalLink,
+  Eye,
+  Share2,
+  Crown,
+  DoorOpen,
+  Star,
+  Gift,
+  Mail,
+  Palette,
+  CheckCircle2,
+  Clock,
 } from "lucide-react";
 import EventSection from "@/components/events/EventSection";
 
 const LUMA_LINK = "https://luma.com/event/evt-oSmh00BoJ1Y5jX8?utm_source=website";
-const SPONSOR_MAILTO =
-  "mailto:brightpathbillboards@gmail.com?subject=BrightPath Launch Sponsorship";
 
 function RegisterButton({ size = "md" }: { size?: "md" | "lg" }) {
   const sizing = size === "lg" ? "px-10 py-4" : "px-8 py-4";
@@ -439,34 +447,6 @@ export default function LaunchClient() {
         </div>
       </EventSection>
 
-      {/* ──────────────── 5. FIRST SPONSOR CTA ──────────────── */}
-      <section className="py-16 md:py-20 bg-black-hero">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
-          <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-4">
-            Sponsorship
-          </p>
-          <h2
-            className="text-2xl md:text-4xl font-bold text-text-light mb-4 leading-tight"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Become a Launch Partner
-          </h2>
-          <p className="text-text-mid text-base md:text-lg mb-8 leading-relaxed">
-            Align your brand with the first BrightPath moment in the Coachella
-            Valley.
-          </p>
-          <a
-            href={SPONSOR_MAILTO}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold rounded-lg border border-gold-base/40 text-gold-highlight hover:bg-gold-base/10 hover:border-gold-base transition-all duration-300"
-          >
-            <span>Explore Sponsorship</span>
-            <ExternalLink className="h-4 w-4 opacity-70" />
-          </a>
-        </div>
-      </section>
-
       {/* ──────────────── 6. WHY WE'RE LAUNCHING ──────────────── */}
       <EventSection
         title="Why We’re Launching"
@@ -550,36 +530,558 @@ export default function LaunchClient() {
         </div>
       </EventSection>
 
-      {/* ──────────────── 8. SECOND SPONSOR CTA ──────────────── */}
-      <section className="py-20 md:py-24 bg-black-panel relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,176,75,0.10)_0%,transparent_60%)]" />
-        <div className="relative z-10 container mx-auto px-4 max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold-base/40 bg-gold-base/5 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold-base animate-pulse" />
-            <p className="text-gold-base font-semibold tracking-widest uppercase text-xs">
-              Sponsor Visibility
+      {/* ──────────────── 8.5 LAUNCH SPONSORSHIP OPPORTUNITIES ──────────────── */}
+      <section
+        id="launch-sponsorship"
+        className="py-20 md:py-28 bg-black-hero relative overflow-hidden scroll-mt-20"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(227,176,75,0.10)_0%,transparent_60%)]" />
+
+        <div className="relative z-10 container mx-auto px-4 max-w-6xl">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold-base/40 bg-gold-base/5 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-base animate-pulse" />
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-xs">
+                Sponsorship
+              </p>
+            </div>
+            <h2
+              className="text-3xl md:text-5xl font-bold text-text-light mb-4 leading-tight"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Launch Sponsorship{" "}
+              <span className="text-gold-highlight">Opportunities</span>
+            </h2>
+            <p className="text-text-mid text-base md:text-lg leading-relaxed">
+              Own a moment of the night. Be seen across the Coachella Valley.
             </p>
           </div>
-          <h2
-            className="text-3xl md:text-5xl font-bold text-text-light mb-5 leading-tight"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Limited Sponsor Visibility{" "}
-            <span className="text-gold-highlight">Available</span>
-          </h2>
-          <p className="text-text-mid text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
-            Be part of the first BrightPath launch moment and gain real-world
-            exposure across the Coachella Valley.
-          </p>
-          <a
-            href={SPONSOR_MAILTO}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="luxury-button px-10 py-4 text-lg font-semibold rounded-lg inline-flex items-center gap-2"
-          >
-            <span>Become a Sponsor</span>
-            <ExternalLink className="h-4 w-4 opacity-80" />
-          </a>
+
+          {/* Top Value Cards */}
+          <div className="grid sm:grid-cols-3 gap-5 mb-16">
+            {[
+              {
+                icon: Eye,
+                title: "Real World Exposure",
+                text: "100,000+ real world views after launch",
+              },
+              {
+                icon: Users,
+                title: "Live Event Presence",
+                text: "100+ local business attendees",
+              },
+              {
+                icon: Share2,
+                title: "Social Reach",
+                text: "20,000+ social media impressions",
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="luxury-card rounded-2xl p-6 text-center"
+              >
+                <div className="w-12 h-12 rounded-lg bg-gold-base/10 flex items-center justify-center mx-auto mb-4">
+                  <card.icon className="h-6 w-6 text-gold-base" />
+                </div>
+                <h3
+                  className="text-lg font-bold text-text-light mb-2"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {card.title}
+                </h3>
+                <p className="text-text-mid text-sm leading-relaxed">
+                  {card.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Campaign Exposure */}
+          <div className="luxury-card rounded-2xl p-8 md:p-10 mb-16">
+            <div className="text-center mb-8">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-3">
+                Campaign Exposure
+              </p>
+              <h3
+                className="text-2xl md:text-3xl font-bold text-text-light"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Days of Advertising by Tier
+              </h3>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+              {[
+                { tier: "Presenting Sponsor", days: "8 Days", featured: true },
+                { tier: "Entry Sponsor", days: "4 Days", featured: false },
+                { tier: "Experience Sponsor", days: "4 Days", featured: false },
+                { tier: "Bar Sponsor", days: "4 Days", featured: false },
+              ].map((item) => (
+                <div
+                  key={item.tier}
+                  className={`rounded-xl p-5 text-center border ${
+                    item.featured
+                      ? "border-gold-base bg-gold-base/10"
+                      : "border-gold-base/20 bg-black-hero/50"
+                  }`}
+                >
+                  <p
+                    className={`text-2xl font-bold mb-1 ${
+                      item.featured ? "text-gold-highlight" : "text-gold-base"
+                    }`}
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {item.days}
+                  </p>
+                  <p className="text-text-mid text-[11px] tracking-widest uppercase font-semibold">
+                    of Advertising
+                  </p>
+                  <p className="mt-3 text-text-light font-semibold text-sm">
+                    {item.tier}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t border-gold-base/15 pt-8">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-5 text-center">
+                Campaign Execution — All Sponsors
+              </p>
+              <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                {[
+                  { icon: Calendar, text: "Tuesday through Friday campaign window" },
+                  { icon: Clock, text: "8 hours per day" },
+                  { icon: Tv, text: "8-second rotating ad placements" },
+                ].map((item) => (
+                  <div
+                    key={item.text}
+                    className="flex items-start gap-3 rounded-lg bg-black-hero/40 border border-gold-base/15 p-4"
+                  >
+                    <item.icon className="h-5 w-5 text-gold-base shrink-0 mt-0.5" />
+                    <span className="text-text-light text-sm leading-snug">
+                      {item.text}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-text-mid text-sm md:text-base leading-relaxed text-center max-w-3xl mx-auto">
+                Your campaign begins immediately following the June 1 launch,
+                extending your visibility into real-world traffic across the
+                Coachella Valley.
+              </p>
+            </div>
+          </div>
+
+          {/* Sponsor Tiers */}
+          <div className="mb-16">
+            <div className="text-center mb-10">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-3">
+                Sponsor Tiers
+              </p>
+              <h3
+                className="text-2xl md:text-3xl font-bold text-text-light"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Choose Your Moment
+              </h3>
+            </div>
+
+            {/* Presenting Sponsor — featured */}
+            <div className="relative mb-8">
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-gold-base/60 via-gold-base/20 to-transparent blur-[2px]" />
+              <div className="relative luxury-card rounded-2xl p-7 md:p-9 bg-black-panel/95 border-gold-base/60">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gold-base text-black-hero text-[10px] font-bold tracking-widest uppercase">
+                    <Star className="h-3 w-3" />
+                    Most Visible
+                  </span>
+                </div>
+
+                <div className="grid lg:grid-cols-3 gap-8 mt-2">
+                  <div>
+                    <div className="w-12 h-12 rounded-lg bg-gold-base/15 flex items-center justify-center mb-4">
+                      <Crown className="h-6 w-6 text-gold-highlight" />
+                    </div>
+                    <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-2">
+                      Presenting Sponsor
+                    </p>
+                    <p
+                      className="text-4xl font-bold text-gold-highlight mb-3"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      $5,000
+                    </p>
+                    <p className="text-text-light text-base font-semibold leading-snug">
+                      Full Event Visibility + Headline Giveaway
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-2">
+                    <ul className="space-y-2.5 mb-6">
+                      {[
+                        "Step & Repeat main photo backdrop",
+                        "LED Acrylic Light Stands premium placement",
+                        "Primary logo placement across event",
+                        "Multiple DJ shoutouts",
+                        "Priority social media placement",
+                        "Premium gift bag integration",
+                      ].map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2.5 text-text-light text-[0.95rem]"
+                        >
+                          <CheckCircle2 className="h-4 w-4 text-gold-base shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="rounded-lg border border-gold-base/30 bg-gold-base/5 p-4 mb-6">
+                      <p className="text-gold-base text-[10px] font-semibold tracking-widest uppercase mb-1">
+                        Giveaway
+                      </p>
+                      <p className="text-text-light font-semibold">
+                        Jerry Seinfeld Tickets
+                      </p>
+                    </div>
+
+                    <a
+                      href="mailto:brightpathbillboards@gmail.com?subject=Presenting Sponsor Interest"
+                      className="luxury-button w-full px-6 py-3.5 text-base font-semibold rounded-lg inline-flex items-center justify-center gap-2"
+                    >
+                      <Mail className="h-4 w-4" />
+                      <span>Become Presenting Sponsor</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Other Sponsor Tiers */}
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                {
+                  icon: DoorOpen,
+                  tier: "Entry Sponsor",
+                  price: "$2,500",
+                  tag: "First Impression + Arrival Experience",
+                  features: [
+                    "Entry signage and arrival branding",
+                    "Feather flags at entrance",
+                    "Custom lanyards",
+                    "Premium gift bag integration",
+                  ],
+                  giveaway: "Dancing with the Stars",
+                  buttonLabel: "Become Entry Sponsor",
+                  mailto:
+                    "mailto:brightpathbillboards@gmail.com?subject=Entry Sponsor Interest",
+                },
+                {
+                  icon: Sparkles,
+                  tier: "Experience Sponsor",
+                  price: "$2,500",
+                  tag: "Interactive Brand Moment",
+                  features: [
+                    "Experience zone signage and setup",
+                    "Table branding and activation placement",
+                    "Branded experience interaction",
+                    "Premium gift bag integration",
+                  ],
+                  giveaway: "Lionel Richie + Earth Wind & Fire",
+                  buttonLabel: "Become Experience Sponsor",
+                  mailto:
+                    "mailto:brightpathbillboards@gmail.com?subject=Experience Sponsor Interest",
+                },
+                {
+                  icon: Wine,
+                  tier: "Bar Sponsor",
+                  price: "$2,500",
+                  tag: "High Traffic + Repeat Visibility",
+                  features: [
+                    "LED Acrylic Light Stands bar feature display",
+                    "Bar signage and visibility",
+                    "Continuous exposure at beverage station",
+                    "Premium gift bag integration",
+                  ],
+                  giveaway: "Shakira",
+                  buttonLabel: "Become Bar Sponsor",
+                  mailto:
+                    "mailto:brightpathbillboards@gmail.com?subject=Bar Sponsor Interest",
+                },
+              ].map((card) => (
+                <div
+                  key={card.tier}
+                  className="luxury-card rounded-2xl p-6 md:p-7 flex flex-col h-full"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-gold-base/10 flex items-center justify-center mb-4">
+                    <card.icon className="h-5 w-5 text-gold-base" />
+                  </div>
+                  <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-1.5">
+                    {card.tier}
+                  </p>
+                  <p
+                    className="text-3xl font-bold text-text-light mb-2"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {card.price}
+                  </p>
+                  <p className="text-text-light text-sm font-semibold leading-snug mb-5">
+                    {card.tag}
+                  </p>
+
+                  <ul className="space-y-2 mb-5">
+                    {card.features.map((f) => (
+                      <li
+                        key={f}
+                        className="flex items-start gap-2 text-text-mid text-sm"
+                      >
+                        <CheckCircle2 className="h-4 w-4 text-gold-base shrink-0 mt-0.5" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="rounded-lg border border-gold-base/20 bg-black-hero/40 p-3 mb-5">
+                    <p className="text-gold-base text-[10px] font-semibold tracking-widest uppercase mb-1">
+                      Giveaway
+                    </p>
+                    <p className="text-text-light text-sm font-semibold">
+                      {card.giveaway}
+                    </p>
+                  </div>
+
+                  <a
+                    href={card.mailto}
+                    className="mt-auto inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold rounded-lg border border-gold-base/40 text-gold-highlight hover:bg-gold-base/10 hover:border-gold-base transition-all duration-300"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span>{card.buttonLabel}</span>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* All Sponsors Receive */}
+          <div className="luxury-card rounded-2xl p-8 md:p-10 mb-16">
+            <div className="text-center mb-8">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-3">
+                All Sponsors Receive
+              </p>
+              <h3
+                className="text-2xl md:text-3xl font-bold text-text-light"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Built In Value Across Every Tier
+              </h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-8 max-w-4xl mx-auto">
+              {[
+                "Photo with the headlining DJ",
+                "DJ shoutouts during event",
+                "Logo placement in recap video",
+                "Social media coverage and event content",
+                "Access to curated gift bag",
+                "Branded giveaway opportunity",
+                "1 to 2 hour planning session with BrightPath",
+                "DOOH campaign strategy alignment",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 text-text-light"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-gold-base shrink-0 mt-1" />
+                  <span className="text-[0.95rem] leading-snug">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t border-gold-base/15 pt-8">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-5 text-center">
+                Exposure To
+              </p>
+              <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                {[
+                  { value: "100+", label: "Local business attendees" },
+                  { value: "100,000+", label: "Real-world impressions" },
+                  { value: "20,000+", label: "Social media impressions" },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl border border-gold-base/20 bg-black-hero/40 p-4 text-center"
+                  >
+                    <p
+                      className="text-2xl font-bold text-gold-highlight mb-1"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      {stat.value}
+                    </p>
+                    <p className="text-text-mid text-xs tracking-widest uppercase font-semibold">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Sponsor Activation */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-xs mb-3">
+                Sponsor Activation
+              </p>
+              <h3
+                className="text-2xl md:text-3xl font-bold text-text-light mb-3"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Your Brand Is Not Just Shown — It Is Experienced
+              </h3>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5 mb-8">
+              {[
+                {
+                  icon: Megaphone,
+                  title: "On-site Branding",
+                  items: [
+                    "Feather flags and banners",
+                    "Step & repeat backdrop",
+                    "Table setups and signage",
+                    "LED display elements",
+                  ],
+                },
+                {
+                  icon: Gift,
+                  title: "Guest Interaction",
+                  items: [
+                    "Lanyards, tote bags, drinkware",
+                    "Giveaway participation",
+                  ],
+                },
+                {
+                  icon: Music2,
+                  title: "Promotional Moments",
+                  items: [
+                    "DJ shoutouts",
+                    "Photo opportunities",
+                    "Giveaway callouts",
+                  ],
+                },
+              ].map((card) => (
+                <div key={card.title} className="luxury-card rounded-2xl p-6">
+                  <div className="w-11 h-11 rounded-lg bg-gold-base/10 flex items-center justify-center mb-4">
+                    <card.icon className="h-5 w-5 text-gold-base" />
+                  </div>
+                  <h4
+                    className="text-lg font-bold text-text-light mb-3"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {card.title}
+                  </h4>
+                  <ul className="space-y-2">
+                    {card.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-text-mid text-sm"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-gold-base shrink-0 mt-2" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="luxury-card rounded-2xl p-6 text-center max-w-3xl mx-auto">
+              <p className="text-text-light text-base md:text-lg leading-relaxed">
+                Each sponsor hosts a{" "}
+                <span className="text-gold-highlight font-semibold">
+                  branded giveaway moment
+                </span>{" "}
+                during the event.
+              </p>
+            </div>
+          </div>
+
+          {/* Artwork Requirement + Community Impact */}
+          <div className="grid md:grid-cols-2 gap-5 mb-16">
+            <div className="luxury-card rounded-2xl p-7 md:p-8">
+              <div className="w-11 h-11 rounded-lg bg-gold-base/10 flex items-center justify-center mb-4">
+                <Palette className="h-5 w-5 text-gold-base" />
+              </div>
+              <h3
+                className="text-xl font-bold text-text-light mb-3"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Artwork Requirement
+              </h3>
+              <p className="text-text-mid leading-relaxed mb-3">
+                Artwork and design are not included.
+              </p>
+              <p className="text-text-light leading-relaxed">
+                All sponsor creatives must be submitted and approved by the
+                BrightPath Campaign Team prior to launch.
+              </p>
+            </div>
+
+            <div className="luxury-card rounded-2xl p-7 md:p-8">
+              <div className="w-11 h-11 rounded-lg bg-gold-base/10 flex items-center justify-center mb-4">
+                <HeartHandshake className="h-5 w-5 text-gold-base" />
+              </div>
+              <h3
+                className="text-xl font-bold text-text-light mb-3"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Community Impact
+              </h3>
+              <p className="text-text-mid leading-relaxed mb-3">
+                Your support helps launch a new Coachella Valley media platform
+                while supporting Friends of the Children.
+              </p>
+              <p className="text-text-mid leading-relaxed mb-4">
+                This initiative helps provide mentorship, confidence building,
+                hygiene guidance, and support for 20 kids throughout the summer.
+              </p>
+              <p className="text-gold-highlight font-semibold italic">
+                We all want a BrightPath in life.
+              </p>
+            </div>
+          </div>
+
+          {/* News Proof */}
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold-base/40 bg-gold-base/5 mb-4">
+              <Tv className="h-3.5 w-3.5 text-gold-base" />
+              <p className="text-gold-base font-semibold tracking-widest uppercase text-xs">
+                News Proof
+              </p>
+            </div>
+            <h3
+              className="text-2xl md:text-3xl font-bold text-text-light"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Already Gaining{" "}
+              <span className="text-gold-highlight">Attention</span>
+            </h3>
+          </div>
+
+          <div className="luxury-card rounded-2xl p-4 md:p-6 max-w-4xl mx-auto">
+            <div className="relative w-full overflow-hidden rounded-xl bg-black">
+              <iframe
+                src="https://www.youtube.com/embed/EBo7axZM_GE"
+                title="BrightPath Billboards News Coverage"
+                width="100%"
+                height="400"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
