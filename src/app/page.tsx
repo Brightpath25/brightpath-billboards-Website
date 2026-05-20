@@ -108,6 +108,10 @@ export default function Home() {
               Preview
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
             </Link>
+            <a href="https://bpmobilebillboardsiq.live" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
+              BrightPathIQ
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
+            </a>
             <Link href="/game" className="text-gold-highlight hover:text-gold-base transition-all duration-300 relative group font-semibold nav-link-hover-glow">
               Play Game
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
@@ -154,6 +158,7 @@ export default function Home() {
               <Link href="/events" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Events</Link>
               <Link href="/launch" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Launch</Link>
               <Link href="#preview" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Preview</Link>
+              <a href="https://bpmobilebillboardsiq.live" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>BrightPathIQ</a>
               <Link href="/game" className="text-gold-highlight font-semibold hover:text-gold-base transition-colors" onClick={() => setMobileMenuOpen(false)}>Play Game</Link>
               <Link href="#about" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
               <Link href="#contact" className="text-text-light hover:text-gold-highlight transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
