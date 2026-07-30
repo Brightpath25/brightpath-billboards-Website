@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 function InlineText({ text }: { text: string }) {
-  const tokens = text.split(/(\\*\\*[^*]+\\*\\*|\\[[^\\]]+\\]\\([^)]*\\))/g);
+  const tokens = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]*\))/g);
   return <>{tokens.map((token, index) => {
     if (token.startsWith("**") && token.endsWith("**")) {
       return <strong key={index}>{token.slice(2, -2)}</strong>;
     }
-    const match = token.match(/^\\[([^\\]]+)\\]\\(([^)]*)\\)$/);
+    const match = token.match(/^\[([^\]]+)\]\(([^)]*)\)$/);
     if (match) {
       return <a key={index} href={match[2]} className="text-gold-highlight underline hover:text-white">{match[1]}</a>;
     }
