@@ -54,5 +54,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://bpmobilebillboards.com/events/custom-events",
       lastModified: new Date(),
     },
+    {
+      url: "https://bpmobilebillboards.com/terms-of-service",
+      lastModified: new Date("2026-07-29"),
+    },
+    {
+      url: "https://bpmobilebillboards.com/privacy-policy",
+      lastModified: new Date("2026-07-29"),
+    },
+    {
+      url: "https://bpmobilebillboards.com/refund-policy",
+      lastModified: new Date("2026-07-29"),
+    },
   ];
 }
