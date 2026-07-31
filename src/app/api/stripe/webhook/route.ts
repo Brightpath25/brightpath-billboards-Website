@@ -57,7 +57,7 @@ export async function POST(request: Request) {
         {
           customer: customerId,
           collection_method: "charge_automatically",
-          auto_advance: false,
+          auto_advance: true,
           automatically_finalizes_at: unixTimestamp(payment.date),
           description: "BrightPath Billboards fixed-date partnership payment — " + payment.date,
           "metadata[enrollment_id]": enrollmentId,
