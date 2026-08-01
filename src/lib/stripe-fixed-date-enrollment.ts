@@ -6,8 +6,11 @@ export const FIXED_DATE_SCHEDULE = [
   { date: "2026-11-01", amount: 500000, label: "Payment 3" },
 ] as const;
 
-export const ENROLLMENT_ENABLED =
-  process.env.STRIPE_FIXED_DATE_ENROLLMENT_ENABLED === "true";
+const enrollmentFlag =
+  process.env.STRIPE_FIXED_DATE_ENROLLMENT_ENABLED ??
+  process.env.STRIPE_ENROLLMENT_ENABLED;
+
+export const ENROLLMENT_ENABLED = enrollmentFlag === "true";
 
 function requiredEnv(name: string): string {
   const value = process.env[name];
@@ -57,7 +60,11 @@ export function unixTimestamp(date: string): number {
 }
 
 export function appBaseUrl(): string {
-  return process.env.PUBLIC_SITE_URL || "https://bpmobilebillboards.com";
+  return (
+    process.env.PUBLIC_SITE_URL ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://bpmobilebillboards.com"
+  );
 }
 
 export function webhookSignatureIsValid(
