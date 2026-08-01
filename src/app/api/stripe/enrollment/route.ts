@@ -38,7 +38,11 @@ export async function POST() {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Stripe enrollment session error:", error);
-    return NextResponse.json({ error: "Unable to start enrollment." }, { status: 500 });
+    const detail = error instanceof Error ? error.message : "Unknown server error";
+    return NextResponse.json(
+      { error: "Unable to start enrollment.", detail },
+      { status: 500 },
+    );
   }
 }
 
