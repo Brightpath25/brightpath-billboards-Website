@@ -30,7 +30,7 @@ export async function POST() {
         success_url: appBaseUrl() + "/enrollment/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: appBaseUrl() + "/enrollment/cancelled",
       },
-      "checkout-session:create",
+      "checkout-session:create:v2",
     );
     if (typeof session.url !== "string") {
       throw new Error("Stripe did not return a Checkout URL.");
@@ -38,9 +38,8 @@ export async function POST() {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Stripe enrollment session error:", error);
-    const detail = error instanceof Error ? error.message : "Unknown server error";
     return NextResponse.json(
-      { error: "Unable to start enrollment.", detail },
+      { error: "Unable to start enrollment." },
       { status: 500 },
     );
   }
