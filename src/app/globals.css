@@ -8,6 +8,95 @@
 :root {
   color-scheme: light;
 
+  /*
+   * BrightPath Desert Motion design tokens
+   * Canonical foundation only. Existing components remain on the legacy
+   * variables below until their separately approved migration tasks.
+   */
+
+  /* Color */
+  --bp-black: #0A0A0A;
+  --bp-black-soft: #151515;
+  --bp-charcoal: #242424;
+  --bp-gold: #E79E15;
+  --bp-gold-dark: #B8750B;
+  --bp-brown: #4B3A1B;
+  --bp-cream: #F5F0E7;
+  --bp-white: #FFFFFF;
+  --bp-gray-100: #E8E8E8;
+  --bp-gray-400: #A7A7A7;
+  --bp-gray-700: #4A4A4A;
+  --bp-success: #2E7D5B;
+  --bp-error: #C64040;
+
+  /* Typography */
+  --bp-font-display: 'Archivo Variable', 'Arial Black', sans-serif;
+  --bp-font-body: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bp-type-display-xl: clamp(2.625rem, 5vw + 1rem, 6rem);
+  --bp-type-h1: clamp(2.375rem, 4vw + 1rem, 4.75rem);
+  --bp-type-h2: clamp(1.875rem, 3vw + 0.75rem, 3.625rem);
+  --bp-type-h3: clamp(1.5rem, 1.5vw + 1rem, 2.25rem);
+  --bp-type-body-lg: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --bp-type-body: clamp(1rem, 0.2vw + 0.95rem, 1.125rem);
+  --bp-type-small: clamp(0.875rem, 0.1vw + 0.85rem, 0.9375rem);
+  --bp-type-label: clamp(0.75rem, 0.2vw + 0.7rem, 0.875rem);
+  --bp-leading-display-xl: 0.96;
+  --bp-leading-h1: 1.02;
+  --bp-leading-h2: 1.06;
+  --bp-leading-h3: 1.15;
+  --bp-leading-body-lg: 1.52;
+  --bp-leading-body: 1.58;
+  --bp-leading-small: 1.52;
+  --bp-leading-label: 1.3;
+  --bp-weight-regular: 400;
+  --bp-weight-medium: 500;
+  --bp-weight-semibold: 600;
+  --bp-weight-bold: 700;
+  --bp-weight-extrabold: 800;
+  --bp-weight-black: 900;
+
+  /* Spacing: 8 px base with approved half steps */
+  --bp-space-1: 0.25rem;
+  --bp-space-2: 0.5rem;
+  --bp-space-3: 0.75rem;
+  --bp-space-4: 1rem;
+  --bp-space-6: 1.5rem;
+  --bp-space-8: 2rem;
+  --bp-space-12: 3rem;
+  --bp-space-16: 4rem;
+  --bp-space-20: 5rem;
+  --bp-space-24: 6rem;
+  --bp-space-32: 8rem;
+  --bp-space-40: 10rem;
+
+  /* Layout */
+  --bp-container-wide: 90rem;
+  --bp-container-standard: 80rem;
+  --bp-container-reading: 52.5rem;
+  --bp-page-gutter: clamp(1.25rem, 4vw, 4rem);
+  --bp-section-space: clamp(4rem, 8vw, 10rem);
+  --bp-grid-gutter: clamp(1rem, 2vw, 2rem);
+
+  /* Shape, borders, and depth */
+  --bp-radius-control: 0.375rem;
+  --bp-radius-card: 0.625rem;
+  --bp-radius-media: 0.75rem;
+  --bp-radius-pill: 9999px;
+  --bp-border-width: 1px;
+  --bp-border-dark: rgba(255, 255, 255, 0.12);
+  --bp-border-light: rgba(10, 10, 10, 0.14);
+  --bp-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.16);
+  --bp-shadow-md: 0 12px 32px rgba(0, 0, 0, 0.22);
+  --bp-shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.28);
+  --bp-focus-ring: 0 0 0 3px rgba(231, 158, 21, 0.38);
+
+  /* Motion */
+  --bp-duration-fast: 150ms;
+  --bp-duration-base: 250ms;
+  --bp-duration-slow: 450ms;
+  --bp-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --bp-ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+
   /* Luxury Gold Palette */
   --gold-base: #E3B04B;
   --gold-highlight: #F7D382;
