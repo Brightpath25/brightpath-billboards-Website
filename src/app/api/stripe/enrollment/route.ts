@@ -37,10 +37,8 @@ export async function POST() {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Stripe enrollment session error:", error);
-    const stripeError =
-      error instanceof Error ? error.message : "Unknown enrollment error.";
     return NextResponse.json(
-      { error: "Unable to start enrollment.", diagnostic: stripeError },
+      { error: "Unable to start enrollment." },
       { status: 500 },
     );
   }
