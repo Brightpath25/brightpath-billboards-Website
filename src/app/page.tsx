@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Truck, Target, Calendar, Phone, Mail, MapPin, Linkedin, Instagram, Facebook, Twitter, Menu, X, ChevronDown, Sparkles, Zap, TrendingUp } from "lucide-react";
 import dynamic from "next/dynamic";
+import DesktopNavigation from "@/components/DesktopNavigation";
 
 const Campaign360Viewer = dynamic(() => import("@/components/Campaign360Viewer"), {
   ssr: false,
@@ -87,58 +88,7 @@ export default function Home() {
             />
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="#home" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
-              Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="#services" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
-              Services
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="/events" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
-              Events
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="/launch" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
-              Launch
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="#preview" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
-              Preview
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <a href="https://bpmobilebillboardsiq.live" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
-              BrightPathIQ
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <Link href="/game" className="text-gold-highlight hover:text-gold-base transition-all duration-300 relative group font-semibold nav-link-hover-glow">
-              Play Game
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="#about" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
-              About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="#contact" className="text-text-light hover:text-gold-highlight transition-all duration-300 relative group nav-link-hover-glow">
-              Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-gradient group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <a href="tel:7603858989" className="text-gold-base font-semibold phone-cta-pill">
-              (760) 385-8989
-            </a>
-            <div className="flex items-center space-x-3 ml-2">
-              <a href="https://www.instagram.com/bpmobilebillboards?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="Instagram">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="https://www.linkedin.com/company/brightpath-billboards-llc/" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="https://x.com/Brightpath94370" target="_blank" rel="noopener noreferrer" className="text-text-light hover:text-gold-highlight transition-colors" aria-label="X">
-                <Twitter className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
+          <DesktopNavigation />
 
           {/* Mobile menu button */}
           <button
