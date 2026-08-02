@@ -1,12 +1,18 @@
 import Link from "next/link";
 
-const navigationItems = [
+type NavigationItem = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+const navigationItems: readonly NavigationItem[] = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Campaigns", href: "/#campaigns" },
   { label: "Events", href: "/events" },
   { label: "BrightPathIQ", href: "https://bpmobilebillboardsiq.live", external: true },
   { label: "About", href: "/#about" },
-] as const;
+];
 
 const linkClassName =
   "rounded-bp-control px-bp-2 py-bp-2 font-bp-body text-bp-small font-bp-medium text-bp-gray-100 transition-colors duration-bp-fast ease-bp-standard hover:text-bp-gold focus-visible:outline-none focus-visible:shadow-bp-focus";
