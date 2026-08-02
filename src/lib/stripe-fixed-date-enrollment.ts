@@ -67,24 +67,33 @@ export function appBaseUrl(): string {
   );
 }
 
+function normalizeSecret(secret: string): string {
+  return secret.trim().replace(/^(['"])(.*)\1$/, "$2").trim();
+}
+
 export function webhookSignatureIsValid(
   rawBody: string,
   signature: string,
   secret: string,
 ): boolean {
-  const timestampPart = signature.split(",").find((part) => part.startsWith("t="));
-  const signatures = signature
-    .split(",")
+  const parts = signature.split(",").map((part) => part.trim());
+  const timestampPart = parts.find((part) => part.startsWith("t="));
+  const signatures = parts
     .filter((part) => part.startsWith("v1="))
-    .map((part) => part.slice(3));
+    .map((part) => part.slice(3).trim())
+    .filter(Boolean);
+
   if (!timestampPart || signatures.length === 0) return false;
-  const timestamp = Number(timestampPart.slice(2));
+
+  const timestamp = Number(timestampPart.slice(2).trim());
   if (!Number.isFinite(timestamp)) return false;
   if (Math.abs(Math.floor(Date.now() / 1000) - timestamp) > 300) return false;
+
   const expected = crypto
-    .createHmac("sha256", secret)
-    .update(timestamp + "." + rawBody)
+    .createHmac("sha256", normalizeSecret(secret))
+    .update(String(timestamp) + "." + rawBody)
     .digest("hex");
+
   return signatures.some((candidate) => {
     const expectedBuffer = Buffer.from(expected, "utf8");
     const candidateBuffer = Buffer.from(candidate, "utf8");
