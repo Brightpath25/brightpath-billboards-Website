@@ -43,24 +43,19 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Meta Pixel Code */}
-        <Script id="meta-pixel" strategy="beforeInteractive">
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1669562787820304');fbq('track','PageView');`}
         </Script>
         <noscript>
           <img height={1} width={1} style={{display:'none'}} src="https://www.facebook.com/tr?id=1669562787820304&ev=PageView&noscript=1" />
         </noscript>
         {/* End Meta Pixel Code */}
-        <link
-          rel="preload"
-          as="image"
-          href="https://cantmiss.us/wp-content/uploads/2022/09/Miami-Digital-Mobile-Billboards-4.jpeg"
-        />
         <Script
           src="//unpkg.com/same-runtime/dist/index.global.js"
           crossOrigin="anonymous"
           strategy="lazyOnload"
         />
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -146,7 +141,7 @@ export default function RootLayout({
         {/* LinkedIn Insight Tag */}
         <Script
           id="linkedin-insight-init"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
       _linkedin_partner_id = "8960676";
@@ -180,8 +175,14 @@ export default function RootLayout({
         </noscript>
         {/* End LinkedIn Insight Tag */}
         {/* Google Analytics (GA4) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-25T9DYY7X2"></script>
-        <script
+        <Script
+          id="google-analytics-loader"
+          src="https://www.googletagmanager.com/gtag/js?id=G-25T9DYY7X2"
+          strategy="lazyOnload"
+        />
+        <Script
+          id="google-analytics-init"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
