@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 const schedule = [
-  ["August 7, 2026", "$5,000"],
-  ["October 1, 2026", "$5,000"],
-  ["November 1, 2026", "$5,000"],
+  ["August 10, 2026", "$5,000"],
+  ["October 10, 2026", "$5,000"],
+  ["November 10, 2026", "$5,000"],
 ];
 
 export default function EnrollmentPage() {
@@ -60,7 +60,7 @@ export default function EnrollmentPage() {
             <p className="font-semibold text-text-light">Before you continue</p>
             <ul className="mt-3 list-disc space-y-1 pl-5">
               <li>Your payment method is saved securely by Stripe.</li>
-              <li>The first charge is scheduled for August 7, 2026.</li>
+              <li>The first charge is scheduled for August 10, 2026.</li>
               <li>There is no September payment and no automatic renewal after November.</li>
               <li>Stripe Checkout will collect your business, billing, phone, and consent details.</li>
             </ul>
