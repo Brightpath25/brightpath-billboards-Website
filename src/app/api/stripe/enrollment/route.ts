@@ -25,7 +25,7 @@ export async function POST() {
         "setup_intent_data[metadata][offer]":
           "fixed-date-three-payment-partnership",
         "setup_intent_data[metadata][schedule]":
-          "2026-08-10,2026-10-10,2026-11-10",
+          "2026-08-07,2026-10-01,2026-11-01",
         success_url: appBaseUrl() + "/enrollment/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: appBaseUrl() + "/enrollment/cancelled",
       },
@@ -48,9 +48,9 @@ export async function GET() {
   return NextResponse.json({
     enabled: ENROLLMENT_ENABLED,
     schedule: [
-      { date: "2026-08-10", amount: 5000 },
-      { date: "2026-10-10", amount: 5000 },
-      { date: "2026-11-10", amount: 5000 },
+      { date: "2026-08-07", amount: 5000 },
+      { date: "2026-10-01", amount: 5000 },
+      { date: "2026-11-01", amount: 5000 },
     ],
   });
 }
