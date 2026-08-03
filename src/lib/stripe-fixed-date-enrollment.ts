@@ -6,9 +6,7 @@ export const FIXED_DATE_SCHEDULE = [
   { date: "2026-11-01", amount: 500000, label: "Payment 3" },
 ] as const;
 
-const enrollmentFlag =
-  process.env.STRIPE_FIXED_DATE_ENROLLMENT_ENABLED ??
-  process.env.STRIPE_ENROLLMENT_ENABLED;
+const enrollmentFlag = process.env.STRIPE_FIXED_DATE_ENROLLMENT_ENABLED;
 
 export const ENROLLMENT_ENABLED = enrollmentFlag === "true";
 
