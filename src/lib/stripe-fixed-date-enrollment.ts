@@ -1,9 +1,9 @@
 import crypto from "node:crypto";
 
 export const FIXED_DATE_SCHEDULE = [
-  { date: "2026-08-07", amount: 500000, label: "Payment 1" },
-  { date: "2026-10-01", amount: 500000, label: "Payment 2" },
-  { date: "2026-11-01", amount: 500000, label: "Payment 3" },
+  { date: "2026-08-10", amount: 500000, label: "Payment 1" },
+  { date: "2026-10-10", amount: 500000, label: "Payment 2" },
+  { date: "2026-11-10", amount: 500000, label: "Payment 3" },
 ] as const;
 
 const enrollmentFlag =
