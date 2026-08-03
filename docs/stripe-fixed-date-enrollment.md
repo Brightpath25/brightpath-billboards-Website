@@ -9,9 +9,9 @@ Client experience:
 3. Stripe saves the payment method in setup mode without charging at enrollment.
 4. Stripe sends the completed Checkout event to the signed webhook.
 5. The webhook creates three automatic-collection invoices:
-   - August 7, 2026: $5,000
-   - October 1, 2026: $5,000
-   - November 1, 2026: $5,000
+   - August 10, 2026: $5,000
+   - October 10, 2026: $5,000
+   - November 10, 2026: $5,000
 6. September is skipped. No subscription or renewal is created.
 
 Required server variables:
