@@ -22,6 +22,26 @@ const CursorTrail = dynamic(() => import("@/components/CursorTrail"), {
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [enhancementsReady, setEnhancementsReady] = useState(false);
+
+  // Keep decorative effects and video off the critical loading path.
+  useEffect(() => {
+    let timer: number | undefined;
+    const enableEnhancements = () => {
+      timer = window.setTimeout(() => setEnhancementsReady(true), 500);
+    };
+
+    if (document.readyState === "complete") {
+      enableEnhancements();
+    } else {
+      window.addEventListener("load", enableEnhancements, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener("load", enableEnhancements);
+      if (timer) window.clearTimeout(timer);
+    };
+  }, []);
 
   // Handle scroll effects
   useEffect(() => {
@@ -69,7 +89,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black-hero">
       {/* LED Truck Cursor Trail */}
-      <CursorTrail />
+      {enhancementsReady && <CursorTrail />}
 
       {/* Floating Glass Navbar */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'floating-navbar scrolled py-2' : 'floating-navbar py-4'}`}>
@@ -144,8 +164,8 @@ export default function Home() {
           muted
           loop
           playsInline
-          preload="auto"
-          poster="/brightpath-logo.png"
+          preload="none"
+          poster="/brightpathbillboards-traffic.jpeg"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             zIndex: 1,
@@ -153,7 +173,7 @@ export default function Home() {
             transition: 'transform 0.3s ease-out'
           }}
         >
-          <source src="/brightpath-hero.mp4" type="video/mp4" />
+          {enhancementsReady && <source src="/brightpath-hero.mp4" type="video/mp4" />}
         </video>
 
         {/* Dark overlay on top of video for readability */}
