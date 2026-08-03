@@ -2,7 +2,6 @@
 const nextConfig = {
   allowedDevOrigins: ["*.preview.same-app.com"],
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
