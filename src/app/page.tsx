@@ -219,6 +219,83 @@ export default function Home() {
       {/* Gold Divider */}
       <div className="gold-divider"></div>
 
+      {/* BrightPathIQ Reporting Section */}
+      <section
+        id="brightpathiq"
+        aria-labelledby="brightpathiq-heading"
+        className="scroll-reveal bg-black-panel py-24"
+      >
+        <div className="container mx-auto px-4">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-gold-highlight">
+              BRIGHTPATHIQ CAMPAIGN REPORTING
+            </p>
+            <h2 id="brightpathiq-heading" className="mb-6 text-4xl font-bold text-text-light md:text-5xl">
+              Visibility you can see. Delivery you can verify<span className="text-gold-base">.</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-text-mid md:text-xl">
+              BrightPathIQ organizes campaign delivery, route activity, and supporting proof into a client-safe reporting workspace.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                number: "01",
+                title: "Campaign status",
+                text: "Review the campaign record, schedule, and current delivery status in one place."
+              },
+              {
+                number: "02",
+                title: "Route activity",
+                text: "See the route information associated with campaign delivery and operating coverage."
+              },
+              {
+                number: "03",
+                title: "Proof review",
+                text: "Review required proof photography, additional documentation, and verification details."
+              },
+              {
+                number: "04",
+                title: "Campaign reporting",
+                text: "Access structured reports and client-safe analytics tied to the campaign record."
+              }
+            ].map(({ number, title, text }) => (
+              <article key={title} className="rounded-2xl border border-gold-base/20 bg-black-hero/70 p-7 transition-colors hover:border-gold-base/50">
+                <div className="mb-7 flex items-center justify-between">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-gold-base text-sm font-bold text-black-hero">
+                    {number}
+                  </span>
+                  <span className="h-px w-12 bg-gold-base/40" aria-hidden="true"></span>
+                </div>
+                <h3 className="mb-3 text-xl font-bold text-text-light">{title}</h3>
+                <p className="leading-relaxed text-text-mid">{text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-12 flex max-w-4xl flex-col items-center justify-between gap-6 rounded-2xl border border-gold-base/20 bg-black-hero px-7 py-7 text-center md:flex-row md:text-left">
+            <div>
+              <h3 className="mb-2 text-2xl font-bold text-text-light">A clearer campaign record</h3>
+              <p className="max-w-2xl leading-relaxed text-text-mid">
+                QR activity can be included when it is part of the campaign. BrightPathIQ keeps that information with the campaign report instead of separating it from delivery proof.
+              </p>
+            </div>
+            <a
+              href="https://bpmobilebillboardsiq.live"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center justify-center rounded-lg bg-gold-base px-6 py-3 font-semibold text-black-hero transition-colors hover:bg-gold-highlight"
+            >
+              Experience BrightPathIQ
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Gold Divider */}
+      <div className="gold-divider"></div>
+
       {/* About Section */}
       {/* About BrightPath Billboards - NEW SECTION */}
       <section id="about" className="py-24 bg-black-hero scroll-reveal">
