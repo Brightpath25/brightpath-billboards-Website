@@ -387,31 +387,30 @@ export default function Home() {
       {/* Gold Divider */}
       <div className="gold-divider"></div>
 
-      {/* 360° Preview Section — Featured Surface Band */}
-      <div id="preview" className="scroll-reveal relative overflow-hidden py-6" style={{ background: '#161210' }}>
-        {/* Core charcoal-bronze surface gradient */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, #0c0a08 0%, #1e1812 6%, #2b2118 14%, #362a1e 24%, #3e3022 36%, #443524 50%, #3e3022 64%, #362a1e 76%, #2b2118 86%, #1e1812 94%, #0c0a08 100%)' }} />
-        {/* Warm gold-tinted wash across full section */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(180,140,50,0.07) 10%, rgba(180,140,50,0.13) 30%, rgba(180,140,50,0.16) 50%, rgba(180,140,50,0.13) 70%, rgba(180,140,50,0.07) 90%, transparent 100%)' }} />
-        {/* Soft inner shadow — top */}
-        <div className="absolute top-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)' }} />
-        {/* Soft inner shadow — bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)' }} />
-        {/* Top separation line — gold */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(212,175,55,0.4) 20%, rgba(212,175,55,0.85) 50%, rgba(212,175,55,0.4) 80%, transparent 95%)' }} />
-        {/* Top glow bloom beneath line */}
-        <div className="absolute top-[2px] left-0 right-0 h-12 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.06) 50%, transparent 100%)' }} />
-        {/* Bottom separation line — gold */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(212,175,55,0.4) 20%, rgba(212,175,55,0.85) 50%, rgba(212,175,55,0.4) 80%, transparent 95%)' }} />
-        {/* Bottom glow bloom above line */}
-        <div className="absolute bottom-[2px] left-0 right-0 h-12 pointer-events-none" style={{ background: 'linear-gradient(0deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.06) 50%, transparent 100%)' }} />
-        {/* Subtle edge vignette for depth */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 130% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.5) 100%)' }} />
-        {/* Content */}
-        <div className="relative z-10">
-          <HomepageCampaignViewer />
+      {/* 360° Preview Section — presentation wrapper only. The viewer itself remains protected. */}
+      <section
+        id="preview"
+        aria-labelledby="preview-section-heading"
+        className="scroll-reveal bg-black-panel py-16 md:py-24"
+      >
+        <div className="container mx-auto px-4">
+          <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-gold-highlight">
+              CAMPAIGN VISUALIZATION
+            </p>
+            <h2 id="preview-section-heading" className="mb-5 text-3xl font-bold text-text-light md:text-5xl">
+              See your message in motion<span className="text-gold-base">.</span>
+            </h2>
+            <p className="text-base leading-relaxed text-text-mid md:text-lg">
+              Use the interactive preview to explore how approved creative can appear across the mobile LED truck screens.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-gold-base/20 bg-black-hero">
+            <HomepageCampaignViewer />
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Gold Divider */}
       <div className="gold-divider"></div>
