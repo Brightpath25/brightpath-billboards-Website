@@ -147,7 +147,7 @@ export default function Home() {
             <div className="max-w-3xl">
               <p className="text-sm font-bold tracking-[0.28em] text-gold-highlight uppercase mb-5">Campaign options</p>
               <h2 id="services-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-6">
-                Choose how your brand <span className="text-gold-gradient">moves.</span>
+                Choose how your brand <span className="text-gold-highlight">moves.</span>
               </h2>
               <p className="text-lg md:text-xl text-text-mid max-w-2xl leading-relaxed">
                 Three ways to put your message in motion across the Coachella Valley, from everyday visibility to event-focused reach.
@@ -192,7 +192,7 @@ export default function Home() {
             ].map(({ number, icon: Icon, title, description, href, label }) => (
               <article key={title} className="group relative flex min-h-[390px] flex-col rounded-2xl border border-gold-base/20 bg-black-panel/70 p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold-base/60 hover:bg-black-panel">
                 <div className="flex items-start justify-between gap-4 mb-12">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gold-gradient shadow-lg shadow-gold-base/10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gold-base">
                     <Icon className="h-7 w-7 text-black-hero" aria-hidden="true" />
                   </div>
                   <span className="text-sm font-semibold tracking-[0.2em] text-gold-highlight/70">{number}</span>
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
 
           <div className="mt-14 flex flex-col items-center text-center">
-            <Link href="/launch" className="luxury-button text-lg inline-flex items-center gap-2">
+            <Link href="/launch" className="inline-flex items-center gap-2 rounded-lg bg-gold-base px-8 py-4 text-lg font-semibold text-black-hero transition-colors hover:bg-gold-highlight">
               See how it works live <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
             </Link>
             <p className="text-sm text-gold-highlight/70 italic mt-3">Understand how campaigns show up in real environments</p>
