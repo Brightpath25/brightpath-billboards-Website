@@ -50,6 +50,96 @@ export default function Home() {
       {/* Gold Divider */}
       <div className="gold-divider"></div>
 
+      {/* How It Works Section */}
+      <section
+        id="how-it-works"
+        aria-labelledby="how-it-works-heading"
+        className="py-24 bg-black-hero scroll-reveal"
+      >
+        <div className="container mx-auto px-4">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-gold-highlight">
+              THE BRIGHTPATH PROCESS
+            </p>
+            <h2 id="how-it-works-heading" className="mb-6 text-4xl font-bold text-text-light md:text-5xl">
+              From campaign idea to documented delivery<span className="text-gold-base">.</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-text-mid md:text-xl">
+              BrightPath turns your campaign goals into a practical route, a clear screen plan, and documented delivery across the Coachella Valley.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <article className="relative rounded-2xl border border-gold-base/20 bg-black-panel/70 p-7 transition-colors hover:border-gold-base/50">
+              <div className="mb-6 flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-gradient text-black-hero">
+                  <Target className="h-6 w-6" aria-hidden="true" />
+                </div>
+                <span className="text-4xl font-bold text-gold-base/30" aria-hidden="true">01</span>
+              </div>
+              <h3 className="mb-3 text-xl font-bold text-text-light">Define the campaign</h3>
+              <p className="leading-relaxed text-text-mid">
+                Share your audience, goals, timing, service area, and the action you want people to take.
+              </p>
+            </article>
+
+            <article className="relative rounded-2xl border border-gold-base/20 bg-black-panel/70 p-7 transition-colors hover:border-gold-base/50">
+              <div className="mb-6 flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-gradient text-black-hero">
+                  <Calendar className="h-6 w-6" aria-hidden="true" />
+                </div>
+                <span className="text-4xl font-bold text-gold-base/30" aria-hidden="true">02</span>
+              </div>
+              <h3 className="mb-3 text-xl font-bold text-text-light">Build the route and screen plan</h3>
+              <p className="leading-relaxed text-text-mid">
+                Approved creative is adapted for three LED screens while BrightPath maps the campaign around relevant commercial areas and timing.
+              </p>
+            </article>
+
+            <article className="relative rounded-2xl border border-gold-base/20 bg-black-panel/70 p-7 transition-colors hover:border-gold-base/50">
+              <div className="mb-6 flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-gradient text-black-hero">
+                  <Truck className="h-6 w-6" aria-hidden="true" />
+                </div>
+                <span className="text-4xl font-bold text-gold-base/30" aria-hidden="true">03</span>
+              </div>
+              <h3 className="mb-3 text-xl font-bold text-text-light">Deploy and document</h3>
+              <p className="leading-relaxed text-text-mid">
+                The campaign runs through planned weekday delivery with safety-aware routing, route records, and proof photography.
+              </p>
+            </article>
+
+            <article className="relative rounded-2xl border border-gold-base/20 bg-black-panel/70 p-7 transition-colors hover:border-gold-base/50">
+              <div className="mb-6 flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-gradient text-black-hero">
+                  <TrendingUp className="h-6 w-6" aria-hidden="true" />
+                </div>
+                <span className="text-4xl font-bold text-gold-base/30" aria-hidden="true">04</span>
+              </div>
+              <h3 className="mb-3 text-xl font-bold text-text-light">Review in BrightPathIQ</h3>
+              <p className="leading-relaxed text-text-mid">
+                Campaign records, route information, photography, and reporting are organized for review and ongoing decisions.
+              </p>
+            </article>
+          </div>
+
+          <div className="mx-auto mt-12 max-w-4xl rounded-xl border border-gold-base/20 bg-gold-base/5 px-6 py-5 text-center">
+            <p className="text-sm leading-relaxed text-text-mid md:text-base">
+              Routes and schedules may adjust for traffic, weather, safety, road conditions, restrictions, events, or campaign performance.
+            </p>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/quote" className="luxury-button inline-block text-lg">
+              Build My Campaign
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Gold Divider */}
+      <div className="gold-divider"></div>
+
       {/* Services Section */}
       <section id="services" className="py-24 bg-black-hero scroll-reveal">
         <div className="container mx-auto px-4">
