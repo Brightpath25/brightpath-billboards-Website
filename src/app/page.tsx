@@ -141,85 +141,77 @@ export default function Home() {
       <div className="gold-divider"></div>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-black-hero scroll-reveal">
+      <section id="services" aria-labelledby="services-heading" className="py-24 bg-black-hero scroll-reveal">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-text-light mb-6">
-              Our Services<span className="text-gold-base">.</span>
-            </h2>
-            <p className="text-lg md:text-xl text-text-mid max-w-3xl mx-auto leading-relaxed">
-              Comprehensive mobile LED advertising services designed to dominate the Coachella Valley market.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Service Card 1 */}
-            <div className="luxury-card group">
-              <div className="w-16 h-16 bg-gold-gradient rounded-xl flex items-center justify-center mb-6 group-hover:animate-float">
-                <Truck className="h-8 w-8 text-black-hero" />
-              </div>
-              <h3 className="text-2xl font-bold text-text-light mb-4">Mobile LED Advertising</h3>
-              <p className="text-text-mid mb-6 leading-relaxed">
-                Reach thousands daily with large-format digital ads on our fleet of LED billboard trucks.
-                Perfect for brand awareness campaigns across the Coachella Valley.
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+            <div className="max-w-3xl">
+              <p className="text-sm font-bold tracking-[0.28em] text-gold-highlight uppercase mb-5">Campaign options</p>
+              <h2 id="services-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-light mb-6">
+                Choose how your brand <span className="text-gold-gradient">moves.</span>
+              </h2>
+              <p className="text-lg md:text-xl text-text-mid max-w-2xl leading-relaxed">
+                Three ways to put your message in motion across the Coachella Valley, from everyday visibility to event-focused reach.
               </p>
-              <Link href="/services/mobile-led-advertising" className="text-gold-base hover:text-gold-highlight font-semibold flex items-center gap-2 transition-colors">
-                Learn More <ChevronDown className="h-4 w-4 rotate-[-90deg]" />
-              </Link>
             </div>
-
-            {/* Service Card 2 */}
-            <div className="luxury-card group">
-              <div className="w-16 h-16 bg-gold-gradient rounded-xl flex items-center justify-center mb-6 group-hover:animate-float">
-                <Calendar className="h-8 w-8 text-black-hero" />
-              </div>
-              <h3 className="text-2xl font-bold text-text-light mb-4">Event Domination Packages</h3>
-              <p className="text-text-mid mb-6 leading-relaxed">
-                Saturate major events like Coachella, Stagecoach, PGA Tour, Monster Jam, and more with our
-                specialized event advertising packages.
-              </p>
-              <Link href="/services/event-domination" className="text-gold-base hover:text-gold-highlight font-semibold flex items-center gap-2 transition-colors">
-                Learn More <ChevronDown className="h-4 w-4 rotate-[-90deg]" />
-              </Link>
-            </div>
-
-            {/* Service Card 3 */}
-            <div className="luxury-card group">
-              <div className="w-16 h-16 bg-gold-gradient rounded-xl flex items-center justify-center mb-6 group-hover:animate-float">
-                <Target className="h-8 w-8 text-black-hero" />
-              </div>
-              <h3 className="text-2xl font-bold text-text-light mb-4">Targeted Campaigns</h3>
-              <p className="text-text-mid mb-6 leading-relaxed">
-                Tailored routes for casinos, resorts, luxury retail, dispensaries, and healthcare.
-                Precision targeting for maximum ROI.
-              </p>
-              <Link href="/services/targeted-campaigns" className="text-gold-base hover:text-gold-highlight font-semibold flex items-center gap-2 transition-colors">
-                Learn More <ChevronDown className="h-4 w-4 rotate-[-90deg]" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex justify-center mt-12">
             <a
               href="/price-card.png"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
+              className="inline-flex items-center gap-2 text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline underline-offset-4 shrink-0"
             >
-              View Pricing
+              View pricing <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
 
-          <div className="text-center mt-10">
-            <Link
-              href="/launch"
-              className="luxury-button text-lg inline-block"
-            >
-              See How It Works Live
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              {
+                number: "01",
+                icon: Truck,
+                title: "Mobile LED Advertising",
+                description: "Reach thousands daily with large-format digital ads on our fleet of LED billboard trucks. Perfect for brand awareness campaigns across the Coachella Valley.",
+                href: "/services/mobile-led-advertising",
+                label: "Everyday visibility"
+              },
+              {
+                number: "02",
+                icon: Calendar,
+                title: "Event Domination Packages",
+                description: "Saturate major events like Coachella, Stagecoach, PGA Tour, Monster Jam, and more with our specialized event advertising packages.",
+                href: "/services/event-domination",
+                label: "Event-focused reach"
+              },
+              {
+                number: "03",
+                icon: Target,
+                title: "Targeted Campaigns",
+                description: "Tailored routes for casinos, resorts, luxury retail, dispensaries, and healthcare. Precision targeting for maximum ROI.",
+                href: "/services/targeted-campaigns",
+                label: "Route-specific focus"
+              }
+            ].map(({ number, icon: Icon, title, description, href, label }) => (
+              <article key={title} className="group relative flex min-h-[390px] flex-col rounded-2xl border border-gold-base/20 bg-black-panel/70 p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold-base/60 hover:bg-black-panel">
+                <div className="flex items-start justify-between gap-4 mb-12">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gold-gradient shadow-lg shadow-gold-base/10">
+                    <Icon className="h-7 w-7 text-black-hero" aria-hidden="true" />
+                  </div>
+                  <span className="text-sm font-semibold tracking-[0.2em] text-gold-highlight/70">{number}</span>
+                </div>
+                <p className="text-xs font-bold tracking-[0.18em] text-gold-highlight uppercase mb-3">{label}</p>
+                <h3 className="text-2xl font-bold text-text-light mb-4">{title}</h3>
+                <p className="text-text-mid leading-relaxed">{description}</p>
+                <Link href={href} className="mt-auto pt-8 inline-flex items-center gap-2 text-gold-base hover:text-gold-highlight font-semibold transition-colors">
+                  Explore service <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-14 flex flex-col items-center text-center">
+            <Link href="/launch" className="luxury-button text-lg inline-flex items-center gap-2">
+              See how it works live <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
             </Link>
-            <p className="text-sm text-gold-highlight/70 italic mt-3">
-              Understand how campaigns show up in real environments
-            </p>
+            <p className="text-sm text-gold-highlight/70 italic mt-3">Understand how campaigns show up in real environments</p>
           </div>
         </div>
       </section>
