@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Truck, Target, Calendar, Phone, Mail, MapPin, Sparkles, Zap, TrendingUp, ChevronDown } from "lucide-react";
+import { Truck, Target, Calendar, Phone, Mail, MapPin, Sparkles, Zap, TrendingUp, ArrowUpRight, ChevronDown } from "lucide-react";
 import HomepageHero from "@/components/HomepageHero";
 import { HomepageCampaignViewer, ScrollRevealController } from "@/components/HomepageEnhancements";
 
