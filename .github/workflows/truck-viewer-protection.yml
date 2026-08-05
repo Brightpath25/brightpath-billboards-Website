@@ -1,0 +1,26 @@
+name: Truck viewer protection
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-truck-viewer:
+    name: Verify protected truck viewer contract
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify protected viewer invariants
+        run: node scripts/verify-truck-viewer.mjs
