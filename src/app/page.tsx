@@ -189,7 +189,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-gold-base/20 bg-black-panel py-20">
+      <section id="about" className="border-y border-gold-base/20 bg-black-panel py-20">
         <div className="container mx-auto px-4"><div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-gold-highlight">Campaign context</p><h2 className="text-4xl font-bold text-text-light md:text-5xl">Made for the places people go.</h2></div><Link href="/events" className="inline-flex items-center gap-2 font-semibold text-gold-highlight hover:text-text-light">Explore events <ArrowRight className="h-4 w-4" /></Link></div><div className="grid gap-4 md:grid-cols-3">{[["Festivals", "Build visibility around arrivals, venues, and the moments people remember."], ["Hospitality and nightlife", "Reach guests and local traffic across the corridors that keep the evening moving."], ["Local businesses", "Put a clear message in front of nearby customers without being tied to one fixed location."]].map(([title, body], index) => <article key={title} className="rounded-2xl border border-gold-base/20 bg-black-card p-7 transition hover:border-gold-base/60"><span className="mb-8 block text-3xl font-black text-gold-highlight">0{index + 1}</span><h3 className="mb-3 text-xl font-bold text-text-light">{title}</h3><p className="leading-relaxed text-text-mid">{body}</p></article>)}</div></div>
       </section>
 
