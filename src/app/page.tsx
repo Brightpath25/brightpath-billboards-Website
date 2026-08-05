@@ -1,5 +1,7 @@
 "use client";
 
+// Homepage-only preview retry marker; no runtime behavior change.
+
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
