@@ -21,7 +21,6 @@ const Campaign360Viewer: React.FC = () => {
   const [warning, setWarning] = useState<string>('');
   const [autoRotate, setAutoRotate] = useState(true);
   const [modelLoaded, setModelLoaded] = useState(false);
-  const [modelLoadError, setModelLoadError] = useState(false);
   const [applyingTexture, setApplyingTexture] = useState(false);
   const [modelViewerReady, setModelViewerReady] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
@@ -35,11 +34,12 @@ const Campaign360Viewer: React.FC = () => {
         if (!customElements.get('model-viewer')) {
           await import('@google/model-viewer');
         }
-        await customElements.whenDefined('model-viewer');
-        setModelViewerReady(true);
+        // Small delay to ensure registration is complete
+        setTimeout(() => setModelViewerReady(true), 100);
       } catch (err) {
         console.error('Failed to load model-viewer:', err);
-        setModelLoadError(true);
+        // Set ready anyway to show error state
+        setModelViewerReady(true);
       }
     };
 
@@ -64,7 +64,6 @@ const Campaign360Viewer: React.FC = () => {
       const handleLoad = () => {
         if (mounted) {
           console.log('✓ 3D model loaded successfully');
-          setModelLoadError(false);
           setModelLoaded(true);
         }
       };
@@ -72,18 +71,13 @@ const Campaign360Viewer: React.FC = () => {
       const handleError = (e: Event) => {
         console.error('Model loading error:', e);
         if (mounted) {
-          setModelLoadError(true);
-          setError('The 3D truck could not finish loading. Please refresh and try again.');
-          setModelLoaded(false);
+          setError('Failed to load 3D model');
+          setModelLoaded(true); // Show viewer anyway
         }
       };
 
       modelViewer.addEventListener('load', handleLoad);
       modelViewer.addEventListener('error', handleError);
-
-      if ((modelViewer as any).loaded) {
-        handleLoad();
-      }
 
       // Fallback: Force load after 3 seconds if event doesn't fire
       const timeout = setTimeout(() => {
@@ -565,7 +559,7 @@ const Campaign360Viewer: React.FC = () => {
           <div className="order-1 lg:order-2">
             <div className="relative w-full bg-black-card/30 border border-gold-base/20 rounded-2xl overflow-hidden backdrop-blur-sm" style={{ height: '600px' }}>
               {/* Loading Message */}
-              {!modelLoaded && modelViewerReady && !modelLoadError && (
+              {!modelLoaded && modelViewerReady && (
                 <div className="absolute inset-0 flex items-center justify-center z-10 bg-black-panel/80 backdrop-blur-md">
                   <div className="text-center">
                     <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gold-base/20 border-t-gold-highlight mb-4"></div>
@@ -583,15 +577,6 @@ const Campaign360Viewer: React.FC = () => {
                 </div>
               )}
 
-              {modelLoadError && (
-                <div className="absolute inset-0 flex items-center justify-center z-10 bg-black-panel/80 px-6 text-center">
-                  <div>
-                    <p className="text-sm font-semibold text-red-300">The truck preview is temporarily unavailable.</p>
-                    <p className="mt-2 text-xs text-text-mid">Refresh the page to reload the interactive model.</p>
-                  </div>
-                </div>
-              )}
-
               {/* Applying Texture Overlay */}
               {applyingTexture && (
                 <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
@@ -605,9 +590,6 @@ const Campaign360Viewer: React.FC = () => {
                 <model-viewer
                   id="campaign-truck"
                   src="https://cdn.jsdelivr.net/gh/Brightpath25/brightpath-3d-assets@main/Brightpath_LED_Truck_WebReady.glb"
-                  alt="Interactive 3D LED billboard truck preview"
-                  loading="eager"
-                  reveal="auto"
                   camera-controls
                   disable-zoom
                   auto-rotate={autoRotate}
@@ -650,15 +632,6 @@ const Campaign360Viewer: React.FC = () => {
 
               {/* 3D Controls */}
               <div className="absolute left-1/2 transform -translate-x-1/2 bottom-4 flex flex-wrap justify-center gap-2 md:gap-3 px-2">
-                <button
-                  type="button"
-                  onClick={() => document.getElementById('upload-left')?.click()}
-                  className="flex items-center gap-2 px-3 md:px-4 py-2 bg-gold-base text-black-hero rounded-lg shadow-lg transition-colors hover:bg-gold-highlight text-xs md:text-sm font-semibold"
-                  aria-label="Upload side screen artwork"
-                >
-                  <Upload className="h-4 w-4" />
-                  <span>Upload Artwork</span>
-                </button>
                 <button
                   onClick={resetView}
                   className="flex items-center gap-2 px-3 md:px-4 py-2 bg-black-card/90 backdrop-blur-md hover:bg-black-card border-none rounded-lg shadow-lg transition-all duration-[250ms] ease-in-out text-text-light text-xs md:text-sm font-medium hover:scale-105"
