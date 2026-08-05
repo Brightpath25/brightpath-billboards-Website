@@ -14,29 +14,28 @@ export default function EventsPage() {
   return (
     <div className="min-h-screen bg-black-hero">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,176,75,0.08)_0%,transparent_70%)]" />
+      <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(227,176,75,0.14),transparent_30%),linear-gradient(115deg,#070809_0%,#11130f_56%,#080909_100%)]" />
 
-        <div className="relative z-10 container mx-auto px-4 py-32 text-center max-w-4xl">
-          <div className="mb-8">
+        <div className="relative z-10 mx-auto max-w-6xl px-5 py-28 sm:px-8 md:py-36 lg:px-10">
+          <div className="mb-10">
             <Link
               href="/"
-              className="inline-block px-5 py-2 bg-transparent border border-gold-base/50 text-gold-base/90 rounded-xl text-sm font-semibold hover:bg-gold-base hover:text-black-hero transition-all duration-300"
+              className="inline-flex items-center rounded-full border border-white/20 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#f4f1e8] transition-colors hover:border-[#e3b04b] hover:text-[#f7d382]"
             >
-              ← Home
+              Home
             </Link>
           </div>
-          <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-4">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">
             BrightPath Campaigns
           </p>
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-text-light"
+            className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.045em] text-[#f4f1e8] sm:text-6xl lg:text-8xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Event Campaigns
           </h1>
-          <p className="text-lg md:text-xl text-text-mid max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-[#c9d0da] sm:text-lg">
             Campaign-specific opportunities built for high-traffic visibility,
             event domination, and strategic market positioning across the
             Coachella Valley.
@@ -45,9 +44,9 @@ export default function EventsPage() {
       </section>
 
       {/* Featured Launch Card */}
-      <section className="py-12 bg-black-hero">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="luxury-card rounded-2xl p-8 md:p-10 text-center border border-gold-base/40">
+      <section className="border-b border-white/[0.06] bg-[#070809] py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+          <div className="border-l-2 border-[#e3b04b] bg-[#101210] p-7 md:p-9">
             <p className="text-gold-base text-sm font-semibold tracking-widest uppercase mb-3">
               Public event. Limited campaign placement.
             </p>
@@ -72,8 +71,8 @@ export default function EventsPage() {
       </section>
 
       {/* Intro */}
-      <section className="py-20 bg-black-panel">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
+      <section className="border-b border-white/[0.06] bg-[#0f1110] py-20 md:py-28">
+        <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
           <h2
             className="text-2xl md:text-3xl font-bold text-text-light mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
@@ -91,7 +90,7 @@ export default function EventsPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 md:py-28 bg-black-hero">
+      <section className="border-b border-white/[0.06] bg-[#070809] py-20 md:py-28">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center mb-14">
             <h2
@@ -123,7 +122,7 @@ export default function EventsPage() {
                 text: "LED mobile billboards deploy on your routes, on your schedule. You get visibility reports. Your brand gets seen.",
               },
             ].map((item) => (
-              <div key={item.step} className="luxury-card rounded-2xl p-8 text-center">
+              <div key={item.step} className="border-t border-white/15 bg-[#101210] p-7 text-center">
                 <p className="text-gold-base text-3xl font-bold mb-4">{item.step}</p>
                 <h3
                   className="text-xl font-bold text-text-light mb-3"
