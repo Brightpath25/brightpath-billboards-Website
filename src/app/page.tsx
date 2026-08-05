@@ -124,7 +124,7 @@ export default function Home() {
       </header>
 
       <section id="home" className="relative flex min-h-[680px] items-end overflow-hidden bg-black-hero pt-32 md:min-h-screen md:items-center">
-        <video autoPlay muted loop playsInline preload="none" poster="/brightpathbillboards-traffic.jpeg" className="absolute inset-0 h-full w-full object-cover">
+        <video autoPlay muted loop playsInline preload="none" className="absolute inset-0 h-full w-full object-cover">
           <source src="/brightpath-hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,13,16,0.98)_0%,rgba(11,13,16,0.86)_38%,rgba(11,13,16,0.28)_78%,rgba(11,13,16,0.58)_100%)]" />
