@@ -21,6 +21,7 @@ const Campaign360Viewer: React.FC = () => {
   const [warning, setWarning] = useState<string>('');
   const [autoRotate, setAutoRotate] = useState(true);
   const [modelLoaded, setModelLoaded] = useState(false);
+  const [webglFallback, setWebglFallback] = useState(false);
   const [applyingTexture, setApplyingTexture] = useState(false);
   const [modelViewerReady, setModelViewerReady] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
@@ -71,8 +72,8 @@ const Campaign360Viewer: React.FC = () => {
       const handleError = (e: Event) => {
         console.error('Model loading error:', e);
         if (mounted) {
-          setError('Failed to load 3D model');
-          setModelLoaded(true); // Show viewer anyway
+          setWebglFallback(true);
+          setModelLoaded(true);
         }
       };
 
@@ -82,7 +83,18 @@ const Campaign360Viewer: React.FC = () => {
       // Fallback: Force load after 3 seconds if event doesn't fire
       const timeout = setTimeout(() => {
         if (mounted) {
-          console.log('⚠️ Force loading model after timeout');
+          console.log('⚠️ Checking browser-safe fallback after model timeout');
+          const viewer = modelViewer as any;
+          let hasRenderableSurface = false;
+          try {
+            const canvas = viewer.shadowRoot?.querySelector('canvas') as HTMLCanvasElement | null;
+            hasRenderableSurface = Boolean(canvas && (canvas.getContext('webgl2') || canvas.getContext('webgl')));
+          } catch (fallbackCheckError) {
+            console.warn('WebGL fallback check failed:', fallbackCheckError);
+          }
+          if (!viewer.loaded && !hasRenderableSurface) {
+            setWebglFallback(true);
+          }
           setModelLoaded(true);
         }
       }, 3000);
@@ -573,6 +585,21 @@ const Campaign360Viewer: React.FC = () => {
                   <div className="text-center">
                     <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gold-base/20 border-t-gold-highlight mb-4"></div>
                     <p className="text-sm text-gold-highlight font-semibold">Initializing 3D viewer…</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Browser-safe fallback: the original 3D viewer remains unchanged when WebGL is available. */}
+              {webglFallback && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-black-panel px-6 text-center">
+                  <img
+                    src="/brightpathbillboards-laquinta.jpeg"
+                    alt="BrightPath LED billboard truck preview"
+                    className="absolute inset-0 h-full w-full object-contain p-8 opacity-90"
+                  />
+                  <div className="relative z-10 mt-auto rounded-xl border border-gold-base/30 bg-black-card/90 px-5 py-3 backdrop-blur-sm">
+                    <p className="text-sm font-semibold text-gold-highlight">Truck preview available</p>
+                    <p className="mt-1 text-xs text-text-mid">Interactive 3D mode is unavailable in this browser.</p>
                   </div>
                 </div>
               )}
