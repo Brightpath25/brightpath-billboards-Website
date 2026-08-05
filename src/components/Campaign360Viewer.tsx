@@ -21,6 +21,7 @@ const Campaign360Viewer: React.FC = () => {
   const [warning, setWarning] = useState<string>('');
   const [autoRotate, setAutoRotate] = useState(true);
   const [modelLoaded, setModelLoaded] = useState(false);
+  const [webglFallback, setWebglFallback] = useState(false);
   const [applyingTexture, setApplyingTexture] = useState(false);
   const [modelViewerReady, setModelViewerReady] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
@@ -51,13 +52,15 @@ const Campaign360Viewer: React.FC = () => {
     if (!modelViewerReady) return;
 
     let mounted = true;
+    let retryTimer: ReturnType<typeof setTimeout> | undefined;
+    let cleanupModelListeners: (() => void) | undefined;
 
     const checkModel = () => {
       if (!mounted) return;
 
       const modelViewer = document.getElementById('campaign-truck');
       if (!modelViewer) {
-        setTimeout(checkModel, 100);
+        retryTimer = setTimeout(checkModel, 100);
         return;
       }
 
@@ -71,8 +74,8 @@ const Campaign360Viewer: React.FC = () => {
       const handleError = (e: Event) => {
         console.error('Model loading error:', e);
         if (mounted) {
-          setError('Failed to load 3D model');
-          setModelLoaded(true); // Show viewer anyway
+          setWebglFallback(true);
+          setModelLoaded(true);
         }
       };
 
@@ -82,23 +85,35 @@ const Campaign360Viewer: React.FC = () => {
       // Fallback: Force load after 3 seconds if event doesn't fire
       const timeout = setTimeout(() => {
         if (mounted) {
-          console.log('⚠️ Force loading model after timeout');
+          console.log('⚠️ Checking browser-safe fallback after model timeout');
+          const viewer = modelViewer as any;
+          let hasRenderableSurface = false;
+          try {
+            const canvas = viewer.shadowRoot?.querySelector('canvas') as HTMLCanvasElement | null;
+            hasRenderableSurface = Boolean(canvas && (canvas.getContext('webgl2') || canvas.getContext('webgl')));
+          } catch (fallbackCheckError) {
+            console.warn('WebGL fallback check failed:', fallbackCheckError);
+          }
+          if (!viewer.loaded && !hasRenderableSurface) {
+            setWebglFallback(true);
+          }
           setModelLoaded(true);
         }
       }, 3000);
 
-      return () => {
-        mounted = false;
+      cleanupModelListeners = () => {
         clearTimeout(timeout);
         modelViewer.removeEventListener('load', handleLoad);
         modelViewer.removeEventListener('error', handleError);
       };
     };
 
-    const cleanup = checkModel();
+    retryTimer = setTimeout(checkModel, 0);
+
     return () => {
       mounted = false;
-      if (cleanup) cleanup();
+      if (retryTimer) clearTimeout(retryTimer);
+      cleanupModelListeners?.();
     };
   }, [modelViewerReady]);
 
@@ -577,6 +592,21 @@ const Campaign360Viewer: React.FC = () => {
                 </div>
               )}
 
+              {/* Browser-safe fallback: the original 3D viewer remains unchanged when WebGL is available. */}
+              {webglFallback && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-black-panel px-6 text-center">
+                  <img
+                    src="/brightpathbillboards-laquinta.jpeg"
+                    alt="BrightPath LED billboard truck preview"
+                    className="absolute inset-0 h-full w-full object-contain p-8 opacity-90"
+                  />
+                  <div className="relative z-10 mt-auto rounded-xl border border-gold-base/30 bg-black-card/90 px-5 py-3 backdrop-blur-sm">
+                    <p className="text-sm font-semibold text-gold-highlight">Truck preview available</p>
+                    <p className="mt-1 text-xs text-text-mid">Interactive 3D mode is unavailable in this browser.</p>
+                  </div>
+                </div>
+              )}
+
               {/* Applying Texture Overlay */}
               {applyingTexture && (
                 <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
@@ -615,7 +645,7 @@ const Campaign360Viewer: React.FC = () => {
               )}
 
               {/* Instructional Overlay */}
-              {modelLoaded && showOverlay && (
+              {modelLoaded && showOverlay && !webglFallback && (
                 <div
                   className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none"
                   style={{
@@ -631,7 +661,8 @@ const Campaign360Viewer: React.FC = () => {
               )}
 
               {/* 3D Controls */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 bottom-4 flex flex-wrap justify-center gap-2 md:gap-3 px-2">
+              {!webglFallback && (
+                <div className="absolute left-1/2 transform -translate-x-1/2 bottom-4 flex flex-wrap justify-center gap-2 md:gap-3 px-2">
                 <button
                   onClick={resetView}
                   className="flex items-center gap-2 px-3 md:px-4 py-2 bg-black-card/90 backdrop-blur-md hover:bg-black-card border-none rounded-lg shadow-lg transition-all duration-[250ms] ease-in-out text-text-light text-xs md:text-sm font-medium hover:scale-105"
@@ -649,14 +680,26 @@ const Campaign360Viewer: React.FC = () => {
                   />
                   Auto-rotate
                 </label>
-              </div>
+                </div>
+              )}
+
             </div>
 
             <div className="mt-6 p-4 md:p-5 bg-gold-gradient rounded-xl text-black-hero text-center mx-auto max-w-full">
               <p className="text-xs md:text-sm font-semibold leading-relaxed">
-                <strong>Interactive 3D Model</strong>
-                <span className="hidden sm:inline"> • Drag to rotate • Camera controls enabled</span>
-                <span className="sm:hidden block mt-1">Drag to rotate</span>
+                {webglFallback ? (
+                  <>
+                    <strong>Truck Preview</strong>
+                    <span className="hidden sm:inline"> • Static preview shown because 3D mode is unavailable</span>
+                    <span className="sm:hidden block mt-1">Static preview</span>
+                  </>
+                ) : (
+                  <>
+                    <strong>Interactive 3D Model</strong>
+                    <span className="hidden sm:inline"> • Drag to rotate • Camera controls enabled</span>
+                    <span className="sm:hidden block mt-1">Drag to rotate</span>
+                  </>
+                )}
               </p>
             </div>
 
