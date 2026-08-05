@@ -642,7 +642,7 @@ const Campaign360Viewer: React.FC = () => {
               )}
 
               {/* Instructional Overlay */}
-              {modelLoaded && showOverlay && (
+              {modelLoaded && showOverlay && !webglFallback && (
                 <div
                   className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none"
                   style={{
@@ -658,7 +658,8 @@ const Campaign360Viewer: React.FC = () => {
               )}
 
               {/* 3D Controls */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 bottom-4 flex flex-wrap justify-center gap-2 md:gap-3 px-2">
+              {!webglFallback && (
+                <div className="absolute left-1/2 transform -translate-x-1/2 bottom-4 flex flex-wrap justify-center gap-2 md:gap-3 px-2">
                 <button
                   onClick={resetView}
                   className="flex items-center gap-2 px-3 md:px-4 py-2 bg-black-card/90 backdrop-blur-md hover:bg-black-card border-none rounded-lg shadow-lg transition-all duration-[250ms] ease-in-out text-text-light text-xs md:text-sm font-medium hover:scale-105"
@@ -676,14 +677,25 @@ const Campaign360Viewer: React.FC = () => {
                   />
                   Auto-rotate
                 </label>
-              </div>
+                </div>
+              )}
             </div>
 
             <div className="mt-6 p-4 md:p-5 bg-gold-gradient rounded-xl text-black-hero text-center mx-auto max-w-full">
               <p className="text-xs md:text-sm font-semibold leading-relaxed">
-                <strong>Interactive 3D Model</strong>
-                <span className="hidden sm:inline"> • Drag to rotate • Camera controls enabled</span>
-                <span className="sm:hidden block mt-1">Drag to rotate</span>
+                {webglFallback ? (
+                  <>
+                    <strong>Truck Preview</strong>
+                    <span className="hidden sm:inline"> • Static preview shown because 3D mode is unavailable</span>
+                    <span className="sm:hidden block mt-1">Static preview</span>
+                  </>
+                ) : (
+                  <>
+                    <strong>Interactive 3D Model</strong>
+                    <span className="hidden sm:inline"> • Drag to rotate • Camera controls enabled</span>
+                    <span className="sm:hidden block mt-1">Drag to rotate</span>
+                  </>
+                )}
               </p>
             </div>
 
