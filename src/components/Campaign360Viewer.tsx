@@ -52,13 +52,15 @@ const Campaign360Viewer: React.FC = () => {
     if (!modelViewerReady) return;
 
     let mounted = true;
+    let retryTimer: ReturnType<typeof setTimeout> | undefined;
+    let cleanupModelListeners: (() => void) | undefined;
 
     const checkModel = () => {
       if (!mounted) return;
 
       const modelViewer = document.getElementById('campaign-truck');
       if (!modelViewer) {
-        setTimeout(checkModel, 100);
+        retryTimer = setTimeout(checkModel, 100);
         return;
       }
 
@@ -99,21 +101,21 @@ const Campaign360Viewer: React.FC = () => {
         }
       }, 3000);
 
-      return () => {
-        mounted = false;
+      cleanupModelListeners = () => {
         clearTimeout(timeout);
         modelViewer.removeEventListener('load', handleLoad);
         modelViewer.removeEventListener('error', handleError);
       };
     };
 
-    const cleanup = checkModel();
+    retryTimer = setTimeout(checkModel, 0);
+
     return () => {
       mounted = false;
-      if (cleanup) cleanup();
+      if (retryTimer) clearTimeout(retryTimer);
+      cleanupModelListeners?.();
     };
   }, [modelViewerReady]);
-
   // Hide instructional overlay after 3 seconds when model is loaded
   useEffect(() => {
     if (modelLoaded) {
