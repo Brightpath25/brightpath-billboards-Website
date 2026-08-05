@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 interface EventHeroProps {
   title: string;
@@ -25,63 +25,33 @@ export default function EventHero({
   showBackLink = true,
 }: EventHeroProps) {
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-hero-gradient" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,176,75,0.08)_0%,transparent_70%)]" />
-
-      <div className="relative z-10 container mx-auto px-4 py-32 text-center max-w-4xl">
-        {showBackLink && (
-          <Link
-            href="/events"
-            className="inline-flex items-center gap-2 text-text-mid hover:text-gold-highlight transition-colors mb-8 text-sm"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            All Events
-          </Link>
-        )}
-
-        <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-4">
-          {dateRange}
-        </p>
-
-        <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-text-light"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          {title}
-        </h1>
-
-        <p className="text-lg md:text-xl text-text-mid max-w-2xl mx-auto mb-10 leading-relaxed">
-          {headline}
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          {ctaExternal ? (
-            <a
-              href={ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg inline-block"
-            >
-              {ctaLabel}
-            </a>
-          ) : (
-            <Link
-              href={ctaHref}
-              className="luxury-button px-8 py-4 text-lg font-semibold rounded-lg"
-            >
-              {ctaLabel}
+    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(227,176,75,0.14),transparent_30%),linear-gradient(115deg,#070809_0%,#11130f_56%,#080909_100%)]" />
+      <div className="absolute inset-y-0 right-0 hidden w-[42%] opacity-60 md:block" aria-hidden="true">
+        <div className="absolute right-[18%] top-0 h-full w-px rotate-[18deg] bg-gradient-to-b from-transparent via-[#e3b04b]/60 to-transparent" />
+        <div className="absolute right-[36%] top-0 h-full w-px rotate-[18deg] bg-gradient-to-b from-transparent via-white/15 to-transparent" />
+        <div className="absolute bottom-[22%] left-0 h-px w-full bg-gradient-to-r from-transparent via-[#e3b04b]/50 to-transparent" />
+      </div>
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-5 py-28 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:items-end md:py-36 lg:px-10">
+        <div>
+          {showBackLink && (
+            <Link href="/events" className="mb-10 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-[#b8b8b0] transition-colors hover:text-[#f7d382]">
+              <ArrowLeft className="h-3.5 w-3.5" /> All Events
             </Link>
           )}
-          {secondaryCtaLabel && secondaryCtaHref && (
-            <Link
-              href={secondaryCtaHref}
-              className="px-8 py-4 text-lg font-semibold rounded-lg border border-gold-base/30 text-gold-highlight hover:bg-gold-base/10 transition-all duration-300"
-            >
-              {secondaryCtaLabel}
-            </Link>
-          )}
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">{dateRange}</p>
+          <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.045em] text-[#f4f1e8] sm:text-6xl lg:text-8xl" style={{ fontFamily: "var(--font-heading)" }}>{title}</h1>
+        </div>
+        <div className="max-w-md md:pb-1">
+          <p className="mb-9 text-base leading-7 text-[#c9d0da] sm:text-lg">{headline}</p>
+          <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            {ctaExternal ? (
+              <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#e3b04b] px-6 py-3.5 text-sm font-semibold text-[#070809] transition-transform hover:-translate-y-0.5">{ctaLabel}<ArrowUpRight className="h-4 w-4" /></a>
+            ) : (
+              <Link href={ctaHref} className="inline-flex items-center gap-2 rounded-full bg-[#e3b04b] px-6 py-3.5 text-sm font-semibold text-[#070809] transition-transform hover:-translate-y-0.5">{ctaLabel}<ArrowUpRight className="h-4 w-4" /></Link>
+            )}
+            {secondaryCtaLabel && secondaryCtaHref && <Link href={secondaryCtaHref} className="rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-[#f4f1e8] transition-colors hover:border-[#e3b04b]/70 hover:text-[#f7d382]">{secondaryCtaLabel}</Link>}
+          </div>
         </div>
       </div>
     </section>
