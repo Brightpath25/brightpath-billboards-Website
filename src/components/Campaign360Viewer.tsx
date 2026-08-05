@@ -26,6 +26,16 @@ const Campaign360Viewer: React.FC = () => {
   const [modelViewerReady, setModelViewerReady] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
 
+  // Guaranteed browser-safe base layer: never let a stalled WebGL import leave the viewer blank.
+  useEffect(() => {
+    if (modelLoaded) return;
+    const fallbackTimer = window.setTimeout(() => {
+      setWebglFallback(true);
+      setModelLoaded(true);
+    }, 5000);
+    return () => window.clearTimeout(fallbackTimer);
+  }, [modelLoaded]);
+
   // Load model-viewer library dynamically - only once
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -574,7 +584,7 @@ const Campaign360Viewer: React.FC = () => {
           <div className="order-1 lg:order-2">
             <div className="relative w-full bg-black-card/30 border border-gold-base/20 rounded-2xl overflow-hidden backdrop-blur-sm" style={{ height: '600px' }}>
               {/* Loading Message */}
-              {!modelLoaded && modelViewerReady && (
+              {!modelLoaded && modelViewerReady && !webglFallback && (
                 <div className="absolute inset-0 flex items-center justify-center z-10 bg-black-panel/80 backdrop-blur-md">
                   <div className="text-center">
                     <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gold-base/20 border-t-gold-highlight mb-4"></div>
@@ -583,7 +593,7 @@ const Campaign360Viewer: React.FC = () => {
                 </div>
               )}
 
-              {!modelViewerReady && (
+              {!modelViewerReady && !webglFallback && (
                 <div className="absolute inset-0 flex items-center justify-center z-10 bg-black-panel/80 backdrop-blur-md">
                   <div className="text-center">
                     <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gold-base/20 border-t-gold-highlight mb-4"></div>
@@ -592,14 +602,15 @@ const Campaign360Viewer: React.FC = () => {
                 </div>
               )}
 
-              {/* Browser-safe fallback: the original 3D viewer remains unchanged when WebGL is available. */}
+              {/* Guaranteed static base layer; the original 3D viewer remains available above it when supported. */}
+              <img
+                src="/brightpathbillboards-laquinta.jpeg"
+                alt="BrightPath LED billboard truck preview"
+                className={`absolute inset-0 h-full w-full object-contain p-8 transition-opacity duration-300 ${modelLoaded && !webglFallback ? 'opacity-0' : 'opacity-90'}`}
+              />
+
               {webglFallback && (
-                <div className="absolute inset-0 z-10 flex items-center justify-center bg-black-panel px-6 text-center">
-                  <img
-                    src="/brightpathbillboards-laquinta.jpeg"
-                    alt="BrightPath LED billboard truck preview"
-                    className="absolute inset-0 h-full w-full object-contain p-8 opacity-90"
-                  />
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-black-panel/20 px-6 text-center">
                   <div className="relative z-10 mt-auto rounded-xl border border-gold-base/30 bg-black-card/90 px-5 py-3 backdrop-blur-sm">
                     <p className="text-sm font-semibold text-gold-highlight">Truck preview available</p>
                     <p className="mt-1 text-xs text-text-mid">Interactive 3D mode is unavailable in this browser.</p>
@@ -616,7 +627,7 @@ const Campaign360Viewer: React.FC = () => {
                 </div>
               )}
 
-              {modelViewerReady && (
+              {modelViewerReady && !webglFallback && (
                 <model-viewer
                   id="campaign-truck"
                   src="https://cdn.jsdelivr.net/gh/Brightpath25/brightpath-3d-assets@main/Brightpath_LED_Truck_WebReady.glb"
