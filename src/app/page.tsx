@@ -1,6 +1,6 @@
 "use client";
 
-// Homepage-only preview retry marker; no runtime behavior change.
+// Homepage composition stays isolated from the protected truck viewer.
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
