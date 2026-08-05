@@ -1,0 +1,8 @@
+# Protected truck 360 viewer ownership
+# Any change to these paths requires explicit review from the repository owner.
+/src/components/Campaign360Viewer.tsx @Brightpath25
+/public/*.glb @Brightpath25
+/public/*truck* @Brightpath25
+/public/*billboard* @Brightpath25
+/scripts/verify-truck-viewer.mjs @Brightpath25
+/.github/workflows/truck-viewer-protection.yml @Brightpath25

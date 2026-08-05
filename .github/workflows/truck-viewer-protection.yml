@@ -1,0 +1,44 @@
+name: Truck viewer protection
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-truck-viewer:
+    name: Verify protected truck viewer contract
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Detect protected viewer change
+        id: protected-change
+        shell: bash
+        run: |
+          git fetch origin "${GITHUB_BASE_REF}" --depth=1
+          if git diff --name-only "origin/${GITHUB_BASE_REF}...HEAD" | grep -Fxq "src/components/Campaign360Viewer.tsx"; then
+            echo "viewer_changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "viewer_changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify protected viewer invariants
+        if: steps.protected-change.outputs.viewer_changed == 'true'
+        run: node scripts/verify-truck-viewer.mjs
+
+      - name: Confirm no viewer change
+        if: steps.protected-change.outputs.viewer_changed != 'true'
+        run: echo "No protected viewer component change detected; invariant check will run on viewer PRs."
