@@ -21,16 +21,16 @@ export default function EventsPage() {
           <div className="mb-7">
             <Link
               href="/"
-              className="inline-flex items-center rounded-sm border border-white/20 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-[#f4f1e8] transition-colors hover:border-[#e3b04b] hover:text-[#f7d382]"
+              className="inline-flex items-center rounded-sm border border-white/20 px-5 py-2.5 text-xs font-medium tracking-[0.14em] text-[#f4f1e8] transition-colors hover:border-[#e3b04b] hover:text-[#f7d382]"
             >
               Home
             </Link>
           </div>
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-[#e3b04b]">
+          <p className="mb-4 text-xs font-medium tracking-[0.16em] text-[#e3b04b]">
             BrightPath Campaigns
           </p>
           <h1
-            className="max-w-3xl text-5xl font-medium leading-[1.02] tracking-normal text-[#f4f1e8] sm:text-6xl lg:text-8xl"
+            className="max-w-3xl text-4xl font-medium leading-[1.08] tracking-normal text-[#f4f1e8] sm:text-5xl lg:text-7xl"
             style={{ fontFamily: "var(--font-event)" }}
           >
             Event Campaigns
@@ -47,18 +47,18 @@ export default function EventsPage() {
       <section className="border-b border-white/[0.06] bg-[#070809] py-10 md:py-14">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
           <div className="border-l-2 border-[#e3b04b] bg-[#101210] p-6 md:p-8">
-            <p className="text-gold-base mb-3 text-sm font-medium uppercase tracking-widest">
+            <p className="text-gold-base mb-3 text-sm font-medium tracking-widest">
               Public event. Limited campaign placement.
             </p>
             <h2
-              className="mb-5 text-2xl font-semibold text-text-light md:text-3xl"
+              className="mb-5 text-2xl font-medium text-text-light md:text-3xl"
               style={{ fontFamily: "var(--font-event)" }}
             >
               BrightPath Launch — Coachella Valley
             </h2>
             <Link
               href="/launch"
-              className="inline-flex items-center gap-2 luxury-button rounded-sm px-8 py-4 font-semibold"
+              className="inline-flex items-center gap-2 rounded-sm bg-[#e3b04b] px-6 py-3.5 text-sm font-medium text-[#070809] transition-transform hover:-translate-y-0.5"
             >
               Secure Your Campaign
               <ArrowRight className="h-4 w-4" />
@@ -74,7 +74,7 @@ export default function EventsPage() {
       <section className="border-b border-white/[0.06] bg-[#0f1110] py-14 md:py-16">
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
           <h2
-            className="mb-5 text-2xl font-semibold text-text-light md:text-3xl"
+            className="mb-5 text-2xl font-medium text-text-light md:text-3xl"
             style={{ fontFamily: "var(--font-event)" }}
           >
             Built for Impact
@@ -94,7 +94,7 @@ export default function EventsPage() {
         <div className="container mx-auto max-w-5xl px-4">
           <div className="mb-10 text-center md:mb-12">
             <h2
-              className="mb-3 text-3xl font-semibold text-text-light md:text-4xl"
+              className="mb-3 text-3xl font-medium text-text-light md:text-4xl"
               style={{ fontFamily: "var(--font-event)" }}
             >
               How It Works
@@ -125,7 +125,7 @@ export default function EventsPage() {
               <div key={item.step} className="border-t border-white/15 bg-[#101210] p-6 text-center md:p-7">
                 <p className="mb-3 text-3xl font-bold text-gold-base">{item.step}</p>
                 <h3
-                  className="mb-3 text-xl font-semibold text-text-light"
+                  className="mb-3 text-xl font-medium text-text-light"
                   style={{ fontFamily: "var(--font-event)" }}
                 >
                   {item.title}
