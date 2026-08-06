@@ -28,9 +28,9 @@ export default function EventHero({
     <section style={{ fontFamily: "var(--font-event)" }} className="event-hero relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(227,176,75,0.14),transparent_30%),linear-gradient(115deg,#070809_0%,#11130f_56%,#080909_100%)]" />
       <div className="absolute inset-y-0 right-0 hidden w-[42%] opacity-60 md:block" aria-hidden="true">
-        <div className="absolute right-[18%] top-0 h-full w-px rotate-[18deg] bg-gradient-to-b from-transparent via-[#e3b04b]/60 to-transparent" />
-        <div className="absolute right-[36%] top-0 h-full w-px rotate-[18deg] bg-gradient-to-b from-transparent via-white/15 to-transparent" />
-        <div className="absolute bottom-[22%] left-0 h-px w-full bg-gradient-to-r from-transparent via-[#e3b04b]/50 to-transparent" />
+        <div className="absolute right-[18%] top-0 h-full w-px rotate-[18deg] bg-[#e3b04b]/45" />
+        <div className="absolute right-[36%] top-0 h-full w-px rotate-[18deg] bg-white/15" />
+        <div className="absolute bottom-[22%] left-0 h-px w-full bg-[#e3b04b]/40" />
       </div>
       <div className="relative z-10 mx-auto grid max-w-6xl gap-9 px-5 py-20 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:items-end md:py-24 lg:px-10">
         <div>
