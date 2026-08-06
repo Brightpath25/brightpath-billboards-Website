@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function EventsPage() {
   return (
-    <div className="min-h-screen bg-black-hero" style={{ fontFamily: "var(--font-event)" }}>
+    <div className="event-page event-page--calendar min-h-screen bg-black-hero" style={{ fontFamily: "var(--font-event)" }}>
       {/* Hero */}
       <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(227,176,75,0.14),transparent_30%),linear-gradient(115deg,#070809_0%,#11130f_56%,#080909_100%)]" />
