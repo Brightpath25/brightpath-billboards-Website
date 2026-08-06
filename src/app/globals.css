@@ -35,14 +35,14 @@
 
   /* Event pages use an explicit humanist face on every descendant. */
 
-  /* Event typography override: the global element rules otherwise reapply the site-wide font. */
+  /* Transitions */
+  --transition: 250ms ease-in-out;
+}
+
+/* Event typography override: the global element rules otherwise reapply the site-wide font. */
 [style*="font-event"],
 [style*="font-event"] * {
   font-family: var(--font-event) !important;
-}
-
-/* Transitions */
-  --transition: 250ms ease-in-out;
 }
 
 * {
