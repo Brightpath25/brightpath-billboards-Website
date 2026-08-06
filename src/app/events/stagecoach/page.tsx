@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function StagecoachPage() {
   return (
-    <div className="min-h-screen bg-black-hero">
+    <div className="event-page event-page--stagecoach min-h-screen bg-black-hero">
       <EventHero
         title="Own the Roads During Stagecoach Weekend"
         headline="Capture high-intent traffic as tens of thousands move through the Coachella Valley for one of the highest-spending festival weekends of the year."
