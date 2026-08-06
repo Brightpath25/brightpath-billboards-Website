@@ -62,7 +62,7 @@ export default function QuotePage() {
 
     if (!formData.email.trim()) {
       newErrors.email = "Please enter your email address.";
-    } else if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address.";
     }
 
