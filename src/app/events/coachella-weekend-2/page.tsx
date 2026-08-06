@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CoachellaWeekend2Page() {
   return (
-    <div className="min-h-screen bg-black-hero">
+    <div className="event-page event-page--coachella-two min-h-screen bg-black-hero">
       <EventHero
         title="Refine Your Visibility During Coachella Weekend 2"
         headline="April 17–19, 2026 · Indio, California. A more controlled, more focused version of the same massive audience. Weekend 2 delivers the same scale with more predictable movement and cleaner execution."
