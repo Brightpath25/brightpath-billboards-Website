@@ -30,8 +30,8 @@ export default function EventsPage() {
             BrightPath Campaigns
           </p>
           <h1
-            className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.02em] text-[#f4f1e8] sm:text-6xl lg:text-8xl"
-            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+            className="max-w-3xl text-5xl font-medium leading-[1.02] tracking-normal text-[#f4f1e8] sm:text-6xl lg:text-8xl"
+            style={{ fontFamily: "ui-serif, Georgia, Cambria, "Times New Roman", Times, serif" }}
           >
             Event Campaigns
           </h1>
@@ -52,7 +52,7 @@ export default function EventsPage() {
             </p>
             <h2
               className="mb-5 text-2xl font-bold text-text-light md:text-3xl"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              style={{ fontFamily: "ui-serif, Georgia, Cambria, "Times New Roman", Times, serif" }}
             >
               BrightPath Launch — Coachella Valley
             </h2>
@@ -75,7 +75,7 @@ export default function EventsPage() {
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
           <h2
             className="mb-5 text-2xl font-bold text-text-light md:text-3xl"
-            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+            style={{ fontFamily: "ui-serif, Georgia, Cambria, "Times New Roman", Times, serif" }}
           >
             Built for Impact
           </h2>
@@ -95,7 +95,7 @@ export default function EventsPage() {
           <div className="mb-10 text-center md:mb-12">
             <h2
               className="mb-3 text-3xl font-bold text-text-light md:text-4xl"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              style={{ fontFamily: "ui-serif, Georgia, Cambria, "Times New Roman", Times, serif" }}
             >
               How It Works
             </h2>
@@ -126,7 +126,7 @@ export default function EventsPage() {
                 <p className="mb-3 text-3xl font-bold text-gold-base">{item.step}</p>
                 <h3
                   className="mb-3 text-xl font-bold text-text-light"
-                  style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                  style={{ fontFamily: "ui-serif, Georgia, Cambria, "Times New Roman", Times, serif" }}
                 >
                   {item.title}
                 </h3>
