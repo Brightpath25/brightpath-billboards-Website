@@ -35,11 +35,17 @@ const Campaign360Viewer = dynamic(() => import("@/components/Campaign360Viewer")
   ),
 });
 
-const navItems = [
+type NavItem = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+const navItems: NavItem[] = [
   { label: "How It Works", href: "/services/mobile-led-advertising" },
   { label: "Campaigns", href: "/services/targeted-campaigns" },
   { label: "Events", href: "/events" },
-  { label: "BrightPathIQ", href: "https://bpmobilebillboardsiq.live", external: true },
+  { label: "BrightPathIQ Demo", href: "/brightpathiq-demo" },
   { label: "About", href: "#about" },
 ];
 
