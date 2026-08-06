@@ -874,3 +874,12 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
     transform: none;
   }
 }
+
+
+/* BrightPathIQ demo polish and reading guide */
+.brightpathiq-demo .iq-guide-backdrop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 1.25rem; background: rgba(3, 8, 8, .78); backdrop-filter: blur(10px); }
+.brightpathiq-demo .iq-guide-modal { width: min(100%, 720px); max-height: min(760px, calc(100vh - 2.5rem)); overflow: auto; border: 1px solid rgba(226,170,66,.28); border-radius: 1.5rem; padding: clamp(1.25rem, 3vw, 2rem); background: linear-gradient(145deg, #17211f, #0d1414); box-shadow: 0 28px 100px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.03) inset; }
+.brightpathiq-demo .iq-guide-item { display: flex; gap: .9rem; border: 1px solid rgba(226,170,66,.14); border-radius: 1rem; padding: 1rem; background: rgba(255,255,255,.035); }
+.brightpathiq-demo .iq-guide-number { display: grid; width: 2rem; height: 2rem; flex: 0 0 2rem; place-items: center; border-radius: .65rem; background: rgba(226,170,66,.14); color: #f3c76c; font: 700 .7rem/1 var(--font-geist-mono), monospace; letter-spacing: .08em; }
+.brightpathiq-demo [class*="grid-cols-6"] > div { border: 1px solid rgba(226,170,66,.08); background: rgba(255,255,255,.025) !important; }
+.brightpathiq-demo button[class*="rounded-xl"]:focus-visible, .brightpathiq-demo button[class*="rounded-full"]:focus-visible { outline: 2px solid #f3c76c; outline-offset: 3px; }
