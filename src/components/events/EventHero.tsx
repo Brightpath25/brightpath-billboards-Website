@@ -35,12 +35,12 @@ export default function EventHero({
       <div className="relative z-10 mx-auto grid max-w-6xl gap-9 px-5 py-20 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:items-end md:py-24 lg:px-10">
         <div>
           {showBackLink && (
-            <Link href="/events" className="mb-7 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-[#b8b8b0] transition-colors hover:text-[#f7d382]">
+            <Link href="/events" className="mb-7 inline-flex items-center gap-2 text-xs font-medium tracking-[0.14em] text-[#b8b8b0] transition-colors hover:text-[#f7d382]">
               <ArrowLeft className="h-3.5 w-3.5" /> All Events
             </Link>
           )}
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-[#e3b04b]">{dateRange}</p>
-          <h1 className="max-w-3xl text-5xl font-medium leading-[1.02] tracking-normal text-[#f4f1e8] sm:text-6xl lg:text-8xl" style={{ fontFamily: "var(--font-event)" }}>{title}</h1>
+          <p className="mb-4 text-xs font-medium tracking-[0.16em] text-[#e3b04b]">{dateRange}</p>
+          <h1 className="max-w-3xl text-4xl font-medium leading-[1.08] tracking-normal text-[#f4f1e8] sm:text-5xl lg:text-7xl" style={{ fontFamily: "var(--font-event)" }}>{title}</h1>
         </div>
         <div className="max-w-md md:pb-1">
           <p className="mb-7 text-base leading-[1.7] text-[#c9d0da] sm:text-lg">{headline}</p>
