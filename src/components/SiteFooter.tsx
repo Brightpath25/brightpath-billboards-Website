@@ -79,11 +79,21 @@ export default function SiteFooter() {
               <div>
                 <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Services</h4>
                 <ul className="space-y-2.5">
-                  {["Mobile LED Advertising", "Event Domination", "Targeted Campaigns", "Route Planning"].map((item, idx) => (
-                    <li key={idx}>
-                      <a href="#" className="text-text-mid hover:text-gold-highlight transition-colors">{item}</a>
+                  {[
+                    ["Mobile LED Advertising", "/services/mobile-led-advertising"],
+                    ["Event Domination", "/services/event-domination"],
+                    ["Targeted Campaigns", "/services/targeted-campaigns"],
+                    ["Route Planning", "/quote"],
+                  ].map(([item, href]) => (
+                    <li key={item}>
+                      <a href={href} className="text-text-mid hover:text-gold-highlight transition-colors">{item}</a>
                     </li>
                   ))}
+                  <li>
+                    <a href="https://bpmobilebillboardsiq.live" target="_blank" rel="noopener noreferrer" className="text-text-mid hover:text-gold-highlight transition-colors">
+                      BrightPathIQ
+                    </a>
+                  </li>
                 </ul>
               </div>
 
