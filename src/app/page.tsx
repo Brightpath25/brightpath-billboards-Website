@@ -35,7 +35,7 @@ const Campaign360Viewer = dynamic(() => import("@/components/Campaign360Viewer")
   ),
 });
 
-const navItems = [
+type NavItem = {\n  label: string;\n  href: string;\n  external?: boolean;\n};\n\nconst navItems: NavItem[] = [
   { label: "How It Works", href: "/services/mobile-led-advertising" },
   { label: "Campaigns", href: "/services/targeted-campaigns" },
   { label: "Events", href: "/events" },
