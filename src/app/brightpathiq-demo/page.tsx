@@ -36,7 +36,7 @@ export default function BrightPathIQDemoPage() {
   const [activeView, setActiveView] = useState<View>("overview");
 
   return (
-    <main className="min-h-screen bg-[#f7f5f0] text-[#241d16]">
+    <main className="brightpathiq-demo min-h-screen bg-[#f7f5f0] text-[#241d16]">
       <header className="border-b border-[#ded8ce] bg-[#fbfaf7]">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8 lg:px-10">
           <Link href="/" className="flex items-center gap-3">
