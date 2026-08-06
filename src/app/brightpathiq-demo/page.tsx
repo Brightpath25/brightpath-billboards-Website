@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BarChart3,
   Camera,
@@ -14,6 +14,8 @@ import {
   RefreshCcw,
   Route,
   ShieldCheck,
+  Info,
+  X,
 } from "lucide-react";
 
 type View = "overview" | "route" | "proof" | "report";
@@ -34,6 +36,15 @@ const proofCards = [
 
 export default function BrightPathIQDemoPage() {
   const [activeView, setActiveView] = useState<View>("overview");
+  const [isGuideOpen, setIsGuideOpen] = useState(true);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsGuideOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <main className="brightpathiq-demo min-h-screen bg-[#f7f5f0] text-[#241d16]">
@@ -72,11 +83,11 @@ export default function BrightPathIQDemoPage() {
         <div className="rounded-[24px] border border-[#e2ddd4] bg-white p-3 shadow-[0_18px_60px_rgba(65,47,25,0.08)] sm:p-5">
           <div className="flex flex-col gap-4 border-b border-[#ece7df] pb-5 md:flex-row md:items-start md:justify-between">
             <div>
-              <p className="text-[11px] font-semibold tracking-[0.2em] text-[#b27b18]">BRIGHTPATHIQ CAMPAIGN REPORT</p>
+              <div className="flex flex-wrap items-center gap-2"><p className="text-[11px] font-semibold tracking-[0.2em] text-[#b27b18]">BRIGHTPATHIQ CAMPAIGN REPORT</p><span className="rounded-full border border-[#ddc79e] px-2 py-1 text-[10px] font-semibold tracking-[0.12em] text-[#806b4d]">CLIENT VIEW</span></div>
               <h2 className="mt-2 text-2xl font-semibold text-[#2b2118] sm:text-3xl">Desert Bloom Summer Campaign</h2>
               <p className="mt-2 text-sm text-[#8b8074]">Sample Beverage Brand · Aug 2, 2026 – Aug 15, 2026</p>
             </div>
-            <div className="flex items-center gap-2 rounded-full bg-[#e9f4eb] px-3 py-2 text-xs font-semibold text-[#3f7b4d]"><CheckCircle2 className="h-4 w-4" /> Campaign active</div>
+            <div className="flex flex-wrap items-center gap-2"><button type="button" onClick={() => setIsGuideOpen(true)} className="inline-flex items-center gap-2 rounded-full border border-[#d9d0c3] px-3 py-2 text-xs font-semibold text-[#756a5e] transition hover:border-[#b27b18] hover:text-[#b27b18]"><Info className="h-4 w-4" /> How to read this demo</button><div className="flex items-center gap-2 rounded-full bg-[#e9f4eb] px-3 py-2 text-xs font-semibold text-[#3f7b4d]"><CheckCircle2 className="h-4 w-4" /> Campaign active</div></div>
           </div>
 
           <div className="grid gap-4 py-5 sm:grid-cols-3 lg:grid-cols-6">
@@ -121,6 +132,20 @@ export default function BrightPathIQDemoPage() {
           <Link href="/quote" className="inline-flex items-center gap-2 rounded-full bg-[#f3c46b] px-5 py-3 text-sm font-bold text-[#3d2d1d] transition hover:bg-white">Start a campaign <ChevronRight className="h-4 w-4" /></Link>
         </div>
       </section>
+      {isGuideOpen && (
+        <div className="iq-guide-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setIsGuideOpen(false); }}>
+          <section className="iq-guide-modal" role="dialog" aria-modal="true" aria-labelledby="iq-guide-title">
+            <div className="flex items-start justify-between gap-5 border-b border-white/10 pb-5">
+              <div><p className="text-[10px] font-bold tracking-[0.2em] text-[#f3c76c]">BRIGHTPATHIQ DEMO GUIDE</p><h2 id="iq-guide-title" className="mt-2 text-2xl font-semibold text-white sm:text-3xl">How to read this campaign view</h2><p className="mt-3 max-w-xl text-sm leading-relaxed text-[#aab7b0]">This sample shows how a client can move from the campaign summary to delivery proof and the final report.</p></div>
+              <button type="button" aria-label="Close demo guide" onClick={() => setIsGuideOpen(false)} className="rounded-full border border-white/10 p-2 text-[#aab7b0] transition hover:border-[#f3c76c] hover:text-white"><X className="h-5 w-5" /></button>
+            </div>
+            <div className="grid gap-3 py-6 sm:grid-cols-2">
+              {[["Campaign", "Start here. Confirm the client, dates, service, market, and current delivery status."], ["Route", "See the planned coverage area, cities, operating window, mileage, and route record."], ["Proof", "Review representative photo records tied to different moments and areas along the route."], ["Report", "See how route delivery, proof, engagement, and verification are brought together for client review."]].map(([title, body], index) => <div key={title} className="iq-guide-item"><span className="iq-guide-number">0{index + 1}</span><div><h3 className="text-sm font-semibold text-white">{title}</h3><p className="mt-1 text-sm leading-relaxed text-[#9ba9a2]">{body}</p></div></div>)}
+            </div>
+            <div className="flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between"><p className="text-xs text-[#8f9d96]">All information shown here is simulated demo content.</p><button type="button" onClick={() => setIsGuideOpen(false)} className="inline-flex items-center justify-center rounded-full bg-[#f3c76c] px-5 py-2.5 text-sm font-bold text-[#111716] transition hover:bg-white">Enter demo</button></div>
+          </section>
+        </div>
+      )}
     </main>
   );
 }
