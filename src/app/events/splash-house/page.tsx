@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function SplashHousePage() {
   return (
-    <div className="min-h-screen bg-black-hero">
+    <div className="event-page event-page--splash-house min-h-screen bg-black-hero">
       <EventHero
         title="Own the Movement Around Splash House"
         headline="A multi-hotel, poolside music weekend built around nonstop movement, nightlife, and high-energy social environments."

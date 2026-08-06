@@ -20,7 +20,7 @@ export default function EventDominationPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black-hero">
+    <div className="service-page service-page--events min-h-screen bg-black-hero">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-hero-gradient"></div>

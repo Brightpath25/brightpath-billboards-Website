@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Poppins:wght@400;600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600&family=Poppins:wght@400;600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -31,9 +31,18 @@
   /* Typography */
   --font-heading: 'Outfit', 'Poppins', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-event: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Event pages use an explicit humanist face on every descendant. */
 
   /* Transitions */
   --transition: 250ms ease-in-out;
+}
+
+/* Event typography override: the global element rules otherwise reapply the site-wide font. */
+[style*="font-event"],
+[style*="font-event"] * {
+  font-family: var(--font-event) !important;
 }
 
 * {
@@ -489,5 +498,218 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
   .luxury-button:active,
   .luxury-card:hover {
     transform: none !important;
+  }
+}
+
+/* Page personalities: one BrightPath system, distinct event moods. */
+.event-page { --event-accent:#e3b04b; --event-accent-soft:rgba(227,176,75,.12); --event-surface:#101210; --event-hero-start:#070809; --event-hero-end:#11130f; }
+.event-page--calendar { --event-accent:#e3b04b; --event-accent-soft:rgba(227,176,75,.12); --event-hero-end:#151710; }
+.event-page--coachella-one { --event-accent:#f08a62; --event-accent-soft:rgba(240,138,98,.14); --event-hero-end:#211414; }
+.event-page--coachella-two { --event-accent:#c9a7e8; --event-accent-soft:rgba(201,167,232,.13); --event-hero-end:#151325; }
+.event-page--stagecoach { --event-accent:#d28a55; --event-accent-soft:rgba(210,138,85,.14); --event-hero-end:#211811; }
+.event-page--splash-house { --event-accent:#6fc7d4; --event-accent-soft:rgba(111,199,212,.14); --event-hero-end:#101a26; }
+.event-page--off-season { --event-accent:#a9b78c; --event-accent-soft:rgba(169,183,140,.13); --event-hero-end:#131a17; }
+.event-page--custom { --event-accent:#e3b04b; --event-accent-soft:rgba(227,176,75,.13); --event-hero-end:#171611; }
+.event-page .event-hero { border-bottom-color:color-mix(in srgb,var(--event-accent) 45%,transparent)!important; }
+.event-page .event-hero>div:first-child { background:radial-gradient(circle at 78% 20%,var(--event-accent-soft),transparent 32%),linear-gradient(115deg,var(--event-hero-start) 0%,var(--event-hero-end) 100%)!important; }
+.event-page .event-hero .text-\[\#e3b04b\],.event-page .event-section .text-\[\#e3b04b\],.event-page .event-cta .text-\[\#e3b04b\],.event-page .event-card .text-\[\#e3b04b\] { color:var(--event-accent)!important; }
+.event-page .event-hero a:hover,.event-page .event-section a:hover,.event-page .event-card a:hover { color:color-mix(in srgb,var(--event-accent) 72%,white)!important; }
+.event-page .event-card { border-top-color:color-mix(in srgb,var(--event-accent) 58%,white 4%)!important; background:var(--event-surface)!important; box-shadow:none!important; }
+.event-page .event-card:hover { border-top-color:var(--event-accent)!important; }
+.event-page .event-card>div { background-color:transparent; }
+.event-page .event-card:hover>div { background-color:var(--event-accent); }
+.event-page .event-section { background-image:linear-gradient(90deg,transparent,var(--event-accent-soft),transparent); background-size:100% 1px; background-position:top; background-repeat:no-repeat; }
+.event-page .event-cta { border-top-color:color-mix(in srgb,var(--event-accent) 34%,transparent)!important; background:#0f1110!important; }
+.event-page .event-cta .bg-\[\#e3b04b\],.event-page .event-hero .bg-\[\#e3b04b\] { background-color:var(--event-accent)!important; }
+.event-page--coachella-one .event-hero::after,.event-page--coachella-two .event-hero::after,.event-page--stagecoach .event-hero::after,.event-page--splash-house .event-hero::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.22; background-image:repeating-linear-gradient(120deg,transparent 0 44px,color-mix(in srgb,var(--event-accent) 18%,transparent) 45px,transparent 46px 92px); }
+.event-page--splash-house .event-hero::after { background-image:radial-gradient(circle at 78% 30%,color-mix(in srgb,var(--event-accent) 28%,transparent) 0 2px,transparent 3px); background-size:24px 24px; opacity:.16; }
+.event-page--off-season .event-hero::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.16; background-image:linear-gradient(color-mix(in srgb,var(--event-accent) 25%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--event-accent) 25%,transparent) 1px,transparent 1px); background-size:48px 48px; }
+
+.event-page .text-gold-base,
+.event-page .text-gold-highlight {
+  color: var(--event-accent) !important;
+}
+
+.event-page .bg-gold-base\/10 {
+  background-color: var(--event-accent-soft) !important;
+}
+
+.event-page .luxury-card {
+  border-color: color-mix(in srgb, var(--event-accent) 30%, transparent) !important;
+  box-shadow: 0 18px 45px color-mix(in srgb, var(--event-accent) 8%, transparent) !important;
+}
+
+.event-page .luxury-card:hover {
+  border-color: color-mix(in srgb, var(--event-accent) 68%, transparent) !important;
+}
+
+
+/* Quiet personality: tactile, welcoming cards without decorative marks. */
+.event-page .event-card {
+  border-radius: 10px 2px 10px 2px !important;
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.event-page .event-card:nth-child(2) {
+  border-radius: 2px 10px 2px 10px !important;
+}
+
+.event-page .event-card:nth-child(3) {
+  border-radius: 10px 10px 2px 10px !important;
+}
+
+.event-page .event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--event-accent) 10%, transparent) !important;
+}
+
+.event-page--coachella-one .event-card,
+.event-page--coachella-two .event-card {
+  border-left-width: 3px !important;
+}
+
+.event-page--off-season .event-card {
+  border-left-style: dashed !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-page .event-card {
+    transition: none;
+  }
+
+  .event-page .event-card:hover {
+    transform: none;
+  }
+}
+
+/* Keep event surfaces material and road-led rather than glossy. */
+.event-page .event-hero > div:first-child {
+  background: var(--event-hero-start) !important;
+}
+
+.event-page .event-section {
+  background-image: none !important;
+}
+
+.event-page .event-cta {
+  background: #0f1110 !important;
+}
+
+
+/* Service page personality layer */
+.service-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  --service-accent: #e9a711;
+  --service-surface: #17130e;
+  --service-texture: #2a2116;
+}
+.service-page > * {
+  position: relative;
+  z-index: 1;
+}
+.service-page::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 9rem;
+  right: -7rem;
+  width: 22rem;
+  height: 22rem;
+  border: 1px solid color-mix(in srgb, var(--service-accent) 28%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2rem color-mix(in srgb, var(--service-accent) 5%, transparent),
+              0 0 0 4rem color-mix(in srgb, var(--service-accent) 3%, transparent);
+  transform: rotate(-18deg);
+  pointer-events: none;
+}
+.service-page::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 1.5rem;
+  top: 19rem;
+  width: 4rem;
+  height: 14rem;
+  border-left: 1px solid color-mix(in srgb, var(--service-accent) 38%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--service-accent) 20%, transparent);
+  transform: skewY(-22deg);
+  pointer-events: none;
+}
+.service-page .bg-hero-gradient {
+  display: none;
+}
+.service-page > section:first-of-type {
+  background-color: var(--service-surface);
+  border-bottom: 1px solid color-mix(in srgb, var(--service-accent) 28%, transparent);
+}
+.service-page .text-gold-gradient {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: var(--service-accent);
+}
+.service-page .luxury-card {
+  background-color: color-mix(in srgb, var(--service-surface) 88%, #000);
+  border-color: color-mix(in srgb, var(--service-accent) 22%, transparent);
+  border-radius: 1.1rem 0.45rem 1.1rem 0.45rem;
+}
+.service-page .luxury-card:hover {
+  border-color: color-mix(in srgb, var(--service-accent) 55%, transparent);
+  transform: translateY(-3px);
+}
+.service-page--mobile {
+  --service-accent: #e6b24a;
+  --service-surface: #14201d;
+  --service-texture: #20332e;
+}
+.service-page--mobile::after {
+  left: auto;
+  right: 2rem;
+  top: 25rem;
+  width: 7rem;
+  height: 2rem;
+  border-left: 0;
+  border-top: 2px solid color-mix(in srgb, var(--service-accent) 48%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, var(--service-accent) 18%, transparent);
+  transform: rotate(-8deg);
+}
+.service-page--events {
+  --service-accent: #f0a13a;
+  --service-surface: #211812;
+  --service-texture: #382318;
+}
+.service-page--events::before {
+  top: 7rem;
+  right: auto;
+  left: -10rem;
+  width: 30rem;
+  height: 30rem;
+  border-style: dashed;
+  transform: rotate(20deg);
+}
+.service-page--targeted {
+  --service-accent: #d8b15a;
+  --service-surface: #171821;
+  --service-texture: #252938;
+}
+.service-page--targeted::after {
+  left: auto;
+  right: 2rem;
+  top: 18rem;
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid color-mix(in srgb, var(--service-accent) 42%, transparent);
+  border-radius: 50%;
+  transform: none;
+}
+@media (max-width: 640px) {
+  .service-page::before {
+    top: 8rem;
+    right: -11rem;
+    opacity: .7;
+  }
+  .service-page::after {
+    opacity: .65;
   }
 }

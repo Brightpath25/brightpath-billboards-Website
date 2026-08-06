@@ -409,7 +409,7 @@ export default function OffSeasonPage() {
   const q1 = QUARTER_1;
 
   return (
-    <div className="min-h-screen bg-black-hero">
+    <div className="event-page event-page--off-season min-h-screen bg-black-hero">
       {/* ──────────────────────── 1. HERO ──────────────────────── */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-hero-gradient" />

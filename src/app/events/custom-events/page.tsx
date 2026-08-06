@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CustomEventsPage() {
   return (
-    <div className="min-h-screen bg-black-hero">
+    <div className="event-page event-page--custom min-h-screen bg-black-hero">
       <EventHero
         title="Custom & One-Off Events"
         headline="From local festivals to private activations, BrightPath builds flexible campaign packages tailored to your event, timeline, and goals. Premium execution — on your terms."
