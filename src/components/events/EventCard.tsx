@@ -6,7 +6,7 @@ interface EventCardProps { title: string; description: string; timeframe: string
 
 export default function EventCard({ title, description, timeframe, href, subLinks }: EventCardProps) {
   return (
-    <article style={{ fontFamily: "var(--font-event)" }} className="group relative flex h-full flex-col overflow-hidden border-t border-white/15 bg-[#101210] p-7 transition-colors hover:border-[#e3b04b] sm:p-8">
+    <article style={{ fontFamily: "var(--font-event)" }} className="event-card group relative flex h-full flex-col overflow-hidden border-t border-white/15 bg-[#101210] p-7 transition-colors hover:border-[#e3b04b] sm:p-8">
       <div className="absolute right-0 top-0 h-full w-1 bg-[#e3b04b]/0 transition-colors group-hover:bg-[#e3b04b]" aria-hidden="true" />
       <p className="mb-4 text-xs font-medium tracking-[0.14em] text-[#e3b04b]">{timeframe}</p>
       <h3 className="mb-4 max-w-md text-2xl font-medium leading-tight tracking-normal text-[#f4f1e8] md:text-3xl" style={{ fontFamily: "var(--font-event)" }}>{title}</h3>
