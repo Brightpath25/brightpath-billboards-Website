@@ -36,18 +36,18 @@ import {
 } from "lucide-react";
 import EventSection from "@/components/events/EventSection";
 
-const LUMA_LINK = "https://luma.com/event/evt-oSmh00BoJ1Y5jX8?utm_source=website";
+const RSVP_LINK = "https://withjoy.com/brightpath-blackcoffee";
 
 function RegisterButton({ size = "md" }: { size?: "md" | "lg" }) {
   const sizing = size === "lg" ? "px-10 py-4" : "px-8 py-4";
   return (
     <a
-      href={LUMA_LINK}
+      href={RSVP_LINK}
       target="_blank"
       rel="noopener noreferrer"
       className={`luxury-button ${sizing} text-lg font-semibold rounded-lg inline-block`}
     >
-      Register for Launch
+      RSVP for Black Coffee Brunch
     </a>
   );
 }
@@ -77,7 +77,7 @@ function OutlineButton({
 
 export default function LaunchClient() {
   return (
-    <div className="min-h-screen bg-black-hero">
+    <div className="launch-page min-h-screen bg-black-hero">
       {/* ──────────────────────── 1. HERO ──────────────────────── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-hero-gradient" />
@@ -99,7 +99,7 @@ export default function LaunchClient() {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold-base/40 bg-gold-base/5 mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold-base animate-pulse" />
                 <p className="text-gold-base font-semibold tracking-widest uppercase text-xs">
-                  Coachella Valley Launch
+                  Black Coffee Brunch · Official Launch
                 </p>
               </div>
 
@@ -107,21 +107,24 @@ export default function LaunchClient() {
                 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-text-light leading-[1.05]"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                The BrightPath Billboards{" "}
+                Black Coffee Brunch{" "}
                 <span className="text-gold-highlight">Experience</span>
               </h1>
 
               <p className="text-lg md:text-xl text-text-mid max-w-xl mb-4 leading-relaxed">
-                A high energy launch event bringing together local business
-                owners, creators, partners, and community leaders across the
-                Coachella Valley.
+                The official BrightPath Billboards launch bringing together Coachella Valley business owners, creators, partners, and community leaders for brunch, music, and real conversations.
               </p>
 
               <p className="text-base md:text-lg text-text-mid max-w-xl mb-10 leading-relaxed">
-                Come see the truck, meet the team, connect with local brands,
-                and experience how BrightPath is bringing real world attention
-                to the streets.
+                Come see the truck, meet the team, connect with local brands, and experience BrightPathIQ before street operations begin September 1.
               </p>
+
+              <div className="mb-8 grid max-w-xl gap-3 border-y border-gold-base/20 py-5 text-sm text-text-light sm:grid-cols-3">
+                <div><p className="text-gold-highlight font-semibold">August 14, 2026</p><p className="text-text-mid">Friday</p></div>
+                <div><p className="text-gold-highlight font-semibold">11:30 AM–3:00 PM</p><p className="text-text-mid">Brunch and networking</p></div>
+                <div><p className="text-gold-highlight font-semibold">Burgers & Beer</p><p className="text-text-mid">Rancho Mirage, CA</p></div>
+              </div>
+              <p className="mb-8 text-sm font-medium text-gold-highlight">RSVP by August 7, 2026</p>
 
               <RegisterButton size="lg" />
             </div>
@@ -1140,16 +1143,16 @@ export default function LaunchClient() {
 
         <div className="relative z-10 container mx-auto px-4 text-center max-w-3xl">
           <p className="text-gold-base font-semibold tracking-widest uppercase text-sm mb-4">
-            Coachella Valley Launch
+            Black Coffee Brunch · Official Launch
           </p>
           <h2
             className="text-3xl md:text-5xl font-bold text-text-light mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Join Us For The BrightPath Billboards Experience
+            Join Us For Black Coffee Brunch
           </h2>
           <p className="text-text-mid text-lg mb-10 leading-relaxed">
-            One night. The truck, the music, the people, the valley.
+            August 14 · Burgers & Beer · Rancho Mirage
           </p>
 
           <div className="flex justify-center">
