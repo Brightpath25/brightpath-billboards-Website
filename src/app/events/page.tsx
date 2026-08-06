@@ -71,7 +71,7 @@ export default function EventsPage() {
       </section>
 
       {/* Intro */}
-      <section className="border-b border-white/[0.06] bg-[#0f1110] py-14 md:py-18">
+      <section className="border-b border-white/[0.06] bg-[#0f1110] py-14 md:py-16">
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
           <h2
             className="mb-5 text-2xl font-bold text-text-light md:text-3xl"
