@@ -25,7 +25,7 @@ export default function EventHero({
   showBackLink = true,
 }: EventHeroProps) {
   return (
-    <section style={{ fontFamily: "var(--font-event)" }} className="relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
+    <section style={{ fontFamily: "var(--font-event)" }} className="event-hero relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(227,176,75,0.14),transparent_30%),linear-gradient(115deg,#070809_0%,#11130f_56%,#080909_100%)]" />
       <div className="absolute inset-y-0 right-0 hidden w-[42%] opacity-60 md:block" aria-hidden="true">
         <div className="absolute right-[18%] top-0 h-full w-px rotate-[18deg] bg-gradient-to-b from-transparent via-[#e3b04b]/60 to-transparent" />
