@@ -17,8 +17,8 @@ export default function EventsPage() {
       <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(227,176,75,0.14),transparent_30%),linear-gradient(115deg,#070809_0%,#11130f_56%,#080909_100%)]" />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-5 py-28 sm:px-8 md:py-36 lg:px-10">
-          <div className="mb-10">
+        <div className="relative z-10 mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-24 lg:px-10">
+          <div className="mb-7">
             <Link
               href="/"
               className="inline-flex items-center rounded-full border border-white/20 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#f4f1e8] transition-colors hover:border-[#e3b04b] hover:text-[#f7d382]"
@@ -26,7 +26,7 @@ export default function EventsPage() {
               Home
             </Link>
           </div>
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">
             BrightPath Campaigns
           </p>
           <h1
@@ -35,7 +35,7 @@ export default function EventsPage() {
           >
             Event Campaigns
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-[#c9d0da] sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-[#c9d0da] sm:text-lg">
             Campaign-specific opportunities built for high-traffic visibility,
             event domination, and strategic market positioning across the
             Coachella Valley.
@@ -44,26 +44,26 @@ export default function EventsPage() {
       </section>
 
       {/* Featured Launch Card */}
-      <section className="border-b border-white/[0.06] bg-[#070809] py-16 md:py-20">
+      <section className="border-b border-white/[0.06] bg-[#070809] py-10 md:py-14">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <div className="border-l-2 border-[#e3b04b] bg-[#101210] p-7 md:p-9">
-            <p className="text-gold-base text-sm font-semibold tracking-widest uppercase mb-3">
+          <div className="border-l-2 border-[#e3b04b] bg-[#101210] p-6 md:p-8">
+            <p className="text-gold-base mb-3 text-sm font-semibold uppercase tracking-widest">
               Public event. Limited campaign placement.
             </p>
             <h2
-              className="text-2xl md:text-3xl font-bold text-text-light mb-6"
+              className="mb-5 text-2xl font-bold text-text-light md:text-3xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               BrightPath Launch — Coachella Valley
             </h2>
             <Link
               href="/launch"
-              className="inline-flex items-center gap-2 luxury-button px-8 py-4 rounded-xl font-semibold"
+              className="inline-flex items-center gap-2 luxury-button rounded-xl px-8 py-4 font-semibold"
             >
               Secure Your Campaign
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <p className="text-text-mid/70 italic text-sm mt-4">
+            <p className="mt-4 text-sm italic text-text-mid/70">
               Placement is assigned in order of completed campaigns
             </p>
           </div>
@@ -71,40 +71,40 @@ export default function EventsPage() {
       </section>
 
       {/* Intro */}
-      <section className="border-b border-white/[0.06] bg-[#0f1110] py-20 md:py-28">
+      <section className="border-b border-white/[0.06] bg-[#0f1110] py-14 md:py-18">
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
           <h2
-            className="text-2xl md:text-3xl font-bold text-text-light mb-6"
+            className="mb-5 text-2xl font-bold text-text-light md:text-3xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Built for Impact
           </h2>
-          <p className="text-text-mid text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed text-text-mid">
             BrightPath builds event-specific campaign strategies with dedicated
             pricing, route execution, and campaign assets. Every event window is
             an opportunity to own the road, dominate the conversation, and
             position your brand in front of the audiences that matter most.
           </p>
-          <div className="gold-divider mx-auto mt-8" />
+          <div className="gold-divider mx-auto mt-6" />
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="border-b border-white/[0.06] bg-[#070809] py-20 md:py-28">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center mb-14">
+      <section className="border-b border-white/[0.06] bg-[#070809] py-14 md:py-20">
+        <div className="container mx-auto max-w-5xl px-4">
+          <div className="mb-10 text-center md:mb-12">
             <h2
-              className="text-3xl md:text-4xl font-bold text-text-light mb-4"
+              className="mb-3 text-3xl font-bold text-text-light md:text-4xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               How It Works
             </h2>
-            <p className="text-text-mid text-lg max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-lg text-text-mid">
               Three steps. One goal. Your brand on the most valuable roads in the desert.
             </p>
-            <div className="gold-divider mx-auto mt-6" />
+            <div className="gold-divider mx-auto mt-5" />
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-5 md:grid-cols-3">
             {[
               {
                 step: "01",
@@ -122,15 +122,15 @@ export default function EventsPage() {
                 text: "LED mobile billboards deploy on your routes, on your schedule. You get visibility reports. Your brand gets seen.",
               },
             ].map((item) => (
-              <div key={item.step} className="border-t border-white/15 bg-[#101210] p-7 text-center">
-                <p className="text-gold-base text-3xl font-bold mb-4">{item.step}</p>
+              <div key={item.step} className="border-t border-white/15 bg-[#101210] p-6 text-center md:p-7">
+                <p className="mb-3 text-3xl font-bold text-gold-base">{item.step}</p>
                 <h3
-                  className="text-xl font-bold text-text-light mb-3"
+                  className="mb-3 text-xl font-bold text-text-light"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {item.title}
                 </h3>
-                <p className="text-text-mid leading-relaxed">{item.text}</p>
+                <p className="leading-relaxed text-text-mid">{item.text}</p>
               </div>
             ))}
           </div>
@@ -138,9 +138,9 @@ export default function EventsPage() {
       </section>
 
       {/* Event Cards */}
-      <section className="py-20 md:py-28 bg-black-hero">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8">
+      <section className="bg-black-hero py-14 md:py-20">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="grid gap-5 md:grid-cols-2">
             {/* Coachella */}
             <EventCard
               title="Coachella Festival Domination"
@@ -185,7 +185,7 @@ export default function EventsPage() {
           </div>
 
           {/* Custom Events — Full Width */}
-          <div className="mt-8">
+          <div className="mt-5">
             <EventCard
               title="One-Off & Custom Events"
               description="From local festivals to private events, BrightPath builds flexible campaign packages for any opportunity. High-end execution tailored to your timeline and goals."
