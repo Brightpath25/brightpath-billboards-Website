@@ -137,7 +137,39 @@ function Overview() {
 }
 
 function RouteView() {
-  return <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]"><div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-[#d9d1c3] bg-[#dfe6dc] p-5"><div className="absolute inset-0 opacity-60" style={{ backgroundImage: "linear-gradient(32deg, transparent 47%, #a9b7a4 48%, #a9b7a4 49%, transparent 50%), linear-gradient(122deg, transparent 48%, #b7c2b0 49%, #b7c2b0 50%, transparent 51%), linear-gradient(90deg, transparent 49%, #c7d0c1 50%, transparent 51%)", backgroundSize: "190px 130px, 210px 160px, 120px 120px" }} /><div className="relative flex h-full min-h-[260px] flex-col justify-between"><div className="flex justify-between"><span className="rounded-full bg-white/85 px-3 py-2 text-xs font-semibold text-[#4a5d4b]">Sample route map</span><span className="rounded-full bg-white/85 px-3 py-2 text-xs text-[#61705e]">Automatic update</span></div><div className="relative mx-auto h-36 w-64"><div className="absolute left-8 top-5 h-24 w-44 -rotate-12 rounded-[50%] border-[5px] border-[#b27b18] border-dashed" /><span className="absolute left-3 top-16 flex h-8 w-8 items-center justify-center rounded-full bg-[#3d2d1d] text-white"><MapPin className="h-4 w-4" /></span><span className="absolute right-3 bottom-0 flex h-8 w-8 items-center justify-center rounded-full bg-[#b27b18] text-white"><MapPin className="h-4 w-4" /></span></div><div className="flex items-end justify-between text-xs font-semibold text-[#516451]"><span>Indio</span><span>La Quinta</span><span>Palm Desert</span></div></div></div><div className="rounded-2xl border border-[#e5e0d8] p-5"><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">ROUTE SUMMARY</p><h3 className="mt-2 text-xl font-semibold">Coachella Valley Business & Event Corridor</h3><div className="mt-5 space-y-3">{[["Operating window", "8:00 AM – 4:00 PM"], ["Cities covered", "3"], ["Miles documented", "150"], ["GPS record", "Complete"]].map(([label, value]) => <div key={label} className="flex items-center justify-between border-b border-[#eee9e2] py-3 text-sm"><span className="text-[#8b8074]">{label}</span><span className="font-semibold text-[#3a2c20]">{value}</span></div>)}</div></div></div>;
+  return (
+    <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-[#d9d1c3] bg-[#dfe6dc]">
+        <iframe
+          title="Google Maps sample route area for the Coachella Valley"
+          src="https://www.google.com/maps?q=Coachella+Valley,+CA&output=embed"
+          className="absolute inset-0 h-full min-h-[300px] w-full border-0 grayscale-[18%] contrast-[96%]"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[#ead7ad]/10" />
+        <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+          <span className="rounded-full bg-white/92 px-3 py-2 text-xs font-semibold text-[#4a5d4b] shadow-sm">Google Maps area view</span>
+          <span className="rounded-full bg-[#3d2d1d]/90 px-3 py-2 text-xs font-semibold text-white shadow-sm">Sample route</span>
+        </div>
+        <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-white/92 px-4 py-3 text-xs font-semibold text-[#4d5e4b] shadow-sm">
+          <span>Indio</span><span className="text-[#b27b18]">→</span><span>La Quinta</span><span className="text-[#b27b18]">→</span><span>Palm Desert</span>
+        </div>
+      </div>
+      <div className="rounded-2xl border border-[#e5e0d8] p-5">
+        <p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">ROUTE SUMMARY</p>
+        <h3 className="mt-2 text-xl font-semibold">Coachella Valley Business & Event Corridor</h3>
+        <p className="mt-3 text-sm leading-relaxed text-[#756a5e]">The client view shows the campaign area, planned coverage, and delivery record in one place.</p>
+        <div className="mt-5 space-y-3">
+          {[[ "Operating window", "8:00 AM – 4:00 PM" ], [ "Cities covered", "3" ], [ "Miles documented", "150" ], [ "GPS record", "Complete" ]].map(([label, value]) => (
+            <div key={label} className="flex items-center justify-between border-b border-[#eee9e2] py-3 text-sm">
+              <span className="text-[#8b8074]">{label}</span><span className="font-semibold text-[#3a2c20]">{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function ProofView() {
