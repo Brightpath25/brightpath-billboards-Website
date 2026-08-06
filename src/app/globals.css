@@ -644,3 +644,17 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
     transition: none;
   }
 }
+
+
+/* Keep event surfaces material and road-led rather than glossy. */
+.event-page .event-hero > div:first-child {
+  background: var(--event-hero-start) !important;
+}
+
+.event-page .event-section {
+  background-image: none !important;
+}
+
+.event-page .event-cta {
+  background: #0f1110 !important;
+}
