@@ -25,7 +25,7 @@ export default function EventHero({
   showBackLink = true,
 }: EventHeroProps) {
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
+    <section style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif" }} className="relative isolate overflow-hidden border-b border-white/10 bg-[#070809]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(227,176,75,0.14),transparent_30%),linear-gradient(115deg,#070809_0%,#11130f_56%,#080909_100%)]" />
       <div className="absolute inset-y-0 right-0 hidden w-[42%] opacity-60 md:block" aria-hidden="true">
         <div className="absolute right-[18%] top-0 h-full w-px rotate-[18deg] bg-gradient-to-b from-transparent via-[#e3b04b]/60 to-transparent" />
@@ -40,7 +40,7 @@ export default function EventHero({
             </Link>
           )}
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">{dateRange}</p>
-          <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.045em] text-[#f4f1e8] sm:text-6xl lg:text-8xl" style={{ fontFamily: "var(--font-heading)" }}>{title}</h1>
+          <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.02em] text-[#f4f1e8] sm:text-6xl lg:text-8xl" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>{title}</h1>
         </div>
         <div className="max-w-md md:pb-1">
           <p className="mb-7 text-base leading-7 text-[#c9d0da] sm:text-lg">{headline}</p>
