@@ -26,9 +26,10 @@ const views: { id: View; label: string; icon: typeof Route }[] = [
 ];
 
 const proofCards = [
-  { label: "Start proof", time: "9:02 AM", tone: "bg-[#ceb88e]", detail: "Palm Desert corridor" },
-  { label: "Mid-route proof", time: "12:18 PM", tone: "bg-[#7c8b79]", detail: "La Quinta business district" },
-  { label: "End proof", time: "4:57 PM", tone: "bg-[#24313a]", detail: "Indio event corridor" },
+  { label: "Start proof", time: "9:02 AM", detail: "Palm Desert corridor", image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85" },
+  { label: "Mid-route proof", time: "12:18 PM", detail: "La Quinta business district", image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=85" },
+  { label: "Audience-area proof", time: "2:36 PM", detail: "Palm Desert retail corridor", image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=85" },
+  { label: "End proof", time: "4:57 PM", detail: "Indio event corridor", image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=85" },
 ];
 
 export default function BrightPathIQDemoPage() {
@@ -129,7 +130,7 @@ function Overview() {
     <div className="grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
       <div className="overflow-hidden rounded-2xl border border-[#e5e0d8]">
         <div className="flex items-center justify-between border-b border-[#e5e0d8] px-5 py-4"><div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">CAMPAIGN OVERVIEW</p><h3 className="mt-1 text-lg font-semibold">What is running</h3></div><span className="rounded-full bg-[#f5ead1] px-3 py-1 text-xs font-semibold text-[#8a631a]">Sample data</span></div>
-        <div className="grid gap-3 p-5 sm:grid-cols-2">{[["Campaign ID", "BP-DEMO-2026-0815"], ["Market", "Coachella Valley"], ["Assigned truck", "BP 01"], ["Campaign status", "Active"], ["Route area", "Indio · La Quinta · Palm Desert"], ["Creative", "Sample beverage brand message"]].map(([label, value]) => <div key={label} className="rounded-xl bg-[#faf9f6] p-4"><p className="text-[10px] font-semibold tracking-[0.12em] text-[#9b8e80]">{label}</p><p className="mt-2 font-semibold text-[#3a2c20]">{value}</p></div>)}</div>
+        <div className="grid gap-3 p-5 sm:grid-cols-2">{[["Campaign ID", "BP-DEMO-2026-0815"], ["Objective", "Build local awareness and visits"], ["Market", "Coachella Valley"], ["Service", "Mobile LED advertising"], ["Campaign dates", "Aug 2 – Aug 15, 2026"], ["Operating window", "8:00 AM – 4:00 PM"], ["Assigned truck", "BP 01"], ["Route area", "Indio · La Quinta · Palm Desert"], ["Creative", "Sample beverage brand message"]].map(([label, value]) => <div key={label} className="rounded-xl bg-[#faf9f6] p-4"><p className="text-[10px] font-semibold tracking-[0.12em] text-[#9b8e80]">{label}</p><p className="mt-2 font-semibold text-[#3a2c20]">{value}</p></div>)}</div>
       </div>
       <div className="rounded-2xl border border-[#e5e0d8] bg-[#faf9f6] p-5"><div className="flex items-center justify-between"><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">CAMPAIGN STATUS</p><RefreshCcw className="h-4 w-4 text-[#b27b18]" /></div><div className="mt-6 space-y-5">{["Campaign scheduled", "Route assigned", "Delivery documented", "Report prepared"].map((item, index) => <div key={item} className="flex items-center gap-3"><span className={`flex h-7 w-7 items-center justify-center rounded-full ${index < 3 ? "bg-[#e9f4eb] text-[#3f7b4d]" : "bg-[#f5ead1] text-[#b27b18]"}`}>{index < 3 ? <CheckCircle2 className="h-4 w-4" /> : <span className="text-xs font-bold">{index + 1}</span>}</span><span className="text-sm font-medium text-[#4b3c2f]">{item}</span></div>)}</div></div>
     </div>
@@ -173,9 +174,22 @@ function RouteView() {
 }
 
 function ProofView() {
-  return <div><div className="mb-4 flex items-center justify-between"><div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">PROOF GALLERY</p><h3 className="mt-1 text-xl font-semibold">Photo proof collected along the route</h3></div><span className="rounded-full bg-[#e9f4eb] px-3 py-1 text-xs font-semibold text-[#3f7b4d]">4 verified photos</span></div><div className="grid gap-4 md:grid-cols-3">{proofCards.map((card, index) => <article key={card.label} className="overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white"><div className={`relative flex h-44 items-end overflow-hidden ${card.tone}`}><div className="absolute inset-0 opacity-30" style={{ backgroundImage: "linear-gradient(145deg, transparent 32%, rgba(255,255,255,.42) 33%, transparent 34%), linear-gradient(25deg, transparent 55%, rgba(0,0,0,.2) 56%, transparent 57%)", backgroundSize: "120px 90px, 160px 110px" }} /><div className="relative w-full bg-black/45 p-4 text-white"><p className="text-sm font-semibold">BP 01 · Sample proof {index + 1}</p><p className="mt-1 text-xs text-white/80">{card.detail}</p></div></div><div className="flex items-center justify-between p-4"><div><p className="text-sm font-semibold">{card.label}</p><p className="mt-1 text-xs text-[#8b8074]">{card.time}</p></div><CheckCircle2 className="h-5 w-5 text-[#3f7b4d]" /></div></article>)}</div></div>;
+  return <div>
+    <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">PROOF GALLERY</p><h3 className="mt-1 text-xl font-semibold">Photo proof collected along the route</h3><p className="mt-2 text-sm text-[#8b8074]">Representative campaign imagery shown to illustrate the client experience.</p></div>
+      <span className="w-fit rounded-full bg-[#e9f4eb] px-3 py-1 text-xs font-semibold text-[#3f7b4d]">4 verified photos</span>
+    </div>
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {proofCards.map((card, index) => <article key={card.label} className="overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white">
+        <div className="relative h-48 overflow-hidden bg-[#e8e1d6]">
+          <img src={card.image} alt={`Representative proof photo: ${card.detail}`} className="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pt-10 text-white"><p className="text-sm font-semibold">BP 01 · Example proof {index + 1}</p><p className="mt-1 text-xs text-white/80">{card.detail}</p></div>
+        </div>
+        <div className="flex items-center justify-between p-4"><div><p className="text-sm font-semibold">{card.label}</p><p className="mt-1 text-xs text-[#8b8074]">{card.time}</p></div><CheckCircle2 className="h-5 w-5 text-[#3f7b4d]" /></div>
+      </article>)}
+    </div>
+  </div>;
 }
-
 function ReportView() {
   return <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]"><div className="rounded-2xl bg-[#3d2d1d] p-6 text-white"><p className="text-[10px] font-semibold tracking-[0.15em] text-[#f3c46b]">VERIFICATION SUMMARY</p><h3 className="mt-3 text-2xl font-semibold">Delivery is organized for review.</h3><p className="mt-4 leading-relaxed text-white/75">BrightPathIQ brings route records, photo proof, QR engagement, SMS actions, mileage, and delivery notes into one client-facing report.</p><div className="mt-7 space-y-3">{["1 route block documented", "4 photo proof records collected", "126 QR scans shown", "48 SMS actions shown", "150 miles recorded", "Client report ready"].map((item) => <div key={item} className="flex items-center gap-3 text-sm"><CheckCircle2 className="h-4 w-4 text-[#f3c46b]" /> {item}</div>)}</div></div><div className="rounded-2xl border border-[#e5e0d8] p-6"><div className="flex items-center justify-between"><div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">CLIENT REPORT PREVIEW</p><h3 className="mt-1 text-xl font-semibold">Campaign delivery summary</h3></div><span className="rounded-full bg-[#f5ead1] px-3 py-1 text-xs font-semibold text-[#8a631a]">Sample</span></div><div className="mt-6 space-y-4"><div className="h-3 w-3/4 rounded-full bg-[#e8e1d6]" /><div className="h-3 w-full rounded-full bg-[#f0ece6]" /><div className="h-3 w-5/6 rounded-full bg-[#f0ece6]" /><div className="grid grid-cols-3 gap-3 pt-3"><div className="h-20 rounded-xl bg-[#f7f5f0]" /><div className="h-20 rounded-xl bg-[#f7f5f0]" /><div className="h-20 rounded-xl bg-[#f7f5f0]" /></div><p className="text-sm leading-relaxed text-[#756a5e]">A client-ready record of what ran, where it ran, and what was documented.</p></div></div></div>;
 }
