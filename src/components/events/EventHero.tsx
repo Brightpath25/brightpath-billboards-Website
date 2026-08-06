@@ -32,18 +32,18 @@ export default function EventHero({
         <div className="absolute right-[36%] top-0 h-full w-px rotate-[18deg] bg-gradient-to-b from-transparent via-white/15 to-transparent" />
         <div className="absolute bottom-[22%] left-0 h-px w-full bg-gradient-to-r from-transparent via-[#e3b04b]/50 to-transparent" />
       </div>
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-5 py-28 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:items-end md:py-36 lg:px-10">
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-9 px-5 py-20 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:items-end md:py-24 lg:px-10">
         <div>
           {showBackLink && (
-            <Link href="/events" className="mb-10 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-[#b8b8b0] transition-colors hover:text-[#f7d382]">
+            <Link href="/events" className="mb-7 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-[#b8b8b0] transition-colors hover:text-[#f7d382]">
               <ArrowLeft className="h-3.5 w-3.5" /> All Events
             </Link>
           )}
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">{dateRange}</p>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">{dateRange}</p>
           <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.045em] text-[#f4f1e8] sm:text-6xl lg:text-8xl" style={{ fontFamily: "var(--font-heading)" }}>{title}</h1>
         </div>
         <div className="max-w-md md:pb-1">
-          <p className="mb-9 text-base leading-7 text-[#c9d0da] sm:text-lg">{headline}</p>
+          <p className="mb-7 text-base leading-7 text-[#c9d0da] sm:text-lg">{headline}</p>
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             {ctaExternal ? (
               <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#e3b04b] px-6 py-3.5 text-sm font-semibold text-[#070809] transition-transform hover:-translate-y-0.5">{ctaLabel}<ArrowUpRight className="h-4 w-4" /></a>
