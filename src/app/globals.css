@@ -544,72 +544,23 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
 }
 
 
-/* Road texture: tactile movement replaces glossy template gradients. */
+/* Quiet personality: tactile, welcoming cards without decorative marks. */
 .event-page .event-card {
-  isolation: isolate;
-  border-left: 1px solid color-mix(in srgb, var(--event-accent) 32%, transparent) !important;
-  border-radius: 0 !important;
+  border-radius: 10px 2px 10px 2px !important;
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
 
-.event-page .event-card::before,
-.event-page .event-card::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  z-index: -1;
+.event-page .event-card:nth-child(2) {
+  border-radius: 2px 10px 2px 10px !important;
 }
 
-.event-page .event-card::before {
-  left: 13px;
-  top: 22px;
-  bottom: 22px;
-  width: 7px;
-  opacity: .17;
-  transform: rotate(-2deg);
-  background: repeating-linear-gradient(
-    180deg,
-    var(--event-accent) 0 3px,
-    transparent 3px 8px,
-    var(--event-accent) 8px 10px,
-    transparent 10px 17px
-  );
-  mask-image: linear-gradient(90deg, transparent 0, #000 28%, #000 70%, transparent 100%);
+.event-page .event-card:nth-child(3) {
+  border-radius: 10px 10px 2px 10px !important;
 }
 
-.event-page .event-card::after {
-  right: 19px;
-  bottom: 18px;
-  width: 94px;
-  height: 27px;
-  opacity: .12;
-  transform: rotate(-10deg) skewX(-16deg);
-  background: repeating-linear-gradient(
-    90deg,
-    transparent 0 7px,
-    var(--event-accent) 7px 11px,
-    transparent 11px 18px
-  );
-  mask-image: linear-gradient(180deg, transparent 0, #000 25%, #000 72%, transparent 100%);
-}
-
-.event-page .event-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-.event-page .event-card:hover::before,
-.event-page .event-card:hover::after {
-  opacity: .24;
-}
-
-.event-page .event-card:nth-child(2)::before {
-  transform: rotate(2deg);
-  opacity: .12;
-}
-
-.event-page .event-card:nth-child(3)::after {
-  transform: rotate(7deg) skewX(-12deg);
-  opacity: .15;
+.event-page .event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--event-accent) 10%, transparent) !important;
 }
 
 .event-page--coachella-one .event-card,
@@ -617,34 +568,19 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
   border-left-width: 3px !important;
 }
 
-.event-page--stagecoach .event-card::after {
-  width: 118px;
-  transform: rotate(-6deg) skewX(-20deg);
-}
-
-.event-page--splash-house .event-card::before {
-  width: 3px;
-  opacity: .24;
-  transform: rotate(0);
-}
-
 .event-page--off-season .event-card {
   border-left-style: dashed !important;
 }
 
-.event-page--custom .event-card::after {
-  width: 70px;
-  height: 42px;
-  transform: rotate(18deg) skewX(-18deg);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .event-page .event-card::before,
-  .event-page .event-card::after {
+  .event-page .event-card {
     transition: none;
   }
-}
 
+  .event-page .event-card:hover {
+    transform: none;
+  }
+}
 
 /* Keep event surfaces material and road-led rather than glossy. */
 .event-page .event-hero > div:first-child {
