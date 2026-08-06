@@ -31,9 +31,9 @@
   /* Typography */
   --font-heading: 'Outfit', 'Poppins', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-event: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --font-event: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;\n\n  /* Event pages use an explicit humanist face on every descendant. */
 
-  /* Transitions */
+  /* Event typography override: the global element rules otherwise reapply the site-wide font. */\n[style*="font-event"],\n[style*="font-event"] * {\n  font-family: var(--font-event) !important;\n}\n\n/* Transitions */
   --transition: 250ms ease-in-out;
 }
 
