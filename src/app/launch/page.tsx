@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import LaunchClient from "./LaunchClient";
 
 export const metadata: Metadata = {
-  title: "BrightPath Launch | Coachella Valley Mobile Billboards",
+  title: "Black Coffee Brunch | BrightPath Billboards Launch",
   description:
-    "BrightPath is launching in the Coachella Valley. Public offer, limited campaign slots, first come, first served. Secure a 3-month subscription campaign today.",
+    "Join BrightPath Billboards for Black Coffee Brunch on August 14, 2026, at Burgers & Beer in Rancho Mirage. RSVP by August 7.",
 };
 
 export default function LaunchPage() {
