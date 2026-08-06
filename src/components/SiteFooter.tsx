@@ -90,6 +90,11 @@ export default function SiteFooter() {
                     </li>
                   ))}
                   <li>
+                    <a href="/brightpathiq-demo" className="text-text-mid hover:text-gold-highlight transition-colors">
+                      Client Experience Demo
+                    </a>
+                  </li>
+                  <li>
                     <a href="https://bpmobilebillboardsiq.live" target="_blank" rel="noopener noreferrer" className="text-text-mid hover:text-gold-highlight transition-colors">
                       BrightPathIQ
                     </a>
