@@ -191,5 +191,92 @@ function ProofView() {
   </div>;
 }
 function ReportView() {
-  return <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]"><div className="rounded-2xl bg-[#3d2d1d] p-6 text-white"><p className="text-[10px] font-semibold tracking-[0.15em] text-[#f3c46b]">VERIFICATION SUMMARY</p><h3 className="mt-3 text-2xl font-semibold">Delivery is organized for review.</h3><p className="mt-4 leading-relaxed text-white/75">BrightPathIQ brings route records, photo proof, QR engagement, SMS actions, mileage, and delivery notes into one client-facing report.</p><div className="mt-7 space-y-3">{["1 route block documented", "4 photo proof records collected", "126 QR scans shown", "48 SMS actions shown", "150 miles recorded", "Client report ready"].map((item) => <div key={item} className="flex items-center gap-3 text-sm"><CheckCircle2 className="h-4 w-4 text-[#f3c46b]" /> {item}</div>)}</div></div><div className="rounded-2xl border border-[#e5e0d8] p-6"><div className="flex items-center justify-between"><div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">CLIENT REPORT PREVIEW</p><h3 className="mt-1 text-xl font-semibold">Campaign delivery summary</h3></div><span className="rounded-full bg-[#f5ead1] px-3 py-1 text-xs font-semibold text-[#8a631a]">Sample</span></div><div className="mt-6 space-y-4"><div className="h-3 w-3/4 rounded-full bg-[#e8e1d6]" /><div className="h-3 w-full rounded-full bg-[#f0ece6]" /><div className="h-3 w-5/6 rounded-full bg-[#f0ece6]" /><div className="grid grid-cols-3 gap-3 pt-3"><div className="h-20 rounded-xl bg-[#f7f5f0]" /><div className="h-20 rounded-xl bg-[#f7f5f0]" /><div className="h-20 rounded-xl bg-[#f7f5f0]" /></div><p className="text-sm leading-relaxed text-[#756a5e]">A client-ready record of what ran, where it ran, and what was documented.</p></div></div></div>;
+  return (
+    <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="rounded-2xl bg-[#3d2d1d] p-6 text-white">
+        <p className="text-[10px] font-semibold tracking-[0.15em] text-[#f3c46b]">VERIFICATION SUMMARY</p>
+        <h3 className="mt-3 text-2xl font-semibold">Delivery is organized for review.</h3>
+        <p className="mt-4 leading-relaxed text-white/75">BrightPathIQ brings route records, photo proof, QR engagement, SMS actions, mileage, and delivery notes into one client-facing report.</p>
+        <div className="mt-7 space-y-3">
+          {["1 route block documented", "4 photo proof records collected", "126 QR scans shown", "48 SMS actions shown", "150 miles recorded", "Client report ready"].map((item) => (
+            <div key={item} className="flex items-center gap-3 text-sm"><CheckCircle2 className="h-4 w-4 text-[#f3c46b]" /> {item}</div>
+          ))}
+        </div>
+      </div>
+
+      <div className="rounded-2xl border border-[#e5e0d8] bg-white p-6">
+        <div className="flex flex-col gap-3 border-b border-[#eee9e2] pb-5 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">CLIENT REPORT PREVIEW</p>
+            <h3 className="mt-1 text-xl font-semibold text-[#2b2118]">Campaign delivery summary</h3>
+            <p className="mt-1 text-xs text-[#8b8074]">Desert Bloom Summer Campaign · BP-DEMO-2026-0815</p>
+          </div>
+          <span className="w-fit rounded-full bg-[#e9f4eb] px-3 py-1 text-xs font-semibold text-[#3f7b4d]">Verified sample</span>
+        </div>
+
+        <div className="grid gap-3 py-5 sm:grid-cols-2">
+          {[
+            ["Campaign dates", "Aug 2 – Aug 15, 2026"],
+            ["Market", "Coachella Valley"],
+            ["Assigned truck", "BP 01"],
+            ["Delivery status", "Completed for review"],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-xl bg-[#faf9f6] p-4">
+              <p className="text-[10px] font-semibold tracking-[0.12em] text-[#9b8e80]">{label}</p>
+              <p className="mt-2 text-sm font-semibold text-[#3a2c20]">{value}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="rounded-xl border border-[#eee9e2] p-4">
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-semibold text-[#3a2c20]">Delivery summary</p>
+            <span className="text-xs font-semibold text-[#3f7b4d]">100% verified</span>
+          </div>
+          <div className="mt-3 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
+            {[
+              ["Route", "1 block"],
+              ["Miles", "150"],
+              ["Photos", "4"],
+              ["GPS", "Complete"],
+            ].map(([label, value]) => (
+              <div key={label}>
+                <p className="text-xs text-[#8b8074]">{label}</p>
+                <p className="mt-1 font-semibold text-[#3a2c20]">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-xl bg-[#f7f5f0] p-4">
+            <div className="flex items-center gap-2">
+              <QrCode className="h-4 w-4 text-[#b27b18]" />
+              <p className="text-sm font-semibold text-[#3a2c20]">QR engagement</p>
+            </div>
+            <p className="mt-3 text-2xl font-semibold text-[#2b2118]">126</p>
+            <p className="text-xs text-[#8b8074]">sample scans shown</p>
+          </div>
+          <div className="rounded-xl bg-[#f7f5f0] p-4">
+            <div className="flex items-center gap-2">
+              <MessageSquare className="h-4 w-4 text-[#b27b18]" />
+              <p className="text-sm font-semibold text-[#3a2c20]">SMS actions</p>
+            </div>
+            <p className="mt-3 text-2xl font-semibold text-[#2b2118]">48</p>
+            <p className="text-xs text-[#8b8074]">sample actions shown</p>
+          </div>
+        </div>
+
+        <div className="mt-4 flex items-center justify-between rounded-xl border border-[#eee9e2] px-4 py-3">
+          <div>
+            <p className="text-sm font-semibold text-[#3a2c20]">Photo proof</p>
+            <p className="mt-1 text-xs text-[#8b8074]">Start, mid-route, audience-area, and end records</p>
+          </div>
+          <span className="rounded-full bg-[#f5ead1] px-3 py-1 text-xs font-semibold text-[#8a631a]">4 records</span>
+        </div>
+
+        <p className="mt-4 text-xs leading-relaxed text-[#8b8074]">A sample client-ready record of what ran, where it ran, and what was documented.</p>
+      </div>
+    </div>
+  );
 }
