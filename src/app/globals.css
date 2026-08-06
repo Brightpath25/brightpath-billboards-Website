@@ -514,12 +514,12 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
 .event-page .event-hero>div:first-child { background:radial-gradient(circle at 78% 20%,var(--event-accent-soft),transparent 32%),linear-gradient(115deg,var(--event-hero-start) 0%,var(--event-hero-end) 100%)!important; }
 .event-page .event-hero .text-\[\#e3b04b\],.event-page .event-section .text-\[\#e3b04b\],.event-page .event-cta .text-\[\#e3b04b\],.event-page .event-card .text-\[\#e3b04b\] { color:var(--event-accent)!important; }
 .event-page .event-hero a:hover,.event-page .event-section a:hover,.event-page .event-card a:hover { color:color-mix(in srgb,var(--event-accent) 72%,white)!important; }
-.event-page .event-card { border-top-color:color-mix(in srgb,var(--event-accent) 58%,white 4%)!important; background:linear-gradient(145deg,var(--event-surface),color-mix(in srgb,var(--event-surface) 82%,var(--event-accent) 18%))!important; }
+.event-page .event-card { border-top-color:color-mix(in srgb,var(--event-accent) 58%,white 4%)!important; background:var(--event-surface)!important; box-shadow:none!important; }
 .event-page .event-card:hover { border-top-color:var(--event-accent)!important; }
 .event-page .event-card>div { background-color:transparent; }
 .event-page .event-card:hover>div { background-color:var(--event-accent); }
 .event-page .event-section { background-image:linear-gradient(90deg,transparent,var(--event-accent-soft),transparent); background-size:100% 1px; background-position:top; background-repeat:no-repeat; }
-.event-page .event-cta { border-top-color:color-mix(in srgb,var(--event-accent) 34%,transparent)!important; background:linear-gradient(135deg,#0f1110 0%,color-mix(in srgb,#0f1110 86%,var(--event-accent) 14%) 100%)!important; }
+.event-page .event-cta { border-top-color:color-mix(in srgb,var(--event-accent) 34%,transparent)!important; background:#0f1110!important; }
 .event-page .event-cta .bg-\[\#e3b04b\],.event-page .event-hero .bg-\[\#e3b04b\] { background-color:var(--event-accent)!important; }
 .event-page--coachella-one .event-hero::after,.event-page--coachella-two .event-hero::after,.event-page--stagecoach .event-hero::after,.event-page--splash-house .event-hero::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.22; background-image:repeating-linear-gradient(120deg,transparent 0 44px,color-mix(in srgb,var(--event-accent) 18%,transparent) 45px,transparent 46px 92px); }
 .event-page--splash-house .event-hero::after { background-image:radial-gradient(circle at 78% 30%,color-mix(in srgb,var(--event-accent) 28%,transparent) 0 2px,transparent 3px); background-size:24px 24px; opacity:.16; }
@@ -541,4 +541,106 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
 
 .event-page .luxury-card:hover {
   border-color: color-mix(in srgb, var(--event-accent) 68%, transparent) !important;
+}
+
+
+/* Road texture: tactile movement replaces glossy template gradients. */
+.event-page .event-card {
+  isolation: isolate;
+  border-left: 1px solid color-mix(in srgb, var(--event-accent) 32%, transparent) !important;
+  border-radius: 0 !important;
+}
+
+.event-page .event-card::before,
+.event-page .event-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.event-page .event-card::before {
+  left: 13px;
+  top: 22px;
+  bottom: 22px;
+  width: 7px;
+  opacity: .17;
+  transform: rotate(-2deg);
+  background: repeating-linear-gradient(
+    180deg,
+    var(--event-accent) 0 3px,
+    transparent 3px 8px,
+    var(--event-accent) 8px 10px,
+    transparent 10px 17px
+  );
+  mask-image: linear-gradient(90deg, transparent 0, #000 28%, #000 70%, transparent 100%);
+}
+
+.event-page .event-card::after {
+  right: 19px;
+  bottom: 18px;
+  width: 94px;
+  height: 27px;
+  opacity: .12;
+  transform: rotate(-10deg) skewX(-16deg);
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 7px,
+    var(--event-accent) 7px 11px,
+    transparent 11px 18px
+  );
+  mask-image: linear-gradient(180deg, transparent 0, #000 25%, #000 72%, transparent 100%);
+}
+
+.event-page .event-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.event-page .event-card:hover::before,
+.event-page .event-card:hover::after {
+  opacity: .24;
+}
+
+.event-page .event-card:nth-child(2)::before {
+  transform: rotate(2deg);
+  opacity: .12;
+}
+
+.event-page .event-card:nth-child(3)::after {
+  transform: rotate(7deg) skewX(-12deg);
+  opacity: .15;
+}
+
+.event-page--coachella-one .event-card,
+.event-page--coachella-two .event-card {
+  border-left-width: 3px !important;
+}
+
+.event-page--stagecoach .event-card::after {
+  width: 118px;
+  transform: rotate(-6deg) skewX(-20deg);
+}
+
+.event-page--splash-house .event-card::before {
+  width: 3px;
+  opacity: .24;
+  transform: rotate(0);
+}
+
+.event-page--off-season .event-card {
+  border-left-style: dashed !important;
+}
+
+.event-page--custom .event-card::after {
+  width: 70px;
+  height: 42px;
+  transform: rotate(18deg) skewX(-18deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-page .event-card::before,
+  .event-page .event-card::after {
+    transition: none;
+  }
 }
