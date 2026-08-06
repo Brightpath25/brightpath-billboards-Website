@@ -54,17 +54,17 @@ export default function EventsPage() {
               className="mb-5 text-2xl font-medium text-text-light md:text-3xl"
               style={{ fontFamily: "var(--font-event)" }}
             >
-              BrightPath Launch — Coachella Valley
+              Black Coffee Brunch — BrightPath Launch
             </h2>
             <Link
               href="/launch"
               className="inline-flex items-center gap-2 rounded-sm bg-[#e3b04b] px-6 py-3.5 text-sm font-medium text-[#070809] transition-transform hover:-translate-y-0.5"
             >
-              Secure Your Campaign
+              RSVP for Black Coffee Brunch
               <ArrowRight className="h-4 w-4" />
             </Link>
             <p className="mt-4 text-sm italic text-text-mid/70">
-              Placement is assigned in order of completed campaigns
+              August 14, 2026 · Burgers & Beer, Rancho Mirage · RSVP by August 7
             </p>
           </div>
         </div>
