@@ -594,3 +594,122 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
 .event-page .event-cta {
   background: #0f1110 !important;
 }
+
+
+/* Service page personality layer */
+.service-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  --service-accent: #e9a711;
+  --service-surface: #17130e;
+  --service-texture: #2a2116;
+}
+.service-page > * {
+  position: relative;
+  z-index: 1;
+}
+.service-page::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 9rem;
+  right: -7rem;
+  width: 22rem;
+  height: 22rem;
+  border: 1px solid color-mix(in srgb, var(--service-accent) 28%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2rem color-mix(in srgb, var(--service-accent) 5%, transparent),
+              0 0 0 4rem color-mix(in srgb, var(--service-accent) 3%, transparent);
+  transform: rotate(-18deg);
+  pointer-events: none;
+}
+.service-page::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 1.5rem;
+  top: 19rem;
+  width: 4rem;
+  height: 14rem;
+  border-left: 1px solid color-mix(in srgb, var(--service-accent) 38%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--service-accent) 20%, transparent);
+  transform: skewY(-22deg);
+  pointer-events: none;
+}
+.service-page .bg-hero-gradient {
+  display: none;
+}
+.service-page > section:first-of-type {
+  background-color: var(--service-surface);
+  border-bottom: 1px solid color-mix(in srgb, var(--service-accent) 28%, transparent);
+}
+.service-page .text-gold-gradient {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: var(--service-accent);
+}
+.service-page .luxury-card {
+  background-color: color-mix(in srgb, var(--service-surface) 88%, #000);
+  border-color: color-mix(in srgb, var(--service-accent) 22%, transparent);
+  border-radius: 1.1rem 0.45rem 1.1rem 0.45rem;
+}
+.service-page .luxury-card:hover {
+  border-color: color-mix(in srgb, var(--service-accent) 55%, transparent);
+  transform: translateY(-3px);
+}
+.service-page--mobile {
+  --service-accent: #e6b24a;
+  --service-surface: #14201d;
+  --service-texture: #20332e;
+}
+.service-page--mobile::after {
+  left: auto;
+  right: 2rem;
+  top: 25rem;
+  width: 7rem;
+  height: 2rem;
+  border-left: 0;
+  border-top: 2px solid color-mix(in srgb, var(--service-accent) 48%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, var(--service-accent) 18%, transparent);
+  transform: rotate(-8deg);
+}
+.service-page--events {
+  --service-accent: #f0a13a;
+  --service-surface: #211812;
+  --service-texture: #382318;
+}
+.service-page--events::before {
+  top: 7rem;
+  right: auto;
+  left: -10rem;
+  width: 30rem;
+  height: 30rem;
+  border-style: dashed;
+  transform: rotate(20deg);
+}
+.service-page--targeted {
+  --service-accent: #d8b15a;
+  --service-surface: #171821;
+  --service-texture: #252938;
+}
+.service-page--targeted::after {
+  left: auto;
+  right: 2rem;
+  top: 18rem;
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid color-mix(in srgb, var(--service-accent) 42%, transparent);
+  border-radius: 50%;
+  transform: none;
+}
+@media (max-width: 640px) {
+  .service-page::before {
+    top: 8rem;
+    right: -11rem;
+    opacity: .7;
+  }
+  .service-page::after {
+    opacity: .65;
+  }
+}
