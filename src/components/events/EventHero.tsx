@@ -40,7 +40,7 @@ export default function EventHero({
             </Link>
           )}
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">{dateRange}</p>
-          <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.02em] text-[#f4f1e8] sm:text-6xl lg:text-8xl" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>{title}</h1>
+          <h1 className="max-w-3xl text-5xl font-medium leading-[1.02] tracking-normal text-[#f4f1e8] sm:text-6xl lg:text-8xl" style={{ fontFamily: "ui-serif, Georgia, Cambria, "Times New Roman", Times, serif" }}>{title}</h1>
         </div>
         <div className="max-w-md md:pb-1">
           <p className="mb-7 text-base leading-7 text-[#c9d0da] sm:text-lg">{headline}</p>
