@@ -524,3 +524,21 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
 .event-page--coachella-one .event-hero::after,.event-page--coachella-two .event-hero::after,.event-page--stagecoach .event-hero::after,.event-page--splash-house .event-hero::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.22; background-image:repeating-linear-gradient(120deg,transparent 0 44px,color-mix(in srgb,var(--event-accent) 18%,transparent) 45px,transparent 46px 92px); }
 .event-page--splash-house .event-hero::after { background-image:radial-gradient(circle at 78% 30%,color-mix(in srgb,var(--event-accent) 28%,transparent) 0 2px,transparent 3px); background-size:24px 24px; opacity:.16; }
 .event-page--off-season .event-hero::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.16; background-image:linear-gradient(color-mix(in srgb,var(--event-accent) 25%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--event-accent) 25%,transparent) 1px,transparent 1px); background-size:48px 48px; }
+
+.event-page .text-gold-base,
+.event-page .text-gold-highlight {
+  color: var(--event-accent) !important;
+}
+
+.event-page .bg-gold-base\/10 {
+  background-color: var(--event-accent-soft) !important;
+}
+
+.event-page .luxury-card {
+  border-color: color-mix(in srgb, var(--event-accent) 30%, transparent) !important;
+  box-shadow: 0 18px 45px color-mix(in srgb, var(--event-accent) 8%, transparent) !important;
+}
+
+.event-page .luxury-card:hover {
+  border-color: color-mix(in srgb, var(--event-accent) 68%, transparent) !important;
+}
