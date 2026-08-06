@@ -53,25 +53,6 @@ const nextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/services/mobile-led-advertising",
-        destination: "/events/off-season",
-        permanent: true,
-      },
-      {
-        source: "/services/event-domination",
-        destination: "/events",
-        permanent: true,
-      },
-      {
-        source: "/services/targeted-campaigns",
-        destination: "/quote",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;
