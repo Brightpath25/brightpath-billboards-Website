@@ -8,7 +8,7 @@ interface EventSectionProps {
 
 export default function EventSection({ title, subtitle, children, dark = false, id }: EventSectionProps) {
   return (
-    <section style={{ fontFamily: "var(--font-event)" }} id={id} className={`border-b border-white/[0.06] py-14 md:py-20 ${dark ? "bg-[#0f1110]" : "bg-[#070809]"}`}>
+    <section style={{ fontFamily: "var(--font-event)" }} id={id} className={`event-section border-b border-white/[0.06] py-14 md:py-20 ${dark ? "bg-[#0f1110]" : "bg-[#070809]"}`}>
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
         <div className="mb-10 max-w-2xl md:mb-12">
           <p className="mb-3 text-xs font-medium tracking-[0.16em] text-[#e3b04b]">BrightPath / Campaign intelligence</p>
