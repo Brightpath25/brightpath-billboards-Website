@@ -12,7 +12,7 @@ export default function EventSection({ title, subtitle, children, dark = false, 
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
         <div className="mb-10 max-w-2xl md:mb-12">
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#e3b04b]">BrightPath / Campaign intelligence</p>
-          <h2 className="text-3xl font-semibold leading-tight tracking-[-0.015em] text-[#f4f1e8] md:text-5xl" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>{title}</h2>
+          <h2 className="text-3xl font-semibold leading-tight tracking-normal text-[#f4f1e8] md:text-5xl" style={{ fontFamily: "ui-serif, Georgia, Cambria, "Times New Roman", Times, serif" }}>{title}</h2>
           {subtitle && <p className="mt-4 max-w-xl text-base leading-7 text-[#aeb5bd] md:text-lg">{subtitle}</p>}
           <div className="mt-6 h-px w-20 bg-[#e3b04b]" />
         </div>
