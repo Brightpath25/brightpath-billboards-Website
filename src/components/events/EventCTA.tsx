@@ -16,7 +16,6 @@ interface EventCTAProps {
 export default function EventCTA({ headline = "Secure Your Spot", subtext = "Limited campaign inventory available. Lock in your position before it’s gone.", primaryLabel = "Get My Campaign Plan", primaryHref = "/quote", primaryExternal = false, secondaryLabel = "Check Availability", secondaryHref = "/quote", secondaryExternal = false, showPhone = true }: EventCTAProps) {
   return (
     <section style={{ fontFamily: "var(--font-event)" }} className="event-cta relative overflow-hidden border-t border-white/10 bg-[#0f1110] py-20 md:py-28">
-      <div className="absolute -right-32 -top-32 h-96 w-96 rounded-sm bg-[#e3b04b]/10 blur-3xl" aria-hidden="true" />
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-10 px-5 sm:px-8 md:flex-row md:items-end md:justify-between lg:px-10">
         <div className="max-w-2xl"><p className="mb-4 text-xs font-medium tracking-[0.16em] text-[#e3b04b]">The next move</p><h2 className="text-4xl font-medium leading-tight tracking-normal text-[#f4f1e8] md:text-6xl" style={{ fontFamily: "var(--font-event)" }}>{headline}</h2><p className="mt-5 max-w-xl text-base leading-[1.7] text-[#aeb5bd]">{subtext}</p></div>
         <div className="flex flex-wrap gap-3 md:max-w-sm md:justify-end">
