@@ -875,3 +875,21 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
 .brightpathiq-demo .iq-guide-number { display: block; width: 1.65rem; flex: 0 0 1.65rem; padding-top: .1rem; color: #f3c76c; font: 700 .68rem/1 var(--font-geist-mono), monospace; letter-spacing: .08em; }
 .brightpathiq-demo [class*="grid-cols-6"] > div { border: 1px solid rgba(226,170,66,.08); background: rgba(255,255,255,.025) !important; }
 .brightpathiq-demo button[class*="rounded-xl"]:focus-visible, .brightpathiq-demo button[class*="rounded-full"]:focus-visible { outline: 2px solid #f3c76c; outline-offset: 3px; }
+
+
+/* Keep the demo moving on small screens without changing its desktop rhythm. */
+@media (max-width: 640px) {
+  .brightpathiq-demo > section:first-of-type {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .brightpathiq-demo > section:first-of-type > div:first-child {
+    margin-bottom: 1.5rem;
+  }
+
+  .brightpathiq-demo .iq-guide-modal {
+    max-height: calc(100vh - 1.5rem);
+    padding: 1.1rem;
+  }
+}
