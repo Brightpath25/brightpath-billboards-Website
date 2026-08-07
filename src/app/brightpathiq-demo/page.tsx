@@ -90,13 +90,27 @@ export default function BrightPathIQDemoPage() {
             <div className="flex flex-wrap items-center gap-2"><button type="button" onClick={() => setIsGuideOpen(true)} className="inline-flex items-center gap-2 rounded-full border border-[#d9d0c3] px-3 py-2 text-xs font-semibold text-[#756a5e] transition hover:border-[#b27b18] hover:text-[#b27b18]"><Info className="h-4 w-4" /> How to read this demo</button><div className="flex items-center gap-2 rounded-full bg-[#e9f4eb] px-3 py-2 text-xs font-semibold text-[#3f7b4d]"><CheckCircle2 className="h-4 w-4" /> Sample campaign</div></div>
           </div>
 
-          <div className="grid gap-4 py-5 sm:grid-cols-3 lg:grid-cols-6">
-            {[["Routes", "1"], ["Photo proof", "4"], ["QR scans", "126"], ["SMS actions", "48"], ["Miles documented", "150"], ["Verification", "100%"]].map(([label, value]) => (
-              <div key={label} className="rounded-2xl bg-[#faf9f6] p-4">
-                <p className="text-[10px] font-semibold tracking-[0.14em] text-[#998c7e]">{label}</p>
-                <p className="mt-2 text-2xl font-semibold text-[#2b2118]">{value}</p>
+          <div className="py-5">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+              <p className="text-[10px] font-semibold tracking-[0.16em] text-[#998c7e]">ILLUSTRATIVE CAMPAIGN METRICS</p>
+              <p className="text-xs text-[#8b8074]">Example figures shown for demonstration only.</p>
+            </div>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+              {[["Routes", "1"], ["Photo proof", "4"]].map(([label, value]) => (
+                <div key={label} className="rounded-2xl bg-[#faf9f6] p-4 lg:col-span-1">
+                  <p className="text-[10px] font-semibold tracking-[0.14em] text-[#998c7e]">{label}</p>
+                  <p className="mt-2 text-2xl font-semibold text-[#2b2118]">{value}</p>
+                </div>
+              ))}
+              <div className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-2xl border border-[#e5e0d8] px-4 py-3 sm:col-span-2 sm:grid-cols-4 lg:col-span-4">
+                {[["QR scans", "126"], ["SMS actions", "48"], ["Miles documented", "150"], ["Verification", "100%"]].map(([label, value]) => (
+                  <div key={label}>
+                    <p className="text-[10px] font-semibold tracking-[0.12em] text-[#998c7e]">{label}</p>
+                    <p className="mt-1 text-lg font-semibold text-[#2b2118]">{value}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-2 rounded-2xl bg-[#f7f5f0] p-2">
