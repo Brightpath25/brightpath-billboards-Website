@@ -127,6 +127,7 @@ export default function BrightPathIQDemoPage() {
             {activeView === "proof" && <ProofView />}
             {activeView === "report" && <ReportView />}
           </div>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 lg:px-10">
