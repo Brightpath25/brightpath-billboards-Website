@@ -80,6 +80,10 @@ export default function BrightPathIQDemoPage() {
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#756a5e]">BrightPathIQ gives clients one clear place to see what is running, where the truck went, the proof collected, and the campaign report delivered afterward.</p>
         </div>
 
+        <div className="iq-laptop-stage">
+          <div className="iq-laptop-frame">
+            <div className="iq-laptop-screen">
+              <div className="iq-laptop-screen-content">
         <div className="rounded-[24px] border border-[#e2ddd4] bg-white p-3 shadow-[0_18px_60px_rgba(65,47,25,0.08)] sm:p-5">
           <div className="flex flex-col gap-4 border-b border-[#ece7df] pb-5 md:flex-row md:items-start md:justify-between">
             <div>
@@ -127,6 +131,11 @@ export default function BrightPathIQDemoPage() {
             {activeView === "proof" && <ProofView />}
             {activeView === "report" && <ReportView />}
           </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="iq-laptop-caption">Explore the client view directly on screen. The tabs remain interactive.</p>
         </div>
       </section>
 
