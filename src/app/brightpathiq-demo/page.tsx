@@ -87,7 +87,7 @@ export default function BrightPathIQDemoPage() {
               <h2 className="mt-2 text-2xl font-semibold text-[#2b2118] sm:text-3xl">Desert Bloom Summer Campaign</h2>
               <p className="mt-2 text-sm text-[#8b8074]">Sample Beverage Brand · Aug 2, 2026 – Aug 15, 2026</p>
             </div>
-            <div className="flex flex-wrap items-center gap-2"><button type="button" onClick={() => setIsGuideOpen(true)} className="inline-flex items-center gap-2 rounded-full border border-[#d9d0c3] px-3 py-2 text-xs font-semibold text-[#756a5e] transition hover:border-[#b27b18] hover:text-[#b27b18]"><Info className="h-4 w-4" /> How to read this demo</button><div className="flex items-center gap-2 rounded-full bg-[#e9f4eb] px-3 py-2 text-xs font-semibold text-[#3f7b4d]"><CheckCircle2 className="h-4 w-4" /> Campaign active</div></div>
+            <div className="flex flex-wrap items-center gap-2"><button type="button" onClick={() => setIsGuideOpen(true)} className="inline-flex items-center gap-2 rounded-full border border-[#d9d0c3] px-3 py-2 text-xs font-semibold text-[#756a5e] transition hover:border-[#b27b18] hover:text-[#b27b18]"><Info className="h-4 w-4" /> How to read this demo</button><div className="flex items-center gap-2 rounded-full bg-[#e9f4eb] px-3 py-2 text-xs font-semibold text-[#3f7b4d]"><CheckCircle2 className="h-4 w-4" /> Sample campaign</div></div>
           </div>
 
           <div className="grid gap-4 py-5 sm:grid-cols-3 lg:grid-cols-6">
@@ -142,7 +142,7 @@ export default function BrightPathIQDemoPage() {
             <div className="iq-guide-list py-5">
               {[["Campaign", "The starting point: client, dates, market, service, and current status."], ["Route", "Where the campaign ran: coverage area, cities, operating window, and mileage."], ["Proof", "The record of delivery: representative photos tied to moments along the route."], ["Report", "The finished review: delivery records, proof, engagement, and verification in one place."]].map(([title, body], index) => <div key={title} className="iq-guide-item"><span className="iq-guide-number">0{index + 1}</span><div><h3 className="text-sm font-semibold text-white">{title}</h3><p className="mt-1 text-sm leading-relaxed text-[#9ba9a2]">{body}</p></div></div>)}
             </div>
-            <div className="flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between"><p className="text-xs text-[#8f9d96]">All information shown here is simulated demo content.</p><button type="button" onClick={() => setIsGuideOpen(false)} className="inline-flex items-center justify-center rounded-full bg-[#f3c76c] px-5 py-2.5 text-sm font-bold text-[#111716] transition hover:bg-white">Continue to demo</button></div>
+            <div className="flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between"><p className="text-xs text-[#8f9d96]">All figures and records shown here are simulated demonstration content.</p><button type="button" onClick={() => setIsGuideOpen(false)} className="inline-flex items-center justify-center rounded-full bg-[#f3c76c] px-5 py-2.5 text-sm font-bold text-[#111716] transition hover:bg-white">Continue to demo</button></div>
           </section>
         </div>
       )}
@@ -154,7 +154,7 @@ function Overview() {
   return (
     <div className="grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
       <div className="overflow-hidden rounded-2xl border border-[#e5e0d8]">
-        <div className="flex items-center justify-between border-b border-[#e5e0d8] px-5 py-4"><div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">CAMPAIGN OVERVIEW</p><h3 className="mt-1 text-lg font-semibold">What is running</h3></div><span className="rounded-full bg-[#f5ead1] px-3 py-1 text-xs font-semibold text-[#8a631a]">Sample data</span></div>
+        <div className="flex items-center justify-between border-b border-[#e5e0d8] px-5 py-4"><div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">CAMPAIGN OVERVIEW</p><h3 className="mt-1 text-lg font-semibold">What is running</h3></div><span className="rounded-full bg-[#f5ead1] px-3 py-1 text-xs font-semibold text-[#8a631a]">Demonstration</span></div>
         <div className="grid gap-3 p-5 sm:grid-cols-2">{[["Campaign ID", "BP-DEMO-2026-0815"], ["Objective", "Build local awareness and visits"], ["Market", "Coachella Valley"], ["Service", "Mobile LED advertising"], ["Campaign dates", "Aug 2 – Aug 15, 2026"], ["Operating window", "8:00 AM – 4:00 PM"], ["Assigned truck", "BP 01"], ["Route area", "Indio · La Quinta · Palm Desert"], ["Creative", "Sample beverage brand message"]].map(([label, value]) => <div key={label} className="rounded-xl bg-[#faf9f6] p-4"><p className="text-[10px] font-semibold tracking-[0.12em] text-[#9b8e80]">{label}</p><p className="mt-2 font-semibold text-[#3a2c20]">{value}</p></div>)}</div>
       </div>
       <div className="rounded-2xl border border-[#e5e0d8] bg-[#faf9f6] p-5"><div className="flex items-center justify-between"><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">CAMPAIGN STATUS</p><RefreshCcw className="h-4 w-4 text-[#b27b18]" /></div><div className="mt-6 space-y-5">{["Campaign scheduled", "Route assigned", "Delivery documented", "Report prepared"].map((item, index) => <div key={item} className="flex items-center gap-3"><span className={`flex h-7 w-7 items-center justify-center rounded-full ${index < 3 ? "bg-[#e9f4eb] text-[#3f7b4d]" : "bg-[#f5ead1] text-[#b27b18]"}`}>{index < 3 ? <CheckCircle2 className="h-4 w-4" /> : <span className="text-xs font-bold">{index + 1}</span>}</span><span className="text-sm font-medium text-[#4b3c2f]">{item}</span></div>)}</div></div>
@@ -201,13 +201,13 @@ function RouteView() {
 function ProofView() {
   return <div>
     <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">PROOF GALLERY</p><h3 className="mt-1 text-xl font-semibold">Photo proof collected along the route</h3><p className="mt-2 text-sm text-[#8b8074]">Representative BrightPath campaign photography used to illustrate the client experience.</p></div>
-      <span className="w-fit rounded-full bg-[#e9f4eb] px-3 py-1 text-xs font-semibold text-[#3f7b4d]">4 photo examples</span>
+      <div><p className="text-[10px] font-semibold tracking-[0.15em] text-[#9b8e80]">PROOF GALLERY</p><h3 className="mt-1 text-xl font-semibold">Photo proof collected along the route</h3><p className="mt-2 text-sm text-[#8b8074]">Sample campaign photography used to illustrate the client experience.</p></div>
+      <span className="w-fit rounded-full bg-[#e9f4eb] px-3 py-1 text-xs font-semibold text-[#3f7b4d]">4 examples</span>
     </div>
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {proofCards.map((card, index) => <article key={card.label} className="overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white">
         <div className="relative h-48 overflow-hidden bg-[#e8e1d6]">
-          <img src={card.image} alt={`Representative BrightPath campaign photo: ${card.detail}`} className="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
+          <img src={card.image} alt={`Sample campaign photo: ${card.detail}`} className="h-full w-full object-cover transition duration-500 hover:scale-105" loading="lazy" />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pt-10 text-white"><p className="text-sm font-semibold">BrightPath photo {index + 1}</p><p className="mt-1 text-xs text-white/80">{card.detail}</p></div>
         </div>
         <div className="flex items-center justify-between p-4"><div><p className="text-sm font-semibold">{card.label}</p><p className="mt-1 text-xs text-[#8b8074]">{card.time}</p></div><CheckCircle2 className="h-5 w-5 text-[#3f7b4d]" /></div>
@@ -236,7 +236,7 @@ function ReportView() {
             <h3 className="mt-1 text-xl font-semibold text-[#2b2118]">Campaign delivery summary</h3>
             <p className="mt-1 text-xs text-[#8b8074]">Desert Bloom Summer Campaign · BP-DEMO-2026-0815</p>
           </div>
-          <span className="w-fit rounded-full bg-[#e9f4eb] px-3 py-1 text-xs font-semibold text-[#3f7b4d]">Verified sample</span>
+          <span className="w-fit rounded-full bg-[#e9f4eb] px-3 py-1 text-xs font-semibold text-[#3f7b4d]">Verification example</span>
         </div>
 
         <div className="grid gap-3 py-5 sm:grid-cols-2">
@@ -256,7 +256,7 @@ function ReportView() {
         <div className="rounded-xl border border-[#eee9e2] p-4">
           <div className="flex items-center justify-between">
             <p className="text-sm font-semibold text-[#3a2c20]">Delivery summary</p>
-            <span className="text-xs font-semibold text-[#3f7b4d]">100% verified</span>
+            <span className="text-xs font-semibold text-[#3f7b4d]">Proof example</span>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
             {[
