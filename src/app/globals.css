@@ -911,6 +911,8 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 100% auto;
+  background-color: #f7f5f0;
+  background-blend-mode: screen;
 }
 .brightpathiq-demo .iq-laptop-screen {
   position: absolute;
