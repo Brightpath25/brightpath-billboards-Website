@@ -825,27 +825,16 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, [contented
 .brightpathiq-demo > section:first-of-type > div:first-child {
   position: relative;
 }
-.brightpathiq-demo > section:first-of-type > div:first-child::after {
-  content: "LIVE DELIVERY INTELLIGENCE";
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
-  color: rgba(243,199,108,.58);
-  font: 700 9px/1.2 var(--font-geist-mono), monospace;
-  letter-spacing: .18em;
-}
 .brightpathiq-demo > section:first-of-type > div:nth-child(2) {
   border-color: var(--iq-line) !important;
   background: rgba(18,26,25,.82) !important;
   box-shadow: 0 24px 90px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035) !important;
 }
-.brightpathiq-demo article,
-.brightpathiq-demo [class*="rounded-2xl"] {
-  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+.brightpathiq-demo article {
+  transition: border-color 220ms ease;
 }
 .brightpathiq-demo article:hover {
   border-color: rgba(226,170,66,.38) !important;
-  transform: translateY(-2px);
 }
 .brightpathiq-demo button[class*="bg-[#3d2d1d]"] {
   background: var(--iq-amber) !important;
