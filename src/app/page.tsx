@@ -46,7 +46,7 @@ const navItems: NavItem[] = [
   { label: "Campaigns", href: "/services/targeted-campaigns" },
   { label: "Events", href: "/events" },
   { label: "BrightPathIQ Demo", href: "/brightpathiq-demo" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
 ];
 
 const campaignCards = [
@@ -196,7 +196,34 @@ export default function Home() {
       </section>
 
       <section id="about" className="border-y border-gold-base/20 bg-black-panel py-20">
-        <div className="container mx-auto px-4"><div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-gold-highlight">Campaign context</p><h2 className="text-4xl font-bold text-text-light md:text-5xl">Made for the places people go.</h2></div><Link href="/events" className="inline-flex items-center gap-2 font-semibold text-gold-highlight hover:text-text-light">Explore events <ArrowRight className="h-4 w-4" /></Link></div><div className="grid gap-4 md:grid-cols-3">{[["Festivals", "Build visibility around arrivals, venues, and the moments people remember."], ["Hospitality and nightlife", "Reach guests and local traffic across the corridors that keep the evening moving."], ["Local businesses", "Put a clear message in front of nearby customers without being tied to one fixed location."]].map(([title, body], index) => <article key={title} className="rounded-2xl border border-gold-base/20 bg-black-card p-7 transition hover:border-gold-base/60"><span className="mb-8 block text-3xl font-black text-gold-highlight">0{index + 1}</span><h3 className="mb-3 text-xl font-bold text-text-light">{title}</h3><p className="leading-relaxed text-text-mid">{body}</p></article>)}</div></div>
+        <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+          <div className="max-w-3xl">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-gold-highlight">Built here</p>
+            <h2 className="max-w-[14ch] text-4xl font-black leading-[1.02] text-text-light md:text-5xl">
+              Built in the Coachella Valley. Built for the businesses moving it forward.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-mid">
+              BrightPath grew from founder Marcus Tillman&apos;s time building a local service business door by door, where he saw how hard it could be for local operators to earn meaningful visibility. That experience shaped a mobile media company built around movement, local knowledge, and proof of delivery.
+            </p>
+            <Link href="/about" className="mt-7 inline-flex items-center gap-2 font-semibold text-gold-highlight hover:text-text-light">
+              Read our story <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <aside className="rounded-2xl border border-gold-base/20 bg-black-card p-7">
+            {/* Authentic founder photography is intentionally omitted until an approved portrait is available. */}
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-gold-base/30 bg-gold-base/10 text-lg font-black text-gold-highlight">MT</div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-highlight">Founder</p>
+                <p className="mt-1 text-xl font-bold text-text-light">Marcus Tillman</p>
+              </div>
+            </div>
+            <p className="mt-6 border-t border-white/10 pt-5 text-sm leading-relaxed text-text-mid">
+              Local roots. A ground-level view of the market. A company designed to help brands move through the Valley with more intention.
+            </p>
+          </aside>
+        </div>
       </section>
 
       <section id="preview" className="bg-black-panel py-16">
