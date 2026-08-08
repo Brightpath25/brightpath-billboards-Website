@@ -1,147 +1,232 @@
 import Image from "next/image";
-import { Linkedin, Instagram, Facebook, Twitter } from "lucide-react";
+import Link from "next/link";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+
+const primaryLinks = [
+  ["Mobile LED Advertising", "/services/mobile-led-advertising"],
+  ["Event Domination", "/services/event-domination"],
+  ["Targeted Campaigns", "/services/targeted-campaigns"],
+  ["Route Planning", "/quote"],
+  ["About BrightPath", "/about"],
+  ["Events", "/events"],
+] as const;
+
+const resourceLinks = [
+  ["Media Kit", "/media-kit.pdf?v=2"],
+  ["Price Card", "/price-card.png"],
+  ["Launch Overview", "/launch-overview.pdf"],
+] as const;
+
+const legalLinks = [
+  ["Terms of Service", "/terms-of-service"],
+  ["Privacy Policy", "/privacy-policy"],
+  ["Refund Policy", "/refund-policy"],
+] as const;
+
+const socialLinks = [
+  {
+    Icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/brightpath-billboards-llc/",
+  },
+  {
+    Icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/bpmobilebillboards?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr",
+  },
+  {
+    Icon: Facebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61568107225408",
+  },
+  {
+    Icon: Twitter,
+    label: "X",
+    href: "https://x.com/Brightpath94370",
+  },
+] as const;
+
+const focusClass =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E79E15] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0A0A0A]";
 
 export default function SiteFooter() {
+  const year = new Date().getFullYear();
+
   return (
-      <footer className="bg-black-hero border-t border-gold-base/20 relative">
-        {/* Soft Top Gradient Overlay */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-t from-transparent to-black/80 pointer-events-none"></div>
+    <>
+      <style>{`
+        /* The root layout owns the single shared footer. Hide legacy page-local footers. */
+        main > footer {
+          display: none;
+        }
+      `}</style>
 
-        {/* Animated Gold Bar */}
-        <div className="h-1 bg-gold-gradient relative z-10"></div>
+      <footer
+        className="relative border-t border-white/10 bg-[#0A0A0A] text-white"
+        aria-label="Site footer"
+      >
+        <div className="h-0.5 w-full bg-[#E79E15]" aria-hidden="true" />
 
-        <div className="py-16 relative z-10">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-4 gap-12">
-              <div>
+        <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-16 lg:px-12 xl:px-16">
+          <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:pb-14">
+            <section className="lg:col-span-5" aria-labelledby="footer-brand-heading">
+              <Link
+                href="/"
+                aria-label="BrightPath Billboards home"
+                className={`inline-flex ${focusClass}`}
+              >
                 <Image
                   src="/brightpath-logo.png"
-                  alt="BrightPath Billboards Logo"
-                  width={150}
-                  height={50}
-                  className="mb-6 h-auto w-auto"
+                  alt="BrightPath Billboards"
+                  width={190}
+                  height={52}
+                  className="h-12 w-auto sm:h-14"
                 />
-                <p className="leading-relaxed trust-highlight">
-                  The Coachella Valley's premier LED mobile billboard advertising company.
-                </p>
-                <div className="mt-6">
-                  <h4 className="font-bold mb-3 text-gold-base text-sm tracking-wide uppercase">Resources</h4>
-                  <ul className="space-y-2 text-sm">
-                    <li>
-                      <a
-                        href="/media-kit.pdf?v=2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-text-mid hover:text-gold-highlight transition-colors"
-                      >
-                        Media Kit
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/price-card.png"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-text-mid hover:text-gold-highlight transition-colors"
-                      >
-                        Price Card
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/launch-overview.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-text-mid hover:text-gold-highlight transition-colors"
-                      >
-                        Launch Overview
-                      </a>
-                    </li>
-                        <li>
-                          <a href="/terms-of-service" className="text-text-mid hover:text-gold-highlight transition-colors">
-                            Terms of Service
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/privacy-policy" className="text-text-mid hover:text-gold-highlight transition-colors">
-                            Privacy Policy
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/refund-policy" className="text-text-mid hover:text-gold-highlight transition-colors">
-                            Refund Policy
-                          </a>
-                        </li>
-                  </ul>
-                </div>
-              </div>
+              </Link>
 
-              <div>
-                <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Services</h4>
-                <ul className="space-y-2.5">
-                  {[
-                    ["Mobile LED Advertising", "/services/mobile-led-advertising"],
-                    ["Event Domination", "/services/event-domination"],
-                    ["Targeted Campaigns", "/services/targeted-campaigns"],
-                    ["Route Planning", "/quote"],
-                  ].map(([item, href]) => (
-                    <li key={item}>
-                      <a href={href} className="text-text-mid hover:text-gold-highlight transition-colors">{item}</a>
-                    </li>
-                  ))}
-                  <li>
-                    <a href="/brightpathiq-demo" className="text-text-mid hover:text-gold-highlight transition-colors">
-                      Client Experience Demo
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://bpmobilebillboardsiq.live" target="_blank" rel="noopener noreferrer" className="text-text-mid hover:text-gold-highlight transition-colors">
-                      BrightPathIQ
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <h2
+                id="footer-brand-heading"
+                className="mt-7 max-w-[16ch] text-3xl font-black leading-[1.05] tracking-[-0.025em] sm:text-4xl"
+              >
+                Put your brand in motion.
+              </h2>
+              <p className="mt-5 max-w-lg text-base leading-[1.65] text-[#A7A7A7] sm:text-lg">
+                Mobile LED advertising built around movement, local context, and campaign proof across the Coachella Valley.
+              </p>
 
-              <div>
-                <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Contact</h4>
-                <ul className="space-y-2.5 text-text-mid">
-                  <li>La Quinta, CA</li>
-                  <li><a href="tel:7603858989" className="hover:text-gold-highlight transition-colors">(760) 385-8989</a></li>
-                  <li><a href="mailto:Brightpathbillboards@gmail.com" className="hover:text-gold-highlight transition-colors">Brightpathbillboards@gmail.com</a></li>
-                </ul>
-              </div>
+              <Link
+                href="/quote"
+                className={`mt-7 inline-flex min-h-12 items-center justify-center bg-[#E79E15] px-6 py-3 text-sm font-bold text-[#0A0A0A] transition-colors hover:bg-[#B8750B] hover:text-white ${focusClass}`}
+              >
+                Build My Campaign
+              </Link>
+            </section>
 
-              <div>
-                <h4 className="font-bold mb-5 text-gold-base text-lg tracking-wide">Follow Us</h4>
-                <div className="flex space-x-4">
-                  {[
-                    { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/brightpath-billboards-llc/" },
-                    { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/bpmobilebillboards?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" },
-                    { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61568107225408" },
-                    { Icon: Twitter, label: "X", href: "https://x.com/Brightpath94370" }
-                  ].map(({ Icon, label, href }, idx) => (
-                    <a
-                      key={idx}
+            <nav className="lg:col-span-2" aria-labelledby="footer-explore-heading">
+              <h2
+                id="footer-explore-heading"
+                className="text-xs font-bold uppercase tracking-[0.2em] text-[#E79E15]"
+              >
+                Explore
+              </h2>
+              <ul className="mt-5 space-y-3 text-sm">
+                {primaryLinks.map(([label, href]) => (
+                  <li key={label}>
+                    <Link
                       href={href}
-                      target={href !== "#" ? "_blank" : undefined}
-                      rel={href !== "#" ? "noopener noreferrer" : undefined}
-                      className="w-10 h-10 bg-black-card border border-gold-base/20 rounded-lg flex items-center justify-center hover:bg-gold-gradient hover:border-gold-base transition-all group"
-                      aria-label={label}
+                      className={`inline-flex min-h-11 items-center text-[#E8E8E8] transition-colors hover:text-[#E79E15] ${focusClass}`}
                     >
-                      <Icon className="h-5 w-5 text-text-mid group-hover:text-black-hero transition-colors" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-        <div className="border-t border-gold-base/10 py-8">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-text-mid">&copy; 2024 BrightPath Billboards LLC. All Rights Reserved.</p>
+            <nav className="lg:col-span-2" aria-labelledby="footer-resources-heading">
+              <h2
+                id="footer-resources-heading"
+                className="text-xs font-bold uppercase tracking-[0.2em] text-[#E79E15]"
+              >
+                Resources
+              </h2>
+              <ul className="mt-5 space-y-3 text-sm">
+                {resourceLinks.map(([label, href]) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex min-h-11 items-center text-[#E8E8E8] transition-colors hover:text-[#E79E15] ${focusClass}`}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    href="/brightpathiq-demo"
+                    className={`inline-flex min-h-11 items-center text-[#E8E8E8] transition-colors hover:text-[#E79E15] ${focusClass}`}
+                  >
+                    Client Experience Demo
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="https://bpmobilebillboardsiq.live"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex min-h-11 items-center text-[#E8E8E8] transition-colors hover:text-[#E79E15] ${focusClass}`}
+                  >
+                    BrightPathIQ
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <section className="lg:col-span-3" aria-labelledby="footer-contact-heading">
+              <h2
+                id="footer-contact-heading"
+                className="text-xs font-bold uppercase tracking-[0.2em] text-[#E79E15]"
+              >
+                Contact
+              </h2>
+              <address className="mt-5 space-y-3 text-sm not-italic text-[#A7A7A7]">
+                <p className="min-h-11 content-center">La Quinta, CA</p>
+                <p>
+                  <a
+                    href="tel:7603858989"
+                    className={`inline-flex min-h-11 items-center text-[#E8E8E8] transition-colors hover:text-[#E79E15] ${focusClass}`}
+                  >
+                    (760) 385-8989
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="mailto:Brightpathbillboards@gmail.com"
+                    className={`inline-flex min-h-11 items-center break-all text-[#E8E8E8] transition-colors hover:text-[#E79E15] ${focusClass}`}
+                  >
+                    Brightpathbillboards@gmail.com
+                  </a>
+                </p>
+              </address>
+
+              <div className="mt-6 flex flex-wrap gap-3" aria-label="BrightPath social links">
+                {socialLinks.map(({ Icon, label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className={`flex h-11 w-11 items-center justify-center border border-white/15 text-[#A7A7A7] transition-colors hover:border-[#E79E15] hover:text-[#E79E15] ${focusClass}`}
+                  >
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          <div className="flex flex-col gap-6 pt-8 text-sm text-[#A7A7A7] lg:flex-row lg:items-center lg:justify-between">
+            <p>&copy; {year} BrightPath Billboards LLC. All rights reserved.</p>
+            <nav aria-label="Legal">
+              <ul className="flex flex-wrap gap-x-6 gap-y-3">
+                {legalLinks.map(([label, href]) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className={`inline-flex min-h-11 items-center transition-colors hover:text-[#E79E15] ${focusClass}`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </div>
       </footer>
+    </>
   );
 }
