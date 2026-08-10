@@ -23,15 +23,26 @@ const chapters = [
   { id: "company", label: "Company", enabled: true },
 ] as const;
 
-// Enable only when the current enterprise PDF has been explicitly approved.
-const approvedMediaKitPdfHref: string | null = null;
+const approvedMediaKitPdfHref = "/brightpath-enterprise-media-kit.pdf";
 
 const availableChapters = chapters.filter((chapter) => chapter.enabled);
+const chapterBySectionHash: Record<string, string> = {
+  overview: "overview",
+  inventory: "inventory",
+  market: "market",
+  measurement: "measurement",
+  campaigns: "campaigns",
+  proof: "proof",
+  pricing: "campaigns",
+  company: "company",
+  contact: "company",
+};
 
 export default function MediaKitNavigation() {
   const [siteMenuOpen, setSiteMenuOpen] = useState(false);
   const [chapterMenuOpen, setChapterMenuOpen] = useState(false);
   const [activeChapter, setActiveChapter] = useState("overview");
+  const [chapterMenuChapter, setChapterMenuChapter] = useState("overview");
   const chapterMenuOpenRef = useRef(false);
 
   useEffect(() => {
@@ -43,6 +54,7 @@ export default function MediaKitNavigation() {
       if (chapterMenuOpenRef.current) return;
       cancelAnimationFrame(animationFrame);
       animationFrame = requestAnimationFrame(() => {
+        if (chapterMenuOpenRef.current) return;
         const boundary = window.innerWidth <= 767 ? 136 : 144;
         const sectionAtBoundary =
           sections.find((section) => {
@@ -80,8 +92,9 @@ export default function MediaKitNavigation() {
     };
   }, []);
 
+  const displayedChapter = chapterMenuOpen ? chapterMenuChapter : activeChapter;
   const activeLabel =
-    chapters.find((chapter) => chapter.id === activeChapter)?.label ??
+    chapters.find((chapter) => chapter.id === displayedChapter)?.label ??
     "Overview";
   const closeMenus = () => {
     chapterMenuOpenRef.current = false;
@@ -91,6 +104,12 @@ export default function MediaKitNavigation() {
   const toggleChapterMenu = () => {
     const nextOpen = !chapterMenuOpen;
     chapterMenuOpenRef.current = nextOpen;
+    if (nextOpen) {
+      const hashChapter = chapterBySectionHash[window.location.hash.slice(1)];
+      setChapterMenuChapter(hashChapter ?? activeChapter);
+    } else {
+      setActiveChapter(chapterMenuChapter);
+    }
     setChapterMenuOpen(nextOpen);
   };
 
@@ -166,11 +185,13 @@ export default function MediaKitNavigation() {
               </li>
             ))}
           </ol>
-          {approvedMediaKitPdfHref && (
-            <a className="mk-chapter-pdf" href={approvedMediaKitPdfHref}>
-              Download PDF
-            </a>
-          )}
+          <a
+            className="mk-chapter-pdf"
+            href={approvedMediaKitPdfHref}
+            download
+          >
+            Download PDF ↓
+          </a>
         </div>
         <div className="mk-chapter-mobile">
           <button
@@ -192,10 +213,11 @@ export default function MediaKitNavigation() {
                   <a
                     href={`#${chapter.id}`}
                     aria-current={
-                      activeChapter === chapter.id ? "location" : undefined
+                      displayedChapter === chapter.id ? "location" : undefined
                     }
                     onClick={() => {
                       chapterMenuOpenRef.current = false;
+                      setChapterMenuChapter(chapter.id);
                       setActiveChapter(chapter.id);
                       setChapterMenuOpen(false);
                     }}
@@ -204,6 +226,11 @@ export default function MediaKitNavigation() {
                   </a>
                 </li>
               ))}
+              <li className="mk-chapter-mobile-pdf">
+                <a href={approvedMediaKitPdfHref} download>
+                  Download PDF ↓
+                </a>
+              </li>
             </ol>
           )}
         </div>

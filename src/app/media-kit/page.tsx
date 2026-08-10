@@ -187,35 +187,37 @@ const campaignProcess = [
   ["06", "Reporting", "Publish available campaign records for client review through the applicable reporting process."],
 ] as const;
 
-const pricingStructures = [
+const buyingStructures = [
   {
-    type: "Daily deployment",
-    variables:
-      "Operating hours, geography, timing, and route requirements.",
-    confirmation:
-      "Scope is confirmed through campaign planning and a written proposal for the approved deployment.",
+    type: "Shared",
+    description:
+      "Advertisers rotate within a scheduled shared campaign deployment. Structures may include daily deployment, recurring schedules, and multi-day or subscription arrangements where offered.",
+    bestFor:
+      "Recurring visibility and campaigns that do not require dedicated vehicle use.",
+    value: "Cost-efficient access to scheduled mobile visibility.",
   },
   {
-    type: "Multi-day campaigns",
-    variables:
-      "Deployment days, recurring operating windows, geography, and campaign continuity.",
-    confirmation:
-      "Scope is confirmed after the operating pattern and campaign requirements are reviewed.",
+    type: "Private",
+    description:
+      "A single advertiser occupies the BrightPath advertising rotation during the agreed private deployment window. No competing advertiser rotation runs during that reserved deployment.",
+    bestFor: "Launches, events, and high-focus campaigns.",
+    value: "Dedicated advertiser presence during the agreed deployment.",
   },
   {
-    type: "Event campaigns",
-    variables:
-      "Event timing, access, operating conditions, and event-specific route requirements.",
-    confirmation:
-      "Scope is confirmed against the approved event plan and practical operating conditions.",
+    type: "Exclusive",
+    description:
+      "A dedicated campaign with exclusivity defined by the written agreement. Exclusivity may apply to the campaign window, deployment scope, geography, and/or advertiser category where specifically agreed.",
+    bestFor:
+      "Major brand pushes, category leaders, and campaigns requiring defined competitive separation.",
+    value: "Defined campaign exclusivity.",
   },
-  {
-    type: "Private / exclusive campaigns",
-    variables:
-      "Dedicated vehicle use, operating window, geography, and specialized route requirements.",
-    confirmation:
-      "Scope is confirmed for the dedicated campaign plan and approved operating window.",
-  },
+] as const;
+
+const procurementMechanics = [
+  ["Operating window", "Dates, dayparts, duration, and recurring schedule where applicable."],
+  ["Geography + routes", "Confirmed operating areas, access, timing, and practical route requirements."],
+  ["Campaign conditions", "Event conditions, creative requirements, and deployment-specific considerations."],
+  ["Commercial definition", "Shared, Private, or Exclusive terms—including any agreed exclusivity boundaries."],
 ] as const;
 
 export default function MediaKitPage() {
@@ -473,15 +475,24 @@ export default function MediaKitPage() {
             <p className="mk-eyebrow">07 / BrightPathIQ</p>
             <h2 id="iq-title">Campaign information, organized for review</h2>
             <p className="mk-lead">BrightPathIQ can organize available campaign execution information without presenting operational records as independent audience measurement.</p>
+            <p className="mk-iq-organizes">What BrightPathIQ organizes</p>
             <dl>
               {brightPathIQCapabilities.map(([term, description]) => <div key={term}><dt>{term}</dt><dd>{description}</dd></div>)}
             </dl>
           </div>
-          <aside className="mk-iq-status" aria-label="BrightPathIQ client view status">
-            <span>Client view status</span>
-            <strong>Approved client capture not included in the current asset handoff</strong>
-            <p>No dashboard interface has been reconstructed or simulated for this presentation.</p>
-          </aside>
+          <figure className="mk-iq-product">
+            <div className="mk-iq-shots">
+              <div className="mk-iq-shot mk-iq-shot-primary">
+                <Image
+                  src="/media-kit/brightpathiq/Screenshot 2026-08-10 110135.png"
+                  alt="BrightPathIQ demonstration view showing Route Tracker information and QR campaign engagement"
+                  fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1100px) 74vw, 48vw"
+                />
+              </div>
+            </div>
+            <figcaption>BrightPathIQ demonstration environment. Information shown is illustrative and does not represent verified client campaign performance.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -619,23 +630,34 @@ export default function MediaKitPage() {
       <section id="pricing" className="mk-pricing" data-media-kit-chapter="campaigns" aria-labelledby="pricing-title">
         <div className="mk-pricing-shell">
           <header>
-            <p className="mk-eyebrow">14 / Pricing structure</p>
-            <h2 id="pricing-title">Commercial structure, confirmed around the campaign.</h2>
-            <p>Campaign scope is confirmed through planning and a written proposal. Structure may vary based on operating time, geography, scheduling, access, route requirements, and the needs of the campaign. Current terms are not represented through a public rate card.</p>
+            <p className="mk-eyebrow">14 / Campaign buying structures</p>
+            <h2 id="pricing-title">How to buy BrightPath inventory.</h2>
+            <p>Choose the level of advertiser access the campaign requires. Final scope and current terms are confirmed through planning and a written proposal rather than a public rate card.</p>
           </header>
-          <div className="mk-pricing-ledger" role="table" aria-label="BrightPath campaign pricing structure">
-            <div className="mk-pricing-columns" role="row">
-              <span role="columnheader">Engagement type</span>
-              <span role="columnheader">Typical planning variables</span>
-              <span role="columnheader">How scope is confirmed</span>
+          <div className="mk-buying-ledger" role="table" aria-label="BrightPath campaign buying structures">
+            <div className="mk-buying-columns" role="row">
+              <span role="columnheader">Structure</span>
+              <span role="columnheader">How it works</span>
+              <span role="columnheader">Best suited for</span>
+              <span role="columnheader">Core value</span>
             </div>
-            {pricingStructures.map((item) => (
-              <div className="mk-pricing-row" role="row" key={item.type}>
+            {buyingStructures.map((item) => (
+              <div className="mk-buying-row" role="row" key={item.type}>
                 <h3 role="rowheader">{item.type}</h3>
-                <div role="cell"><span>Typical planning variables</span><p>{item.variables}</p></div>
-                <div role="cell"><span>How scope is confirmed</span><p>{item.confirmation}</p></div>
+                <div role="cell"><span>How it works</span><p>{item.description}</p></div>
+                <div role="cell"><span>Best suited for</span><p>{item.bestFor}</p></div>
+                <div role="cell"><span>Core value</span><p>{item.value}</p></div>
               </div>
             ))}
+          </div>
+          <div className="mk-procurement">
+            <div>
+              <p className="mk-eyebrow">How final scope is determined</p>
+              <h3>Campaign planning defines the agreement.</h3>
+            </div>
+            <dl>
+              {procurementMechanics.map(([term, description]) => <div key={term}><dt>{term}</dt><dd>{description}</dd></div>)}
+            </dl>
           </div>
         </div>
       </section>
@@ -671,8 +693,7 @@ export default function MediaKitPage() {
             <p>Enterprise media inquiries and campaign planning.</p>
           </header>
           <address className="mk-contact-details">
-            <div><span>Contact</span><strong>Marcus Tillman</strong></div>
-            <div><span>Title</span><strong>Founder</strong></div>
+            <div><span>Contact</span><strong>BrightPath Executive Team</strong></div>
             <div><span>Phone</span><a href="tel:+17603858989">(760) 385-8989</a></div>
             <div><span>Email</span><a href="mailto:Brightpathbillboards@gmail.com">Brightpathbillboards@gmail.com</a></div>
             <div><span>Website</span><a href="https://bpmobilebillboards.com/">bpmobilebillboards.com</a></div>
