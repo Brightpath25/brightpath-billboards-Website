@@ -307,12 +307,12 @@ export default function CoachellaWeekend2Page() {
         </div>
         <div className="flex justify-center mt-10">
           <a
-            href="/launch-overview.pdf"
+            href="https://withjoy.com/brightpath-blackcoffee"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
           >
-            View Launch Overview
+            View Launch Event + RSVP
           </a>
         </div>
       </EventSection>

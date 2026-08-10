@@ -14,7 +14,7 @@ const primaryLinks = [
 const resourceLinks = [
   ["Media Kit", "/media-kit"],
   ["Price Card", "/price-card.png"],
-  ["Launch Overview", "/launch-overview.pdf"],
+  ["Launch Event + RSVP", "https://withjoy.com/brightpath-blackcoffee"],
 ] as const;
 
 const legalLinks = [
