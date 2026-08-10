@@ -106,7 +106,9 @@ export default function MediaKitNavigation() {
     chapterMenuOpenRef.current = nextOpen;
     if (nextOpen) {
       const hashChapter = chapterBySectionHash[window.location.hash.slice(1)];
-      setChapterMenuChapter(hashChapter ?? activeChapter);
+      const frozenChapter = hashChapter ?? activeChapter;
+      setChapterMenuChapter(frozenChapter);
+      setActiveChapter(frozenChapter);
     } else {
       setActiveChapter(chapterMenuChapter);
     }
