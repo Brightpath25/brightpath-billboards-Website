@@ -498,7 +498,7 @@ export default function OffSeasonPage() {
 
           <div className="flex justify-center">
             <a
-              href="/media-kit.pdf?v=2"
+              href="/brightpath-enterprise-media-kit.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold-highlight hover:text-gold-base transition-colors text-sm font-semibold underline"
