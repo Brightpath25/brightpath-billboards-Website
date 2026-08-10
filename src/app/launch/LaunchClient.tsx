@@ -129,7 +129,7 @@ export default function LaunchClient() {
               <RegisterButton size="lg" />
             </div>
 
-            {/* RIGHT — Headlining DJ feature card */}
+            {/* RIGHT — Planned September monthly event feature */}
             <div className="lg:col-span-5">
               <div className="relative">
                 <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-gold-base/45 via-gold-base/10 to-transparent blur-[2px]" />
@@ -141,12 +141,12 @@ export default function LaunchClient() {
                       <div className="inline-flex items-center gap-2">
                         <Music2 className="h-3.5 w-3.5 text-gold-base" />
                         <p className="text-gold-base text-xs font-semibold tracking-widest uppercase">
-                          Headlining DJ Experience
+                          Next Black Coffee Event
                         </p>
                       </div>
                       <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-widest uppercase text-text-light/80">
                         <span className="w-1.5 h-1.5 rounded-full bg-gold-highlight animate-pulse" />
-                        Headliner
+                        September 2026
                       </span>
                     </div>
 
@@ -158,15 +158,16 @@ export default function LaunchClient() {
                     </h2>
 
                     <p className="text-text-mid text-[0.95rem] md:text-base leading-relaxed mb-6">
-                      One of YouTube’s most watched global DJ mix creators,
-                      setting the tone for launch night.
+                      Planned as the featured artist for the next Black Coffee
+                      event. The September date and RSVP details will be
+                      announced after confirmation.
                     </p>
 
                     <div className="grid grid-cols-3 gap-3 mb-7">
                       {[
-                        { value: "3.27M", label: "Subscribers" },
-                        { value: "889M+", label: "Views" },
-                        { value: "Global", label: "Audience" },
+                        { value: "Monthly", label: "Series" },
+                        { value: "September", label: "Timing" },
+                        { value: "TBA", label: "Date" },
                       ].map((stat) => (
                         <div
                           key={stat.label}
@@ -197,7 +198,7 @@ export default function LaunchClient() {
                     </a>
 
                     <p className="mt-5 pt-5 border-t border-gold-base/15 text-center text-text-mid text-xs tracking-widest uppercase">
-                      Music · Movement · Real Crowd Energy
+                      Planned September Feature · Date To Be Confirmed
                     </p>
                   </div>
                 </div>
@@ -233,10 +234,10 @@ export default function LaunchClient() {
         </div>
       </section>
 
-      {/* ──────────────── 2. FEATURED DJ EXPERIENCE ──────────────── */}
+      {/* ──────────────── 2. NEXT BLACK COFFEE EVENT ──────────────── */}
       <EventSection
-        title="Featured DJ Experience"
-        subtitle="Setting the tone for launch night."
+        title="Next Black Coffee Event"
+        subtitle="The monthly series continues in September 2026. Date and RSVP details will be confirmed."
         dark
       >
         <div className="max-w-3xl mx-auto">
@@ -244,7 +245,7 @@ export default function LaunchClient() {
             <div className="relative w-full overflow-hidden rounded-xl aspect-video bg-black">
               <iframe
                 src="https://www.youtube.com/embed/gRrq1RNqTjM"
-                title="Featured DJ Experience"
+                title="Osocity DJ — planned September Black Coffee feature"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="absolute inset-0 w-full h-full"
@@ -259,25 +260,25 @@ export default function LaunchClient() {
                 >
                   Osocity DJ
                 </p>
-                <p className="text-text-mid text-sm">Featured Artist</p>
+                <p className="text-text-mid text-sm">Planned Featured Artist</p>
               </div>
               <div>
                 <p
                   className="text-xl font-bold text-gold-base"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
-                  3.27M
+                  September
                 </p>
-                <p className="text-text-mid text-sm">Subscribers</p>
+                <p className="text-text-mid text-sm">Black Coffee Event</p>
               </div>
               <div>
                 <p
                   className="text-xl font-bold text-gold-base"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
-                  889M+
+                  Date TBA
                 </p>
-                <p className="text-text-mid text-sm">Views</p>
+                <p className="text-text-mid text-sm">RSVP To Follow</p>
               </div>
             </div>
 
@@ -295,7 +296,7 @@ export default function LaunchClient() {
       {/* ──────────────── 3. WHAT TO EXPECT ──────────────── */}
       <EventSection
         title="What To Expect"
-        subtitle="An evening built around the truck, the music, the brands, and the people."
+        subtitle="A brunch built around the truck, the music, the brands, and the people."
       >
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
@@ -308,8 +309,8 @@ export default function LaunchClient() {
             {
               icon: Music2,
               tag: "Sound",
-              title: "Featured DJ and Music",
-              text: "A curated set setting the energy for the night.",
+              title: "Music and Atmosphere",
+              text: "Background music supporting brunch, networking, and conversation.",
             },
             {
               icon: Wine,
@@ -365,7 +366,7 @@ export default function LaunchClient() {
       {/* ──────────────── 4. EASIES EXPERIENCE ──────────────── */}
       <EventSection
         title="Easies Experience"
-        subtitle="The official beverage of launch night."
+        subtitle="The official beverage of the launch event."
         dark
       >
         <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
@@ -669,9 +670,9 @@ export default function LaunchClient() {
                 ))}
               </div>
               <p className="text-text-mid text-sm md:text-base leading-relaxed text-center max-w-3xl mx-auto">
-                Your campaign begins immediately following the June 1 launch,
-                extending your visibility into real-world traffic across the
-                Coachella Valley.
+                Your campaign begins according to the confirmed campaign
+                schedule, extending your visibility into real-world traffic
+                across the Coachella Valley.
               </p>
             </div>
           </div>
@@ -726,7 +727,7 @@ export default function LaunchClient() {
                         "Step & Repeat main photo backdrop",
                         "LED Acrylic Light Stands premium placement",
                         "Primary logo placement across event",
-                        "Multiple DJ shoutouts",
+                        "Hosted sponsor acknowledgments",
                         "Priority social media placement",
                         "Premium gift bag integration",
                       ].map((item) => (
@@ -882,8 +883,8 @@ export default function LaunchClient() {
 
             <div className="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-8 max-w-4xl mx-auto">
               {[
-                "Photo with the headlining DJ",
-                "DJ shoutouts during event",
+                "Event photo opportunities",
+                "Sponsor acknowledgments during event",
                 "Logo placement in recap video",
                 "Social media coverage and event content",
                 "Access to curated gift bag",
@@ -968,7 +969,7 @@ export default function LaunchClient() {
                   icon: Music2,
                   title: "Promotional Moments",
                   items: [
-                    "DJ shoutouts",
+                    "Hosted sponsor acknowledgments",
                     "Photo opportunities",
                     "Giveaway callouts",
                   ],
@@ -1125,10 +1126,10 @@ export default function LaunchClient() {
       >
         <div className="luxury-card rounded-2xl p-8 md:p-10 max-w-3xl mx-auto text-center">
           <p className="text-text-mid text-lg leading-relaxed">
-            Launch night is the easiest way to see what BrightPath looks like
+            The launch brunch is the easiest way to see what BrightPath looks like
             in real life. If your business is curious about mobile visibility
             across the Coachella Valley, come connect with the team and other
-            local owners on the night of the event.
+            local owners at the event.
           </p>
           <p className="text-text-light text-lg leading-relaxed mt-5">
             No formal pitch. No presentation. Just real conversations on the
