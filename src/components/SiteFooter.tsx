@@ -12,7 +12,7 @@ const primaryLinks = [
 ] as const;
 
 const resourceLinks = [
-  ["Media Kit", "/media-kit.pdf?v=2"],
+  ["Media Kit", "/media-kit"],
   ["Price Card", "/price-card.png"],
   ["Launch Overview", "/launch-overview.pdf"],
 ] as const;
