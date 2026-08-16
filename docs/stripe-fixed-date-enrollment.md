@@ -1,6 +1,6 @@
 # BrightPath fixed-date enrollment
 
-The flow is disabled until Stripe credentials and webhook configuration are added in Netlify.
+The flow is controlled by the production enrollment flag in Netlify. Keep it false until the live Checkout and webhook configuration are ready.
 
 Client experience:
 
