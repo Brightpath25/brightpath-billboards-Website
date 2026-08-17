@@ -19,7 +19,6 @@ export async function POST() {
         mode: "setup",
         currency: "usd",
         customer_creation: "always",
-        integration_identifier: "brightpath_enrollment_kqrmvtxa",
         billing_address_collection: "required",
         "setup_intent_data[description]":
           "BrightPath Billboards fixed-date three-payment partnership enrollment",
@@ -30,7 +29,7 @@ export async function POST() {
         success_url: appBaseUrl() + "/enrollment/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: appBaseUrl() + "/enrollment/cancelled",
       },
-      "checkout-session:create:v5",
+      "checkout-session:create:v6",
     );
     if (typeof session.url !== "string") {
       throw new Error("Stripe did not return a Checkout URL.");
