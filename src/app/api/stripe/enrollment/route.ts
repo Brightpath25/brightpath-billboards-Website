@@ -37,8 +37,19 @@ export async function POST() {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Stripe enrollment session error:", error);
+    let diagnostic: Record<string, string> = {};
+    if (error instanceof Error) {
+      try {
+        const parsed = JSON.parse(error.message) as Record<string, unknown>;
+        for (const key of ["type", "code", "param", "message"]) {
+          if (typeof parsed[key] === "string") diagnostic[key] = parsed[key];
+        }
+      } catch {
+        diagnostic = { message: "Stripe request was rejected." };
+      }
+    }
     return NextResponse.json(
-      { error: "Unable to start enrollment." },
+      { error: "Unable to start enrollment.", diagnostic },
       { status: 500 },
     );
   }
