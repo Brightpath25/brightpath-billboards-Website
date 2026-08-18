@@ -20,7 +20,7 @@ export async function POST() {
         currency: "usd",
         customer_creation: "always",
         billing_address_collection: "required",
-        phone_number_collection: { enabled: true },
+        "phone_number_collection[enabled]": "true",
         "name_collection[business][enabled]": "true",
         "consent_collection[terms_of_service]": "required",
         "custom_text[terms_of_service_acceptance][message]":
