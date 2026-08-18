@@ -23,8 +23,6 @@ export async function POST() {
         "phone_number_collection[enabled]": "true",
         "name_collection[business][enabled]": "true",
         "consent_collection[terms_of_service]": "required",
-        "custom_text[terms_of_service_acceptance][message]":
-          "I agree to BrightPath Billboards' Terms of Service.",
         "metadata[flow]": "brightpath_fixed_date_enrollment",
         "metadata[offer_version]": "2026-08-19-v1",
         "metadata[schedule]": "2026-08-19,2026-10-01,2026-11-01",
