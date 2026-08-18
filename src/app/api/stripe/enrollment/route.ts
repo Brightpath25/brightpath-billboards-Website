@@ -20,16 +20,28 @@ export async function POST() {
         currency: "usd",
         customer_creation: "always",
         billing_address_collection: "required",
+        phone_number_collection: { enabled: true },
+        "name_collection[business][enabled]": "true",
+        "consent_collection[terms_of_service]": "required",
+        "custom_text[terms_of_service_acceptance][message]":
+          "I agree to BrightPath Billboards' Terms of Service.",
+        "metadata[flow]": "brightpath_fixed_date_enrollment",
+        "metadata[offer_version]": "2026-08-19-v1",
+        "metadata[schedule]": "2026-08-19,2026-10-01,2026-11-01",
         "setup_intent_data[description]":
           "BrightPath Billboards fixed-date three-payment partnership enrollment",
         "setup_intent_data[metadata][offer]":
           "fixed-date-three-payment-partnership",
+        "setup_intent_data[metadata][flow]":
+          "brightpath_fixed_date_enrollment",
+        "setup_intent_data[metadata][offer_version]":
+          "2026-08-19-v1",
         "setup_intent_data[metadata][schedule]":
           "2026-08-19,2026-10-01,2026-11-01",
         success_url: appBaseUrl() + "/enrollment/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: appBaseUrl() + "/enrollment/cancelled",
       },
-      "checkout-session:create:v6",
+      "checkout-session:create:v7",
     );
     if (typeof session.url !== "string") {
       throw new Error("Stripe did not return a Checkout URL.");
