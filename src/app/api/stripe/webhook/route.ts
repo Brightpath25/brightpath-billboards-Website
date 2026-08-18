@@ -31,6 +31,16 @@ export async function POST(request: Request) {
   if (event.type !== "checkout.session.completed") return NextResponse.json({ received: true });
 
   const session = event.data?.object;
+  const sessionMetadata = session?.metadata;
+  const flow =
+    typeof sessionMetadata === "object" && sessionMetadata !== null &&
+    typeof (sessionMetadata as Record<string, unknown>).flow === "string"
+      ? (sessionMetadata as Record<string, unknown>).flow
+      : "";
+  if (session?.mode !== "setup" || flow !== "brightpath_fixed_date_enrollment") {
+    return NextResponse.json({ received: true });
+  }
+
   const customerId = session?.customer;
   const setupIntentId = session?.setup_intent;
   if (typeof customerId !== "string" || typeof setupIntentId !== "string") {
@@ -39,6 +49,18 @@ export async function POST(request: Request) {
 
   const enrollmentId = event.id || "setup-" + setupIntentId;
   try {
+    await stripePost(
+      "customers/" + customerId,
+      {
+        "metadata[brightpath_enrollment_id]": enrollmentId,
+        "metadata[brightpath_enrollment_status]": "scheduled",
+        "metadata[brightpath_checkout_session_id]": String(session.id || ""),
+        "metadata[brightpath_setup_intent_id]": setupIntentId,
+        "metadata[brightpath_schedule]": FIXED_DATE_SCHEDULE.map((payment) => payment.date).join(","),
+      },
+      "enrollment:" + enrollmentId + ":customer",
+    );
+
     for (const payment of FIXED_DATE_SCHEDULE) {
       const invoiceItem = await stripePost(
         "invoiceitems",
