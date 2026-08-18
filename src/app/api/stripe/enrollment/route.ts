@@ -43,8 +43,6 @@ export async function POST(request: Request) {
       "checkout/sessions",
       {
         mode: "setup",
-        currency: "usd",
-        customer_creation: "always",
         billing_address_collection: "required",
         "name_collection[business][enabled]": "true",
         "metadata[flow]": "brightpath_fixed_date_enrollment",
