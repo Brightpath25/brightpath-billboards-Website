@@ -53,6 +53,23 @@ export async function stripePost(
   return payload;
 }
 
+export async function stripeGet(path: string): Promise<Record<string, unknown>> {
+  const response = await fetch("https://api.stripe.com/v1/" + path, {
+    method: "GET",
+    headers: stripeHeaders(),
+    cache: "no-store",
+  });
+  const payload = (await response.json()) as Record<string, unknown>;
+  if (!response.ok) {
+    throw new Error(
+      typeof payload.error === "object" && payload.error !== null
+        ? JSON.stringify(payload.error)
+        : "Stripe request failed with status " + response.status,
+    );
+  }
+  return payload;
+}
+
 export function unixTimestamp(date: string): number {
   return Math.floor(new Date(date + "T00:00:00.000Z").getTime() / 1000);
 }
