@@ -43,6 +43,7 @@ export async function POST(request: Request) {
       "checkout/sessions",
       {
         mode: "setup",
+        currency: "usd",
         billing_address_collection: "required",
         "name_collection[business][enabled]": "true",
         "metadata[flow]": "brightpath_fixed_date_enrollment",
@@ -63,7 +64,7 @@ export async function POST(request: Request) {
         success_url: appBaseUrl() + "/enrollment/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: appBaseUrl() + "/enrollment/cancelled",
       },
-      "checkout-session:create:v10",
+      "checkout-session:create:v11",
     );
     if (typeof session.url !== "string") {
       throw new Error("Stripe did not return a Checkout URL.");
@@ -71,17 +72,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Stripe enrollment session error:", error);
-    let stripeMessage: string | undefined;
-    if (error instanceof Error) {
-      try {
-        const parsed = JSON.parse(error.message) as unknown;
-        if (typeof parsed === "object" && parsed !== null && typeof (parsed as Record<string, unknown>).message === "string") {
-          stripeMessage = (parsed as Record<string, unknown>).message as string;
-        }
-      } catch {}
-    }
     return NextResponse.json(
-      { error: "Unable to start enrollment.", stripe_error_message: stripeMessage },
+      { error: "Unable to start enrollment." },
       { status: 500 },
     );
   }
