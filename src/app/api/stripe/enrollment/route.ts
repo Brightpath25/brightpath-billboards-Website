@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 import {
   ENROLLMENT_ENABLED,
@@ -64,7 +65,8 @@ export async function POST(request: Request) {
         success_url: appBaseUrl() + "/enrollment/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: appBaseUrl() + "/enrollment/cancelled",
       },
-      "checkout-session:create:v11",
+      "checkout-session:" +
+        (request.headers.get("x-enrollment-request-id") || crypto.randomUUID()),
     );
     if (typeof session.url !== "string") {
       throw new Error("Stripe did not return a Checkout URL.");
