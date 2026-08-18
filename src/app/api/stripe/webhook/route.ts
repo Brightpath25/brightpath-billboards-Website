@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import {
   FIXED_DATE_SCHEDULE,
+  stripeGet,
   stripePost,
   unixTimestamp,
   webhookSignatureIsValid,
@@ -49,9 +50,16 @@ export async function POST(request: Request) {
 
   const enrollmentId = event.id || "setup-" + setupIntentId;
   try {
+    const setupIntent = await stripeGet("setup_intents/" + setupIntentId);
+    const paymentMethodId = setupIntent.payment_method;
+    if (typeof paymentMethodId !== "string") {
+      throw new Error("SetupIntent did not return a payment method.");
+    }
+
     await stripePost(
       "customers/" + customerId,
       {
+        "invoice_settings[default_payment_method]": paymentMethodId,
         "metadata[brightpath_enrollment_id]": enrollmentId,
         "metadata[brightpath_enrollment_status]": "scheduled",
         "metadata[brightpath_checkout_session_id]": String(session.id || ""),
