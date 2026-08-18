@@ -62,7 +62,7 @@ export default function EnrollmentPage() {
               <li>Your payment method is saved securely by Stripe.</li>
               <li>The first charge is scheduled for August 19, 2026.</li>
               <li>There is no September payment and no automatic renewal after November.</li>
-              <li>Stripe Checkout will collect your business, billing, phone, and consent details.</li>
+              <li>Stripe Checkout will collect your business name, billing address, phone number, payment method, and Terms of Service consent.</li>
             </ul>
           </div>
 
