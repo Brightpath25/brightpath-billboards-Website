@@ -7,6 +7,7 @@ import {
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+// Production verification: keep Checkout request parameters on the v8 idempotency namespace.
 
 export async function POST(request: Request) {
   if (!ENROLLMENT_ENABLED) {
