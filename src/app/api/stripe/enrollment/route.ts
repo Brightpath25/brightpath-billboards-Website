@@ -64,8 +64,27 @@ export async function POST(request: Request) {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Stripe enrollment session error:", error);
+    let stripeError: Record<string, unknown> = {};
+    if (error instanceof Error) {
+      try {
+        const parsed = JSON.parse(error.message) as unknown;
+        if (typeof parsed === "object" && parsed !== null) {
+          stripeError = parsed as Record<string, unknown>;
+        }
+      } catch {
+        // Keep the public response generic when the error is not a Stripe error payload.
+      }
+    }
     return NextResponse.json(
-      { error: "Unable to start enrollment." },
+      {
+        error: "Unable to start enrollment.",
+        stripe_error_type:
+          typeof stripeError.type === "string" ? stripeError.type : undefined,
+        stripe_error_code:
+          typeof stripeError.code === "string" ? stripeError.code : undefined,
+        stripe_error_param:
+          typeof stripeError.param === "string" ? stripeError.param : undefined,
+      },
       { status: 500 },
     );
   }
