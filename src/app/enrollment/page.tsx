@@ -12,15 +12,21 @@ export default function EnrollmentPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [phone, setPhone] = useState("");
 
   async function beginEnrollment() {
     setLoading(true);
     setError("");
+    if (!phone.trim()) {
+      setError("Please enter a phone number.");
+      setLoading(false);
+      return;
+    }
     try {
       const response = await fetch("/api/stripe/enrollment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ consentAccepted: termsAccepted }),
+        body: JSON.stringify({ consentAccepted: termsAccepted, phone }),
       });
       const payload = (await response.json()) as { url?: string; error?: string };
       if (!response.ok || !payload.url) {
@@ -67,10 +73,23 @@ export default function EnrollmentPage() {
               <li>Your payment method is saved securely by Stripe.</li>
               <li>The first charge is scheduled for August 19, 2026.</li>
               <li>There is no September payment and no automatic renewal after November.</li>
-              <li>Stripe Checkout will collect your business name, billing address, phone number, and payment method.</li>
+              <li>BrightPath collects your phone number for enrollment contact; Stripe Checkout collects your business name, billing address, and payment method.</li>
               <li>You must acknowledge the BrightPath Billboards Terms of Service before continuing.</li>
             </ul>
           </div>
+
+          <label className="mt-8 block text-sm text-text-mid">
+            <span className="font-semibold text-text-light">Phone number</span>
+            <input
+              type="tel"
+              required
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+              placeholder="(555) 555-5555"
+              autoComplete="tel"
+              className="mt-2 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-text-light outline-none focus:border-gold-highlight"
+            />
+          </label>
 
           <label className="mt-8 flex items-start gap-3 text-sm leading-6 text-text-mid">
             <input
@@ -91,7 +110,7 @@ export default function EnrollmentPage() {
           <button
             type="button"
             onClick={beginEnrollment}
-            disabled={loading || !termsAccepted}
+            disabled={loading || !termsAccepted || !phone.trim()}
             className="luxury-button mt-10 w-full text-lg disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? "Opening secure enrollment..." : "Continue to secure enrollment"}
