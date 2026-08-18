@@ -25,7 +25,10 @@ export default function EnrollmentPage() {
     try {
       const response = await fetch("/api/stripe/enrollment", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-enrollment-request-id": crypto.randomUUID(),
+        },
         body: JSON.stringify({ consentAccepted: termsAccepted, phone }),
       });
       const payload = (await response.json()) as { url?: string; error?: string };
