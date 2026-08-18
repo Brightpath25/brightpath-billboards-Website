@@ -84,6 +84,8 @@ export async function POST(request: Request) {
           typeof stripeError.code === "string" ? stripeError.code : undefined,
         stripe_error_param:
           typeof stripeError.param === "string" ? stripeError.param : undefined,
+        stripe_error_message:
+          typeof stripeError.message === "string" ? stripeError.message : undefined,
       },
       { status: 500 },
     );
