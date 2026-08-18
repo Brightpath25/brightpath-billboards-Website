@@ -11,12 +11,17 @@ const schedule = [
 export default function EnrollmentPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   async function beginEnrollment() {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch("/api/stripe/enrollment", { method: "POST" });
+      const response = await fetch("/api/stripe/enrollment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ consentAccepted: termsAccepted }),
+      });
       const payload = (await response.json()) as { url?: string; error?: string };
       if (!response.ok || !payload.url) {
         throw new Error(payload.error || "Enrollment is not available yet.");
@@ -62,14 +67,31 @@ export default function EnrollmentPage() {
               <li>Your payment method is saved securely by Stripe.</li>
               <li>The first charge is scheduled for August 19, 2026.</li>
               <li>There is no September payment and no automatic renewal after November.</li>
-              <li>Stripe Checkout will collect your business name, billing address, phone number, payment method, and Terms of Service consent.</li>
+              <li>Stripe Checkout will collect your business name, billing address, phone number, and payment method.</li>
+              <li>You must acknowledge the BrightPath Billboards Terms of Service before continuing.</li>
             </ul>
           </div>
+
+          <label className="mt-8 flex items-start gap-3 text-sm leading-6 text-text-mid">
+            <input
+              type="checkbox"
+              checked={termsAccepted}
+              onChange={(event) => setTermsAccepted(event.target.checked)}
+              className="mt-1 h-4 w-4 accent-gold-highlight"
+            />
+            <span>
+              I acknowledge the{" "}
+              <a href="/terms-of-service" target="_blank" rel="noreferrer" className="text-gold-highlight underline">
+                BrightPath Billboards Terms of Service
+              </a>
+              .
+            </span>
+          </label>
 
           <button
             type="button"
             onClick={beginEnrollment}
-            disabled={loading}
+            disabled={loading || !termsAccepted}
             className="luxury-button mt-10 w-full text-lg disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? "Opening secure enrollment..." : "Continue to secure enrollment"}
