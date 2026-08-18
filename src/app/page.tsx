@@ -46,6 +46,7 @@ const navItems: NavItem[] = [
   { label: "Campaigns", href: "/services/targeted-campaigns" },
   { label: "Events", href: "/events" },
   { label: "BrightPathIQ Demo", href: "/brightpathiq-demo" },
+  { label: "Founding Partner Enrollment", href: "/enrollment" },
   { label: "About", href: "/about" },
 ];
 
