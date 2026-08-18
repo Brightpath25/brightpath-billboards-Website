@@ -55,7 +55,7 @@ export async function POST(request: Request) {
         success_url: appBaseUrl() + "/enrollment/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: appBaseUrl() + "/enrollment/cancelled",
       },
-      "checkout-session:create:v7",
+      "checkout-session:create:v8",
     );
     if (typeof session.url !== "string") {
       throw new Error("Stripe did not return a Checkout URL.");
