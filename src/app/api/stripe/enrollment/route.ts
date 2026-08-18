@@ -19,13 +19,22 @@ export async function POST(request: Request) {
   } catch {
     body = {};
   }
-  const consentAccepted =
-    typeof body === "object" &&
-    body !== null &&
-    (body as Record<string, unknown>).consentAccepted === true;
+  const bodyRecord =
+    typeof body === "object" && body !== null
+      ? (body as Record<string, unknown>)
+      : {};
+  const consentAccepted = bodyRecord.consentAccepted === true;
+  const phone =
+    typeof bodyRecord.phone === "string" ? bodyRecord.phone.trim() : "";
   if (!consentAccepted) {
     return NextResponse.json(
       { error: "Terms of Service acknowledgment is required." },
+      { status: 400 },
+    );
+  }
+  if (!phone) {
+    return NextResponse.json(
+      { error: "A phone number is required." },
       { status: 400 },
     );
   }
@@ -37,12 +46,12 @@ export async function POST(request: Request) {
         currency: "usd",
         customer_creation: "always",
         billing_address_collection: "required",
-        "phone_number_collection[enabled]": "true",
         "name_collection[business][enabled]": "true",
         "metadata[flow]": "brightpath_fixed_date_enrollment",
         "metadata[offer_version]": "2026-08-19-v1",
         "metadata[schedule]": "2026-08-19,2026-10-01,2026-11-01",
         "metadata[terms_consent]": "accepted_on_brightpath_enrollment_page",
+        "metadata[phone]": phone,
         "setup_intent_data[description]":
           "BrightPath Billboards fixed-date three-payment partnership enrollment",
         "setup_intent_data[metadata][offer]":
@@ -64,29 +73,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Stripe enrollment session error:", error);
-    let stripeError: Record<string, unknown> = {};
-    if (error instanceof Error) {
-      try {
-        const parsed = JSON.parse(error.message) as unknown;
-        if (typeof parsed === "object" && parsed !== null) {
-          stripeError = parsed as Record<string, unknown>;
-        }
-      } catch {
-        // Keep the public response generic when the error is not a Stripe error payload.
-      }
-    }
     return NextResponse.json(
-      {
-        error: "Unable to start enrollment.",
-        stripe_error_type:
-          typeof stripeError.type === "string" ? stripeError.type : undefined,
-        stripe_error_code:
-          typeof stripeError.code === "string" ? stripeError.code : undefined,
-        stripe_error_param:
-          typeof stripeError.param === "string" ? stripeError.param : undefined,
-        stripe_error_message:
-          typeof stripeError.message === "string" ? stripeError.message : undefined,
-      },
+      { error: "Unable to start enrollment." },
       { status: 500 },
     );
   }
